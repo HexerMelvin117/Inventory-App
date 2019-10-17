@@ -1,9 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" Inherits="EquiposInvWM.TodosEquipos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" href="Content/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
+
     <header>
         <link rel="stylesheet" type="text/css" href="Content/grid-style.css" />
     </header>
