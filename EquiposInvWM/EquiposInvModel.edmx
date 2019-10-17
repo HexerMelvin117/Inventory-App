@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EquiposInvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Compania">
+          <Key>
+            <PropertyRef Name="comp_id" />
+          </Key>
+          <Property Name="comp_id" Type="int" Nullable="false" />
+          <Property Name="comp_nom" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" />
+          <Property Name="emp_pnom" Type="varchar" MaxLength="50" />
+          <Property Name="emp_pape" Type="varchar" MaxLength="50" />
+          <Property Name="emp_compania" Type="varchar" MaxLength="50" />
+          <Property Name="emp_correo" Type="varchar" MaxLength="50" />
+          <Property Name="emp_numemp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="equi_id" />
+          </Key>
+          <Property Name="equi_id" Type="int" Nullable="false" />
+          <Property Name="equi_marca" Type="varchar" MaxLength="50" />
+          <Property Name="equi_tipo" Type="varchar" MaxLength="20" />
+          <Property Name="equi_proveedor" Type="varchar" MaxLength="50" />
+          <Property Name="equi_garantia" Type="bit" />
+          <Property Name="equi_serie" Type="varchar" MaxLength="50" />
+          <Property Name="equi_disco" Type="int" />
+          <Property Name="equi_procesador" Type="varchar" MaxLength="20" />
+          <Property Name="equi_ram" Type="int" />
+          <Property Name="equi_ghz" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="equi_modelo" Type="varchar" MaxLength="50" />
+          <Property Name="equi_status" Type="varchar" MaxLength="50" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="equi_politica" Type="bit" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="user_nom" Type="varchar" MaxLength="50" />
+          <Property Name="user_ape" Type="varchar" MaxLength="50" />
+          <Property Name="user_codigo" Type="varchar" MaxLength="25" />
+          <Property Name="user_compania" Type="varchar" MaxLength="30" />
+          <Property Name="user_correo" Type="varchar" MaxLength="50" />
+          <Property Name="comp_id" Type="int" />
+        </EntityType>
+        <Association Name="FK__Equipos__user_id__46E78A0C">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuarios__comp_i__49C3F6B7">
+          <End Role="Compania" Type="Self.Compania" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compania">
+              <PropertyRef Name="comp_id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EquiposInvModelStoreContainer">
+          <EntitySet Name="Compania" EntityType="Self.Compania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Equipos__user_id__46E78A0C" Association="Self.FK__Equipos__user_id__46E78A0C">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuarios__comp_i__49C3F6B7" Association="Self.FK__Usuarios__comp_i__49C3F6B7">
+            <End Role="Compania" EntitySet="Compania" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EquiposInvModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EquiposInvModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companias" EntityType="EquiposInvModel.Compania" />
+          <EntitySet Name="Equipos" EntityType="EquiposInvModel.Equipos" />
+          <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuario" />
+          <AssociationSet Name="FK__Usuarios__comp_i__49C3F6B7" Association="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7">
+            <End Role="Compania" EntitySet="Companias" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipos__user_id__46E78A0C" Association="EquiposInvModel.FK__Equipos__user_id__46E78A0C">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <EntitySet Name="Empleados" EntityType="EquiposInvModel.Empleado" />
+        </EntityContainer>
+        <EntityType Name="Compania">
+          <Key>
+            <PropertyRef Name="comp_id" />
+          </Key>
+          <Property Name="comp_id" Type="Int32" Nullable="false" />
+          <Property Name="comp_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7" FromRole="Compania" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="equi_id" />
+          </Key>
+          <Property Name="equi_id" Type="Int32" Nullable="false" />
+          <Property Name="equi_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="equi_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_garantia" Type="Boolean" />
+          <Property Name="equi_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_disco" Type="Int32" />
+          <Property Name="equi_procesador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="equi_ram" Type="Int32" />
+          <Property Name="equi_ghz" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="equi_modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="equi_politica" Type="Boolean" />
+          <NavigationProperty Name="Usuario" Relationship="EquiposInvModel.FK__Equipos__user_id__46E78A0C" FromRole="Equipos" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="user_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="user_compania" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="user_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_id" Type="Int32" />
+          <NavigationProperty Name="Compania" Relationship="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7" FromRole="Usuario" ToRole="Compania" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__user_id__46E78A0C" FromRole="Usuario" ToRole="Equipos" />
+        </EntityType>
+        <Association Name="FK__Usuarios__comp_i__49C3F6B7">
+          <End Type="EquiposInvModel.Compania" Role="Compania" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compania">
+              <PropertyRef Name="comp_id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipos__user_id__46E78A0C">
+          <End Type="EquiposInvModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" />
+          <Property Name="emp_pnom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_pape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_compania" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_numemp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="EquiposInvModel" />
+        <Alias Key="Target" Value="EquiposInvModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="EquiposInvModelContainer" StorageEntityContainer="EquiposInvModelStoreContainer">
+          <EntitySetMapping Name="Companias">
+            <EntityTypeMapping TypeName="EquiposInvModel.Compania">
+              <MappingFragment StoreEntitySet="Compania">
+                <ScalarProperty Name="comp_nom" ColumnName="comp_nom" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipos">
+            <EntityTypeMapping TypeName="EquiposInvModel.Equipos">
+              <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="equi_politica" ColumnName="equi_politica" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="equi_status" ColumnName="equi_status" />
+                <ScalarProperty Name="equi_modelo" ColumnName="equi_modelo" />
+                <ScalarProperty Name="equi_ghz" ColumnName="equi_ghz" />
+                <ScalarProperty Name="equi_ram" ColumnName="equi_ram" />
+                <ScalarProperty Name="equi_procesador" ColumnName="equi_procesador" />
+                <ScalarProperty Name="equi_disco" ColumnName="equi_disco" />
+                <ScalarProperty Name="equi_serie" ColumnName="equi_serie" />
+                <ScalarProperty Name="equi_garantia" ColumnName="equi_garantia" />
+                <ScalarProperty Name="equi_proveedor" ColumnName="equi_proveedor" />
+                <ScalarProperty Name="equi_tipo" ColumnName="equi_tipo" />
+                <ScalarProperty Name="equi_marca" ColumnName="equi_marca" />
+                <ScalarProperty Name="equi_id" ColumnName="equi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="EquiposInvModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="user_correo" ColumnName="user_correo" />
+                <ScalarProperty Name="user_compania" ColumnName="user_compania" />
+                <ScalarProperty Name="user_codigo" ColumnName="user_codigo" />
+                <ScalarProperty Name="user_ape" ColumnName="user_ape" />
+                <ScalarProperty Name="user_nom" ColumnName="user_nom" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="EquiposInvModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="emp_numemp" ColumnName="emp_numemp" />
+                <ScalarProperty Name="emp_correo" ColumnName="emp_correo" />
+                <ScalarProperty Name="emp_compania" ColumnName="emp_compania" />
+                <ScalarProperty Name="emp_pape" ColumnName="emp_pape" />
+                <ScalarProperty Name="emp_pnom" ColumnName="emp_pnom" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
