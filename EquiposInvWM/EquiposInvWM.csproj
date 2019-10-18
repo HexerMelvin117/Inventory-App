@@ -132,6 +132,7 @@
     <Content Include="Content\grid-style.css" />
     <Content Include="Content\side-drawer.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="EquiposInvModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -161,7 +162,9 @@
     <Content Include="EquiposInvModel.edmx.diagram">
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Login.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
@@ -194,6 +197,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="TodosEquipos.aspx" />
+    <Content Include="TodosPerifericos.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -271,6 +275,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.Master.cs">
+      <DependentUpon>Login.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.Master.designer.cs">
+      <DependentUpon>Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Periferico.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -293,6 +314,13 @@
     <Compile Include="TodosEquipos.aspx.designer.cs">
       <DependentUpon>TodosEquipos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TodosPerifericos.aspx.cs">
+      <DependentUpon>TodosPerifericos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TodosPerifericos.aspx.designer.cs">
+      <DependentUpon>TodosPerifericos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
@@ -306,6 +334,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Login\" />
+    <Folder Include="Scripts\LoginScripts\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

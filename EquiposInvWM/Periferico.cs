@@ -12,9 +12,12 @@ namespace EquiposInvWM
     using System;
     using System.Collections.Generic;
     
-    public partial class Compania
+    public partial class Periferico
     {
-        public int comp_id { get; set; }
-        public string comp_nom { get; set; }
+        public string per_id { get; set; }
+        public string per_tipo { get; set; }
+        public string per_marca { get; set; }
+        public string per_estado { get; set; }
+        public string per_serie { get; set; }
     }
 }

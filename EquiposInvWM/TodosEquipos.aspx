@@ -1,9 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" Inherits="EquiposInvWM.TodosEquipos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" href="Content/dataTables.bootstrap4.min.css" />
+    <!-- Scripts y archivo de estilo para usar la API de dataTable -->
+    <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
+
     <header>
         <link rel="stylesheet" type="text/css" href="Content/grid-style.css" />
     </header>
@@ -27,6 +29,7 @@
             </asp:GridView>
         </div>
     </div>
+    <!-- Script para cambiar lenguaje al API de DataTable -->
     <script type="text/javascript">
         $(document).ready(function () {
             $('#MainContent_EquiposGrid').DataTable({
@@ -50,6 +53,7 @@
             });
         })
     </script>
+    <!-- Script para busqueda en el GridView -->
     <script type="text/javascript">
         function search_table() {
             var input, filter, found, table, tr, td, i, j;
@@ -112,7 +116,7 @@
             </p>
         </div>
     </div>
-    <!-- Seccion para modificar -->
+    <!-- Seccion para modificar y eliminar registros -->
     <h3>Modificar o Eliminar:</h3>
     <div class="row">
         <div class="col-md-2">

@@ -6,6 +6,7 @@
     <div id="main">
         <h1>Asignacion de Equipo</h1>
         <div class="row">
+            <!-- Para ir al formulario "AgregarEmpleado" -->
             <div class="col-md-2">
                 <a class="btn btn-default" href="AgregarEmpleado.aspx">Agregar Empleado &raquo;</a>
             </div>
@@ -13,6 +14,7 @@
         <div class="row">
             <h3>Formulario</h3>
         </div>
+        <!-- Formulario para creacion de ficha -->
         <div class="row">
             <div class="col-md-2">
                 <h5>Fecha: </h5>

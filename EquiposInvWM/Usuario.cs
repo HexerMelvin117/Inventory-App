@@ -23,12 +23,11 @@ namespace EquiposInvWM
         public int user_id { get; set; }
         public string user_nom { get; set; }
         public string user_ape { get; set; }
-        public string user_codigo { get; set; }
-        public string user_compania { get; set; }
         public string user_correo { get; set; }
-        public Nullable<int> comp_id { get; set; }
+        public string user_contrasenia { get; set; }
+        public bool user_escritura { get; set; }
+        public bool user_lectura { get; set; }
     
-        public virtual Compania Compania { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equipos> Equipos { get; set; }
     }

@@ -42,6 +42,16 @@
           <Property Name="user_id" Type="int" />
           <Property Name="equi_politica" Type="bit" />
         </EntityType>
+        <EntityType Name="Perifericos">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="per_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="per_marca" Type="varchar" MaxLength="50" />
+          <Property Name="per_estado" Type="varchar" MaxLength="50" />
+          <Property Name="per_serie" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="user_id" />
@@ -49,10 +59,10 @@
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="user_nom" Type="varchar" MaxLength="50" />
           <Property Name="user_ape" Type="varchar" MaxLength="50" />
-          <Property Name="user_codigo" Type="varchar" MaxLength="25" />
-          <Property Name="user_compania" Type="varchar" MaxLength="30" />
-          <Property Name="user_correo" Type="varchar" MaxLength="50" />
-          <Property Name="comp_id" Type="int" />
+          <Property Name="user_correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_escritura" Type="bit" Nullable="false" />
+          <Property Name="user_lectura" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK__Equipos__user_id__46E78A0C">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
@@ -66,30 +76,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__comp_i__49C3F6B7">
-          <End Role="Compania" Type="Self.Compania" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Compania">
-              <PropertyRef Name="comp_id" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="comp_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EquiposInvModelStoreContainer">
           <EntitySet Name="Compania" EntityType="Self.Compania" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Equipos__user_id__46E78A0C" Association="Self.FK__Equipos__user_id__46E78A0C">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Equipos" EntitySet="Equipos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__comp_i__49C3F6B7" Association="Self.FK__Usuarios__comp_i__49C3F6B7">
-            <End Role="Compania" EntitySet="Compania" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -98,17 +93,14 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EquiposInvModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="EquiposInvModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Companias" EntityType="EquiposInvModel.Compania" />
+          <EntitySet Name="Empleados" EntityType="EquiposInvModel.Empleado" />
           <EntitySet Name="Equipos" EntityType="EquiposInvModel.Equipos" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuario" />
-          <AssociationSet Name="FK__Usuarios__comp_i__49C3F6B7" Association="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Usuario" EntitySet="Usuarios" />
-          </AssociationSet>
           <AssociationSet Name="FK__Equipos__user_id__46E78A0C" Association="EquiposInvModel.FK__Equipos__user_id__46E78A0C">
             <End Role="Usuario" EntitySet="Usuarios" />
             <End Role="Equipos" EntitySet="Equipos" />
           </AssociationSet>
-          <EntitySet Name="Empleados" EntityType="EquiposInvModel.Empleado" />
+          <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Periferico" />
         </EntityContainer>
         <EntityType Name="Compania">
           <Key>
@@ -116,7 +108,17 @@
           </Key>
           <Property Name="comp_id" Type="Int32" Nullable="false" />
           <Property Name="comp_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuarios" Relationship="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7" FromRole="Compania" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" />
+          <Property Name="emp_pnom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_pape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_compania" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_numemp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Equipos">
           <Key>
@@ -145,25 +147,12 @@
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="user_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="user_codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="user_compania" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="user_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="comp_id" Type="Int32" />
-          <NavigationProperty Name="Compania" Relationship="EquiposInvModel.FK__Usuarios__comp_i__49C3F6B7" FromRole="Usuario" ToRole="Compania" />
+          <Property Name="user_correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_contrasenia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_escritura" Type="Boolean" Nullable="false" />
+          <Property Name="user_lectura" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__user_id__46E78A0C" FromRole="Usuario" ToRole="Equipos" />
         </EntityType>
-        <Association Name="FK__Usuarios__comp_i__49C3F6B7">
-          <End Type="EquiposInvModel.Compania" Role="Compania" Multiplicity="0..1" />
-          <End Type="EquiposInvModel.Usuario" Role="Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Compania">
-              <PropertyRef Name="comp_id" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="comp_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Equipos__user_id__46E78A0C">
           <End Type="EquiposInvModel.Usuario" Role="Usuario" Multiplicity="0..1" />
           <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="*" />
@@ -176,18 +165,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Empleado">
+        <EntityType Name="Periferico">
           <Key>
-            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="per_id" />
           </Key>
-          <Property Name="emp_id" Type="Int32" Nullable="false" />
-          <Property Name="emp_pnom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="emp_pape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="emp_compania" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="emp_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="emp_numemp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -200,6 +188,18 @@
               <MappingFragment StoreEntitySet="Compania">
                 <ScalarProperty Name="comp_nom" ColumnName="comp_nom" />
                 <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="EquiposInvModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="emp_numemp" ColumnName="emp_numemp" />
+                <ScalarProperty Name="emp_correo" ColumnName="emp_correo" />
+                <ScalarProperty Name="emp_compania" ColumnName="emp_compania" />
+                <ScalarProperty Name="emp_pape" ColumnName="emp_pape" />
+                <ScalarProperty Name="emp_pnom" ColumnName="emp_pnom" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -226,25 +226,24 @@
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="EquiposInvModel.Usuario">
               <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="user_lectura" ColumnName="user_lectura" />
+                <ScalarProperty Name="user_escritura" ColumnName="user_escritura" />
+                <ScalarProperty Name="user_contrasenia" ColumnName="user_contrasenia" />
                 <ScalarProperty Name="user_correo" ColumnName="user_correo" />
-                <ScalarProperty Name="user_compania" ColumnName="user_compania" />
-                <ScalarProperty Name="user_codigo" ColumnName="user_codigo" />
                 <ScalarProperty Name="user_ape" ColumnName="user_ape" />
                 <ScalarProperty Name="user_nom" ColumnName="user_nom" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Empleados">
-            <EntityTypeMapping TypeName="EquiposInvModel.Empleado">
-              <MappingFragment StoreEntitySet="Empleados">
-                <ScalarProperty Name="emp_numemp" ColumnName="emp_numemp" />
-                <ScalarProperty Name="emp_correo" ColumnName="emp_correo" />
-                <ScalarProperty Name="emp_compania" ColumnName="emp_compania" />
-                <ScalarProperty Name="emp_pape" ColumnName="emp_pape" />
-                <ScalarProperty Name="emp_pnom" ColumnName="emp_pnom" />
-                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <EntitySetMapping Name="Perifericos">
+            <EntityTypeMapping TypeName="EquiposInvModel.Periferico">
+              <MappingFragment StoreEntitySet="Perifericos">
+                <ScalarProperty Name="per_serie" ColumnName="per_serie" />
+                <ScalarProperty Name="per_estado" ColumnName="per_estado" />
+                <ScalarProperty Name="per_marca" ColumnName="per_marca" />
+                <ScalarProperty Name="per_tipo" ColumnName="per_tipo" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
