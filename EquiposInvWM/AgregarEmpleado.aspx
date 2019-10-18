@@ -2,12 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
+    <!-- Para navegacion al formulario anterior -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="AsignarEquipo.aspx">Asignacion de Equipo</a></li>
         <li class="breadcrumb-item active" aria-current="page">Agregar Empleado</li>
       </ol>
     </nav>
+    <!-- Formulario para agregar un nuevo empleado -->
     <h1>Agregar Empleado</h1>
     <div class="row">
         <div class="col-md-2">

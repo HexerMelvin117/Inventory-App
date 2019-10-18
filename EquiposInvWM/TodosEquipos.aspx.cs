@@ -9,6 +9,7 @@ namespace EquiposInvWM
 {
     public partial class TodosEquipos : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             fillGrid();
@@ -21,6 +22,7 @@ namespace EquiposInvWM
 
         protected void fillGrid()
         {
+            // Llenar GridView de equipos almacenados en la base de datos.
             using (var ctx = new EquiposInvModelContainer())
             {
                 var query = (from m in ctx.Equipos
@@ -48,6 +50,7 @@ namespace EquiposInvWM
 
         protected void idSearch(int idEqui)
         {
+            // Busqueda individual
             using (var ctx = new EquiposInvModelContainer())
             {
                 var query = (from m in ctx.Equipos
@@ -76,6 +79,7 @@ namespace EquiposInvWM
 
         protected void EquiposGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            // Para nombrar las columnas
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.Cells[0].Text = "ID";
@@ -132,6 +136,7 @@ namespace EquiposInvWM
             fillGrid();
         }
 
+        // Para forzar que Gridview use <thead> en vez de <tbody>
         protected void EquiposGrid_PreRender(object sender, EventArgs e)
         {
             GridView gv = (GridView)sender;
@@ -147,5 +152,7 @@ namespace EquiposInvWM
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
+
+
     }
 }

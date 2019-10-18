@@ -197,6 +197,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="TodosEquipos.aspx" />
+    <Content Include="TodosPerifericos.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -288,6 +289,9 @@
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
+    <Compile Include="Periferico.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -309,6 +313,13 @@
     </Compile>
     <Compile Include="TodosEquipos.aspx.designer.cs">
       <DependentUpon>TodosEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TodosPerifericos.aspx.cs">
+      <DependentUpon>TodosPerifericos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TodosPerifericos.aspx.designer.cs">
+      <DependentUpon>TodosPerifericos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>

@@ -27,12 +27,12 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Equipo con Politica</h2>
+            <h2>Perifericos</h2>
             <p>
-                Ver y administrar equipo con politica.
+                Control de perifericos.
             </p>
             <p>
-                <a class="btn btn-default" href="EquiposPolitica.aspx">Equipos con Politica &raquo;</a>
+                <a class="btn btn-default" href="TodosPerifericos.aspx">Perifericos &raquo;</a>
             </p>
         </div>
     </div>

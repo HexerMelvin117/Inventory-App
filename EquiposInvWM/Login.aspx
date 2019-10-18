@@ -25,20 +25,39 @@
             border-radius: 3px !important;
         }
     </style>
+    <!-- Formulario de inicio de sesion -->
     <div class="login-form">
-            <h2 class="text-center">Ingresar</h2>       
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Usuario" required="required">
-            </div>
-            <div class="form-group"> 
-                <input type="password" class="form-control" placeholder="Contraseña" required="required">
-            </div>
-            <div class="form-group">
-                <asp:Button ID="btLogin" runat="server" CssClass="btn btn-primary btn-block" Text="Log in" />
-            </div>
-            <div class="clearfix">
-                <label class="pull-left checkbox-inline"><input type="checkbox"> Recordarme</label>
-                <a href="#" class="pull-right">Olvido su contraseña?</a>
-            </div>        
+        <h2 class="text-center">Ingresar</h2>  
+        <div class="form-group">
+            <input type="text" id="Usuario" class="form-control" placeholder="Usuario" required="required">
+        </div>
+        <div class="form-group"> 
+            <input type="password" id="Contrasena" onkeyup="passToHidden()" class="form-control" placeholder="Contraseña" required="required">
+        </div>
+        <div class="form-group">
+            <asp:Button ID="btLogin" runat="server" CssClass="btn btn-primary btn-block" Text="Log in" OnClick="btLogin_Click" />
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox">Recordarme</label>
+            <a href="#" class="pull-right">Olvido su contraseña?</a>
+        </div>
+        <asp:HiddenField id="txtUser" value="" runat="server" />
+        <asp:HiddenField ID="txtPass" Value="" runat="server" />
     </div>
+    <!-- Script para pasar valores al controlador oculto -->
+    <script type="text/javascript">
+        function passToHidden() {
+            var usuario = document.getElementById('Usuario').value;
+            var contrasena = document.getElementById('Contrasena').value;
+
+            document.getElementById('ContentPlaceHolder1_txtUser').value = usuario;
+            document.getElementById('ContentPlaceHolder1_txtPass').value = contrasena;
+
+            var user = document.getElementById('ContentPlaceHolder1_txtUser').value
+            var password = document.getElementById('ContentPlaceHolder1_txtPass').value
+
+            console.log(user);
+            console.log(password);
+        }
+    </script>
 </asp:Content> 
