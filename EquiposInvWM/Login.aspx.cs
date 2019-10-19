@@ -20,11 +20,11 @@ namespace EquiposInvWM
             // Comparar con base de datos
             using (var ctx = new EquiposInvModelContainer())
             {
-                var query = (from u in ctx.Usuarios
+                var query = from u in ctx.Usuarios
                             where u.user_correo == user && u.user_contrasenia == password
-                            select u).FirstOrDefault();
+                            select u;
 
-                if(query != null)
+                if(query.Count() > 0)
                 {
                     Response.Redirect("~/Default.aspx");
                 }
