@@ -13,5 +13,23 @@ namespace EquiposInvWM
 
     public partial class TodosPerifericos
     {
+
+        /// <summary>
+        /// PerifericosGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PerifericosGrid;
+
+        /// <summary>
+        /// txtIdPer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdPer;
     }
 }

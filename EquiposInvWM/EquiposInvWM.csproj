@@ -122,6 +122,7 @@
     <Content Include="About.aspx" />
     <Content Include="AgregarEmpleado.aspx" />
     <Content Include="AgregarEquipo.aspx" />
+    <Content Include="AgregarPeriferico.aspx" />
     <Content Include="AsignarEquipo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="AgregarEquipo.aspx.designer.cs">
       <DependentUpon>AgregarEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarPeriferico.aspx.cs">
+      <DependentUpon>AgregarPeriferico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarPeriferico.aspx.designer.cs">
+      <DependentUpon>AgregarPeriferico.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
