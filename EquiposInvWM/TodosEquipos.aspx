@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" Inherits="EquiposInvWM.TodosEquipos" %>
+﻿<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" Inherits="EquiposInvWM.TodosEquipos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Scripts y archivo de estilo para usar la API de dataTable -->
@@ -9,6 +10,7 @@
     <header>
         <link rel="stylesheet" type="text/css" href="Content/grid-style.css" />
     </header>
+    
     <h1>Equipos</h1>
     <p>
         <a class="btn btn-default" href="AgregarEquipo.aspx">Agregar Equipo &raquo;</a>
@@ -21,6 +23,7 @@
     </div>
      -->
     <br />
+     
     <div class="row">
         <div class="col-md-12">
             <!-- Gridview Section -->
