@@ -42,15 +42,6 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtMarcaPeriferico;
 
         /// <summary>
-        /// txtModelPeriferico control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModelPeriferico;
-
-        /// <summary>
         /// cmbEstadoPeriferico control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,23 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cmbEstadoPeriferico;
+
+        /// <summary>
+        /// txtSeriePeriferico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSeriePeriferico;
+
+        /// <summary>
+        /// btAgregarPeriferico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btAgregarPeriferico;
     }
 }

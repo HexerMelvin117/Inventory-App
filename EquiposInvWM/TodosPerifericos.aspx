@@ -5,9 +5,8 @@
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
     <h1>Perifericos</h1>
-    <div class="row">
         <a class="btn btn-default" href="AgregarPeriferico.aspx">Agregar Periferico &raquo;</a>
-    </div>
+    <br />
     <br />
     <div class="row">
         <div class="col-md-12">

@@ -28,7 +28,7 @@ namespace EquiposInvWM
         public virtual DbSet<Compania> Companias { get; set; }
         public virtual DbSet<Empleado> Empleados { get; set; }
         public virtual DbSet<Equipos> Equipos { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Periferico> Perifericos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

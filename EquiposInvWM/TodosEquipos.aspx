@@ -30,6 +30,7 @@
         </div>
     </div>
     <!-- Script para cambiar lenguaje al API de DataTable -->
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#MainContent_EquiposGrid').DataTable({

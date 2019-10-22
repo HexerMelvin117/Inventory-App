@@ -48,7 +48,7 @@ namespace EquiposInvWM
             }
         }
 
-        protected void idSearch(int idEqui)
+        protected void idSearch(string idEqui)
         {
             // Busqueda individual
             using (var ctx = new EquiposInvModelContainer())
@@ -106,7 +106,7 @@ namespace EquiposInvWM
 
         protected void btBuscarID_Click(object sender, EventArgs e)
         {
-            idSearch(int.Parse(txtIDEqui.Text));
+            idSearch(txtIDEqui.Text);
         }
 
         protected void EquiposGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -123,7 +123,7 @@ namespace EquiposInvWM
 
         protected void btEliminar_Click(object sender, EventArgs e)
         {
-            int queId = int.Parse(txtEquipoID.Text);
+            string queId = txtEquipoID.Text;
             using (var ctx = new EquiposInvModelContainer())
             {
                 ctx.Equipos

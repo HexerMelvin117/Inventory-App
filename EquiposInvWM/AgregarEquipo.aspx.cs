@@ -38,7 +38,7 @@ namespace EquiposInvWM
             {
                 var equ = new Equipos()
                 {
-                    equi_id = randomId(),
+                    equi_id = randomId().ToString(),
                     equi_tipo = tipo,
                     equi_disco = int.Parse(disco),
                     equi_ghz = decimal.Parse(compGHZ),
