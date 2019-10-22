@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Tipo de Equipo: </h5>
-            <asp:DropDownList ID="cmbTipo" onChange="enableTypeC()" CssClass="btn btn-default btn-sm" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
+            <asp:DropDownList ID="cmbTipo" onChange="enableTypeC()" CssClass="form-control" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>Computadora</asp:ListItem>
                 <asp:ListItem>Impresora</asp:ListItem>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-2">
             <h5>Tipo de Computadora: </h5>
-            <asp:DropDownList ID="cmbTipoCompu" EnableViewState="true" CssClass="btn btn-default btn-sm" runat="server" Enabled="False">
+            <asp:DropDownList ID="cmbTipoCompu" EnableViewState="true" CssClass="form-control" runat="server" Enabled="False">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>N/A</asp:ListItem>
                 <asp:ListItem>Laptop</asp:ListItem>
@@ -62,7 +62,7 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Marca de Computadora: </h5>
-            <asp:DropDownList ID="cmbMarca" CssClass="btn btn-default btn-sm" runat="server" Enabled="False">
+            <asp:DropDownList ID="cmbMarca" CssClass="form-control" runat="server" Enabled="False">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>ASUS</asp:ListItem>
                 <asp:ListItem>DELL</asp:ListItem>
@@ -74,7 +74,7 @@
         </div>
         <div class="col-md-2">
             <h5>Marca: </h5>
-            <asp:DropDownList ID="cmbBrandOthers" CssClass="btn btn-default btn-sm" runat="server">
+            <asp:DropDownList ID="cmbBrandOthers" CssClass="form-control" runat="server">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>N/A</asp:ListItem>
                 <asp:ListItem>HIKVISION</asp:ListItem>
@@ -86,11 +86,11 @@
         </div>
         <div class="col-md-2">
             <h5>Modelo: </h5>
-            <asp:TextBox ID="txtModel" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtModel" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Serie: </h5>
-            <asp:TextBox ID="txtSerie" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSerie" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         
     </div>
@@ -101,7 +101,7 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Procesador: </h5>
-            <asp:DropDownList ID="cmbProcessor" CssClass="btn btn-default btn-sm" runat="server">
+            <asp:DropDownList ID="cmbProcessor" CssClass="form-control" runat="server">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>N/A</asp:ListItem>
                 <asp:ListItem>INTEL i3</asp:ListItem>
@@ -111,15 +111,15 @@
         </div>
         <div class="col-md-2">
             <h5>ghz: </h5>
-            <asp:TextBox ID="txtGHZ"  CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGHZ"  CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Ram: </h5>
-            <asp:TextBox ID="txtRAM"  CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtRAM"  CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Disco(gb): </h5>
-            <asp:TextBox ID="txtDiskSpace"  CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDiskSpace"  CssClass="form-control" runat="server"></asp:TextBox>
         </div>
     </div>
     <br />
@@ -128,13 +128,13 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Proveedor: </h5>
-            <asp:TextBox ID="txtProvider" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtProvider" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Orden de Compra: 
                 
             </h5>
-            <asp:TextBox ID="txtBuyOrder" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtBuyOrder" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
     </div>
     <br />

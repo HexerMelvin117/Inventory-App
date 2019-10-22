@@ -14,7 +14,7 @@ namespace EquiposInvWM
     
     public partial class Equipos
     {
-        public int equi_id { get; set; }
+        public string equi_id { get; set; }
         public string equi_marca { get; set; }
         public string equi_tipo { get; set; }
         public string equi_proveedor { get; set; }
