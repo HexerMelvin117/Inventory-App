@@ -37,7 +37,7 @@
                 <h5>Fecha: </h5>
                 <input type="text" id="datepicker" class="form-control" />
                 <!-- Para formato de fecha y funcionalidad -->
-                <script>
+                <script type="text/javascript">
                     var foopicker = new FooPicker({
                         id: 'datepicker',
                         dateFormat: 'dd/MM/yyyy',
@@ -106,7 +106,7 @@
 
   <!-- Modal para Empleado -->
   <div class="modal fade" id="modalEmpleado" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -115,8 +115,7 @@
             </div>
             <div class="modal-body">
               <asp:DropDownList ID="cmbCodEmpAsig" CssClass="form-control" runat="server">
-                  <asp:ListItem>-- Seleccionar --</asp:ListItem>
-                  <asp:ListItem></asp:ListItem>
+                  
               </asp:DropDownList>
             </div>
             <div class="modal-footer">
@@ -128,7 +127,7 @@
 
     <!-- Modal para Equipo -->
   <div class="modal fade" id="modalEquipo" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     
           <!-- Modal content-->
           <div class="modal-content">
@@ -137,12 +136,43 @@
               <h4 class="modal-title">Seleccionar Equipo</h4>
             </div>
             <div class="modal-body">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Equipo seleccionado:</label>
+                        <input type="text" class="form-control" id="">
+                    </div>
+                </div>
+                <br />
+                <asp:GridView ID="SelecEquipoGrid" runat="server" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Seleccionar</button>
+                </div>
           </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#MainContent_SelecEquipoGrid').DataTable({
+                        "language": {
+                            "search": "Buscar:",
+                            "lengthMenu": "Mostrar _MENU_ entradas",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                            "infoEmpty": "Mostrando 0 Entradas",
+                            "infoFiltered": "(filtrando de _MAX_ total entradas)",
+                            "processing": "Procesando...",
+                            "zeroRecords": "Ningun record encontrado",
+                            "emptyTable": "No hay datos en la tabla",
+                            paginate: {
+                                "previous": "Anterior",
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente"
+                            }
+                        },
+                        "searching": true
+                    });
+                })
+            </script>
         </div>
     </div>
 </asp:Content>
