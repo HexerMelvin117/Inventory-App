@@ -84,7 +84,19 @@
             </div>
             <div class="col-md-2">
                 <h5>Sistema Operativo: </h5>
-                <asp:TextBox ID="txtOperatingSystem" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:DropDownList ID="cmbOsEquipment" CssClass="form-control" runat="server">
+                    <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    <asp:ListItem>N/A</asp:ListItem>
+                    <asp:ListItem>Windows 7 Home</asp:ListItem>
+                    <asp:ListItem>Windows 7 Ultimate</asp:ListItem>
+                    <asp:ListItem>Windows 7 Pro</asp:ListItem>
+                    <asp:ListItem>Windows 8</asp:ListItem>
+                    <asp:ListItem>Windows 10 Home</asp:ListItem>
+                    <asp:ListItem>Windows 10 Pro</asp:ListItem>
+                    <asp:ListItem>Windows 10 Enterprise</asp:ListItem>
+                    <asp:ListItem>Windows XP</asp:ListItem>
+                    <asp:ListItem></asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
 
@@ -114,16 +126,62 @@
               <h4 class="modal-title">Seleccionar Empleado</h4>
             </div>
             <div class="modal-body">
-              <asp:DropDownList ID="cmbCodEmpAsig" CssClass="form-control" runat="server">
-                  
-              </asp:DropDownList>
+                <label>Empleado Seleccionado:</label>
+                <asp:TextBox ID="txtSelectedEmp" CssClass="form-control" runat="server"></asp:TextBox>
+                <br />
+              <asp:GridView ID="SelectEmpGrid" runat="server" onclick="empSelect()" CssClass="table table-striped table-bordered" OnPreRender="SelectEmpGrid_PreRender"></asp:GridView>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <asp:Button class="btn btn-primary" data-dismiss="modal" runat="server" Text="Seleccionar"/>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#MainContent_SelectEmpGrid').DataTable({
+                        "language": {
+                            "search": "Buscar:",
+                            "lengthMenu": "Mostrar _MENU_ entradas",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                            "infoEmpty": "Mostrando 0 Entradas",
+                            "infoFiltered": "(filtrando de _MAX_ total entradas)",
+                            "processing": "Procesando...",
+                            "zeroRecords": "Ningun record encontrado",
+                            "emptyTable": "No hay datos en la tabla",
+                            paginate: {
+                                "previous": "Anterior",
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente"
+                            }
+                        },
+                        "searching": true
+                    });
+                })
+            </script>
         </div>
     </div>
+    <script>
+        function empSelect() {
+            var table = document.getElementById("MainContent_SelectEmpGrid");
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.onclick = function (e) {
+                e = e || window.event;
+                var data = [];
+                var target = e.srcElement || e.target;
+                while (target && target.nodeName !== "TR") {
+                    target = target.parentNode;
+                }
+                if (target) {
+                    var cells = target.getElementsByTagName("td");
+                    for (var i = 0; i < cells.length; i++) {
+                        data.push(cells[i].innerHTML);
+                    }
+                }
+                document.getElementById('MainContent_txtSelectedEmp').value = data[0];
+            };
+        }
+    </script>
 
     <!-- Modal para Equipo -->
   <div class="modal fade" id="modalEquipo" role="dialog">
@@ -139,15 +197,15 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label>Equipo seleccionado:</label>
-                        <input type="text" class="form-control" id="">
+                        <asp:TextBox ID="txtEquipoSelec" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <br />
-                <asp:GridView ID="SelecEquipoGrid" runat="server" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
+                <asp:GridView ID="SelecEquipoGrid" runat="server" onclick="equiSelect()" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Seleccionar</button>
+                  <asp:Button ID="btnSelEmployee" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Text="Seleccionar" />
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
           </div>
             <script type="text/javascript">
@@ -174,5 +232,55 @@
                 })
             </script>
         </div>
+    </div>
+
+    <script>
+        function equiSelect() {
+            var table = document.getElementById("MainContent_SelecEquipoGrid");
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.onclick = function (e) {
+                e = e || window.event;
+                var data = [];
+                var target = e.srcElement || e.target;
+                while (target && target.nodeName !== "TR") {
+                    target = target.parentNode;
+                }
+                if (target) {
+                    var cells = target.getElementsByTagName("td");
+                    for (var i = 0; i < cells.length; i++) {
+                        data.push(cells[i].innerHTML);
+                    }
+                }
+                document.getElementById('MainContent_txtEquipoSelec').value = data[0];
+            };
+        }
+     </script>
+    
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#perifericos-tab">Perifericos</a></li>
+      <li><a data-toggle="tab" href="#software-tab">Software Instalado</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="perifericos-tab" class="tab-pane fade in active">
+        <h3>Perifericos</h3>
+        <p>Some content.</p>
+      </div>
+      <div id="software-tab" class="tab-pane fade">
+        <h3>Software Instalado</h3>
+        <asp:CheckBoxList ID="cblistInstalledSoftware" runat="server" CssClass="checkbox">
+            <asp:ListItem Text="Office" Value="1"></asp:ListItem>
+            <asp:ListItem Text="Adobe" Value="2"></asp:ListItem>
+            <asp:ListItem Text="Winrar" Value="3"></asp:ListItem>
+            <asp:ListItem Text="Ccleaner" Value="4"></asp:ListItem>
+            <asp:ListItem Text="Antivirus" Value="5"></asp:ListItem>
+            <asp:ListItem Text="Sistema Integrado" Value="6"></asp:ListItem>
+            <asp:ListItem Text="DEP" Value="7"></asp:ListItem>
+            <asp:ListItem Text="Autocad" Value="8"></asp:ListItem>
+            <asp:ListItem Text="Teamviewer" Value="9"></asp:ListItem>
+            <asp:ListItem Text="Acceso a ISO" Value="10"></asp:ListItem>
+        </asp:CheckBoxList>
+      </div>
     </div>
 </asp:Content>

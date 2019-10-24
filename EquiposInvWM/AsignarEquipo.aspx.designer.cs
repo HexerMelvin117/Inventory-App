@@ -78,13 +78,13 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtSerialEquip;
 
         /// <summary>
-        /// txtOperatingSystem control.
+        /// cmbOsEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOperatingSystem;
+        protected global::System.Web.UI.WebControls.DropDownList cmbOsEquipment;
 
         /// <summary>
         /// txtProcessor control.
@@ -114,13 +114,31 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtHdCapacity;
 
         /// <summary>
-        /// cmbCodEmpAsig control.
+        /// txtSelectedEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbCodEmpAsig;
+        protected global::System.Web.UI.WebControls.TextBox txtSelectedEmp;
+
+        /// <summary>
+        /// SelectEmpGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView SelectEmpGrid;
+
+        /// <summary>
+        /// txtEquipoSelec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEquipoSelec;
 
         /// <summary>
         /// SelecEquipoGrid control.
@@ -130,5 +148,23 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView SelecEquipoGrid;
+
+        /// <summary>
+        /// btnSelEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelEmployee;
+
+        /// <summary>
+        /// cblistInstalledSoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblistInstalledSoftware;
     }
 }
