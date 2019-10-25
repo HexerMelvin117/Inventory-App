@@ -17,6 +17,15 @@
         <h3>Informacion de Equipo:</h3>     
     <div class="row">
         <div class="col-md-2">
+            <h5>Compañia:</h5>
+            <asp:DropDownList ID="cmbCompaniaEqui" CssClass="form-control" runat="server">
+                <asp:ListItem>William y Molina</asp:ListItem>
+                <asp:ListItem>Duracreto</asp:ListItem>
+                <asp:ListItem>Grupo Platino</asp:ListItem>
+                <asp:ListItem>Siglo 21</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div class="col-md-2">
             <h5>Tipo de Equipo: </h5>
             <asp:DropDownList ID="cmbTipo" onChange="enableTypeC()" CssClass="form-control" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>

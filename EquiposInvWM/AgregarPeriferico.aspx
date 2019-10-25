@@ -12,6 +12,15 @@
     <!-- Seccion para informacion -->
     <div class="row">
         <div class="col-md-2">
+            <h5>Compañia:</h5>
+            <asp:DropDownList ID="cmbCompPer" CssClass="form-control" runat="server">
+                <asp:ListItem>William y Molina</asp:ListItem>
+                <asp:ListItem>Duracreto</asp:ListItem>
+                <asp:ListItem>Grupo Platino</asp:ListItem>
+                <asp:ListItem>Siglo 21</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div class="col-md-2">
             <h5>Tipo: </h5>
             <asp:DropDownList ID="cmbTipoPeriferico" CssClass="form-control" runat="server">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>

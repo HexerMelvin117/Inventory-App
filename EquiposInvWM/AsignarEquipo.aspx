@@ -19,7 +19,7 @@
                 <a class="btn btn-default" href="AgregarEmpleado.aspx">Agregar Empleado &raquo;</a>
             </div>
         </div>
-        
+
         <h3>Ficha de Equipo de Computo</h3>
         <!-- Formulario para creacion de ficha -->
         <div class="row">
@@ -95,7 +95,6 @@
                     <asp:ListItem>Windows 10 Pro</asp:ListItem>
                     <asp:ListItem>Windows 10 Enterprise</asp:ListItem>
                     <asp:ListItem>Windows XP</asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -132,7 +131,7 @@
               <asp:GridView ID="SelectEmpGrid" runat="server" onclick="empSelect()" CssClass="table table-striped table-bordered" OnPreRender="SelectEmpGrid_PreRender"></asp:GridView>
             </div>
             <div class="modal-footer">
-              <asp:Button class="btn btn-primary" data-dismiss="modal" runat="server" Text="Seleccionar"/>
+              <asp:Button ID="btSelectEmp" class="btn btn-primary" data-dismiss="modal" runat="server" OnClick="btSelectEmp_Click" Text="Seleccionar"/>
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -204,7 +203,7 @@
                 <asp:GridView ID="SelecEquipoGrid" runat="server" onclick="equiSelect()" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
                 </div>
                 <div class="modal-footer">
-                  <asp:Button ID="btnSelEmployee" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Text="Seleccionar" />
+                  <asp:Button ID="btnSelEmployee" runat="server" CssClass="btn btn-primary" Text="Seleccionar" OnClick="btnSelEmployee_Click" />
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
           </div>

@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="Scripts/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="Scripts/dataTables.buttons.min.js"></script>
     <h1>Perifericos</h1>
         <a class="btn btn-default" href="AgregarPeriferico.aspx">Agregar Periferico &raquo;</a>
     <br />
@@ -11,6 +13,7 @@
     <div class="row">
         <div class="col-md-12">
             <asp:GridView ID="PerifericosGrid" runat="server" CssClass="table table-striped table-bordered" style="width:100%;" OnPreRender="PerifericosGrid_PreRender" OnRowDataBound="PerifericosGrid_RowDataBound" OnSelectedIndexChanged="PerifericosGrid_SelectedIndexChanged"></asp:GridView>
+            <asp:Button ID="btExportExcel" runat="server" CssClass="btn btn-success" OnClick="btExportExcel_Click" Text="Exportar a Excel" />
         </div>
     </div>
     <script type="text/javascript">
@@ -32,7 +35,7 @@
                         "next": "Siguiente"
                     }
                 },
-                "searching": true
+                "searching": true,
             });
         })
     </script>

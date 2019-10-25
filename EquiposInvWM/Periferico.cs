@@ -14,7 +14,9 @@ namespace EquiposInvWM
     
     public partial class Periferico
     {
-        public string per_id { get; set; }
+        public int per_id { get; set; }
+        public string per_prefijo { get; set; }
+        public int per_cod { get; set; }
         public string per_tipo { get; set; }
         public string per_marca { get; set; }
         public string per_estado { get; set; }

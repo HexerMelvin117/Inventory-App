@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Data;
 
 namespace EquiposInvWM
 {
@@ -37,10 +40,12 @@ namespace EquiposInvWM
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.Cells[0].Text = "ID";
-                e.Row.Cells[1].Text = "Tipo";
-                e.Row.Cells[2].Text = "Marca";
-                e.Row.Cells[3].Text = "Estado";
-                e.Row.Cells[4].Text = "Serie";
+                e.Row.Cells[1].Text = "Prefijo";
+                e.Row.Cells[2].Text = "Codigo";
+                e.Row.Cells[3].Text = "Tipo";
+                e.Row.Cells[4].Text = "Marca";
+                e.Row.Cells[5].Text = "Estado";
+                e.Row.Cells[6].Text = "Serie";
             }
         }
 
@@ -58,6 +63,26 @@ namespace EquiposInvWM
                 //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void btExportExcel_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "Perifericos"));
+            Response.Charset = "";
+
+            StringWriter stringWriter = new StringWriter();
+            HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stringWriter);
+            PerifericosGrid.RenderControl(htmlTextWriter);
+            Response.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            
         }
     }
 }

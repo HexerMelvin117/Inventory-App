@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace EquiposInvWM
 {
@@ -11,7 +12,21 @@ namespace EquiposInvWM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void identificarEquipo()
+        {
+            string prefEqui = "DCLPT";
+
+            using(var ctx = new EquiposInvModelContainer())
+            {
+                var query = (from m in ctx.Equipos
+                             orderby m.equi_id descending
+                             where m.equi_prefijo == prefEqui
+                             select m).ToList();
+
+            }
         }
 
         public int randomId()
@@ -21,7 +36,7 @@ namespace EquiposInvWM
         }
 
 
-        protected void addRegistry(string marca, string tipo)
+        protected void addRegistry(string marca, string tipo, string prefijo, int cod)
         {
             string procesador, modelo, serie, ram, ordenCompra, disco, proveedor, compGHZ;
 
@@ -38,7 +53,9 @@ namespace EquiposInvWM
             {
                 var equ = new Equipos()
                 {
-                    equi_id = randomId().ToString(),
+                    equi_id = randomId(),
+                    equi_prefijo = prefijo,
+                    equi_cod = cod,
                     equi_tipo = tipo,
                     equi_disco = int.Parse(disco),
                     equi_ghz = decimal.Parse(compGHZ),
@@ -72,18 +89,54 @@ namespace EquiposInvWM
         {
             string tipo;
             string marca;
+            string prefijo = "";
+            int cod;
+            cod = 0;
+
+            if (cmbCompaniaEqui.SelectedItem.Text == "William y Molina")
+            {
+                prefijo = "WM";
+            } else if (cmbCompaniaEqui.SelectedItem.Text == "Siglo 21")
+            {
+                prefijo = "SI";
+            } else if (cmbCompaniaEqui.SelectedItem.Text == "Duracreto")
+            {
+                prefijo = "DC";
+            } else if (cmbCompaniaEqui.SelectedItem.Text == "Grupo Platino")
+            {
+                prefijo = "PLA";
+            }
+
             if (cmbTipo.SelectedItem.Text == "Computadora")
             {
                 tipo = cmbTipoCompu.SelectedItem.Text;
                 marca = cmbMarca.SelectedItem.Text;
+
+                if (cmbTipoCompu.SelectedItem.Text == "Laptop")
+                {
+                    prefijo = prefijo + "LPT";
+                } else if (cmbTipoCompu.SelectedItem.Text == "Computadora")
+                {
+                    prefijo = prefijo + "PC";
+                }
             }
             else
             {
                 tipo = cmbTipo.SelectedItem.Text;
                 marca = cmbBrandOthers.SelectedItem.Text;
+                if (cmbTipo.SelectedItem.Text == "Impresora")
+                {
+                    prefijo = prefijo + "IMP";
+                } else if (cmbTipo.SelectedItem.Text == "Reloj Biometrico")
+                {
+                    prefijo = prefijo + "RB";
+                } else if (cmbTipo.SelectedItem.Text == "Camara")
+                {
+                    prefijo = prefijo + "CM";
+                }
             }
 
-            addRegistry(marca, tipo);
+            addRegistry(marca, tipo, prefijo, cod);
             emptyFields();
         }
 
