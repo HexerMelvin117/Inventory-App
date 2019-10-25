@@ -27,7 +27,9 @@
           <Key>
             <PropertyRef Name="equi_id" />
           </Key>
-          <Property Name="equi_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="equi_id" Type="int" Nullable="false" />
+          <Property Name="equi_prefijo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="equi_cod" Type="int" Nullable="false" />
           <Property Name="equi_marca" Type="varchar" MaxLength="50" />
           <Property Name="equi_tipo" Type="varchar" MaxLength="20" />
           <Property Name="equi_proveedor" Type="varchar" MaxLength="50" />
@@ -46,7 +48,9 @@
           <Key>
             <PropertyRef Name="per_id" />
           </Key>
-          <Property Name="per_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="per_id" Type="int" Nullable="false" />
+          <Property Name="per_prefijo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="per_cod" Type="int" Nullable="false" />
           <Property Name="per_tipo" Type="varchar" MaxLength="50" />
           <Property Name="per_marca" Type="varchar" MaxLength="50" />
           <Property Name="per_estado" Type="varchar" MaxLength="50" />
@@ -64,7 +68,7 @@
           <Property Name="user_escritura" Type="bit" Nullable="false" />
           <Property Name="user_lectura" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Equipos__user_id__02FC7413">
+        <Association Name="FK__Equipos__user_id__2645B050">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -82,7 +86,7 @@
           <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Equipos__user_id__02FC7413" Association="Self.FK__Equipos__user_id__02FC7413">
+          <AssociationSet Name="FK__Equipos__user_id__2645B050" Association="Self.FK__Equipos__user_id__2645B050">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Equipos" EntitySet="Equipos" />
           </AssociationSet>
@@ -97,7 +101,7 @@
           <EntitySet Name="Equipos" EntityType="EquiposInvModel.Equipos" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Periferico" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuario" />
-          <AssociationSet Name="FK__Equipos__user_id__02FC7413" Association="EquiposInvModel.FK__Equipos__user_id__02FC7413">
+          <AssociationSet Name="FK__Equipos__user_id__2645B050" Association="EquiposInvModel.FK__Equipos__user_id__2645B050">
             <End Role="Usuario" EntitySet="Usuarios" />
             <End Role="Equipos" EntitySet="Equipos" />
           </AssociationSet>
@@ -124,7 +128,9 @@
           <Key>
             <PropertyRef Name="equi_id" />
           </Key>
-          <Property Name="equi_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_id" Type="Int32" Nullable="false" />
+          <Property Name="equi_prefijo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="equi_cod" Type="Int32" Nullable="false" />
           <Property Name="equi_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -138,13 +144,15 @@
           <Property Name="equi_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="equi_politica" Type="Boolean" />
-          <NavigationProperty Name="Usuario" Relationship="EquiposInvModel.FK__Equipos__user_id__02FC7413" FromRole="Equipos" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario" Relationship="EquiposInvModel.FK__Equipos__user_id__2645B050" FromRole="Equipos" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Periferico">
           <Key>
             <PropertyRef Name="per_id" />
           </Key>
-          <Property Name="per_id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="per_id" Type="Int32" Nullable="false" />
+          <Property Name="per_prefijo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_cod" Type="Int32" Nullable="false" />
           <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -161,9 +169,9 @@
           <Property Name="user_contrasenia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_escritura" Type="Boolean" Nullable="false" />
           <Property Name="user_lectura" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__user_id__02FC7413" FromRole="Usuario" ToRole="Equipos" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__user_id__2645B050" FromRole="Usuario" ToRole="Equipos" />
         </EntityType>
-        <Association Name="FK__Equipos__user_id__02FC7413">
+        <Association Name="FK__Equipos__user_id__2645B050">
           <End Type="EquiposInvModel.Usuario" Role="Usuario" Multiplicity="0..1" />
           <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -219,6 +227,8 @@
                 <ScalarProperty Name="equi_proveedor" ColumnName="equi_proveedor" />
                 <ScalarProperty Name="equi_tipo" ColumnName="equi_tipo" />
                 <ScalarProperty Name="equi_marca" ColumnName="equi_marca" />
+                <ScalarProperty Name="equi_cod" ColumnName="equi_cod" />
+                <ScalarProperty Name="equi_prefijo" ColumnName="equi_prefijo" />
                 <ScalarProperty Name="equi_id" ColumnName="equi_id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -230,6 +240,8 @@
                 <ScalarProperty Name="per_estado" ColumnName="per_estado" />
                 <ScalarProperty Name="per_marca" ColumnName="per_marca" />
                 <ScalarProperty Name="per_tipo" ColumnName="per_tipo" />
+                <ScalarProperty Name="per_cod" ColumnName="per_cod" />
+                <ScalarProperty Name="per_prefijo" ColumnName="per_prefijo" />
                 <ScalarProperty Name="per_id" ColumnName="per_id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -83,5 +83,88 @@ namespace EquiposInvWM
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
+
+        protected void getEquiposInfo(int id)
+        {
+            string marca, codEqui, serie, procesador;
+            decimal ghz;
+            int capacidad;
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                string prefijo;
+                int cod;
+
+                serie = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_serie)
+                    .FirstOrDefault();
+
+                capacidad = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_disco)
+                    .FirstOrDefault().GetValueOrDefault();
+
+                marca = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_marca)
+                    .FirstOrDefault();
+
+                procesador = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_procesador)
+                    .FirstOrDefault();
+
+                ghz = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_ghz)
+                    .FirstOrDefault().GetValueOrDefault();
+
+
+                // Prefijo y Cod se combinan para formar cod del equipo
+                prefijo = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_prefijo)
+                    .FirstOrDefault();
+
+                cod = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_cod)
+                    .FirstOrDefault();
+
+                codEqui = prefijo + Convert.ToString(cod);
+            }
+
+            txtEquipCode.Text = codEqui;
+        }
+
+        protected void getEmployeeInfo()
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                var query = (from m in ctx.Empleados
+                             select m).ToList();
+            }
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // Para Seleccionar empleado
+        protected void btSelectEmp_Click(object sender, EventArgs e)
+        {
+            getEmployeeInfo();
+        }
+
+        // Para Seleccionar Equipo
+        protected void btnSelEmployee_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtEquipoSelec.Text);
+
+            getEquiposInfo(id);
+        }
     }
 }

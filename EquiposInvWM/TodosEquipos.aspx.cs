@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace EquiposInvWM
 {
@@ -54,7 +55,7 @@ namespace EquiposInvWM
             using (var ctx = new EquiposInvModelContainer())
             {
                 var query = (from m in ctx.Equipos
-                             where m.equi_id == idEqui
+                             where m.equi_id == int.Parse(idEqui)
                              select m).ToList();
 
                 EquiposGrid.DataSource = query;
@@ -83,19 +84,21 @@ namespace EquiposInvWM
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.Cells[0].Text = "ID";
-                e.Row.Cells[1].Text = "Marca";
-                e.Row.Cells[2].Text = "Tipo";
-                e.Row.Cells[3].Text = "Proveedor";
-                e.Row.Cells[4].Text = "Garantia";
-                e.Row.Cells[5].Text = "Serie";
-                e.Row.Cells[6].Text = "Disco";
-                e.Row.Cells[7].Text = "Procesador";
-                e.Row.Cells[8].Text = "Ram";
-                e.Row.Cells[9].Text = "ghz";
-                e.Row.Cells[10].Text = "Modelo";
-                e.Row.Cells[11].Text = "Estado";
-                e.Row.Cells[12].Text = "Usuario";
-                e.Row.Cells[13].Text = "Politica";
+                e.Row.Cells[1].Text = "Prefijo";
+                e.Row.Cells[2].Text = "Identificador";
+                e.Row.Cells[3].Text = "Marca";
+                e.Row.Cells[4].Text = "Tipo";
+                e.Row.Cells[5].Text = "Proveedor";
+                e.Row.Cells[6].Text = "Garantia";
+                e.Row.Cells[7].Text = "Serie";
+                e.Row.Cells[8].Text = "Disco";
+                e.Row.Cells[9].Text = "Procesador";
+                e.Row.Cells[10].Text = "Ram";
+                e.Row.Cells[11].Text = "ghz";
+                e.Row.Cells[12].Text = "Modelo";
+                e.Row.Cells[13].Text = "Estado";
+                e.Row.Cells[14].Text = "Usuario";
+                e.Row.Cells[15].Text = "Politica";
             }
         }
 
@@ -127,7 +130,7 @@ namespace EquiposInvWM
             using (var ctx = new EquiposInvModelContainer())
             {
                 ctx.Equipos
-                    .Where(u => u.equi_id == queId)
+                    .Where(u => u.equi_id == int.Parse(queId))
                     .ToList()
                     .ForEach(u => ctx.Equipos.Remove(u));
 
@@ -167,5 +170,22 @@ namespace EquiposInvWM
         {
             
         }
+
+        protected void btExportarExcel_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "Equipos"));
+            Response.Charset = "";
+
+            StringWriter stringWriter = new StringWriter();
+            HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stringWriter);
+            EquiposGrid.RenderControl(htmlTextWriter);
+            Response.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control) { }
     }
 }

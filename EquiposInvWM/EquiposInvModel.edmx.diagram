@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="80" >
+      <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="89" >
         <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Empleado" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="EquiposInvModel.Empleado" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="EquiposInvModel.Periferico" Width="1.5" PointX="2.75" PointY="5.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Usuario" Width="1.5" PointX="0.75" PointY="1.75" />
-        <AssociationConnector Association="EquiposInvModel.FK__Equipos__user_id__02FC7413" />
+        <EntityTypeShape EntityType="EquiposInvModel.Periferico" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EquiposInvModel.Usuario" Width="1.5" PointX="0.75" PointY="1.875" />
+        <AssociationConnector Association="EquiposInvModel.FK__Equipos__user_id__2645B050" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

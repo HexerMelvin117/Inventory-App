@@ -1,5 +1,5 @@
 ﻿<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" Inherits="EquiposInvWM.TodosEquipos" %>
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosEquipos.aspx.cs" EnableEventValidation="false" Inherits="EquiposInvWM.TodosEquipos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Scripts y archivo de estilo para usar la API de dataTable -->
@@ -30,6 +30,7 @@
             <asp:GridView ID="EquiposGrid" runat="server" OnRowDataBound="EquiposGrid_RowDataBound" CssClass="table table-striped table-bordered" 
                 style="width:100%;" FooterStyle-CssClass="footer-grid" AllowPaging="False" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" OnPageIndexChanging="EquiposGrid_PageIndexChanging" OnPreRender="EquiposGrid_PreRender">
             </asp:GridView>
+            <asp:Button ID="btExportarExcel" runat="server" OnClick="btExportarExcel_Click" CssClass="btn btn-success" Text="Exportar a Excel" />
         </div>
     </div>
     <!-- Script para cambiar lenguaje al API de DataTable -->
