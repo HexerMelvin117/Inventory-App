@@ -264,7 +264,67 @@
     <div class="tab-content">
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
-        <p>Some content.</p>
+        <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()"  CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
+          <script type="text/javascript">
+              $(document).ready(function () {
+                  $('#MainContent_gridPerifericoSelect').DataTable({
+                      "language": {
+                          "search": "Buscar:",
+                          "lengthMenu": "Mostrar _MENU_ entradas",
+                          "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                          "infoEmpty": "Mostrando 0 Entradas",
+                          "infoFiltered": "(filtrando de _MAX_ total entradas)",
+                          "processing": "Procesando...",
+                          "zeroRecords": "Ningun record encontrado",
+                          "emptyTable": "No hay datos en la tabla",
+                          paginate: {
+                              "previous": "Anterior",
+                              "first": "Primero",
+                              "last": "Ultimo",
+                              "next": "Siguiente"
+                          }
+                      },
+                      "searching": true
+                  });
+              })
+            </script>
+          <div class="row">
+              <div class="col-md-2">
+                  <label>Periferico seleccionado: </label>
+                  <asp:TextBox ID="txtSelectedPeriph" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
+              <div class="col-md-2">
+                  <label>Tipo: </label>
+                  <asp:TextBox ID="txtTypePeriph" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
+              <div class="col-md-2">
+                  <label>ID Interno: </label>
+                  <asp:TextBox ID="txtIDInternPeri" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
+          </div>
+          <script>
+              function periphSelect() {
+                  var table = document.getElementById("MainContent_gridPerifericoSelect");
+                  var tbody = table.getElementsByTagName("tbody")[0];
+                  tbody.onclick = function (e) {
+                      e = e || window.event;
+                      var data = [];
+                      var target = e.srcElement || e.target;
+                      while (target && target.nodeName !== "TR") {
+                          target = target.parentNode;
+                      }
+                      if (target) {
+                          var cells = target.getElementsByTagName("td");
+                          for (var i = 0; i < cells.length; i++) {
+                              data.push(cells[i].innerHTML);
+                          }
+                      }
+                      document.getElementById('MainContent_txtIDInternPeri').value = data[0];
+                      document.getElementById('MainContent_txtTypePeriph').value = data[1];
+                      document.getElementById('MainContent_txtSelectedPeriph').value = data[2];
+                  };
+              }
+     </script>
       </div>
       <div id="software-tab" class="tab-pane fade">
         <h3>Software Instalado</h3>

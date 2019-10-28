@@ -168,6 +168,42 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.Button btnSelEmployee;
 
         /// <summary>
+        /// gridPerifericoSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridPerifericoSelect;
+
+        /// <summary>
+        /// txtSelectedPeriph control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSelectedPeriph;
+
+        /// <summary>
+        /// txtTypePeriph control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTypePeriph;
+
+        /// <summary>
+        /// txtIDInternPeri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIDInternPeri;
+
+        /// <summary>
         /// cblistInstalledSoftware control.
         /// </summary>
         /// <remarks>

@@ -13,8 +13,29 @@ namespace EquiposInvWM
         {
             fillGridEquipos();
             fillGridEmp();
+            fillGridPerifericos();
         }
 
+        // Para llenar gridview de seleccion de Perifericos
+        protected void fillGridPerifericos()
+        {
+            using(var ctx = new EquiposInvModelContainer())
+            {
+                var query = (from m in ctx.Perifericos
+                             orderby m.per_id descending
+                             select new
+                             {
+                                 Id = m.per_id,
+                                 Tipo = m.per_tipo,
+                                 Codigo = (m.per_prefijo + m.per_cod)
+                             }).ToList();
+
+                gridPerifericoSelect.DataSource = query;
+                gridPerifericoSelect.DataBind();
+            }
+        }
+
+        // Para llenar gridview de seleccion de empleado
         protected void fillGridEmp()
         {
             using(var ctx = new EquiposInvModelContainer())
@@ -33,6 +54,7 @@ namespace EquiposInvWM
             }
         }
 
+        // Para llenar gridview de seleccion de Equipos
         protected void fillGridEquipos()
         {
             using (var ctx = new EquiposInvModelContainer())
@@ -165,6 +187,22 @@ namespace EquiposInvWM
             int id = int.Parse(txtEquipoSelec.Text);
 
             getEquiposInfo(id);
+        }
+
+        protected void gridPerifericoSelect_PreRender(object sender, EventArgs e)
+        {
+            GridView gv = (GridView)sender;
+
+            if ((gv.ShowHeader == true && gv.Rows.Count > 0) || (gv.ShowHeaderWhenEmpty == true))
+            {
+                //Force GridView to use <thead> instead of <tbody> - 11/03/2013 - MCR.
+                gv.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+            if (gv.ShowFooter == true && gv.Rows.Count > 0)
+            {
+                //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
+                gv.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
         }
     }
 }
