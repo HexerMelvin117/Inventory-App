@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Scripts y archivo de estilo para usar la API de dataTable -->
-    <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
@@ -28,7 +28,7 @@
         <div class="col-md-12">
             <!-- Gridview Section -->
             <asp:GridView ID="EquiposGrid" runat="server" OnRowDataBound="EquiposGrid_RowDataBound" CssClass="table table-striped table-bordered" 
-                style="width:100%;" FooterStyle-CssClass="footer-grid" AllowPaging="False" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" OnPageIndexChanging="EquiposGrid_PageIndexChanging" OnPreRender="EquiposGrid_PreRender">
+                style="width:100%; cursor: pointer;" FooterStyle-CssClass="footer-grid" AllowPaging="False" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" OnPageIndexChanging="EquiposGrid_PageIndexChanging" OnPreRender="EquiposGrid_PreRender">
             </asp:GridView>
             <asp:Button ID="btExportarExcel" runat="server" OnClick="btExportarExcel_Click" CssClass="btn btn-success" Text="Exportar a Excel" />
         </div>
@@ -37,7 +37,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#MainContent_EquiposGrid').DataTable({
+            var table = $('#MainContent_EquiposGrid').DataTable({
                 "language": {
                     "search": "Buscar:",
                     "lengthMenu": "Mostrar _MENU_ entradas",
@@ -55,6 +55,20 @@
                     }
                 },
                 "searching": true
+            });
+
+            $('#MainContent_EquiposGrid tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#button').click(function () {
+                table.row('.selected').remove().draw(false);
             });
         })
     </script>
@@ -132,7 +146,7 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Tipo:</h5>
-            <asp:DropDownList ID="cmbTipo" CssClass="btn btn-default btn-sm" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
+            <asp:DropDownList ID="cmbTipo" CssClass="form-control" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
                 <asp:ListItem>-- Vacio --</asp:ListItem>
                 <asp:ListItem>Escritorio</asp:ListItem>
                 <asp:ListItem>Laptop</asp:ListItem>
@@ -143,7 +157,7 @@
         </div>
         <div class="col-md-2">
             <h5>Marca:</h5>
-            <asp:DropDownList ID="cmbMarca" CssClass="btn btn-default btn-sm" runat="server" Enabled="True">
+            <asp:DropDownList ID="cmbMarca" CssClass="form-control" runat="server" Enabled="True">
                 <asp:ListItem>-- Vacio --</asp:ListItem>
                 <asp:ListItem>ASUS</asp:ListItem>
                 <asp:ListItem>DELL</asp:ListItem>
@@ -160,7 +174,7 @@
         </div>
         <div class="col-md-2">
             <h5>Procesador: </h5>
-            <asp:DropDownList ID="cmbProcessor" CssClass="btn btn-default btn-sm" runat="server">
+            <asp:DropDownList ID="cmbProcessor" CssClass="form-control" runat="server">
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>N/A</asp:ListItem>
                 <asp:ListItem>INTEL i3</asp:ListItem>
@@ -172,25 +186,25 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Orden de Compra:</h5>
-            <asp:TextBox ID="txtOrdenCompra" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtOrdenCompra" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Serie:</h5>
-            <asp:TextBox ID="txtSerie" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSerie" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Disco:</h5>
-            <asp:TextBox ID="txtDisk" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDisk" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-md-2">
             <h5>Ram:</h5>
-            <asp:TextBox ID="txtRam" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtRam" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>ghz:</h5>
-            <asp:TextBox ID="txtGhz" CssClass="btn-default btn-sm" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGhz" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
     </div>
     <script>
