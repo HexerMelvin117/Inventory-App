@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Microsoft.Reporting.WebForms;
 
 namespace EquiposInvWM
 {
@@ -14,6 +15,57 @@ namespace EquiposInvWM
         protected void Page_Load(object sender, EventArgs e)
         {
             fillGrid();
+        }
+
+        protected void Reports(string ReportType)
+        {
+            using(var ctx = new EquiposInvModelContainer())
+            {
+                var query = (from m in ctx.Equipos
+                             select m).ToList();
+
+                LocalReport localReport = new LocalReport();
+                localReport.ReportPath = Server.MapPath("~/Reporting/EquiposReport.rdlc");
+
+                ReportDataSource reportDataSource = new ReportDataSource();
+                reportDataSource.Name = "Equipos";
+                reportDataSource.Value = query;
+                localReport.DataSources.Add(reportDataSource);
+                string mimeType;
+                string encoding;
+                string fileNameExtension;
+
+                string reportType = ReportType;
+
+                if(reportType == "Excel")
+                {
+                    fileNameExtension = "xlsx";
+                }
+                else if(reportType == "Word")
+                {
+                    fileNameExtension = "docx";
+                }
+                else if(reportType == "PDF")
+                {
+                    fileNameExtension = "pdf";
+                }
+                else
+                {
+                    fileNameExtension = "jpg";
+                }
+
+                string[] streams;
+                Warning[] warnings;
+                byte[] renderedByte;
+                renderedByte = localReport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension,
+                    out streams, out warnings);
+
+                Response.Clear(); // we're going to override the default page response
+                Response.ContentType = mimeType;
+                Response.AddHeader("content-disposition", "attachment:filename=equipo_report." + fileNameExtension);
+                Response.BinaryWrite(renderedByte);
+                Response.End();
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,15 +117,6 @@ namespace EquiposInvWM
 
         protected void btMostrar_Click(object sender, EventArgs e)
         {
-            /*using (var ctx = new EquiposInvModelContainer1())
-            {
-                string serialNum = ctx.Equipos
-                    .Where(u => u.equi_marca == "DELL")
-                    .Select(u => u.equi_modelo)
-                    .SingleOrDefault();
-
-                txtPrueba.Text = Convert.ToString(serialNum);
-            } */
             string searched = txtBuscar.Text;
             individualSearch(searched);
         }
@@ -173,7 +216,7 @@ namespace EquiposInvWM
 
         protected void btExportarExcel_Click(object sender, EventArgs e)
         {
-            Response.Clear();
+            /* Response.Clear();
             Response.Buffer = true;
             Response.ContentType = "application/ms-excel";
             Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "Equipos"));
@@ -183,7 +226,9 @@ namespace EquiposInvWM
             HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stringWriter);
             EquiposGrid.RenderControl(htmlTextWriter);
             Response.Write(stringWriter.ToString());
-            Response.End();
+            Response.End(); */
+            string type = "Excel";
+            Reports(type);
         }
 
         public override void VerifyRenderingInServerForm(Control control) { }

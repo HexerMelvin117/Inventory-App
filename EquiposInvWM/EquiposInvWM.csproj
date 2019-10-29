@@ -62,6 +62,21 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1358.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.3.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1358.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1358.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1358.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -177,6 +192,39 @@
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Content>
     <Content Include="Login.Master" />
+    <Content Include="EquiposInventarioDataSet.xsc">
+      <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="EquiposInventarioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EquiposInventarioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="EquiposInventarioDataSet.xss">
+      <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="EquiposInventarioReport.xsc">
+      <DependentUpon>EquiposInventarioReport.xsd</DependentUpon>
+    </Content>
+    <None Include="EquiposInventarioReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EquiposInventarioReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="EquiposInventarioReport.xss">
+      <DependentUpon>EquiposInventarioReport.xsd</DependentUpon>
+    </Content>
+    <Content Include="PerifericosDataSet.xsc">
+      <DependentUpon>PerifericosDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="PerifericosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PerifericosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="PerifericosDataSet.xss">
+      <DependentUpon>PerifericosDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -213,6 +261,19 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TodosEquipos.aspx" />
     <Content Include="TodosPerifericos.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -281,6 +342,16 @@
     <Compile Include="Equipos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EquiposInventarioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EquiposInventarioReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EquiposInventarioReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EquiposInvModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +387,11 @@
     <Compile Include="Periferico.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PerifericosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerifericosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -331,6 +407,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TodosEquipos.aspx.cs">
       <DependentUpon>TodosEquipos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,7 +436,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Login\" />
-    <Folder Include="Reports\" />
     <Folder Include="Scripts\LoginScripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +454,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reporting\EquiposReport.rdlc" />
+    <EmbeddedResource Include="Reporting\PerifericosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
