@@ -4,8 +4,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Scripts y archivo de estilo para usar la API de dataTable -->
-    <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
-    <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
     <!-- Archivo de estilo y javascript para el escogedor de fechas -->
@@ -128,16 +127,17 @@
                 <label>Empleado Seleccionado:</label>
                 <asp:TextBox ID="txtSelectedEmp" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
-              <asp:GridView ID="SelectEmpGrid" runat="server" onclick="empSelect()" CssClass="table table-striped table-bordered" OnPreRender="SelectEmpGrid_PreRender"></asp:GridView>
+              <asp:GridView ID="SelectEmpGrid" runat="server" onclick="empSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="SelectEmpGrid_PreRender"></asp:GridView>
             </div>
             <div class="modal-footer">
               <asp:Button ID="btSelectEmp" class="btn btn-primary" data-dismiss="modal" runat="server" OnClick="btSelectEmp_Click" Text="Seleccionar"/>
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
+            <!-- Script para usar API DataTable con SelectEmpGrid -->
             <script type="text/javascript">
                 $(document).ready(function () {
-                    $('#MainContent_SelectEmpGrid').DataTable({
+                    var table = $('#MainContent_SelectEmpGrid').DataTable({
                         "language": {
                             "search": "Buscar:",
                             "lengthMenu": "Mostrar _MENU_ entradas",
@@ -156,10 +156,26 @@
                         },
                         "searching": true
                     });
-                })
+
+                    $('#MainContent_SelectEmpGrid tbody').on('click', 'tr', function () {
+                        if ($(this).hasClass('selected')) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                    });
+
+                    $('#button').click(function () {
+                        table.row('.selected').remove().draw(false);
+                    });
+                });
             </script>
         </div>
     </div>
+
+    <!-- Script para coger valores de la tabla SelectEmpGrid -->
     <script>
         function empSelect() {
             var table = document.getElementById("MainContent_SelectEmpGrid");
@@ -200,16 +216,17 @@
                     </div>
                 </div>
                 <br />
-                <asp:GridView ID="SelecEquipoGrid" runat="server" onclick="equiSelect()" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
+                <asp:GridView ID="SelecEquipoGrid" runat="server" onclick="equiSelect()" style="cursor: pointer;" OnPreRender="SelecEquipoGrid_PreRender" CssClass="table table-striped table-bordered"></asp:GridView>
                 </div>
                 <div class="modal-footer">
                   <asp:Button ID="btnSelEmployee" runat="server" CssClass="btn btn-primary" Text="Seleccionar" OnClick="btnSelEmployee_Click" />
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
           </div>
+            <!-- Script para usar API DataTable con SelecEquipoGrid -->
             <script type="text/javascript">
                 $(document).ready(function () {
-                    $('#MainContent_SelecEquipoGrid').DataTable({
+                    var table = $('#MainContent_SelecEquipoGrid').DataTable({
                         "language": {
                             "search": "Buscar:",
                             "lengthMenu": "Mostrar _MENU_ entradas",
@@ -228,11 +245,26 @@
                         },
                         "searching": true
                     });
-                })
+
+                    $('#MainContent_SelecEquipoGrid tbody').on('click', 'tr', function () {
+                        if ($(this).hasClass('selected')) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                    });
+
+                    $('#button').click(function () {
+                        table.row('.selected').remove().draw(false);
+                    });
+                });
             </script>
         </div>
     </div>
 
+    <!-- Script para coger valores de la tabla SelecEquipoGrid -->
     <script>
         function equiSelect() {
             var table = document.getElementById("MainContent_SelecEquipoGrid");
@@ -264,10 +296,11 @@
     <div class="tab-content">
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
-        <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()"  CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
+        <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
+          <!-- Script para usar API DataTable con gridPerifericoSelect -->
           <script type="text/javascript">
               $(document).ready(function () {
-                  $('#MainContent_gridPerifericoSelect').DataTable({
+                  var table = $('#MainContent_gridPerifericoSelect').DataTable({
                       "language": {
                           "search": "Buscar:",
                           "lengthMenu": "Mostrar _MENU_ entradas",
@@ -286,7 +319,21 @@
                       },
                       "searching": true
                   });
-              })
+
+                  $('#MainContent_gridPerifericoSelect tbody').on('click', 'tr', function () {
+                      if ($(this).hasClass('selected')) {
+                          $(this).removeClass('selected');
+                      }
+                      else {
+                          table.$('tr.selected').removeClass('selected');
+                          $(this).addClass('selected');
+                      }
+                  });
+
+                  $('#button').click(function () {
+                      table.row('.selected').remove().draw(false);
+                  });
+              });
             </script>
           <div class="row">
               <div class="col-md-2">
@@ -302,6 +349,14 @@
                   <asp:TextBox ID="txtIDInternPeri" runat="server" CssClass="form-control"></asp:TextBox>
               </div>
           </div>
+          <br />
+          <div class="row">
+              <div class="col-md-2">
+                  <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" />
+              </div>
+          </div>
+
+          <!-- Script para coger valores de gridPerifericoSelect -->
           <script>
               function periphSelect() {
                   var table = document.getElementById("MainContent_gridPerifericoSelect");
@@ -324,7 +379,7 @@
                       document.getElementById('MainContent_txtSelectedPeriph').value = data[2];
                   };
               }
-     </script>
+          </script>
       </div>
       <div id="software-tab" class="tab-pane fade">
         <h3>Software Instalado</h3>

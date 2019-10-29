@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodosPerifericos.aspx.cs" Inherits="EquiposInvWM.TodosPerifericos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" type="text/css" href="Content/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="Scripts/buttons.html5.min.js"></script>
@@ -12,13 +12,13 @@
     <br />
     <div class="row">
         <div class="col-md-12">
-            <asp:GridView ID="PerifericosGrid" runat="server" CssClass="table table-striped table-bordered" style="width:100%;" OnPreRender="PerifericosGrid_PreRender" OnRowDataBound="PerifericosGrid_RowDataBound" OnSelectedIndexChanged="PerifericosGrid_SelectedIndexChanged"></asp:GridView>
+            <asp:GridView ID="PerifericosGrid" runat="server" CssClass="table table-striped table-bordered" style="width:100%; cursor: pointer;" OnPreRender="PerifericosGrid_PreRender" OnRowDataBound="PerifericosGrid_RowDataBound" OnSelectedIndexChanged="PerifericosGrid_SelectedIndexChanged"></asp:GridView>
             <asp:Button ID="btExportExcel" runat="server" CssClass="btn btn-success" OnClick="btExportExcel_Click" Text="Exportar a Excel" />
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#MainContent_PerifericosGrid').DataTable({
+            var table = $('#MainContent_PerifericosGrid').DataTable({
                 "language": {
                     "search": "Buscar:",
                     "lengthMenu": "Mostrar _MENU_ entradas",
@@ -36,6 +36,20 @@
                     }
                 },
                 "searching": true,
+            });
+
+            $('#MainContent_PerifericosGrid tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#button').click(function () {
+                table.row('.selected').remove().draw(false);
             });
         })
     </script>
