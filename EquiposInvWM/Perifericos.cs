@@ -12,8 +12,14 @@ namespace EquiposInvWM
     using System;
     using System.Collections.Generic;
     
-    public partial class Periferico
+    public partial class Perifericos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Perifericos()
+        {
+            this.ListaPerifericos = new HashSet<ListaPerifericos>();
+        }
+    
         public int per_id { get; set; }
         public string per_prefijo { get; set; }
         public int per_cod { get; set; }
@@ -21,5 +27,8 @@ namespace EquiposInvWM
         public string per_marca { get; set; }
         public string per_estado { get; set; }
         public string per_serie { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListaPerifericos> ListaPerifericos { get; set; }
     }
 }

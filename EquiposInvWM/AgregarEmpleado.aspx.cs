@@ -32,7 +32,7 @@ namespace EquiposInvWM
         {
             using (var ctx = new EquiposInvModelContainer())
             {
-                var emp = new Empleado()
+                var emp = new Empleados()
                 {
                     emp_id = randomId(),
                     emp_pape = pape,

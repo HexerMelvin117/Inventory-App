@@ -32,7 +32,7 @@ namespace EquiposInvWM
 
             using(var ctx = new EquiposInvModelContainer())
             {
-                var per = new Periferico()
+                var per = new Perifericos()
                 {
                     per_id = id,
                     per_prefijo = prefijo,
