@@ -12,13 +12,16 @@ namespace EquiposInvWM
     using System;
     using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class ListaPerifericos
     {
-        public int emp_id { get; set; }
-        public string emp_pnom { get; set; }
-        public string emp_pape { get; set; }
-        public string emp_compania { get; set; }
-        public string emp_correo { get; set; }
-        public string emp_numemp { get; set; }
+        public int lisper_id { get; set; }
+        public Nullable<int> per_id { get; set; }
+        public string per_nom { get; set; }
+        public string per_tipo { get; set; }
+        public string per_cod { get; set; }
+        public Nullable<int> ficha_id { get; set; }
+    
+        public virtual FichaComputo FichaComputo { get; set; }
+        public virtual Perifericos Perifericos { get; set; }
     }
 }

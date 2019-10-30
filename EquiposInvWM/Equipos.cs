@@ -14,6 +14,13 @@ namespace EquiposInvWM
     
     public partial class Equipos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Equipos()
+        {
+            this.FichaComputo = new HashSet<FichaComputo>();
+            this.Reparaciones = new HashSet<Reparaciones>();
+        }
+    
         public int equi_id { get; set; }
         public string equi_prefijo { get; set; }
         public int equi_cod { get; set; }
@@ -31,6 +38,10 @@ namespace EquiposInvWM
         public Nullable<int> user_id { get; set; }
         public Nullable<bool> equi_politica { get; set; }
     
-        public virtual Usuario Usuario { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FichaComputo> FichaComputo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reparaciones> Reparaciones { get; set; }
     }
 }

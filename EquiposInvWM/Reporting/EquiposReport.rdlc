@@ -22,7 +22,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.09944in</Top>
-        <Left>0.35292in</Left>
+        <Left>0.35293in</Left>
         <Height>0.25in</Height>
         <Width>8.42708in</Width>
         <Style>
@@ -230,7 +230,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>equi marca</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -420,14 +420,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox16">
+                    <Textbox Name="equi_marca">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!equi_marca.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -436,7 +436,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <rd:DefaultName>equi_marca</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>

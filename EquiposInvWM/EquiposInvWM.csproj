@@ -336,7 +336,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Empleado.cs">
+    <Compile Include="Empleados.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Equipos.cs">
@@ -367,8 +367,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FichaComputo.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPerifericos.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -384,7 +390,7 @@
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
-    <Compile Include="Periferico.cs">
+    <Compile Include="Perifericos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PerifericosDataSet.Designer.cs">
@@ -393,6 +399,9 @@
       <DependentUpon>PerifericosDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reparaciones.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -422,7 +431,7 @@
     <Compile Include="TodosPerifericos.aspx.designer.cs">
       <DependentUpon>TodosPerifericos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
+    <Compile Include="Usuarios.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">

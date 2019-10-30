@@ -25,10 +25,13 @@ namespace EquiposInvWM
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Compania> Companias { get; set; }
-        public virtual DbSet<Empleado> Empleados { get; set; }
+        public virtual DbSet<Compania> Compania { get; set; }
+        public virtual DbSet<Empleados> Empleados { get; set; }
         public virtual DbSet<Equipos> Equipos { get; set; }
-        public virtual DbSet<Periferico> Perifericos { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<FichaComputo> FichaComputo { get; set; }
+        public virtual DbSet<ListaPerifericos> ListaPerifericos { get; set; }
+        public virtual DbSet<Perifericos> Perifericos { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Reparaciones> Reparaciones { get; set; }
     }
 }
