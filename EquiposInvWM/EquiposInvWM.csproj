@@ -464,6 +464,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reporting\EquiposReport.rdlc" />
+    <EmbeddedResource Include="Reporting\FichaComputo.rdlc" />
     <EmbeddedResource Include="Reporting\PerifericosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>

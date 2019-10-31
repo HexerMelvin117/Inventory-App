@@ -106,6 +106,33 @@ namespace EquiposInvWM
             }
         }
 
+        protected void getEmpInfo(int id)
+        {
+            string firstName, lastName, codemp;
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                firstName = ctx.Empleados
+                    .Where(e => e.emp_id == id)
+                    .Select(e => e.emp_pnom)
+                    .FirstOrDefault();
+
+                lastName = ctx.Empleados
+                    .Where(e => e.emp_id == id)
+                    .Select(e => e.emp_pape)
+                    .FirstOrDefault();
+
+                codemp = ctx.Empleados
+                    .Where(e => e.emp_id == id)
+                    .Select(e => e.emp_numemp)
+                    .FirstOrDefault();
+
+                txtApellido.Text = lastName;
+                txtPNom.Text = firstName;
+                txtAssignedUser.Text = codemp;
+            }
+        }
+
         protected void getEquiposInfo(int id)
         {
             string marca, codEqui, serie, procesador;
@@ -157,16 +184,67 @@ namespace EquiposInvWM
                 codEqui = prefijo + Convert.ToString(cod);
             }
 
+            txtProcessor.Text = procesador;
+            txtBrandAssigned.Text = marca;
+            txtGhz.Text = ghz.ToString();
+            txtHdCapacity.Text = capacidad.ToString();
             txtEquipCode.Text = codEqui;
+            txtSerialEquip.Text = serie;
         }
 
-        protected void getEmployeeInfo()
+        public int randomId()
         {
-            using (var ctx = new EquiposInvModelContainer())
+            Random randomNumber = new Random();
+            return randomNumber.Next(0, 5000);
+        }
+
+
+        protected void CrearFicha()
+        {
+            // Variables para informacion de equipo
+            string marca, codEqui, serie, procesador, sysope;
+            decimal ghz;
+            int capacidad;
+
+            procesador = txtProcessor.Text;
+            marca = txtBrandAssigned.Text;
+            ghz = decimal.Parse(txtGhz.Text);
+            capacidad = int.Parse(txtHdCapacity.Text);
+            codEqui = txtEquipCode.Text;
+            serie = txtSerialEquip.Text;
+            serie = txtSerialEquip.Text;
+            sysope = cmbOsEquipment.SelectedItem.Text;
+
+            // variables para informacion de empleado
+            string firstName, lastName, codemp, departamento, project;
+
+            departamento = txtDepartamento.Text;
+            lastName = txtApellido.Text;
+            firstName = txtPNom.Text;
+            codemp = txtAssignedUser.Text;
+            project = txtProject.Text;
+
+            using(var ctx = new EquiposInvModelContainer())
             {
-                var query = (from m in ctx.Empleados
-                             select m).ToList();
+                var ficha = new FichaComputo()
+                {
+                    ficha_id = randomId(),
+                    ficha_dpto = departamento,
+                    ficha_emp = firstName,
+                    emp_pnom = firstName,
+                    emp_id = randomId(),
+                    emp_cod = "",
+                    ficha_pyto = project,
+                    ficha_sysope = sysope,
+                    equi_disco = capacidad,
+                    equi_ghz = ghz,
+                    equi_marca = marca,
+                    equi_serie = serie,
+                    equi_procesador = procesador,
+                    equi_id = randomId()
+                };
             }
+
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
@@ -178,7 +256,8 @@ namespace EquiposInvWM
         // Para Seleccionar empleado
         protected void btSelectEmp_Click(object sender, EventArgs e)
         {
-            getEmployeeInfo();
+            int id = int.Parse(txtSelectedEmp.Text);
+            getEmpInfo(id);
         }
 
         // Para Seleccionar Equipo
@@ -190,6 +269,27 @@ namespace EquiposInvWM
         }
 
         protected void gridPerifericoSelect_PreRender(object sender, EventArgs e)
+        {
+            GridView gv = (GridView)sender;
+
+            if ((gv.ShowHeader == true && gv.Rows.Count > 0) || (gv.ShowHeaderWhenEmpty == true))
+            {
+                //Force GridView to use <thead> instead of <tbody> - 11/03/2013 - MCR.
+                gv.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+            if (gv.ShowFooter == true && gv.Rows.Count > 0)
+            {
+                //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
+                gv.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
+        }
+
+        protected void submitFicha()
+        {
+            
+        }
+
+        protected void gridSelectedPeriph_PreRender(object sender, EventArgs e)
         {
             GridView gv = (GridView)sender;
 

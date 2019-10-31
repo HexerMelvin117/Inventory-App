@@ -65,6 +65,17 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-2">
+                <h5>Primer Nombre: </h5>
+                <asp:TextBox ID="txtPNom" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-md-2">
+                <h5>Apellido: </h5>
+                <asp:TextBox ID="txtApellido" runat ="server" CssClass="form-control"></asp:TextBox>
+            </div>
+        </div>
+
         <!-- Seccion para detalles del equipo -->
         <h3>Informacion del Equipo</h3>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEquipo">Seleccionar Equipo</button>
@@ -130,7 +141,7 @@
               <asp:GridView ID="SelectEmpGrid" runat="server" onclick="empSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="SelectEmpGrid_PreRender"></asp:GridView>
             </div>
             <div class="modal-footer">
-              <asp:Button ID="btSelectEmp" class="btn btn-primary" data-dismiss="modal" runat="server" OnClick="btSelectEmp_Click" Text="Seleccionar"/>
+              <asp:Button ID="btSelectEmp" class="btn btn-primary" runat="server" OnClick="btSelectEmp_Click" Text="Seleccionar"/>
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
@@ -380,21 +391,67 @@
                   };
               }
           </script>
+          <br />
+          <h5>Perifericos Seleccionados</h5>
+          <asp:GridView ID="gridSelectedPeriph" runat="server" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+          <script type="text/javascript">
+              $(document).ready(function () {
+                  var table = $('#MainContent_gridSelectedPeriph').DataTable({
+                      "language": {
+                          "search": "Buscar:",
+                          "lengthMenu": "Mostrar _MENU_ entradas",
+                          "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                          "infoEmpty": "Mostrando 0 Entradas",
+                          "infoFiltered": "(filtrando de _MAX_ total entradas)",
+                          "processing": "Procesando...",
+                          "zeroRecords": "Ningun record encontrado",
+                          "emptyTable": "No hay datos en la tabla",
+                          paginate: {
+                              "previous": "Anterior",
+                              "first": "Primero",
+                              "last": "Ultimo",
+                              "next": "Siguiente"
+                          }
+                      },
+                      "searching": true
+                  });
+
+                  $('#MainContent_gridSelectedPeriph tbody').on('click', 'tr', function () {
+                      if ($(this).hasClass('selected')) {
+                          $(this).removeClass('selected');
+                      }
+                      else {
+                          table.$('tr.selected').removeClass('selected');
+                          $(this).addClass('selected');
+                      }
+                  });
+
+                  $('#button').click(function () {
+                      table.row('.selected').remove().draw(false);
+                  });
+              });
+            </script>
       </div>
       <div id="software-tab" class="tab-pane fade">
-        <h3>Software Instalado</h3>
-        <asp:CheckBoxList ID="cblistInstalledSoftware" runat="server" CssClass="checkbox">
-            <asp:ListItem Text="Office" Value="1"></asp:ListItem>
-            <asp:ListItem Text="Adobe" Value="2"></asp:ListItem>
-            <asp:ListItem Text="Winrar" Value="3"></asp:ListItem>
-            <asp:ListItem Text="Ccleaner" Value="4"></asp:ListItem>
-            <asp:ListItem Text="Antivirus" Value="5"></asp:ListItem>
-            <asp:ListItem Text="Sistema Integrado" Value="6"></asp:ListItem>
-            <asp:ListItem Text="DEP" Value="7"></asp:ListItem>
-            <asp:ListItem Text="Autocad" Value="8"></asp:ListItem>
-            <asp:ListItem Text="Teamviewer" Value="9"></asp:ListItem>
-            <asp:ListItem Text="Acceso a ISO" Value="10"></asp:ListItem>
-        </asp:CheckBoxList>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Software Instalado</h3>
+                <div class="checkbox checkboxlist col-sm-9">
+                    <asp:CheckBoxList ID="cblistInstalledSoftware" runat="server" CssClass="checkbox">
+                        <asp:ListItem Text="Office" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Adobe" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="Winrar" Value="3"></asp:ListItem>
+                        <asp:ListItem Text="Ccleaner" Value="4"></asp:ListItem>
+                        <asp:ListItem Text="Antivirus" Value="5"></asp:ListItem>
+                        <asp:ListItem Text="Sistema Integrado" Value="6"></asp:ListItem>
+                        <asp:ListItem Text="DEP" Value="7"></asp:ListItem>
+                        <asp:ListItem Text="Autocad" Value="8"></asp:ListItem>
+                        <asp:ListItem Text="Teamviewer" Value="9"></asp:ListItem>
+                        <asp:ListItem Text="Acceso a ISO" Value="10"></asp:ListItem>
+                    </asp:CheckBoxList>
+                </div>
+            </div>
+        </div> 
       </div>
     </div>
 </asp:Content>
