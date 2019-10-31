@@ -51,6 +51,24 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtProject;
 
         /// <summary>
+        /// txtPNom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPNom;
+
+        /// <summary>
+        /// txtApellido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtApellido;
+
+        /// <summary>
         /// txtBrandAssigned control.
         /// </summary>
         /// <remarks>
@@ -211,6 +229,15 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btSelectPeriph;
+
+        /// <summary>
+        /// gridSelectedPeriph control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridSelectedPeriph;
 
         /// <summary>
         /// cblistInstalledSoftware control.
