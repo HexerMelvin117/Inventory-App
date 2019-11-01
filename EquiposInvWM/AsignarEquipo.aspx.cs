@@ -4,13 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace EquiposInvWM
 {
     public partial class AsignarEquipo : System.Web.UI.Page
     {
+        DataTable dtSelectedPeriph;
         protected void Page_Load(object sender, EventArgs e)
         {
+            dtSelectedPeriph = new DataTable();
+
+            dtSelectedPeriph.Columns.Add("ID Interno");
+            dtSelectedPeriph.Columns.Add("Codigo_Periferico");
+            dtSelectedPeriph.Columns.Add("Tipo de Periferico");
+
             fillGridEquipos();
             fillGridEmp();
             fillGridPerifericos();
@@ -303,6 +311,25 @@ namespace EquiposInvWM
                 //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+        
+        
+        // Para agregar perifericos a gridSelectedPeriph
+        protected void btSelectPeriph_Click(object sender, EventArgs e)
+        {
+
+            int rowIndex = 0;
+            
+            DataRow dr = dtSelectedPeriph.NewRow();
+            dr["ID Interno"] = txtIDInternPeri.Text;
+            dr["Codigo_Periferico"] = txtSelectedPeriph.Text;
+            dr["Tipo de Periferico"] = txtTypePeriph.Text;
+            dtSelectedPeriph.Rows.Add(dr);
+
+            ViewState["CurrentTable"] = dtSelectedPeriph;
+
+            gridSelectedPeriph.DataSource = dtSelectedPeriph;
+            gridSelectedPeriph.DataBind();
         }
     }
 }

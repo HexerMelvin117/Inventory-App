@@ -307,8 +307,9 @@
     <div class="tab-content">
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
-        <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
-          <!-- Script para usar API DataTable con gridPerifericoSelect -->
+          
+            <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
+            <!-- Script para usar API DataTable con gridPerifericoSelect -->
           <script type="text/javascript">
               $(document).ready(function () {
                   var table = $('#MainContent_gridPerifericoSelect').DataTable({
@@ -363,7 +364,12 @@
           <br />
           <div class="row">
               <div class="col-md-2">
-                  <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" />
+                  <asp:UpdatePanel ID="ActionSelectUpdate" runat="server">
+                      <ContentTemplate>
+                          <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" OnClick="btSelectPeriph_Click" />
+                      </ContentTemplate>
+                  </asp:UpdatePanel>
+                  
               </div>
           </div>
 
@@ -393,7 +399,11 @@
           </script>
           <br />
           <h5>Perifericos Seleccionados</h5>
-          <asp:GridView ID="gridSelectedPeriph" runat="server" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+          <asp:UpdatePanel ID="gridSelectedUpdate" runat="server">
+              <ContentTemplate>
+                  <asp:GridView ID="gridSelectedPeriph" runat="server" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+              </ContentTemplate>
+          </asp:UpdatePanel>
           <script type="text/javascript">
               $(document).ready(function () {
                   var table = $('#MainContent_gridSelectedPeriph').DataTable({
@@ -431,6 +441,16 @@
                   });
               });
             </script>
+          <script type="text/javascript">
+              function AddNewRecord() {
+                  var grd = document.getElementById('MainContent_gridSelectedPeriph');
+                  var tbod = grd.rows[0].parentNode;
+                  var newRow = grd.rows[grd.rows.length - 1].cloneNode(true);
+                  tbod.appendChild(newRow);
+                  return false;
+
+              }
+          </script>
       </div>
       <div id="software-tab" class="tab-pane fade">
         <div class="row">
