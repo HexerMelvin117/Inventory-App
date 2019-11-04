@@ -43,6 +43,11 @@
           <Property Name="equi_status" Type="varchar" MaxLength="50" />
           <Property Name="user_id" Type="int" />
           <Property Name="equi_politica" Type="bit" />
+          <Property Name="equi_ordencompra" Type="varchar" MaxLength="50" />
+          <Property Name="equi_precio" Type="money" />
+          <Property Name="equi_empresa" Type="varchar" MaxLength="30" />
+          <Property Name="equi_proyecto" Type="varchar" MaxLength="30" />
+          <Property Name="equi_dpto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="FichaComputo">
           <Key>
@@ -226,6 +231,7 @@
           <EntitySet Name="FichaComputo" EntityType="EquiposInvModel.FichaComputo" />
           <EntitySet Name="ListaPerifericos" EntityType="EquiposInvModel.ListaPerifericos" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
+          <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
           <AssociationSet Name="FK__FichaComp__emp_i__29221CFB" Association="EquiposInvModel.FK__FichaComp__emp_i__29221CFB">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -239,6 +245,10 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
+          <AssociationSet Name="FK__Reparacio__equi___30C33EC3" Association="EquiposInvModel.FK__Reparacio__equi___30C33EC3">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
           <AssociationSet Name="FK__ListaPeri__ficha__2DE6D218" Association="EquiposInvModel.FK__ListaPeri__ficha__2DE6D218">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
@@ -246,11 +256,6 @@
           <AssociationSet Name="FK__ListaPeri__per_i__2CF2ADDF" Association="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
-          </AssociationSet>
-          <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
-          <AssociationSet Name="FK__Reparacio__equi___30C33EC3" Association="EquiposInvModel.FK__Reparacio__equi___30C33EC3">
-            <End Role="Equipos" EntitySet="Equipos" />
-            <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Compania">
@@ -292,6 +297,11 @@
           <Property Name="equi_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="equi_politica" Type="Boolean" />
+          <Property Name="equi_ordencompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="equi_empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="equi_proyecto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="equi_dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuarios" Relationship="EquiposInvModel.FK__Equipos__user_id__2645B050" FromRole="Equipos" ToRole="Usuarios" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___2A164134" FromRole="Equipos" ToRole="FichaComputo" />
           <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___30C33EC3" FromRole="Equipos" ToRole="Reparaciones" />
@@ -345,6 +355,17 @@
           <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF" FromRole="Perifericos" ToRole="ListaPerifericos" />
         </EntityType>
+        <EntityType Name="Reparaciones">
+          <Key>
+            <PropertyRef Name="repa_id" />
+          </Key>
+          <Property Name="repa_id" Type="Int32" Nullable="false" />
+          <Property Name="equi_id" Type="Int32" />
+          <Property Name="repa_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="repa_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="repa_fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___30C33EC3" FromRole="Reparaciones" ToRole="Equipos" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="user_id" />
@@ -394,6 +415,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Reparacio__equi___30C33EC3">
+          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.Reparaciones" Role="Reparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="equi_id" />
+            </Principal>
+            <Dependent Role="Reparaciones">
+              <PropertyRef Name="equi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ListaPeri__ficha__2DE6D218">
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
           <End Type="EquiposInvModel.ListaPerifericos" Role="ListaPerifericos" Multiplicity="*" />
@@ -415,29 +448,6 @@
             </Principal>
             <Dependent Role="ListaPerifericos">
               <PropertyRef Name="per_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Reparaciones">
-          <Key>
-            <PropertyRef Name="repa_id" />
-          </Key>
-          <Property Name="repa_id" Type="Int32" Nullable="false" />
-          <Property Name="equi_id" Type="Int32" />
-          <Property Name="repa_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="repa_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="repa_fecha" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___30C33EC3" FromRole="Reparaciones" ToRole="Equipos" />
-        </EntityType>
-        <Association Name="FK__Reparacio__equi___30C33EC3">
-          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="0..1" />
-          <End Type="EquiposInvModel.Reparaciones" Role="Reparaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipos">
-              <PropertyRef Name="equi_id" />
-            </Principal>
-            <Dependent Role="Reparaciones">
-              <PropertyRef Name="equi_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -472,6 +482,11 @@
           <EntitySetMapping Name="Equipos">
             <EntityTypeMapping TypeName="EquiposInvModel.Equipos">
               <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="equi_dpto" ColumnName="equi_dpto" />
+                <ScalarProperty Name="equi_proyecto" ColumnName="equi_proyecto" />
+                <ScalarProperty Name="equi_empresa" ColumnName="equi_empresa" />
+                <ScalarProperty Name="equi_precio" ColumnName="equi_precio" />
+                <ScalarProperty Name="equi_ordencompra" ColumnName="equi_ordencompra" />
                 <ScalarProperty Name="equi_politica" ColumnName="equi_politica" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="equi_status" ColumnName="equi_status" />
@@ -537,6 +552,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Reparaciones">
+            <EntityTypeMapping TypeName="EquiposInvModel.Reparaciones">
+              <MappingFragment StoreEntitySet="Reparaciones">
+                <ScalarProperty Name="repa_fecha" ColumnName="repa_fecha" />
+                <ScalarProperty Name="repa_detalle" ColumnName="repa_detalle" />
+                <ScalarProperty Name="repa_tipo" ColumnName="repa_tipo" />
+                <ScalarProperty Name="equi_id" ColumnName="equi_id" />
+                <ScalarProperty Name="repa_id" ColumnName="repa_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="EquiposInvModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
@@ -547,17 +573,6 @@
                 <ScalarProperty Name="user_ape" ColumnName="user_ape" />
                 <ScalarProperty Name="user_nom" ColumnName="user_nom" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reparaciones">
-            <EntityTypeMapping TypeName="EquiposInvModel.Reparaciones">
-              <MappingFragment StoreEntitySet="Reparaciones">
-                <ScalarProperty Name="repa_fecha" ColumnName="repa_fecha" />
-                <ScalarProperty Name="repa_detalle" ColumnName="repa_detalle" />
-                <ScalarProperty Name="repa_tipo" ColumnName="repa_tipo" />
-                <ScalarProperty Name="equi_id" ColumnName="equi_id" />
-                <ScalarProperty Name="repa_id" ColumnName="repa_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

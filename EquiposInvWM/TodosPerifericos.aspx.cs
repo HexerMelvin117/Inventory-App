@@ -24,7 +24,14 @@ namespace EquiposInvWM
             {
                 var query = (from m in ctx.Perifericos
                              orderby m.per_id descending
-                             select m).ToList();
+                             select new { 
+                                Id = m.per_id,
+                                Codigo = (m.per_prefijo + m.per_cod),
+                                Tipo = m.per_tipo,
+                                Marca = m.per_marca,
+                                Serie = m.per_serie,
+                                Estado = m.per_estado,
+                             }).ToList();
 
                 PerifericosGrid.DataSource = query;
                 PerifericosGrid.DataBind();
@@ -89,16 +96,7 @@ namespace EquiposInvWM
 
         protected void PerifericosGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                e.Row.Cells[0].Text = "ID";
-                e.Row.Cells[1].Text = "Prefijo";
-                e.Row.Cells[2].Text = "Codigo";
-                e.Row.Cells[3].Text = "Tipo";
-                e.Row.Cells[4].Text = "Marca";
-                e.Row.Cells[5].Text = "Estado";
-                e.Row.Cells[6].Text = "Serie";
-            }
+            
         }
 
         protected void PerifericosGrid_PreRender(object sender, EventArgs e)

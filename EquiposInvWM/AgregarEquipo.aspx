@@ -148,6 +148,13 @@
     </div>
     <br />
     <div class="row">
+        <div class="col-md-6">
+            <h5>Observacion: </h5>
+            <asp:TextBox ID="txtAreaObservacionEqui" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+        </div>
+    </div>
+    <br />
+    <div class="row">
         <div class="col-md-2">
             <asp:Button ID="btSubmit" class="btn btn-primary" runat="server" Text="Subir a Sistema" OnClick="btSubmit_Click" />
         </div>
