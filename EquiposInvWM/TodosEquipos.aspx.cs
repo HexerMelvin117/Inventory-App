@@ -80,7 +80,26 @@ namespace EquiposInvWM
             {
                 var query = (from m in ctx.Equipos
                              orderby m.equi_id descending
-                             select m).ToList();
+                             select new
+                             {
+                                 Id = m.equi_id,
+                                 Codigo = (m.equi_prefijo + m.equi_cod),
+                                 Tipo = m.equi_tipo,
+                                 Marca = m.equi_marca,
+                                 Procesador = m.equi_procesador,
+                                 GHZ = m.equi_ghz,
+                                 RAM = m.equi_ram,
+                                 Disco = m.equi_disco,
+                                 Serie = m.equi_serie,
+                                 Garantia = m.equi_garantia,
+                                 Proveedor = m.equi_proveedor,
+                                 Orden_Compra = m.equi_ordencompra,
+                                 Precio = m.equi_precio,
+                                 Empresa = m.equi_empresa,
+                                 Proyecto = m.equi_proyecto,
+                                 Departamento = m.equi_dpto,
+                                 Estado = m.equi_status
+                             }).ToList();
 
                 EquiposGrid.DataSource = query;
                 EquiposGrid.DataBind();
@@ -124,25 +143,7 @@ namespace EquiposInvWM
         protected void EquiposGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             // Para nombrar las columnas
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                e.Row.Cells[0].Text = "ID";
-                e.Row.Cells[1].Text = "Prefijo";
-                e.Row.Cells[2].Text = "Identificador";
-                e.Row.Cells[3].Text = "Marca";
-                e.Row.Cells[4].Text = "Tipo";
-                e.Row.Cells[5].Text = "Proveedor";
-                e.Row.Cells[6].Text = "Garantia";
-                e.Row.Cells[7].Text = "Serie";
-                e.Row.Cells[8].Text = "Disco";
-                e.Row.Cells[9].Text = "Procesador";
-                e.Row.Cells[10].Text = "Ram";
-                e.Row.Cells[11].Text = "ghz";
-                e.Row.Cells[12].Text = "Modelo";
-                e.Row.Cells[13].Text = "Estado";
-                e.Row.Cells[14].Text = "Usuario";
-                e.Row.Cells[15].Text = "Politica";
-            }
+            
         }
 
         protected void btMostrarTodo_Click(object sender, EventArgs e)
@@ -216,17 +217,6 @@ namespace EquiposInvWM
 
         protected void btExportarExcel_Click(object sender, EventArgs e)
         {
-            /* Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = "application/ms-excel";
-            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "Equipos"));
-            Response.Charset = "";
-
-            StringWriter stringWriter = new StringWriter();
-            HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stringWriter);
-            EquiposGrid.RenderControl(htmlTextWriter);
-            Response.Write(stringWriter.ToString());
-            Response.End(); */
             string type = "Excel";
             Reports(type);
         }

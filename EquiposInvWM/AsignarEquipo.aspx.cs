@@ -10,15 +10,21 @@ namespace EquiposInvWM
 {
     public partial class AsignarEquipo : System.Web.UI.Page
     {
-        DataTable dtSelectedPeriph;
+        DataTable dtPeriph = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            dtSelectedPeriph = new DataTable();
-
-            dtSelectedPeriph.Columns.Add("ID Interno");
-            dtSelectedPeriph.Columns.Add("Codigo_Periferico");
-            dtSelectedPeriph.Columns.Add("Tipo de Periferico");
-
+            if(!Page.IsPostBack)
+            {
+                if(ViewState["Records"] == null)
+                {
+                    dtPeriph.Columns.Add("ID Interno");
+                    dtPeriph.Columns.Add("Codigo_Periferico");
+                    dtPeriph.Columns.Add("Tipo");
+                    ViewState["Records"] = dtPeriph;
+                }
+                
+            }
+            
             fillGridEquipos();
             fillGridEmp();
             fillGridPerifericos();
@@ -226,7 +232,7 @@ namespace EquiposInvWM
             // variables para informacion de empleado
             string firstName, lastName, codemp, departamento, project;
 
-            departamento = txtDepartamento.Text;
+            departamento = cmbDpto.SelectedItem.Text;
             lastName = txtApellido.Text;
             firstName = txtPNom.Text;
             codemp = txtAssignedUser.Text;
@@ -292,11 +298,6 @@ namespace EquiposInvWM
             }
         }
 
-        protected void submitFicha()
-        {
-            
-        }
-
         protected void gridSelectedPeriph_PreRender(object sender, EventArgs e)
         {
             GridView gv = (GridView)sender;
@@ -312,23 +313,13 @@ namespace EquiposInvWM
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
-        
-        
+
         // Para agregar perifericos a gridSelectedPeriph
         protected void btSelectPeriph_Click(object sender, EventArgs e)
         {
-
-            int rowIndex = 0;
-            
-            DataRow dr = dtSelectedPeriph.NewRow();
-            dr["ID Interno"] = txtIDInternPeri.Text;
-            dr["Codigo_Periferico"] = txtSelectedPeriph.Text;
-            dr["Tipo de Periferico"] = txtTypePeriph.Text;
-            dtSelectedPeriph.Rows.Add(dr);
-
-            ViewState["CurrentTable"] = dtSelectedPeriph;
-
-            gridSelectedPeriph.DataSource = dtSelectedPeriph;
+            dtPeriph = (DataTable)ViewState["Records"];
+            dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text);
+            gridSelectedPeriph.DataSource = dtPeriph;
             gridSelectedPeriph.DataBind();
         }
     }

@@ -24,13 +24,13 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.DropDownList cmbEmpresa;
 
         /// <summary>
-        /// txtDepartamento control.
+        /// cmbDpto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
+        protected global::System.Web.UI.WebControls.DropDownList cmbDpto;
 
         /// <summary>
         /// txtAssignedUser control.
@@ -256,6 +256,15 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridSelectedPeriph;
+
+        /// <summary>
+        /// txtObservacionArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionArea;
 
         /// <summary>
         /// cblistInstalledSoftware control.

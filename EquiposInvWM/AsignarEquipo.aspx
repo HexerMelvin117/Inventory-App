@@ -53,7 +53,13 @@
         <div class="row">
             <div class="col-md-2">
                 <h5>Departamento: </h5>
-                <asp:TextBox ID="txtDepartamento" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:DropDownList ID="cmbDpto" runat="server" CssClass="form-control">
+                    <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    <asp:ListItem>Ventas</asp:ListItem>
+                    <asp:ListItem>Marketing</asp:ListItem>
+                    <asp:ListItem>Contabilidad</asp:ListItem>
+                    <asp:ListItem>Gerencia</asp:ListItem>
+                </asp:DropDownList>
             </div>
             <div class="col-md-2">
                 <h5>Usuario Asignado: </h5>
@@ -451,6 +457,9 @@
 
               }
           </script>
+          <br />
+          <h3>Observaciones: </h3>
+          <asp:TextBox ID="txtObservacionArea" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
       </div>
       <div id="software-tab" class="tab-pane fade">
         <div class="row">
@@ -468,6 +477,8 @@
                         <asp:ListItem Text="Autocad" Value="8"></asp:ListItem>
                         <asp:ListItem Text="Teamviewer" Value="9"></asp:ListItem>
                         <asp:ListItem Text="Acceso a ISO" Value="10"></asp:ListItem>
+                        <asp:ListItem Text="VPN" Value="11"></asp:ListItem>
+                        <asp:ListItem Text="OPUS" Value="12"></asp:ListItem>
                     </asp:CheckBoxList>
                 </div>
             </div>

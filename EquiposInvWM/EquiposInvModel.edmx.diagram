@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="68" >
-        <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="7.75" PointY="5.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="EquiposInvModel.FichaComputo" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericos" Width="1.5" PointX="7.5" PointY="2" />
-        <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="5.25" PointY="7" />
-        <EntityTypeShape EntityType="EquiposInvModel.Usuarios" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="EquiposInvModel.FichaComputo" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericos" Width="1.5" PointX="7.5" PointY="3.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Reparaciones" Width="1.5" PointX="5.25" PointY="9" />
+        <EntityTypeShape EntityType="EquiposInvModel.Usuarios" Width="1.5" PointX="0.75" PointY="3.625" />
         <AssociationConnector Association="EquiposInvModel.FK__FichaComp__emp_i__29221CFB" />
         <AssociationConnector Association="EquiposInvModel.FK__Equipos__user_id__2645B050" />
         <AssociationConnector Association="EquiposInvModel.FK__FichaComp__equi___2A164134" />
+        <AssociationConnector Association="EquiposInvModel.FK__Reparacio__equi___30C33EC3" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__ficha__2DE6D218" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF" />
-        <EntityTypeShape EntityType="EquiposInvModel.Reparaciones" Width="1.5" PointX="5.25" PointY="11.25" />
-        <AssociationConnector Association="EquiposInvModel.FK__Reparacio__equi___30C33EC3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
