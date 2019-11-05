@@ -69,6 +69,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtSeriePeriferico;
 
         /// <summary>
+        /// txtAreaPeri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAreaPeri;
+
+        /// <summary>
         /// btAgregarPeriferico control.
         /// </summary>
         /// <remarks>

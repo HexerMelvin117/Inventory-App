@@ -226,18 +226,19 @@ namespace EquiposInvWM
             capacidad = int.Parse(txtHdCapacity.Text);
             codEqui = txtEquipCode.Text;
             serie = txtSerialEquip.Text;
-            serie = txtSerialEquip.Text;
             sysope = cmbOsEquipment.SelectedItem.Text;
 
             // variables para informacion de empleado
-            string firstName, lastName, codemp, departamento, project;
+            string firstName, lastName, fullName, codemp, departamento, project;
 
             departamento = cmbDpto.SelectedItem.Text;
             lastName = txtApellido.Text;
             firstName = txtPNom.Text;
+            fullName = firstName + " " + lastName;
+
             codemp = txtAssignedUser.Text;
             project = txtProject.Text;
-
+            
             using(var ctx = new EquiposInvModelContainer())
             {
                 var ficha = new FichaComputo()
@@ -245,11 +246,12 @@ namespace EquiposInvWM
                     ficha_id = randomId(),
                     ficha_dpto = departamento,
                     ficha_emp = firstName,
-                    emp_pnom = firstName,
+                    emp_nom = fullName,
                     emp_id = randomId(),
-                    emp_cod = "",
+                    emp_cod = codemp,
                     ficha_pyto = project,
                     ficha_sysope = sysope,
+                    equi_cod = codEqui,
                     equi_disco = capacidad,
                     equi_ghz = ghz,
                     equi_marca = marca,
@@ -257,6 +259,8 @@ namespace EquiposInvWM
                     equi_procesador = procesador,
                     equi_id = randomId()
                 };
+                ctx.FichaComputo.Add(ficha);
+                ctx.SaveChanges();
             }
 
         }
@@ -321,6 +325,26 @@ namespace EquiposInvWM
             dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text);
             gridSelectedPeriph.DataSource = dtPeriph;
             gridSelectedPeriph.DataBind();
+        }
+
+        protected void emptyFields()
+        {
+            txtApellido.Text = "";
+            txtBrandAssigned.Text = "";
+            txtGhz.Text = "";
+            txtHdCapacity.Text = "";
+            txtIDInternPeri.Text = "";
+            txtObservacionArea.Text = "";
+            txtPNom.Text = "";
+            txtSelectedPeriph.Text = "";
+            txtSerialEquip.Text = "";
+            txtApellido.Text = "";
+        }
+
+        protected void btCrearFicha_Click(object sender, EventArgs e)
+        {
+            CrearFicha();
+            emptyFields();
         }
     }
 }

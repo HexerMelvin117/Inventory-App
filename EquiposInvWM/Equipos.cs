@@ -42,6 +42,7 @@ namespace EquiposInvWM
         public string equi_empresa { get; set; }
         public string equi_proyecto { get; set; }
         public string equi_dpto { get; set; }
+        public string equi_observacion { get; set; }
     
         public virtual Usuarios Usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

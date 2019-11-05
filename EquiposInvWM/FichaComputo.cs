@@ -26,8 +26,9 @@ namespace EquiposInvWM
         public string ficha_dpto { get; set; }
         public string ficha_pyto { get; set; }
         public Nullable<int> emp_id { get; set; }
-        public string emp_pnom { get; set; }
+        public string emp_nom { get; set; }
         public string emp_cod { get; set; }
+        public string equi_cod { get; set; }
         public Nullable<int> equi_id { get; set; }
         public string equi_marca { get; set; }
         public string equi_serie { get; set; }
