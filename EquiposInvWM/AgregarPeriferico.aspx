@@ -61,6 +61,13 @@
     </div>
     <br />
     <div class="row">
+        <div class="col-md-6">
+            <h5>Observacion: </h5>
+            <asp:TextBox ID="txtAreaPeri" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+        </div>
+    </div>
+    <br />
+    <div class="row">
         <div class="col-md-2">
             <asp:Button ID="btAgregarPeriferico" class="btn btn-primary" runat="server" Text="Agregar" OnClick="btAgregarPeriferico_Click" />
         </div>

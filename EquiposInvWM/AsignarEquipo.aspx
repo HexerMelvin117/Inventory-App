@@ -56,7 +56,14 @@
                 <asp:DropDownList ID="cmbDpto" runat="server" CssClass="form-control">
                     <asp:ListItem>-- Seleccionar --</asp:ListItem>
                     <asp:ListItem>Ventas</asp:ListItem>
-                    <asp:ListItem>Marketing</asp:ListItem>
+                    <asp:ListItem>Compras</asp:ListItem>
+                    <asp:ListItem>Caja</asp:ListItem>
+                    <asp:ListItem>IT</asp:ListItem>
+                    <asp:ListItem>Almacen</asp:ListItem>
+                    <asp:ListItem>RRHH</asp:ListItem>
+                    <asp:ListItem>Prefabricado</asp:ListItem>
+                    <asp:ListItem>Produccion</asp:ListItem>
+                    <asp:ListItem>Taller</asp:ListItem>
                     <asp:ListItem>Contabilidad</asp:ListItem>
                     <asp:ListItem>Gerencia</asp:ListItem>
                 </asp:DropDownList>
@@ -304,16 +311,16 @@
         }
      </script>
     
-
+    <!-- Para determinar los nombres de las pestañas -->
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#perifericos-tab">Perifericos</a></li>
       <li><a data-toggle="tab" href="#software-tab">Software Instalado</a></li>
     </ul>
 
+    <!-- Pestaña para seleccionar perifericos -->
     <div class="tab-content">
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
-          
             <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
             <!-- Script para usar API DataTable con gridPerifericoSelect -->
           <script type="text/javascript">
@@ -458,9 +465,41 @@
               }
           </script>
           <br />
-          <h3>Observaciones: </h3>
-          <asp:TextBox ID="txtObservacionArea" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+          <!-- Para la caja de texto de observaciones de Ficha -->
+          <div class="row">
+              <div class="col-md-6">
+                  <h3>Observaciones: </h3>
+                  <asp:TextBox ID="txtObservacionArea" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+              </div>
+          </div>
+          <br />
+          <!-- Para Abrir modal de creacion de ficha -->
+          <div class="row">
+              <div class="col-md-2">
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-sm">Subir Ficha</button>
+              </div>
+          </div>
+        <!-- Modal Para confirmar subida a base de datos -->
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>¿Proceder con la creacion de la ficha?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btCrearFicha" runat="server" CssClass="btn btn-primary" Text="Crear Ficha" OnClick="btCrearFicha_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
+      <!-- Pestaña para seleccionar software -->
       <div id="software-tab" class="tab-pane fade">
         <div class="row">
             <div class="col-md-4">

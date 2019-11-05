@@ -267,6 +267,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtObservacionArea;
 
         /// <summary>
+        /// btCrearFicha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btCrearFicha;
+
+        /// <summary>
         /// cblistInstalledSoftware control.
         /// </summary>
         /// <remarks>
