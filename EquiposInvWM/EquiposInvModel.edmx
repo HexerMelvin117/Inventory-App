@@ -41,10 +41,10 @@
           <Property Name="equi_ghz" Type="decimal" Precision="5" Scale="2" />
           <Property Name="equi_modelo" Type="varchar" MaxLength="50" />
           <Property Name="equi_status" Type="varchar" MaxLength="50" />
-          <Property Name="user_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
           <Property Name="equi_politica" Type="bit" />
           <Property Name="equi_ordencompra" Type="varchar" MaxLength="50" />
-          <Property Name="equi_precio" Type="money" />
+          <Property Name="equi_precio" Type="decimal" Precision="18" Scale="2" />
           <Property Name="equi_empresa" Type="varchar" MaxLength="30" />
           <Property Name="equi_proyecto" Type="varchar" MaxLength="30" />
           <Property Name="equi_dpto" Type="varchar" MaxLength="50" />
@@ -116,15 +116,15 @@
           <Property Name="user_escritura" Type="bit" Nullable="false" />
           <Property Name="user_lectura" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Equipos__user_id__2645B050">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+        <Association Name="FK__Equipos__emp_id__47A6A41B">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
           <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="user_id" />
+            <Principal Role="Empleados">
+              <PropertyRef Name="emp_id" />
             </Principal>
             <Dependent Role="Equipos">
-              <PropertyRef Name="user_id" />
+              <PropertyRef Name="emp_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -140,7 +140,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FichaComp__equi___3D2915A8">
+        <Association Name="FK__FichaComp__equi___46B27FE2">
           <End Role="Equipos" Type="Self.Equipos" Multiplicity="0..1" />
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reparacio__equi___30C33EC3">
+        <Association Name="FK__Reparacio__equi___45BE5BA9">
           <End Role="Equipos" Type="Self.Equipos" Multiplicity="0..1" />
           <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,15 +197,15 @@
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Equipos__user_id__2645B050" Association="Self.FK__Equipos__user_id__2645B050">
-            <End Role="Usuarios" EntitySet="Usuarios" />
+          <AssociationSet Name="FK__Equipos__emp_id__47A6A41B" Association="Self.FK__Equipos__emp_id__47A6A41B">
+            <End Role="Empleados" EntitySet="Empleados" />
             <End Role="Equipos" EntitySet="Equipos" />
           </AssociationSet>
           <AssociationSet Name="FK__FichaComp__emp_i__3C34F16F" Association="Self.FK__FichaComp__emp_i__3C34F16F">
             <End Role="Empleados" EntitySet="Empleados" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__FichaComp__equi___3D2915A8" Association="Self.FK__FichaComp__equi___3D2915A8">
+          <AssociationSet Name="FK__FichaComp__equi___46B27FE2" Association="Self.FK__FichaComp__equi___46B27FE2">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
@@ -217,7 +217,7 @@
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reparacio__equi___30C33EC3" Association="Self.FK__Reparacio__equi___30C33EC3">
+          <AssociationSet Name="FK__Reparacio__equi___45BE5BA9" Association="Self.FK__Reparacio__equi___45BE5BA9">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
@@ -235,19 +235,19 @@
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
           <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
+          <AssociationSet Name="FK__Equipos__emp_id__47A6A41B" Association="EquiposInvModel.FK__Equipos__emp_id__47A6A41B">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
           <AssociationSet Name="FK__FichaComp__emp_i__3C34F16F" Association="EquiposInvModel.FK__FichaComp__emp_i__3C34F16F">
             <End Role="Empleados" EntitySet="Empleados" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Equipos__user_id__2645B050" Association="EquiposInvModel.FK__Equipos__user_id__2645B050">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Equipos" EntitySet="Equipos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FichaComp__equi___3D2915A8" Association="EquiposInvModel.FK__FichaComp__equi___3D2915A8">
+          <AssociationSet Name="FK__FichaComp__equi___46B27FE2" Association="EquiposInvModel.FK__FichaComp__equi___46B27FE2">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reparacio__equi___30C33EC3" Association="EquiposInvModel.FK__Reparacio__equi___30C33EC3">
+          <AssociationSet Name="FK__Reparacio__equi___45BE5BA9" Association="EquiposInvModel.FK__Reparacio__equi___45BE5BA9">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
@@ -277,6 +277,7 @@
           <Property Name="emp_compania" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="emp_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="emp_numemp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__emp_id__47A6A41B" FromRole="Empleados" ToRole="Equipos" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__emp_i__3C34F16F" FromRole="Empleados" ToRole="FichaComputo" />
         </EntityType>
         <EntityType Name="Equipos">
@@ -297,17 +298,17 @@
           <Property Name="equi_ghz" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="equi_modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="user_id" Type="Int32" />
+          <Property Name="emp_id" Type="Int32" />
           <Property Name="equi_politica" Type="Boolean" />
           <Property Name="equi_ordencompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="equi_precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="equi_precio" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="equi_empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="equi_proyecto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="equi_dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuarios" Relationship="EquiposInvModel.FK__Equipos__user_id__2645B050" FromRole="Equipos" ToRole="Usuarios" />
-          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___3D2915A8" FromRole="Equipos" ToRole="FichaComputo" />
-          <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___30C33EC3" FromRole="Equipos" ToRole="Reparaciones" />
+          <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__Equipos__emp_id__47A6A41B" FromRole="Equipos" ToRole="Empleados" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___46B27FE2" FromRole="Equipos" ToRole="FichaComputo" />
+          <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___45BE5BA9" FromRole="Equipos" ToRole="Reparaciones" />
         </EntityType>
         <EntityType Name="FichaComputo">
           <Key>
@@ -330,7 +331,7 @@
           <Property Name="equi_disco" Type="Int32" />
           <Property Name="ficha_sysope" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__FichaComp__emp_i__3C34F16F" FromRole="FichaComputo" ToRole="Empleados" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___3D2915A8" FromRole="FichaComputo" ToRole="Equipos" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___46B27FE2" FromRole="FichaComputo" ToRole="Equipos" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__3E1D39E1" FromRole="FichaComputo" ToRole="ListaPerifericos" />
         </EntityType>
         <EntityType Name="ListaPerifericos">
@@ -368,7 +369,7 @@
           <Property Name="repa_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="repa_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="repa_fecha" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___30C33EC3" FromRole="Reparaciones" ToRole="Equipos" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___45BE5BA9" FromRole="Reparaciones" ToRole="Equipos" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -381,8 +382,19 @@
           <Property Name="user_contrasenia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_escritura" Type="Boolean" Nullable="false" />
           <Property Name="user_lectura" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Equipos__user_id__2645B050" FromRole="Usuarios" ToRole="Equipos" />
         </EntityType>
+        <Association Name="FK__Equipos__emp_id__47A6A41B">
+          <End Type="EquiposInvModel.Empleados" Role="Empleados" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__FichaComp__emp_i__3C34F16F">
           <End Type="EquiposInvModel.Empleados" Role="Empleados" Multiplicity="0..1" />
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="*" />
@@ -395,19 +407,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Equipos__user_id__2645B050">
-          <End Type="EquiposInvModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
-          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Equipos">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FichaComp__equi___3D2915A8">
+        <Association Name="FK__FichaComp__equi___46B27FE2">
           <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="0..1" />
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -419,7 +419,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reparacio__equi___30C33EC3">
+        <Association Name="FK__Reparacio__equi___45BE5BA9">
           <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="0..1" />
           <End Type="EquiposInvModel.Reparaciones" Role="Reparaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -493,7 +493,7 @@
                 <ScalarProperty Name="equi_precio" ColumnName="equi_precio" />
                 <ScalarProperty Name="equi_ordencompra" ColumnName="equi_ordencompra" />
                 <ScalarProperty Name="equi_politica" ColumnName="equi_politica" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
                 <ScalarProperty Name="equi_status" ColumnName="equi_status" />
                 <ScalarProperty Name="equi_modelo" ColumnName="equi_modelo" />
                 <ScalarProperty Name="equi_ghz" ColumnName="equi_ghz" />

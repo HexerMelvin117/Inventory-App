@@ -14,12 +14,6 @@ namespace EquiposInvWM
     
     public partial class Usuarios
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
-        {
-            this.Equipos = new HashSet<Equipos>();
-        }
-    
         public int user_id { get; set; }
         public string user_nom { get; set; }
         public string user_ape { get; set; }
@@ -27,8 +21,5 @@ namespace EquiposInvWM
         public string user_contrasenia { get; set; }
         public bool user_escritura { get; set; }
         public bool user_lectura { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Equipos> Equipos { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace EquiposInvWM
         public Nullable<decimal> equi_ghz { get; set; }
         public string equi_modelo { get; set; }
         public string equi_status { get; set; }
-        public Nullable<int> user_id { get; set; }
+        public Nullable<int> emp_id { get; set; }
         public Nullable<bool> equi_politica { get; set; }
         public string equi_ordencompra { get; set; }
         public Nullable<decimal> equi_precio { get; set; }
@@ -44,7 +44,7 @@ namespace EquiposInvWM
         public string equi_dpto { get; set; }
         public string equi_observacion { get; set; }
     
-        public virtual Usuarios Usuarios { get; set; }
+        public virtual Empleados Empleados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FichaComputo> FichaComputo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
