@@ -34,11 +34,11 @@
             </div>
             <div class="col-md-2">
                 <h5>Fecha: </h5>
-                <input type="text" id="datepicker" class="form-control" />
+                <asp:TextBox ID ="txtDate" class="form-control" runat="server"></asp:TextBox>
                 <!-- Para formato de fecha y funcionalidad -->
                 <script type="text/javascript">
                     var foopicker = new FooPicker({
-                        id: 'datepicker',
+                        id: 'MainContent_txtDate',
                         dateFormat: 'dd/MM/yyyy',
                         disable: ['29/07/2017', '30/07/2017', '31/07/2017', '01/08/2017']
                     });

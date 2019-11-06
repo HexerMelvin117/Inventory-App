@@ -212,9 +212,12 @@ namespace EquiposInvWM
             return randomNumber.Next(0, 5000);
         }
 
-
+        // Para crear la ficha
         protected void CrearFicha()
         {
+            string fecha;
+            fecha = txtDate.Text;
+
             // Variables para informacion de equipo
             string marca, codEqui, serie, procesador, sysope;
             decimal ghz;
@@ -245,9 +248,10 @@ namespace EquiposInvWM
                 {
                     ficha_id = randomId(),
                     ficha_dpto = departamento,
+                    ficha_fecha = DateTime.Parse(fecha),
                     ficha_emp = firstName,
                     emp_nom = fullName,
-                    emp_id = randomId(),
+                    emp_id = null,
                     emp_cod = codemp,
                     ficha_pyto = project,
                     ficha_sysope = sysope,
@@ -257,11 +261,17 @@ namespace EquiposInvWM
                     equi_marca = marca,
                     equi_serie = serie,
                     equi_procesador = procesador,
-                    equi_id = randomId()
+                    equi_id = null
                 };
                 ctx.FichaComputo.Add(ficha);
                 ctx.SaveChanges();
             }
+
+        }
+
+        // Para agregar lista de perifericos a la BD
+        protected void FichaPerifericosAgregar()
+        {
 
         }
 
@@ -344,6 +354,7 @@ namespace EquiposInvWM
         protected void btCrearFicha_Click(object sender, EventArgs e)
         {
             CrearFicha();
+            FichaPerifericosAgregar();
             emptyFields();
         }
     }

@@ -145,6 +145,10 @@
             </h5>
             <asp:TextBox ID="txtBuyOrder" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
+        <div class="col-md-2">
+            <h5>Precio: </h5>
+            <asp:TextBox ID="txtPriceTag" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
     </div>
     <br />
     <div class="row">

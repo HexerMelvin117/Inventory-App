@@ -17,6 +17,7 @@ namespace EquiposInvWM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleados()
         {
+            this.Equipos = new HashSet<Equipos>();
             this.FichaComputo = new HashSet<FichaComputo>();
         }
     
@@ -27,6 +28,8 @@ namespace EquiposInvWM
         public string emp_correo { get; set; }
         public string emp_numemp { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Equipos> Equipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FichaComputo> FichaComputo { get; set; }
     }

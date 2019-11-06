@@ -15,17 +15,19 @@ namespace EquiposInvWM
             
         }
 
-        protected void identificarEquipo()
+        public int identificarEquipo(string prefijo)
         {
-            string prefEqui = "DCLPT";
-
+            int cod;
             using(var ctx = new EquiposInvModelContainer())
             {
                 var query = (from m in ctx.Equipos
                              orderby m.equi_id descending
-                             where m.equi_prefijo == prefEqui
+                             where m.equi_prefijo == prefijo
                              select m).ToList();
 
+                int amountToAssign = query.Count();
+                cod = amountToAssign + 1;
+                return cod;
             }
         }
 
@@ -91,7 +93,6 @@ namespace EquiposInvWM
             string marca;
             string prefijo = "";
             int cod;
-            cod = 0;
 
             if (cmbCompaniaEqui.SelectedItem.Text == "William y Molina")
             {
@@ -135,6 +136,8 @@ namespace EquiposInvWM
                     prefijo = prefijo + "CM";
                 }
             }
+
+            cod = identificarEquipo(prefijo);
 
             addRegistry(marca, tipo, prefijo, cod);
             emptyFields();
