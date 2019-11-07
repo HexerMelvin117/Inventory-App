@@ -15,13 +15,6 @@
     <p>
         <a class="btn btn-default" href="AgregarEquipo.aspx">Agregar Equipo &raquo;</a>
     </p>
-    <!--<div class="row">
-        <div class="col-sm-12 col-md-6">
-            <label>Buscar: </label>
-            <input id="myInput" onkeyup="search_table()" class="form-control form-control-sm" placeholder />
-        </div>
-    </div>
-     -->
     <br />
      
     <div class="row">
@@ -232,11 +225,30 @@
     </script>
     <br />
     <div class="row">
-        <div class="col-md-1">
-            <asp:Button ID="btModify" class="btn btn-primary" runat="server" Text="Modificar" />
+              <div class="col-md-2">
+                  <asp:Button ID="btModify" class="btn btn-primary" runat="server" Text="Modificar" />
+              </div>
+              <div class="col-md-2">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">Eliminar</button>
+              </div>
+          </div>
+        <!-- Modal Para confirmar subida a base de datos -->
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>¿Esta seguro que quiere eliminar este registro del sistema?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btEliminar_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1">
-            <asp:Button ID="btEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btEliminar_Click" />
-        </div>
-    </div>
 </asp:Content>

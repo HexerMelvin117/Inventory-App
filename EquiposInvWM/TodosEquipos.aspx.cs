@@ -17,6 +17,7 @@ namespace EquiposInvWM
             fillGrid();
         }
 
+        // Para generar archivo de excel con todos los equipos en la base de datos
         protected void Reports(string ReportType)
         {
             using(var ctx = new EquiposInvModelContainer())
@@ -170,11 +171,12 @@ namespace EquiposInvWM
 
         protected void btEliminar_Click(object sender, EventArgs e)
         {
-            string queId = txtEquipoID.Text;
+            int queId = int.Parse(txtEquipoID.Text);
+
             using (var ctx = new EquiposInvModelContainer())
             {
                 ctx.Equipos
-                    .Where(u => u.equi_id == int.Parse(queId))
+                    .Where(u => u.equi_id == queId)
                     .ToList()
                     .ForEach(u => ctx.Equipos.Remove(u));
 

@@ -27,7 +27,6 @@ namespace EquiposInvWM
         public string equi_marca { get; set; }
         public string equi_tipo { get; set; }
         public string equi_proveedor { get; set; }
-        public Nullable<bool> equi_garantia { get; set; }
         public string equi_serie { get; set; }
         public Nullable<int> equi_disco { get; set; }
         public string equi_procesador { get; set; }
@@ -43,6 +42,7 @@ namespace EquiposInvWM
         public string equi_proyecto { get; set; }
         public string equi_dpto { get; set; }
         public string equi_observacion { get; set; }
+        public Nullable<System.DateTime> equi_garantia { get; set; }
     
         public virtual Empleados Empleados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
