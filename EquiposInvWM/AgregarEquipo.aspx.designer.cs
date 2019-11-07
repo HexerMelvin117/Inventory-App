@@ -42,6 +42,33 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.DropDownList cmbTipoCompu;
 
         /// <summary>
+        /// txtPrefijoEqui control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrefijoEqui;
+
+        /// <summary>
+        /// chboxCodEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chboxCodEquipo;
+
+        /// <summary>
+        /// txtCodEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodEquipo;
+
+        /// <summary>
         /// cmbMarca control.
         /// </summary>
         /// <remarks>
@@ -139,6 +166,15 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPriceTag;
+
+        /// <summary>
+        /// txtGarantiaFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGarantiaFecha;
 
         /// <summary>
         /// txtAreaObservacionEqui control.

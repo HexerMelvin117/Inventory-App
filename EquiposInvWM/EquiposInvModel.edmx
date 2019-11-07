@@ -33,7 +33,6 @@
           <Property Name="equi_marca" Type="varchar" MaxLength="50" />
           <Property Name="equi_tipo" Type="varchar" MaxLength="20" />
           <Property Name="equi_proveedor" Type="varchar" MaxLength="50" />
-          <Property Name="equi_garantia" Type="bit" />
           <Property Name="equi_serie" Type="varchar" MaxLength="50" />
           <Property Name="equi_disco" Type="int" />
           <Property Name="equi_procesador" Type="varchar" MaxLength="20" />
@@ -49,6 +48,7 @@
           <Property Name="equi_proyecto" Type="varchar" MaxLength="30" />
           <Property Name="equi_dpto" Type="varchar" MaxLength="50" />
           <Property Name="equi_observacion" Type="varchar" MaxLength="50" />
+          <Property Name="equi_garantia" Type="date" />
         </EntityType>
         <EntityType Name="FichaComputo">
           <Key>
@@ -290,7 +290,6 @@
           <Property Name="equi_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="equi_garantia" Type="Boolean" />
           <Property Name="equi_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_disco" Type="Int32" />
           <Property Name="equi_procesador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -306,6 +305,7 @@
           <Property Name="equi_proyecto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="equi_dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equi_garantia" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__Equipos__emp_id__47A6A41B" FromRole="Equipos" ToRole="Empleados" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___46B27FE2" FromRole="Equipos" ToRole="FichaComputo" />
           <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___45BE5BA9" FromRole="Equipos" ToRole="Reparaciones" />
@@ -486,6 +486,7 @@
           <EntitySetMapping Name="Equipos">
             <EntityTypeMapping TypeName="EquiposInvModel.Equipos">
               <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="equi_garantia" ColumnName="equi_garantia" />
                 <ScalarProperty Name="equi_observacion" ColumnName="equi_observacion" />
                 <ScalarProperty Name="equi_dpto" ColumnName="equi_dpto" />
                 <ScalarProperty Name="equi_proyecto" ColumnName="equi_proyecto" />
@@ -501,7 +502,6 @@
                 <ScalarProperty Name="equi_procesador" ColumnName="equi_procesador" />
                 <ScalarProperty Name="equi_disco" ColumnName="equi_disco" />
                 <ScalarProperty Name="equi_serie" ColumnName="equi_serie" />
-                <ScalarProperty Name="equi_garantia" ColumnName="equi_garantia" />
                 <ScalarProperty Name="equi_proveedor" ColumnName="equi_proveedor" />
                 <ScalarProperty Name="equi_tipo" ColumnName="equi_tipo" />
                 <ScalarProperty Name="equi_marca" ColumnName="equi_marca" />

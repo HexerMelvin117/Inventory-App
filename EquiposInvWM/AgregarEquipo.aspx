@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarEquipo.aspx.cs" Inherits="EquiposInvWM.AgregarEquipo" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <link rel="stylesheet" href="Content/foopicker.css" />
+    <script type="text/javascript" src="Scripts/foopicker.js"></script>
     <br />
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -65,6 +67,18 @@
             </asp:DropDownList>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h5>Prefijo: </h5>
+            <asp:TextBox ID="txtPrefijoEqui" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:CheckBox ID="chboxCodEquipo" runat="server" CssClass="form-check-input" Text="Generar Codigo Automaticamente" onclick="document.getElementById('MainContent_txtCodEquipo').disabled=this.checked;
+                document.getElementById('MainContent_txtPrefijoEqui').disabled=this.checked;"/>
+        </div>
+        <div class="col-md-2">
+            <h5>Codigo: </h5>
+            <asp:TextBox ID="txtCodEquipo" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
     <br />
     <!-- Informacion de marca, modelo y serie -->
     <h3>Informacion de marca, modelo y serie</h3>
@@ -120,15 +134,15 @@
         </div>
         <div class="col-md-2">
             <h5>ghz: </h5>
-            <asp:TextBox ID="txtGHZ"  CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGHZ"  CssClass="form-control" placeholder="0.0" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Ram: </h5>
-            <asp:TextBox ID="txtRAM"  CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtRAM"  CssClass="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Disco(gb): </h5>
-            <asp:TextBox ID="txtDiskSpace"  CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDiskSpace"  CssClass="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
     </div>
     <br />
@@ -137,31 +151,72 @@
     <div class="row">
         <div class="col-md-2">
             <h5>Proveedor: </h5>
-            <asp:TextBox ID="txtProvider" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtProvider" CssClass="form-control" placeholder="Proveedor" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Orden de Compra: 
-                
             </h5>
             <asp:TextBox ID="txtBuyOrder" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
             <h5>Precio: </h5>
-            <asp:TextBox ID="txtPriceTag" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPriceTag" CssClass="form-control" placeholder="0.00" runat="server"></asp:TextBox>
+        </div>
+        <div class="col-md-2">
+            <h5>Garantia: </h5>
+            <asp:TextBox ID="txtGarantiaFecha" CssClass="form-control" placeholder="Fecha" runat="server"></asp:TextBox>
+            <script type="text/javascript">
+                var foopicker = new FooPicker({
+                    id: 'MainContent_txtGarantiaFecha',
+                    dateFormat: 'dd/MM/yyyy',
+                    disable: ['29/07/2017', '30/07/2017', '31/07/2017', '01/08/2017']
+                });
+            </script>
+            <div id="foopicker-datepicker" style="position: fixed; top: 58px; left: 8px; z-index: 99999;"></div>
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-md-6">
             <h5>Observacion: </h5>
-            <asp:TextBox ID="txtAreaObservacionEqui" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+            <asp:TextBox ID="txtAreaObservacionEqui" TextMode="MultiLine" placeholder="Observacion del equipo..." CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-md-2">
-            <asp:Button ID="btSubmit" class="btn btn-primary" runat="server" Text="Subir a Sistema" OnClick="btSubmit_Click" />
+            <asp:Button ID="btSubmit" class="btn btn-primary" runat="server" Text="Subir a Sistema" OnClientClick="return validateFields();" OnClick="btSubmit_Click" />
         </div>
     </div>
+    <script>
+        function validateFields() {
+            var ghz, disco, ram, garantia, precio;
+            ram = document.getElementById("MainContent_txtRAM").value;
+            disco = document.getElementById("MainContent_txtDiskSpace").value;
+            ghz = document.getElementById("MainContent_txtGHZ").value;
+            garantia = document.getElementById("MainContent_txtGarantiaFecha").value;
+            precio = document.getElementById("MainContent_txtPriceTag").value;
 
+            if (ghz == '') {
+                alert("porfavor introducir valor de ghz");
+                return false;
+            }
+            if (disco == '') {
+                alert("porfavor introducir valor de disco");
+                return false;
+            }
+            if (garantia == '') {
+                alert("porfavor introducir fecha de vencimiento de garantia");
+                return false;
+            }
+            if (ram == '') {
+                alert("porfavor introducir cantidad de RAM");
+                return false;
+            }
+            if (precio == '') {
+                alert("porfavor introducir precio");
+                return false;
+            }
+        }
+    </script>
 </asp:Content>
