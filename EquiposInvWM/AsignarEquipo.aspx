@@ -382,7 +382,6 @@
                           <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" OnClick="btSelectPeriph_Click" />
                       </ContentTemplate>
                   </asp:UpdatePanel>
-                  
               </div>
           </div>
 

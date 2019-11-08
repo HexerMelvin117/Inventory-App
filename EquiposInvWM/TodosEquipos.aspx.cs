@@ -74,6 +74,54 @@ namespace EquiposInvWM
 
         }
 
+        // Para modificar registro en la BD
+        protected void ModifyRow()
+        {
+            string empleado, empresa, marca, tipo, processor, ordenCompra;
+            marca = cmbMarca.SelectedItem.Text;
+            empleado = txtEmpleado.Text;
+            empresa = cmbEmpresaCod.SelectedItem.Text;
+            tipo = cmbTipo.SelectedItem.Text;
+            processor = cmbProcessor.SelectedItem.Text;
+            ordenCompra = txtOrdenCompra.Text;
+
+            decimal ghz = decimal.Parse(txtGhz.Text);
+
+            int ram = int.Parse(txtRam.Text);
+            int disk = int.Parse(txtDisk.Text);
+            int id = int.Parse(txtEquipoID.Text);
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                try
+                {
+                    var result = ctx.Equipos.SingleOrDefault(m => m.equi_id == id);
+                    if (result != null)
+                    {
+                        result.equi_tipo = tipo;
+                        result.equi_disco = disk;
+                        result.emp_nom = empleado;
+                        result.equi_empresa = empresa;
+                        result.equi_marca = marca;
+                        result.equi_procesador = processor;
+                        result.equi_ordencompra = ordenCompra;
+                        result.equi_ghz = ghz;
+                        result.equi_ram = ram;
+                        
+
+                        ctx.Equipos.Add(result);
+                        ctx.Equipos.Attach(result);
+                        ctx.Entry(result).State = System.Data.Entity.EntityState.Modified;
+                        ctx.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+                
+            }
+        }
+
         protected void fillGrid()
         {
             // Llenar GridView de equipos almacenados en la base de datos.
@@ -85,6 +133,7 @@ namespace EquiposInvWM
                              {
                                  Id = m.equi_id,
                                  Codigo = (m.equi_prefijo + m.equi_cod),
+                                 Usuario_Asignado = m.emp_nom,
                                  Tipo = m.equi_tipo,
                                  Marca = m.equi_marca,
                                  Procesador = m.equi_procesador,
@@ -137,8 +186,8 @@ namespace EquiposInvWM
 
         protected void btMostrar_Click(object sender, EventArgs e)
         {
-            string searched = txtBuscar.Text;
-            individualSearch(searched);
+            
+           
         }
 
         protected void EquiposGrid_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -154,7 +203,7 @@ namespace EquiposInvWM
 
         protected void btBuscarID_Click(object sender, EventArgs e)
         {
-            idSearch(txtIDEqui.Text);
+            
         }
 
         protected void EquiposGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -171,7 +220,7 @@ namespace EquiposInvWM
 
         protected void btEliminar_Click(object sender, EventArgs e)
         {
-            int queId = int.Parse(txtEquipoID.Text);
+            int queId = int.Parse(txtEliminarID.Text);
 
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -224,5 +273,10 @@ namespace EquiposInvWM
         }
 
         public override void VerifyRenderingInServerForm(Control control) { }
+
+        protected void btModify_Click(object sender, EventArgs e)
+        {
+            ModifyRow();
+        }
     }
 }

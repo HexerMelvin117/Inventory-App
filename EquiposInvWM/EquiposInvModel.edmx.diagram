@@ -7,7 +7,7 @@
       <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="68" >
         <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="7.75" PointY="2.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="4" />
         <EntityTypeShape EntityType="EquiposInvModel.FichaComputo" Width="1.5" PointX="5.25" PointY="4.75" />
         <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericos" Width="1.5" PointX="7.5" PointY="5.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="5.25" PointY="0.75" />

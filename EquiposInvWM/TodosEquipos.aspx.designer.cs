@@ -42,60 +42,6 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.Button btMostrarTodo;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// txtBuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
-
-        /// <summary>
-        /// btMostrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btMostrar;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// txtIDEqui control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIDEqui;
-
-        /// <summary>
-        /// btBuscarID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btBuscarID;
-
-        /// <summary>
         /// txtEquipoID control.
         /// </summary>
         /// <remarks>
@@ -103,6 +49,15 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEquipoID;
+
+        /// <summary>
+        /// txtEmpleado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmpleado;
 
         /// <summary>
         /// cmbTipo control.
@@ -132,6 +87,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.DropDownList cmbProcessor;
 
         /// <summary>
+        /// cmbEmpresaCod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbEmpresaCod;
+
+        /// <summary>
         /// txtOrdenCompra control.
         /// </summary>
         /// <remarks>
@@ -159,6 +123,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtDisk;
 
         /// <summary>
+        /// txtModCodEqui control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtModCodEqui;
+
+        /// <summary>
         /// txtRam control.
         /// </summary>
         /// <remarks>
@@ -184,6 +157,24 @@ namespace EquiposInvWM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btModify;
+
+        /// <summary>
+        /// txtEliminarID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEliminarID;
+
+        /// <summary>
+        /// txtCodEliminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodEliminar;
 
         /// <summary>
         /// btEliminar control.

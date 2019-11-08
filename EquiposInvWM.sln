@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiposInvWM", "EquiposInvWM\EquiposInvWM.csproj", "{1181DF23-2C67-43FC-B714-6875FF9FD0CD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C05CBB7-DD9C-412E-A15E-17E678BA13EA}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\ControlEqui\Grant.sql = ..\..\ControlEqui\Grant.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -81,7 +81,6 @@ namespace EquiposInvWM
                 ctx.Equipos.Add(equ);
                 ctx.SaveChanges();
             }
-
         }
 
         protected void emptyFields()
