@@ -49,6 +49,7 @@
           <Property Name="equi_dpto" Type="varchar" MaxLength="50" />
           <Property Name="equi_observacion" Type="varchar" MaxLength="50" />
           <Property Name="equi_garantia" Type="date" />
+          <Property Name="emp_nom" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="FichaComputo">
           <Key>
@@ -306,6 +307,7 @@
           <Property Name="equi_dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_garantia" Type="DateTime" Precision="0" />
+          <Property Name="emp_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__Equipos__emp_id__47A6A41B" FromRole="Equipos" ToRole="Empleados" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___46B27FE2" FromRole="Equipos" ToRole="FichaComputo" />
           <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___45BE5BA9" FromRole="Equipos" ToRole="Reparaciones" />
@@ -486,6 +488,7 @@
           <EntitySetMapping Name="Equipos">
             <EntityTypeMapping TypeName="EquiposInvModel.Equipos">
               <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="emp_nom" ColumnName="emp_nom" />
                 <ScalarProperty Name="equi_garantia" ColumnName="equi_garantia" />
                 <ScalarProperty Name="equi_observacion" ColumnName="equi_observacion" />
                 <ScalarProperty Name="equi_dpto" ColumnName="equi_dpto" />

@@ -26,6 +26,7 @@
             <asp:Button ID="btExportarExcel" runat="server" OnClick="btExportarExcel_Click" CssClass="btn btn-success" Text="Exportar a Excel" />
         </div>
     </div>
+    <br />
     <!-- Script para cambiar lenguaje al API de DataTable -->
 
     <script type="text/javascript">
@@ -90,148 +91,176 @@
         }
     </script>
     <script type="text/javascript" src="Scripts/filteringHeaders.js"></script>
-    <p>
-        &nbsp;</p>
-    <p>
-        <asp:Button ID="btMostrarTodo" runat="server" OnClick="btMostrarTodo_Click" Text="Refrescar" class="btn btn-primary" />
-    </p>
-    <p>
-        &nbsp;</p>
-   
-    <!-- Individual search section -->
-    <div class="row">
-        <div class="col-md-4">
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label1" runat="server" Text="Marca:"></asp:Label>
-            </p>
-            <p>
-                <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
-            </p>
+        <div class="row">
+            <div class="col-md-2">
+                <asp:Button ID="btMostrarTodo" runat="server" OnClick="btMostrarTodo_Click" Text="Refrescar" class="btn btn-primary" />
+            </div>
+        </div>
         
-            <p>
-                <asp:Button ID="btMostrar" runat="server" OnClick="btMostrar_Click" Text="Buscar" class="btn btn-default" />
-            </p>
-            <p>
-                &nbsp;</p>
-        </div>
-        <div class="col-md-4">
-            <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server" Text="ID:"></asp:Label> 
-            </p>
-            <p>
-                <asp:TextBox ID="txtIDEqui" runat="server"></asp:TextBox> 
-            </p>
-            <p>
-                <asp:Button ID="btBuscarID" runat="server" OnClick="btBuscarID_Click" Text="Buscar" class="btn btn-default" />
-            </p>
-        </div>
-    </div>
-    <!-- Seccion para modificar y eliminar registros -->
-    <h3>Modificar o Eliminar:</h3>
-    <div class="row">
-        <div class="col-md-2">
-            <h5>ID:</h5>
-            <asp:TextBox ID="txtEquipoID" runat="server"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-            <h5>Tipo:</h5>
-            <asp:DropDownList ID="cmbTipo" CssClass="form-control" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
-                <asp:ListItem>-- Vacio --</asp:ListItem>
-                <asp:ListItem>Escritorio</asp:ListItem>
-                <asp:ListItem>Laptop</asp:ListItem>
-                <asp:ListItem>Impresora</asp:ListItem>
-                <asp:ListItem>Reloj Biometrico</asp:ListItem>
-                <asp:ListItem>Camara</asp:ListItem>
-            </asp:DropDownList>
-        </div>
-        <div class="col-md-2">
-            <h5>Marca:</h5>
-            <asp:DropDownList ID="cmbMarca" CssClass="form-control" runat="server" Enabled="True">
-                <asp:ListItem>-- Vacio --</asp:ListItem>
-                <asp:ListItem>ASUS</asp:ListItem>
-                <asp:ListItem>DELL</asp:ListItem>
-                <asp:ListItem>HP</asp:ListItem>
-                <asp:ListItem>Alienware</asp:ListItem>
-                <asp:ListItem>Lenovo</asp:ListItem>
-                <asp:ListItem>Toshiba</asp:ListItem>
-                <asp:ListItem>HIKVISION</asp:ListItem>
-                <asp:ListItem>KYOCERA</asp:ListItem>
-                <asp:ListItem>EPSON</asp:ListItem>
-                <asp:ListItem>TOSHIBA</asp:ListItem>
-                <asp:ListItem>HP</asp:ListItem>
-            </asp:DropDownList>
-        </div>
-        <div class="col-md-2">
-            <h5>Procesador: </h5>
-            <asp:DropDownList ID="cmbProcessor" CssClass="form-control" runat="server">
-                <asp:ListItem>-- Seleccionar --</asp:ListItem>
-                <asp:ListItem>N/A</asp:ListItem>
-                <asp:ListItem>INTEL i3</asp:ListItem>
-                <asp:ListItem>INTEL i5</asp:ListItem>
-                <asp:ListItem>INTEL i7</asp:ListItem>
-            </asp:DropDownList>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-            <h5>Orden de Compra:</h5>
-            <asp:TextBox ID="txtOrdenCompra" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
-        <div class="col-md-2">
-            <h5>Serie:</h5>
-            <asp:TextBox ID="txtSerie" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
-        <div class="col-md-2">
-            <h5>Disco:</h5>
-            <asp:TextBox ID="txtDisk" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-            <h5>Ram:</h5>
-            <asp:TextBox ID="txtRam" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
-        <div class="col-md-2">
-            <h5>ghz:</h5>
-            <asp:TextBox ID="txtGhz" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
-    </div>
-    <script>
-        var table = document.getElementsByTagName("table")[0];
-        var tbody = table.getElementsByTagName("tbody")[0];
-        tbody.onclick = function (e) {
-            e = e || window.event;
-            var data = [];
-            var target = e.srcElement || e.target;
-            while (target && target.nodeName !== "TR") {
-                target = target.parentNode;
-            }
-            if (target) {
-                var cells = target.getElementsByTagName("td");
-                for (var i = 0; i < cells.length; i++) {
-                    data.push(cells[i].innerHTML);
-                }
-            }
-            document.getElementById('MainContent_txtEquipoID').value = data[0];
-            document.getElementById('MainContent_txtSerie').value = data[5]; 
-            document.getElementById('MainContent_txtDisk').value = data[6];
-            document.getElementById('MainContent_txtRam').value = data[8];
-            document.getElementById('MainContent_txtGhz').value = data[9];
-        };
-    </script>
-    <br />
-    <div class="row">
-              <div class="col-md-2">
-                  <asp:Button ID="btModify" class="btn btn-primary" runat="server" Text="Modificar" />
+    
+        <br />
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#modify">Modificar</a></li>
+            <li><a data-toggle="tab" href="#delete">Eliminar</a></li>
+        </ul>
+
+        <!-- Para Modificar y Eliminar -->
+        <div class="tab-content">
+            <div id="modify" class="tab-pane fade in active">
+              <h3>Modificar</h3>
+              <div class="row">
+                <div class="col-md-2">
+                    <h5>ID Interno:</h5>
+                    <asp:TextBox ID="txtEquipoID" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Usuario Asignado:</h5>
+                    <asp:TextBox ID="txtEmpleado" placeholder="Nombre" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Tipo:</h5>
+                    <asp:DropDownList ID="cmbTipo" CssClass="form-control" runat="server" OnSelectedIndexChanged="cmbTipo_SelectedIndexChanged">
+                        <asp:ListItem>-- Vacio --</asp:ListItem>
+                        <asp:ListItem>Escritorio</asp:ListItem>
+                        <asp:ListItem>Laptop</asp:ListItem>
+                        <asp:ListItem>Impresora</asp:ListItem>
+                        <asp:ListItem>Reloj Biometrico</asp:ListItem>
+                        <asp:ListItem>Camara</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                
+                <div class="col-md-2">
+                    <h5>Marca:</h5>
+                    <asp:DropDownList ID="cmbMarca" CssClass="form-control" runat="server" Enabled="True">
+                        <asp:ListItem>-- Vacio --</asp:ListItem>
+                        <asp:ListItem>ASUS</asp:ListItem>
+                        <asp:ListItem>DELL</asp:ListItem>
+                        <asp:ListItem>HP</asp:ListItem>
+                        <asp:ListItem>Alienware</asp:ListItem>
+                        <asp:ListItem>Lenovo</asp:ListItem>
+                        <asp:ListItem>Toshiba</asp:ListItem>
+                        <asp:ListItem>HIKVISION</asp:ListItem>
+                        <asp:ListItem>KYOCERA</asp:ListItem>
+                        <asp:ListItem>EPSON</asp:ListItem>
+                        <asp:ListItem>TOSHIBA</asp:ListItem>
+                        <asp:ListItem>HP</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-md-2">
+                    <h5>Procesador: </h5>
+                    <asp:DropDownList ID="cmbProcessor" CssClass="form-control" runat="server">
+                        <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                        <asp:ListItem>N/A</asp:ListItem>
+                        <asp:ListItem>INTEL i3</asp:ListItem>
+                        <asp:ListItem>INTEL i5</asp:ListItem>
+                        <asp:ListItem>INTEL i7</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h5>Empresa</h5>
+                    <asp:DropDownList ID="cmbEmpresaCod" CssClass="form-control" runat="server">
+                        <asp:ListItem>WM</asp:ListItem>
+                        <asp:ListItem>DC</asp:ListItem>
+                        <asp:ListItem>S21</asp:ListItem>
+                        <asp:ListItem>DCS</asp:ListItem>
+                        <asp:ListItem>PLT</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-md-2">
+                    <h5>Orden de Compra:</h5>
+                    <asp:TextBox ID="txtOrdenCompra" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Serie:</h5>
+                    <asp:TextBox ID="txtSerie" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Disco:</h5>
+                    <asp:TextBox ID="txtDisk" placeholder="0 gb" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h5>Codigo de Equipo:</h5>
+                    <asp:TextBox ID="txtModCodEqui" runat="server" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Ram:</h5>
+                    <asp:TextBox ID="txtRam" placeholder="0" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>ghz:</h5>
+                    <asp:TextBox ID="txtGhz" placeholder="0" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                  <asp:Button ID="btModify" class="btn btn-primary" OnClick="btModify_Click" runat="server" Text="Modificar" />
+                </div>
+            </div>
+            <script>
+                var table = document.getElementsByTagName("table")[0];
+                var tbody = table.getElementsByTagName("tbody")[0];
+                tbody.onclick = function (e) {
+                    e = e || window.event;
+                    var data = [];
+                    var target = e.srcElement || e.target;
+                    while (target && target.nodeName !== "TR") {
+                        target = target.parentNode;
+                    }
+                    if (target) {
+                        var cells = target.getElementsByTagName("td");
+                        for (var i = 0; i < cells.length; i++) {
+                            data.push(cells[i].innerHTML);
+                        }
+                    }
+                    document.getElementById('MainContent_txtEliminarID').value = data[0];
+                    document.getElementById('MainContent_txtCodEliminar').value = data[1];
+                    document.getElementById('MainContent_txtEquipoID').value = data[0];
+                    document.getElementById('MainContent_txtEmpleado').value = data[2];
+                    if (data[2] == "&nbsp;") {
+                        document.getElementById('MainContent_txtEmpleado').value = "";
+                    }
+                    document.getElementById('MainContent_txtSerie').value = data[9];
+                    if (data[9] == "&nbsp;") {
+                        document.getElementById('MainContent_txtSerie').value = ""
+                    }
+                    document.getElementById('MainContent_txtDisk').value = data[8];
+                    document.getElementById('MainContent_txtRam').value = data[7];
+                    document.getElementById('MainContent_txtGhz').value = data[6];
+                    document.getElementById('MainContent_txtModCodEqui').value = data[1];
+                    document.getElementById('MainContent_txtOrdenCompra').value = data[12];
+                    if (data[12] == "&nbsp;") {
+                        document.getElementById('MainContent_txtOrdenCompra').value = "";
+                    }
+                };
+            </script>
+            </div>
+            <div id="delete" class="tab-pane fade">
+              <h3>Eliminar</h3>
+              <div class="row">
+                  <div class="col-md-2">
+                      <h5>ID Interno: </h5>
+                      <asp:TextBox ID="txtEliminarID" runat="server" CssClass="form-control"></asp:TextBox>
+                  </div>
+                  <div class="col-md-2">
+                      <h5>Codigo de Equipo: </h5>
+                      <asp:TextBox ID="txtCodEliminar" runat="server" CssClass="form-control"></asp:TextBox>
+                  </div>
               </div>
-              <div class="col-md-2">
+              <br />
+              <div class="row">
+                <div class="col-md-2">
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">Eliminar</button>
+                </div>
               </div>
-          </div>
+            </div>
+        </div>
+        <br />
+
         <!-- Modal Para confirmar subida a base de datos -->
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -251,4 +280,6 @@
                 </div>
             </div>
         </div>
+
+
 </asp:Content>
