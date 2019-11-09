@@ -55,8 +55,8 @@
                     }  
                 }
             </script>
-            
         </div>
+
         <div class="col-md-2">
             <h5>Tipo de Computadora: </h5>
             <asp:DropDownList ID="cmbTipoCompu" EnableViewState="true" CssClass="form-control" runat="server" Enabled="False">
@@ -163,7 +163,7 @@
             <asp:TextBox ID="txtPriceTag" CssClass="form-control" placeholder="0.00" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
-            <h5>Garantia: </h5>
+            <h5>Fin de Garantia: </h5>
             <asp:TextBox ID="txtGarantiaFecha" CssClass="form-control" placeholder="Fecha" runat="server"></asp:TextBox>
             <script type="text/javascript">
                 var foopicker = new FooPicker({
@@ -173,6 +173,7 @@
                 });
             </script>
             <div id="foopicker-datepicker" style="position: fixed; top: 58px; left: 8px; z-index: 99999;"></div>
+            <asp:CheckBox ID="chBoxGarantia" runat="server" Text="Sin Garantia" onclick="document.getElementById('MainContent_txtGarantiaFecha').disabled=this.checked;" />
         </div>
     </div>
     <br />
@@ -190,11 +191,12 @@
     </div>
     <script>
         function validateFields() {
-            var ghz, disco, ram, garantia, precio;
+            var ghz, disco, ram, garantia, precio, garantiaChecked;
             ram = document.getElementById("MainContent_txtRAM").value;
             disco = document.getElementById("MainContent_txtDiskSpace").value;
             ghz = document.getElementById("MainContent_txtGHZ").value;
             garantia = document.getElementById("MainContent_txtGarantiaFecha").value;
+            garantiaChecked = document.getElementById('MainContent_txtGarantiaFecha').disabled;
             precio = document.getElementById("MainContent_txtPriceTag").value;
 
             if (ghz == '') {
@@ -206,8 +208,10 @@
                 return false;
             }
             if (garantia == '') {
-                alert("porfavor introducir fecha de vencimiento de garantia");
-                return false;
+                if (garantiaChecked !== true) {
+                    alert("porfavor introducir fecha de vencimiento de garantia");
+                    return false;
+                }
             }
             if (ram == '') {
                 alert("porfavor introducir cantidad de RAM");

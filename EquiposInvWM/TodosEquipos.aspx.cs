@@ -136,6 +136,7 @@ namespace EquiposInvWM
                                  Usuario_Asignado = m.emp_nom,
                                  Tipo = m.equi_tipo,
                                  Marca = m.equi_marca,
+                                 Modelo = m.equi_modelo,
                                  Procesador = m.equi_procesador,
                                  GHZ = m.equi_ghz,
                                  RAM = m.equi_ram,
@@ -148,7 +149,8 @@ namespace EquiposInvWM
                                  Empresa = m.equi_empresa,
                                  Proyecto = m.equi_proyecto,
                                  Departamento = m.equi_dpto,
-                                 Estado = m.equi_status
+                                 Estado = m.equi_status,
+                                 Observacion = m.equi_observacion
                              }).ToList();
 
                 EquiposGrid.DataSource = query;
@@ -277,6 +279,12 @@ namespace EquiposInvWM
         protected void btModify_Click(object sender, EventArgs e)
         {
             ModifyRow();
+        }
+
+        protected void btExportarPDF_Click(object sender, EventArgs e)
+        {
+            string type = "PDF";
+            Reports(type);
         }
     }
 }
