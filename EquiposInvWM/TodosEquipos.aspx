@@ -23,7 +23,14 @@
             <asp:GridView ID="EquiposGrid" runat="server" OnRowDataBound="EquiposGrid_RowDataBound" CssClass="table table-striped table-bordered" 
                 style="width:100%; cursor: pointer;" FooterStyle-CssClass="footer-grid" AllowPaging="False" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" OnPageIndexChanging="EquiposGrid_PageIndexChanging" OnPreRender="EquiposGrid_PreRender">
             </asp:GridView>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
             <asp:Button ID="btExportarExcel" runat="server" OnClick="btExportarExcel_Click" CssClass="btn btn-success" Text="Exportar a Excel" />
+        </div>
+        <div class="col-md-2">
+            <asp:Button ID="btExportarPDF" runat ="server" OnClick="btExportarPDF_Click" CssClass="btn btn-danger" Text="Exportar a PDF" />
         </div>
     </div>
     <br />
@@ -198,7 +205,7 @@
             <br />
             <div class="row">
                 <div class="col-md-2">
-                  <asp:Button ID="btModify" class="btn btn-primary" OnClick="btModify_Click" runat="server" Text="Modificar" />
+                  <asp:Button ID="btModify" class="btn btn-primary" OnClientClick="return validateFields();" OnClick="btModify_Click" runat="server" Text="Modificar" />
                 </div>
             </div>
             <script>
@@ -218,22 +225,23 @@
                         }
                     }
                     document.getElementById('MainContent_txtEliminarID').value = data[0];
+                    document.getElementById('MainContent_txtEliminarID').disabled = true;
                     document.getElementById('MainContent_txtCodEliminar').value = data[1];
                     document.getElementById('MainContent_txtEquipoID').value = data[0];
                     document.getElementById('MainContent_txtEmpleado').value = data[2];
                     if (data[2] == "&nbsp;") {
                         document.getElementById('MainContent_txtEmpleado').value = "";
                     }
-                    document.getElementById('MainContent_txtSerie').value = data[9];
-                    if (data[9] == "&nbsp;") {
+                    document.getElementById('MainContent_txtSerie').value = data[10];
+                    if (data[10] == "&nbsp;") {
                         document.getElementById('MainContent_txtSerie').value = ""
                     }
-                    document.getElementById('MainContent_txtDisk').value = data[8];
-                    document.getElementById('MainContent_txtRam').value = data[7];
-                    document.getElementById('MainContent_txtGhz').value = data[6];
+                    document.getElementById('MainContent_txtDisk').value = data[9];
+                    document.getElementById('MainContent_txtRam').value = data[8];
+                    document.getElementById('MainContent_txtGhz').value = data[7];
                     document.getElementById('MainContent_txtModCodEqui').value = data[1];
-                    document.getElementById('MainContent_txtOrdenCompra').value = data[12];
-                    if (data[12] == "&nbsp;") {
+                    document.getElementById('MainContent_txtOrdenCompra').value = data[13];
+                    if (data[13] == "&nbsp;") {
                         document.getElementById('MainContent_txtOrdenCompra').value = "";
                     }
                 };
@@ -281,5 +289,28 @@
             </div>
         </div>
 
+        <script>
+            function validateFields() {
+                var ddlProcessor = document.getElementById("MainContent_cmbProcessor");
+                var selectedValueProcessor = ddlProcessor.options[ddlProcessor.selectedIndex].value;
+                var ddlMarca = document.getElementById("MainContent_cmbMarca");
+                var selectedValueMarca = ddlMarca.options[ddlMarca.selectedIndex].value;
+                var ddlEmpCod = document.getElementById("MainContent_cmbEmpresaCod");
+                var selectedValueEmpCod = ddlEmpCod.options[ddlEmpCod.selectedIndex].value;
 
+                if (selectedValueProcessor == "-- Seleccionar --") {
+                    alert("Porfavor seleccionar procesador");
+                    return false;
+                }
+
+                if (selectedValueMarca == "-- Vacio --") {
+                    alert("Porfavor seleccionar marca");
+                    return false;
+                }
+
+                if (selectedValueEmpCod == "-- Vacio --") {
+                    alert("Porfavor seleccionar empresa");
+                }
+            }
+    </script>
 </asp:Content>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="68" >
+      <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="73" >
         <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="7.75" PointY="2.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="4" />
@@ -13,10 +13,10 @@
         <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="EquiposInvModel.Reparaciones" Width="1.5" PointX="5.25" PointY="11.375" />
         <EntityTypeShape EntityType="EquiposInvModel.Usuarios" Width="1.5" PointX="7.75" PointY="9.75" />
-        <AssociationConnector Association="EquiposInvModel.FK__Equipos__emp_id__47A6A41B" />
+        <AssociationConnector Association="EquiposInvModel.FK__Equipos__emp_id__5CA1C101" />
         <AssociationConnector Association="EquiposInvModel.FK__FichaComp__emp_i__3C34F16F" />
-        <AssociationConnector Association="EquiposInvModel.FK__FichaComp__equi___46B27FE2" />
-        <AssociationConnector Association="EquiposInvModel.FK__Reparacio__equi___45BE5BA9" />
+        <AssociationConnector Association="EquiposInvModel.FK__FichaComp__equi___5BAD9CC8" />
+        <AssociationConnector Association="EquiposInvModel.FK__Reparacio__equi___5AB9788F" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__ficha__3E1D39E1" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF" />
       </Diagram>

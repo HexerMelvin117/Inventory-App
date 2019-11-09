@@ -291,8 +291,6 @@ namespace EquiposInvWM {
             
             private global::System.Data.DataColumn columnequi_proveedor;
             
-            private global::System.Data.DataColumn columnequi_garantia;
-            
             private global::System.Data.DataColumn columnequi_serie;
             
             private global::System.Data.DataColumn columnequi_disco;
@@ -307,9 +305,23 @@ namespace EquiposInvWM {
             
             private global::System.Data.DataColumn columnequi_status;
             
-            private global::System.Data.DataColumn columnuser_id;
-            
             private global::System.Data.DataColumn columnequi_politica;
+            
+            private global::System.Data.DataColumn columnequi_garantia;
+            
+            private global::System.Data.DataColumn columnequi_ordencompra;
+            
+            private global::System.Data.DataColumn columnequi_precio;
+            
+            private global::System.Data.DataColumn columnequi_empresa;
+            
+            private global::System.Data.DataColumn columnequi_proyecto;
+            
+            private global::System.Data.DataColumn columnequi_dpto;
+            
+            private global::System.Data.DataColumn columnequi_observacion;
+            
+            private global::System.Data.DataColumn columnemp_nom;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -394,14 +406,6 @@ namespace EquiposInvWM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_garantiaColumn {
-                get {
-                    return this.columnequi_garantia;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn equi_serieColumn {
                 get {
                     return this.columnequi_serie;
@@ -458,17 +462,73 @@ namespace EquiposInvWM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn user_idColumn {
+            public global::System.Data.DataColumn equi_politicaColumn {
                 get {
-                    return this.columnuser_id;
+                    return this.columnequi_politica;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_politicaColumn {
+            public global::System.Data.DataColumn equi_garantiaColumn {
                 get {
-                    return this.columnequi_politica;
+                    return this.columnequi_garantia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_ordencompraColumn {
+                get {
+                    return this.columnequi_ordencompra;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_precioColumn {
+                get {
+                    return this.columnequi_precio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_empresaColumn {
+                get {
+                    return this.columnequi_empresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_proyectoColumn {
+                get {
+                    return this.columnequi_proyecto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_dptoColumn {
+                get {
+                    return this.columnequi_dpto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_observacionColumn {
+                get {
+                    return this.columnequi_observacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emp_nomColumn {
+                get {
+                    return this.columnemp_nom;
                 }
             }
             
@@ -516,7 +576,6 @@ namespace EquiposInvWM {
                         string equi_marca, 
                         string equi_tipo, 
                         string equi_proveedor, 
-                        bool equi_garantia, 
                         string equi_serie, 
                         int equi_disco, 
                         string equi_procesador, 
@@ -524,8 +583,15 @@ namespace EquiposInvWM {
                         decimal equi_ghz, 
                         string equi_modelo, 
                         string equi_status, 
-                        int user_id, 
-                        bool equi_politica) {
+                        bool equi_politica, 
+                        System.DateTime equi_garantia, 
+                        string equi_ordencompra, 
+                        decimal equi_precio, 
+                        string equi_empresa, 
+                        string equi_proyecto, 
+                        string equi_dpto, 
+                        string equi_observacion, 
+                        string emp_nom) {
                 EquiposRow rowEquiposRow = ((EquiposRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         equi_id,
@@ -534,7 +600,6 @@ namespace EquiposInvWM {
                         equi_marca,
                         equi_tipo,
                         equi_proveedor,
-                        equi_garantia,
                         equi_serie,
                         equi_disco,
                         equi_procesador,
@@ -542,8 +607,15 @@ namespace EquiposInvWM {
                         equi_ghz,
                         equi_modelo,
                         equi_status,
-                        user_id,
-                        equi_politica};
+                        equi_politica,
+                        equi_garantia,
+                        equi_ordencompra,
+                        equi_precio,
+                        equi_empresa,
+                        equi_proyecto,
+                        equi_dpto,
+                        equi_observacion,
+                        emp_nom};
                 rowEquiposRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEquiposRow);
                 return rowEquiposRow;
@@ -579,7 +651,6 @@ namespace EquiposInvWM {
                 this.columnequi_marca = base.Columns["equi_marca"];
                 this.columnequi_tipo = base.Columns["equi_tipo"];
                 this.columnequi_proveedor = base.Columns["equi_proveedor"];
-                this.columnequi_garantia = base.Columns["equi_garantia"];
                 this.columnequi_serie = base.Columns["equi_serie"];
                 this.columnequi_disco = base.Columns["equi_disco"];
                 this.columnequi_procesador = base.Columns["equi_procesador"];
@@ -587,8 +658,15 @@ namespace EquiposInvWM {
                 this.columnequi_ghz = base.Columns["equi_ghz"];
                 this.columnequi_modelo = base.Columns["equi_modelo"];
                 this.columnequi_status = base.Columns["equi_status"];
-                this.columnuser_id = base.Columns["user_id"];
                 this.columnequi_politica = base.Columns["equi_politica"];
+                this.columnequi_garantia = base.Columns["equi_garantia"];
+                this.columnequi_ordencompra = base.Columns["equi_ordencompra"];
+                this.columnequi_precio = base.Columns["equi_precio"];
+                this.columnequi_empresa = base.Columns["equi_empresa"];
+                this.columnequi_proyecto = base.Columns["equi_proyecto"];
+                this.columnequi_dpto = base.Columns["equi_dpto"];
+                this.columnequi_observacion = base.Columns["equi_observacion"];
+                this.columnemp_nom = base.Columns["emp_nom"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -606,8 +684,6 @@ namespace EquiposInvWM {
                 base.Columns.Add(this.columnequi_tipo);
                 this.columnequi_proveedor = new global::System.Data.DataColumn("equi_proveedor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnequi_proveedor);
-                this.columnequi_garantia = new global::System.Data.DataColumn("equi_garantia", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_garantia);
                 this.columnequi_serie = new global::System.Data.DataColumn("equi_serie", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnequi_serie);
                 this.columnequi_disco = new global::System.Data.DataColumn("equi_disco", typeof(int), null, global::System.Data.MappingType.Element);
@@ -622,10 +698,24 @@ namespace EquiposInvWM {
                 base.Columns.Add(this.columnequi_modelo);
                 this.columnequi_status = new global::System.Data.DataColumn("equi_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnequi_status);
-                this.columnuser_id = new global::System.Data.DataColumn("user_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuser_id);
                 this.columnequi_politica = new global::System.Data.DataColumn("equi_politica", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnequi_politica);
+                this.columnequi_garantia = new global::System.Data.DataColumn("equi_garantia", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_garantia);
+                this.columnequi_ordencompra = new global::System.Data.DataColumn("equi_ordencompra", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_ordencompra);
+                this.columnequi_precio = new global::System.Data.DataColumn("equi_precio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_precio);
+                this.columnequi_empresa = new global::System.Data.DataColumn("equi_empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_empresa);
+                this.columnequi_proyecto = new global::System.Data.DataColumn("equi_proyecto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_proyecto);
+                this.columnequi_dpto = new global::System.Data.DataColumn("equi_dpto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_dpto);
+                this.columnequi_observacion = new global::System.Data.DataColumn("equi_observacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_observacion);
+                this.columnemp_nom = new global::System.Data.DataColumn("emp_nom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemp_nom);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnequi_id}, true));
                 this.columnequi_id.AllowDBNull = false;
@@ -640,6 +730,12 @@ namespace EquiposInvWM {
                 this.columnequi_procesador.MaxLength = 20;
                 this.columnequi_modelo.MaxLength = 50;
                 this.columnequi_status.MaxLength = 50;
+                this.columnequi_ordencompra.MaxLength = 50;
+                this.columnequi_empresa.MaxLength = 30;
+                this.columnequi_proyecto.MaxLength = 30;
+                this.columnequi_dpto.MaxLength = 50;
+                this.columnequi_observacion.MaxLength = 50;
+                this.columnemp_nom.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,22 +959,6 @@ namespace EquiposInvWM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool equi_garantia {
-                get {
-                    try {
-                        return ((bool)(this[this.tableEquipos.equi_garantiaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'equi_garantia\' in table \'Equipos\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableEquipos.equi_garantiaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string equi_serie {
                 get {
                     try {
@@ -991,22 +1071,6 @@ namespace EquiposInvWM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int user_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableEquipos.user_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'user_id\' in table \'Equipos\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableEquipos.user_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool equi_politica {
                 get {
                     try {
@@ -1018,6 +1082,134 @@ namespace EquiposInvWM {
                 }
                 set {
                     this[this.tableEquipos.equi_politicaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime equi_garantia {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEquipos.equi_garantiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_garantia\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_garantiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_ordencompra {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.equi_ordencompraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_ordencompra\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_ordencompraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal equi_precio {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEquipos.equi_precioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_precio\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_precioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_empresa {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.equi_empresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_empresa\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_proyecto {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.equi_proyectoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_proyecto\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_proyectoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_dpto {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.equi_dptoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_dpto\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_dptoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_observacion {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.equi_observacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'equi_observacion\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.equi_observacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string emp_nom {
+                get {
+                    try {
+                        return ((string)(this[this.tableEquipos.emp_nomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'emp_nom\' in table \'Equipos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipos.emp_nomColumn] = value;
                 }
             }
             
@@ -1055,18 +1247,6 @@ namespace EquiposInvWM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setequi_proveedorNull() {
                 this[this.tableEquipos.equi_proveedorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_garantiaNull() {
-                return this.IsNull(this.tableEquipos.equi_garantiaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_garantiaNull() {
-                this[this.tableEquipos.equi_garantiaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1155,18 +1335,6 @@ namespace EquiposInvWM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isuser_idNull() {
-                return this.IsNull(this.tableEquipos.user_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setuser_idNull() {
-                this[this.tableEquipos.user_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isequi_politicaNull() {
                 return this.IsNull(this.tableEquipos.equi_politicaColumn);
             }
@@ -1175,6 +1343,102 @@ namespace EquiposInvWM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setequi_politicaNull() {
                 this[this.tableEquipos.equi_politicaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_garantiaNull() {
+                return this.IsNull(this.tableEquipos.equi_garantiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_garantiaNull() {
+                this[this.tableEquipos.equi_garantiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_ordencompraNull() {
+                return this.IsNull(this.tableEquipos.equi_ordencompraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_ordencompraNull() {
+                this[this.tableEquipos.equi_ordencompraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_precioNull() {
+                return this.IsNull(this.tableEquipos.equi_precioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_precioNull() {
+                this[this.tableEquipos.equi_precioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_empresaNull() {
+                return this.IsNull(this.tableEquipos.equi_empresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_empresaNull() {
+                this[this.tableEquipos.equi_empresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_proyectoNull() {
+                return this.IsNull(this.tableEquipos.equi_proyectoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_proyectoNull() {
+                this[this.tableEquipos.equi_proyectoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_dptoNull() {
+                return this.IsNull(this.tableEquipos.equi_dptoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_dptoNull() {
+                this[this.tableEquipos.equi_dptoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_observacionNull() {
+                return this.IsNull(this.tableEquipos.equi_observacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_observacionNull() {
+                this[this.tableEquipos.equi_observacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemp_nomNull() {
+                return this.IsNull(this.tableEquipos.emp_nomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemp_nomNull() {
+                this[this.tableEquipos.emp_nomColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1343,7 +1607,6 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             tableMapping.ColumnMappings.Add("equi_marca", "equi_marca");
             tableMapping.ColumnMappings.Add("equi_tipo", "equi_tipo");
             tableMapping.ColumnMappings.Add("equi_proveedor", "equi_proveedor");
-            tableMapping.ColumnMappings.Add("equi_garantia", "equi_garantia");
             tableMapping.ColumnMappings.Add("equi_serie", "equi_serie");
             tableMapping.ColumnMappings.Add("equi_disco", "equi_disco");
             tableMapping.ColumnMappings.Add("equi_procesador", "equi_procesador");
@@ -1351,17 +1614,24 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             tableMapping.ColumnMappings.Add("equi_ghz", "equi_ghz");
             tableMapping.ColumnMappings.Add("equi_modelo", "equi_modelo");
             tableMapping.ColumnMappings.Add("equi_status", "equi_status");
-            tableMapping.ColumnMappings.Add("user_id", "user_id");
             tableMapping.ColumnMappings.Add("equi_politica", "equi_politica");
+            tableMapping.ColumnMappings.Add("equi_garantia", "equi_garantia");
+            tableMapping.ColumnMappings.Add("equi_ordencompra", "equi_ordencompra");
+            tableMapping.ColumnMappings.Add("equi_precio", "equi_precio");
+            tableMapping.ColumnMappings.Add("equi_empresa", "equi_empresa");
+            tableMapping.ColumnMappings.Add("equi_proyecto", "equi_proyecto");
+            tableMapping.ColumnMappings.Add("equi_dpto", "equi_dpto");
+            tableMapping.ColumnMappings.Add("equi_observacion", "equi_observacion");
+            tableMapping.ColumnMappings.Add("emp_nom", "emp_nom");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Equipos] WHERE (([equi_id] = @Original_equi_id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Equipos] WHERE (([equi_id] = @Original_equi_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_equi_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Equipos] ([equi_id], [equi_prefijo], [equi_cod], [equi_marca], [equi_tipo], [equi_proveedor], [equi_garantia], [equi_serie], [equi_disco], [equi_procesador], [equi_ram], [equi_ghz], [equi_modelo], [equi_status], [user_id], [equi_politica]) VALUES (@equi_id, @equi_prefijo, @equi_cod, @equi_marca, @equi_tipo, @equi_proveedor, @equi_garantia, @equi_serie, @equi_disco, @equi_procesador, @equi_ram, @equi_ghz, @equi_modelo, @equi_status, @user_id, @equi_politica)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Equipos] ([equi_id], [equi_prefijo], [equi_cod], [equi_marca], [equi_tipo], [equi_proveedor], [equi_garantia], [equi_serie], [equi_disco], [equi_procesador], [equi_ram], [equi_ghz], [equi_modelo], [equi_status], [equi_politica], [equi_ordencompra], [equi_precio], [equi_empresa], [equi_proyecto], [equi_dpto], [equi_observacion], [emp_nom]) VALUES (@equi_id, @equi_prefijo, @equi_cod, @equi_marca, @equi_tipo, @equi_proveedor, @equi_garantia, @equi_serie, @equi_disco, @equi_procesador, @equi_ram, @equi_ghz, @equi_modelo, @equi_status, @equi_politica, @equi_ordencompra, @equi_precio, @equi_empresa, @equi_proyecto, @equi_dpto, @equi_observacion, @emp_nom)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_prefijo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_prefijo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1369,7 +1639,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_marca", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_marca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_proveedor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_garantia", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_garantia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_garantia", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_garantia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_serie", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_serie", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_disco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_disco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_procesador", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_procesador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1377,11 +1647,17 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_ghz", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "equi_ghz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_modelo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_modelo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_politica", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_politica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_ordencompra", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_ordencompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_precio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "equi_precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_empresa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_proyecto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_proyecto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_dpto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_dpto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_observacion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_observacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@emp_nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "emp_nom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Equipos] SET [equi_id] = @equi_id, [equi_prefijo] = @equi_prefijo, [equi_cod] = @equi_cod, [equi_marca] = @equi_marca, [equi_tipo] = @equi_tipo, [equi_proveedor] = @equi_proveedor, [equi_garantia] = @equi_garantia, [equi_serie] = @equi_serie, [equi_disco] = @equi_disco, [equi_procesador] = @equi_procesador, [equi_ram] = @equi_ram, [equi_ghz] = @equi_ghz, [equi_modelo] = @equi_modelo, [equi_status] = @equi_status, [user_id] = @user_id, [equi_politica] = @equi_politica WHERE (([equi_id] = @Original_equi_id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Equipos] SET [equi_id] = @equi_id, [equi_prefijo] = @equi_prefijo, [equi_cod] = @equi_cod, [equi_marca] = @equi_marca, [equi_tipo] = @equi_tipo, [equi_proveedor] = @equi_proveedor, [equi_garantia] = @equi_garantia, [equi_serie] = @equi_serie, [equi_disco] = @equi_disco, [equi_procesador] = @equi_procesador, [equi_ram] = @equi_ram, [equi_ghz] = @equi_ghz, [equi_modelo] = @equi_modelo, [equi_status] = @equi_status, [equi_politica] = @equi_politica, [equi_ordencompra] = @equi_ordencompra, [equi_precio] = @equi_precio, [equi_empresa] = @equi_empresa, [equi_proyecto] = @equi_proyecto, [equi_dpto] = @equi_dpto, [equi_observacion] = @equi_observacion, [emp_nom] = @emp_nom WHERE (([equi_id] = @Original_equi_id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_prefijo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_prefijo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1389,7 +1665,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_marca", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_marca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_proveedor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_garantia", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_garantia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_garantia", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_garantia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_serie", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_serie", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_disco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_disco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_procesador", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_procesador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1397,8 +1673,14 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_ghz", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "equi_ghz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_modelo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_modelo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_politica", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_politica", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_ordencompra", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_ordencompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_precio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "equi_precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_empresa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_proyecto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_proyecto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_dpto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_dpto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equi_observacion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_observacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@emp_nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "emp_nom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_equi_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "equi_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -1415,9 +1697,9 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT equi_id, equi_prefijo, equi_cod, equi_marca, equi_tipo, equi_proveedor, eq" +
-                "ui_garantia, equi_serie, equi_disco, equi_procesador, equi_ram, equi_ghz, equi_m" +
-                "odelo, equi_status, user_id, equi_politica FROM dbo.Equipos";
+            this._commandCollection[0].CommandText = @"SELECT        equi_id, equi_prefijo, equi_cod, equi_marca, equi_tipo, equi_proveedor, equi_garantia, equi_serie, equi_disco, equi_procesador, equi_ram, equi_ghz, equi_modelo, equi_status, equi_politica, equi_ordencompra, 
+                         equi_precio, equi_empresa, equi_proyecto, equi_dpto, equi_observacion, emp_nom
+FROM            Equipos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1507,7 +1789,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     string equi_marca, 
                     string equi_tipo, 
                     string equi_proveedor, 
-                    global::System.Nullable<bool> equi_garantia, 
+                    global::System.Nullable<global::System.DateTime> equi_garantia, 
                     string equi_serie, 
                     global::System.Nullable<int> equi_disco, 
                     string equi_procesador, 
@@ -1515,8 +1797,14 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     global::System.Nullable<decimal> equi_ghz, 
                     string equi_modelo, 
                     string equi_status, 
-                    global::System.Nullable<int> user_id, 
-                    global::System.Nullable<bool> equi_politica) {
+                    global::System.Nullable<bool> equi_politica, 
+                    string equi_ordencompra, 
+                    global::System.Nullable<decimal> equi_precio, 
+                    string equi_empresa, 
+                    string equi_proyecto, 
+                    string equi_dpto, 
+                    string equi_observacion, 
+                    string emp_nom) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(equi_id));
             if ((equi_prefijo == null)) {
                 throw new global::System.ArgumentNullException("equi_prefijo");
@@ -1544,7 +1832,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(equi_proveedor));
             }
             if ((equi_garantia.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(equi_garantia.Value));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(equi_garantia.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -1591,17 +1879,53 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((string)(equi_status));
             }
-            if ((user_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(user_id.Value));
+            if ((equi_politica.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(equi_politica.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((equi_politica.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(equi_politica.Value));
+            if ((equi_ordencompra == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(equi_ordencompra));
+            }
+            if ((equi_precio.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(equi_precio.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((equi_empresa == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(equi_empresa));
+            }
+            if ((equi_proyecto == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(equi_proyecto));
+            }
+            if ((equi_dpto == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(equi_dpto));
+            }
+            if ((equi_observacion == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(equi_observacion));
+            }
+            if ((emp_nom == null)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(emp_nom));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1630,7 +1954,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     string equi_marca, 
                     string equi_tipo, 
                     string equi_proveedor, 
-                    global::System.Nullable<bool> equi_garantia, 
+                    global::System.Nullable<global::System.DateTime> equi_garantia, 
                     string equi_serie, 
                     global::System.Nullable<int> equi_disco, 
                     string equi_procesador, 
@@ -1638,8 +1962,14 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     global::System.Nullable<decimal> equi_ghz, 
                     string equi_modelo, 
                     string equi_status, 
-                    global::System.Nullable<int> user_id, 
                     global::System.Nullable<bool> equi_politica, 
+                    string equi_ordencompra, 
+                    global::System.Nullable<decimal> equi_precio, 
+                    string equi_empresa, 
+                    string equi_proyecto, 
+                    string equi_dpto, 
+                    string equi_observacion, 
+                    string emp_nom, 
                     int Original_equi_id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(equi_id));
             if ((equi_prefijo == null)) {
@@ -1668,7 +1998,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(equi_proveedor));
             }
             if ((equi_garantia.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(equi_garantia.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(equi_garantia.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -1715,19 +2045,55 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(equi_status));
             }
-            if ((user_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(user_id.Value));
+            if ((equi_politica.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(equi_politica.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((equi_politica.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(equi_politica.Value));
-            }
-            else {
+            if ((equi_ordencompra == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_equi_id));
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(equi_ordencompra));
+            }
+            if ((equi_precio.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(equi_precio.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((equi_empresa == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(equi_empresa));
+            }
+            if ((equi_proyecto == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(equi_proyecto));
+            }
+            if ((equi_dpto == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(equi_dpto));
+            }
+            if ((equi_observacion == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(equi_observacion));
+            }
+            if ((emp_nom == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(emp_nom));
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_equi_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1754,7 +2120,7 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     string equi_marca, 
                     string equi_tipo, 
                     string equi_proveedor, 
-                    global::System.Nullable<bool> equi_garantia, 
+                    global::System.Nullable<global::System.DateTime> equi_garantia, 
                     string equi_serie, 
                     global::System.Nullable<int> equi_disco, 
                     string equi_procesador, 
@@ -1762,10 +2128,16 @@ namespace EquiposInvWM.EquiposInventarioReportTableAdapters {
                     global::System.Nullable<decimal> equi_ghz, 
                     string equi_modelo, 
                     string equi_status, 
-                    global::System.Nullable<int> user_id, 
                     global::System.Nullable<bool> equi_politica, 
+                    string equi_ordencompra, 
+                    global::System.Nullable<decimal> equi_precio, 
+                    string equi_empresa, 
+                    string equi_proyecto, 
+                    string equi_dpto, 
+                    string equi_observacion, 
+                    string emp_nom, 
                     int Original_equi_id) {
-            return this.Update(Original_equi_id, equi_prefijo, equi_cod, equi_marca, equi_tipo, equi_proveedor, equi_garantia, equi_serie, equi_disco, equi_procesador, equi_ram, equi_ghz, equi_modelo, equi_status, user_id, equi_politica, Original_equi_id);
+            return this.Update(Original_equi_id, equi_prefijo, equi_cod, equi_marca, equi_tipo, equi_proveedor, equi_garantia, equi_serie, equi_disco, equi_procesador, equi_ram, equi_ghz, equi_modelo, equi_status, equi_politica, equi_ordencompra, equi_precio, equi_empresa, equi_proyecto, equi_dpto, equi_observacion, emp_nom, Original_equi_id);
         }
     }
     

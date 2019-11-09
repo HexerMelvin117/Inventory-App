@@ -33,6 +33,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.Button btExportarExcel;
 
         /// <summary>
+        /// btExportarPDF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btExportarPDF;
+
+        /// <summary>
         /// btMostrarTodo control.
         /// </summary>
         /// <remarks>
