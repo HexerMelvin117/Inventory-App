@@ -23,8 +23,10 @@
             <asp:DropDownList ID="cmbCompaniaEqui" CssClass="form-control" runat="server">
                 <asp:ListItem>William y Molina</asp:ListItem>
                 <asp:ListItem>Duracreto</asp:ListItem>
-                <asp:ListItem>Grupo Platino</asp:ListItem>
+                <asp:ListItem>Transporte Platino</asp:ListItem>
                 <asp:ListItem>Siglo 21</asp:ListItem>
+                <asp:ListItem>Invalle</asp:ListItem>
+                <asp:ListItem>Altitud</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="col-md-2">
@@ -77,6 +79,14 @@
         <div class="col-md-2">
             <h5>Codigo: </h5>
             <asp:TextBox ID="txtCodEquipo" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-md-2">
+            <h5>Estado: </h5>
+            <asp:DropDownList ID="cmbStateEquip" CssClass="form-control" runat="server">
+                <asp:ListItem>STOCK</asp:ListItem>
+                <asp:ListItem>ACTIVO</asp:ListItem>
+                <asp:ListItem>DESACTIVO</asp:ListItem>
+            </asp:DropDownList>
         </div>
     </div>
     <br />
@@ -141,7 +151,7 @@
             <asp:TextBox ID="txtRAM"  CssClass="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
         <div class="col-md-2">
-            <h5>Disco(gb): </h5>
+            <h5>Disco: </h5>
             <asp:TextBox ID="txtDiskSpace"  CssClass="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
     </div>

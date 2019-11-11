@@ -225,7 +225,6 @@
                         }
                     }
                     document.getElementById('MainContent_txtEliminarID').value = data[0];
-                    document.getElementById('MainContent_txtEliminarID').disabled = true;
                     document.getElementById('MainContent_txtCodEliminar').value = data[1];
                     document.getElementById('MainContent_txtEquipoID').value = data[0];
                     document.getElementById('MainContent_txtEmpleado').value = data[2];

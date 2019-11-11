@@ -151,12 +151,12 @@ namespace EquiposInvWM
         {
             string marca, codEqui, serie, procesador;
             decimal ghz;
-            int capacidad;
+            string capacidad;
 
             using (var ctx = new EquiposInvModelContainer())
             {
                 string prefijo;
-                int cod;
+                string cod;
 
                 serie = ctx.Equipos
                     .Where(s => s.equi_id == id)
@@ -166,7 +166,7 @@ namespace EquiposInvWM
                 capacidad = ctx.Equipos
                     .Where(s => s.equi_id == id)
                     .Select(s => s.equi_disco)
-                    .FirstOrDefault().GetValueOrDefault();
+                    .FirstOrDefault();
 
                 marca = ctx.Equipos
                     .Where(s => s.equi_id == id)
