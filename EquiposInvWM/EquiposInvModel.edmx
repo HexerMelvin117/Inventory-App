@@ -29,12 +29,12 @@
           </Key>
           <Property Name="equi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="equi_prefijo" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="equi_cod" Type="int" Nullable="false" />
+          <Property Name="equi_cod" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="equi_marca" Type="varchar" MaxLength="50" />
           <Property Name="equi_tipo" Type="varchar" MaxLength="20" />
           <Property Name="equi_proveedor" Type="varchar" MaxLength="50" />
           <Property Name="equi_serie" Type="varchar" MaxLength="50" />
-          <Property Name="equi_disco" Type="int" />
+          <Property Name="equi_disco" Type="varchar" MaxLength="10" />
           <Property Name="equi_procesador" Type="varchar" MaxLength="20" />
           <Property Name="equi_ram" Type="int" />
           <Property Name="equi_ghz" Type="decimal" Precision="5" Scale="2" />
@@ -287,12 +287,12 @@
           </Key>
           <Property Name="equi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="equi_prefijo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="equi_cod" Type="Int32" Nullable="false" />
+          <Property Name="equi_cod" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="equi_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="equi_disco" Type="Int32" />
+          <Property Name="equi_disco" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="equi_procesador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_ram" Type="Int32" />
           <Property Name="equi_ghz" Type="Decimal" Precision="5" Scale="2" />

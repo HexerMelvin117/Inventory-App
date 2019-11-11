@@ -15,7 +15,7 @@ namespace EquiposInvWM
             
         }
 
-        public int identificarEquipo(string prefijo)
+        public string identificarEquipo(string prefijo)
         {
             int cod;
             using(var ctx = new EquiposInvModelContainer())
@@ -27,14 +27,14 @@ namespace EquiposInvWM
 
                 int amountToAssign = query.Count();
                 cod = amountToAssign + 1;
-                return cod;
+                return cod.ToString();
             }
         }
 
         
-        protected void addRegistry(string marca, string tipo, string prefijo, int cod)
+        protected void addRegistry(string marca, string tipo, string prefijo, string cod)
         {
-            string procesador, modelo, serie, ram, ordenCompra, disco, proveedor, compGHZ, observacion;
+            string procesador, modelo, serie, ram, ordenCompra, disco, proveedor, compGHZ, observacion, status;
             decimal precio;
             DateTime garantiaFin;
 
@@ -49,6 +49,7 @@ namespace EquiposInvWM
             disco = txtDiskSpace.Text;
             proveedor = txtProvider.Text;
             compGHZ = txtGHZ.Text;
+            status = cmbStateEquip.SelectedItem.Text;
 
             if (chBoxGarantia.Checked == true)
             {
@@ -60,7 +61,7 @@ namespace EquiposInvWM
                         equi_prefijo = prefijo,
                         equi_cod = cod,
                         equi_tipo = tipo,
-                        equi_disco = int.Parse(disco),
+                        equi_disco = disco,
                         equi_ghz = decimal.Parse(compGHZ),
                         equi_modelo = modelo,
                         equi_procesador = procesador,
@@ -68,7 +69,7 @@ namespace EquiposInvWM
                         equi_proveedor = proveedor,
                         equi_ram = int.Parse(ram),
                         equi_serie = serie,
-                        equi_status = "STOCK",
+                        equi_status = status,
                         equi_marca = marca,
                         equi_garantia = null,
                         equi_observacion = observacion,
@@ -91,7 +92,7 @@ namespace EquiposInvWM
                         equi_prefijo = prefijo,
                         equi_cod = cod,
                         equi_tipo = tipo,
-                        equi_disco = int.Parse(disco),
+                        equi_disco = disco,
                         equi_ghz = decimal.Parse(compGHZ),
                         equi_modelo = modelo,
                         equi_procesador = procesador,
@@ -131,7 +132,7 @@ namespace EquiposInvWM
             string tipo;
             string marca;
             string prefijo = "";
-            int cod;
+            string cod;
 
             if (chboxCodEquipo.Checked == true)
             {
@@ -191,7 +192,7 @@ namespace EquiposInvWM
             } else
             {
                 prefijo = txtPrefijoEqui.Text;
-                cod = int.Parse(txtCodEquipo.Text);
+                cod = txtCodEquipo.Text;
                 if (cmbTipo.SelectedItem.Text == "Computadora")
                 {
                     tipo = cmbTipoCompu.SelectedItem.Text;

@@ -88,7 +88,7 @@ namespace EquiposInvWM
             decimal ghz = decimal.Parse(txtGhz.Text);
 
             int ram = int.Parse(txtRam.Text);
-            int disk = int.Parse(txtDisk.Text);
+            string disk = txtDisk.Text;
             int id = int.Parse(txtEquipoID.Text);
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -218,6 +218,18 @@ namespace EquiposInvWM
         protected void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        // Para restituir llaves primarias **No usar
+        protected void ReseedTable()
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                ctx.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[Equipos]', RESEED, 0);");
+
+                ctx.SaveChanges();
+            }
+            //
         }
 
         protected void btEliminar_Click(object sender, EventArgs e)

@@ -23,12 +23,12 @@ namespace EquiposInvWM
     
         public int equi_id { get; set; }
         public string equi_prefijo { get; set; }
-        public int equi_cod { get; set; }
+        public string equi_cod { get; set; }
         public string equi_marca { get; set; }
         public string equi_tipo { get; set; }
         public string equi_proveedor { get; set; }
         public string equi_serie { get; set; }
-        public Nullable<int> equi_disco { get; set; }
+        public string equi_disco { get; set; }
         public string equi_procesador { get; set; }
         public Nullable<int> equi_ram { get; set; }
         public Nullable<decimal> equi_ghz { get; set; }
