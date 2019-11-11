@@ -163,6 +163,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DevolucionDeEquipos.aspx" />
     <Content Include="EquiposInvModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EquiposInvModel.Context.cs</LastGenOutput>
@@ -191,6 +192,7 @@
     <Content Include="EquiposInvModel.edmx.diagram">
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Graficos.aspx" />
     <Content Include="Login.Master" />
     <Content Include="EquiposInventarioDataSet.xsc">
       <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
@@ -337,6 +339,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DevolucionDeEquipos.aspx.cs">
+      <DependentUpon>DevolucionDeEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevolucionDeEquipos.aspx.designer.cs">
+      <DependentUpon>DevolucionDeEquipos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleados.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
@@ -373,6 +382,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Graficos.aspx.cs">
+      <DependentUpon>Graficos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Graficos.aspx.designer.cs">
+      <DependentUpon>Graficos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaPerifericos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>

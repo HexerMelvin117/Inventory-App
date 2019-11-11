@@ -27,6 +27,7 @@
                 <asp:ListItem>Siglo 21</asp:ListItem>
                 <asp:ListItem>Invalle</asp:ListItem>
                 <asp:ListItem>Altitud</asp:ListItem>
+                <asp:ListItem>Duracreto Santos</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="col-md-2">

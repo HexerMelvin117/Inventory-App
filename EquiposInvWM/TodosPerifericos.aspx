@@ -55,15 +55,72 @@
     </script>
     <br />
     <!-- Seccion para modificar y eliminar -->
-    <h3>Modificar y Eliminar</h3>
-    <div class="row">
-        <div class="col-md-2">
-            <h5>ID:</h5>
-            <asp:TextBox ID="txtIdPer" runat="server"></asp:TextBox>
+    <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#modify">Modificar</a></li>
+            <li><a data-toggle="tab" href="#delete">Eliminar</a></li>
+    </ul>
+
+    <!-- Para modificar Periferico -->
+    <div class="tab-content">
+        <div id="modify" class="tab-pane fade in active">
+            <h3>Modificar</h3>
+            <div class="row">
+                <div class="col-md-2">
+                    <h5>Id: </h5>
+                    <asp:TextBox ID="txtIdModify" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h5>Tipo: </h5>
+                    <asp:TextBox ID="txtTypePer" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Marca: </h5>
+                    <asp:TextBox ID="txtBrandPer" runat="server" CssClass="form-control">
+                    </asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Serie: </h5>
+                    <asp:TextBox ID="txtSeriePer" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Estado:</h5>
+                    <asp:DropDownList ID="cmbStatePer" runat="server" CssClass="form-control">
+                        <asp:ListItem>Nuevo</asp:ListItem>
+                        <asp:ListItem>Usado</asp:ListItem>
+                        <asp:ListItem>Dañado</asp:ListItem>
+                    </asp:DropDownList>
+                </div>                
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    <asp:Button ID="btModifyPer" runat="server" CssClass="btn btn-primary" Text="Modificar" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"></div>
+
+        <!-- Para Eliminar Periferico -->
+        <div id="delete" class="tab-pane fade">
+            <h3>Eliminar</h3>
+            <div class="row">
+                <div class="col-md-2">
+                    <h5>Id: </h5>
+                    <asp:TextBox ID="txtIdDelete" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <h5>Codigo: </h5>
+                    <asp:TextBox ID="txtCodDeletePer" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    <asp:Button ID="btDeletePer" runat="server" CssClass="btn btn-danger" Text="Eliminar" />
+                </div>
+            </div>
+        </div>
     </div>
 
 </asp:Content>
