@@ -32,7 +32,7 @@ namespace EquiposInvWM
         }
 
         
-        protected void addRegistry(string marca, string tipo, string prefijo, string cod)
+        protected void addRegistry(string marca, string tipo, string prefijo, string cod, string compania)
         {
             string procesador, modelo, serie, ram, ordenCompra, disco, proveedor, compGHZ, observacion, status;
             decimal precio;
@@ -75,6 +75,7 @@ namespace EquiposInvWM
                         equi_observacion = observacion,
                         equi_precio = precio,
                         equi_ordencompra = ordenCompra,
+                        equi_empresa = compania
                     };
 
                     ctx.Equipos.Add(equ);
@@ -100,12 +101,13 @@ namespace EquiposInvWM
                         equi_proveedor = proveedor,
                         equi_ram = int.Parse(ram),
                         equi_serie = serie,
-                        equi_status = "STOCK",
+                        equi_status = status,
                         equi_marca = marca,
                         equi_garantia = garantiaFin,
                         equi_observacion = observacion,
                         equi_precio = precio,
                         equi_ordencompra = ordenCompra,
+                        equi_empresa = compania
                     };
 
                     ctx.Equipos.Add(equ);
@@ -133,6 +135,7 @@ namespace EquiposInvWM
             string marca;
             string prefijo = "";
             string cod;
+            string compania;
 
             if (chboxCodEquipo.Checked == true)
             {
@@ -185,12 +188,14 @@ namespace EquiposInvWM
                     }
                 }
 
+                compania = null;
                 cod = identificarEquipo(prefijo);
 
-                addRegistry(marca, tipo, prefijo, cod);
+                addRegistry(marca, tipo, prefijo, cod, compania);
                 emptyFields();
             } else
             {
+
                 prefijo = txtPrefijoEqui.Text;
                 cod = txtCodEquipo.Text;
                 if (cmbTipo.SelectedItem.Text == "Computadora")
@@ -202,7 +207,39 @@ namespace EquiposInvWM
                     tipo = cmbTipo.SelectedItem.Text;
                     marca = cmbBrandOthers.SelectedItem.Text;
                 }
-                addRegistry(marca, tipo, prefijo, cod);
+
+                if (cmbCompaniaEqui.SelectedItem.Text == "William y Molina")
+                {
+                    compania = "WM";
+                }
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Siglo 21")
+                {
+                    compania = "SI";
+                }
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Duracreto")
+                {
+                    compania = "DC";
+                }
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Grupo Platino")
+                {
+                    compania = "PLA";
+                } 
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Duracreto Santos") {
+                    compania = "DCS";
+                }
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Invalle")
+                {
+                    compania = "INV";
+                }
+                else if (cmbCompaniaEqui.SelectedItem.Text == "Altitud")
+                {
+                    compania = "ALT";
+                }
+                else
+                {
+                    compania = null;
+                }
+                addRegistry(marca, tipo, prefijo, cod, compania);
             } 
         }
 

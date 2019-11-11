@@ -37,4 +37,25 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Devoluciones</h2>
+            <p>
+                Devolucion de Equipos de Computo.
+            </p>
+            <p>
+                <a class="btn btn-default" href="DevolucionDeEquipos.aspx">Devoluciones &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Graficos</h2>
+            <p>
+                Visualizar graficos de equipos de Computo.
+            </p>
+            <p>
+                <a class="btn btn-default" href="Graficos.aspx">Graficos &raquo;</a>
+            </p>
+        </div>
+    </div>
+
 </asp:Content>
