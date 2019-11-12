@@ -77,8 +77,12 @@
                 </div>
                 <div class="col-md-2">
                     <h5>Marca: </h5>
-                    <asp:TextBox ID="txtBrandPer" runat="server" CssClass="form-control">
-                    </asp:TextBox>
+                    <asp:DropDownList ID="cmbBrandPer" runat="server" CssClass="form-control">
+                        <asp:ListItem>DELL</asp:ListItem>
+                        <asp:ListItem>ASUS</asp:ListItem>
+                        <asp:ListItem>HP</asp:ListItem>
+                        <asp:ListItem>OTRO</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <h5>Serie: </h5>
@@ -96,7 +100,7 @@
             <br />
             <div class="row">
                 <div class="col-md-2">
-                    <asp:Button ID="btModifyPer" runat="server" CssClass="btn btn-primary" Text="Modificar" />
+                    <asp:Button ID="btModifyPer" runat="server" CssClass="btn btn-primary" Text="Modificar" OnClick="btModifyPer_Click" />
                 </div>
             </div>
         </div>
@@ -117,7 +121,7 @@
             <br />
             <div class="row">
                 <div class="col-md-2">
-                    <asp:Button ID="btDeletePer" runat="server" CssClass="btn btn-danger" Text="Eliminar" />
+                    <asp:Button ID="btDeletePer" runat="server" CssClass="btn btn-danger" Text="Eliminar" OnClick="btDeletePer_Click" />
                 </div>
             </div>
         </div>

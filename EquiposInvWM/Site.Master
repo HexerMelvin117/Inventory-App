@@ -61,7 +61,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - William y Molina S.A</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Melvin Rosales y Dpto. IT & Logistica</p>
             </footer>
         </div>
 

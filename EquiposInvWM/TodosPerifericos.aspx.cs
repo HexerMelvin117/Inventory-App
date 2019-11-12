@@ -125,5 +125,63 @@ namespace EquiposInvWM
         {
             
         }
+
+        protected void ModificarPeriferico()
+        {
+            string tipo, marca, serie, estado;
+
+            tipo = txtTypePer.Text;
+            estado = cmbStatePer.SelectedItem.Text;
+            serie = txtSeriePer.Text;
+            marca = cmbBrandPer.SelectedItem.Text;
+
+            int id = int.Parse(txtIdModify.Text);
+
+            using(var ctx = new EquiposInvModelContainer())
+            {
+                try
+                {
+                    var result = ctx.Perifericos.SingleOrDefault(m => m.per_id == id);
+                    if (result != null)
+                    {
+                        result.per_estado = estado;
+                        result.per_serie = serie;
+                        result.per_marca = marca;
+                        result.per_estado = estado;
+
+                        ctx.Perifericos.Add(result);
+                        ctx.Perifericos.Attach(result);
+                        ctx.Entry(result).State = System.Data.Entity.EntityState.Modified;
+                        ctx.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+
+
+        }
+
+        protected void btModifyPer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btDeletePer_Click(object sender, EventArgs e)
+        {
+            int queId = int.Parse(txtIdDelete.Text);
+
+            using(var ctx = new EquiposInvModelContainer())
+            {
+                ctx.Perifericos
+                    .Where(u => u.per_id == queId)
+                    .ToList()
+                    .ForEach(u => ctx.Perifericos.Remove(u));
+
+                ctx.SaveChanges();
+            }
+        }
     }
 }
