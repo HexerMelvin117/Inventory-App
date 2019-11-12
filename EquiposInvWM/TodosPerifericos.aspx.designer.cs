@@ -51,13 +51,13 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtTypePer;
 
         /// <summary>
-        /// txtBrandPer control.
+        /// cmbBrandPer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBrandPer;
+        protected global::System.Web.UI.WebControls.DropDownList cmbBrandPer;
 
         /// <summary>
         /// txtSeriePer control.
