@@ -309,6 +309,7 @@
 
                 if (selectedValueEmpCod == "-- Vacio --") {
                     alert("Porfavor seleccionar empresa");
+                    return false;
                 }
             }
     </script>

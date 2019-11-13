@@ -69,14 +69,14 @@
           <Property Name="equi_serie" Type="varchar" MaxLength="50" />
           <Property Name="equi_procesador" Type="varchar" MaxLength="20" />
           <Property Name="equi_ghz" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="equi_disco" Type="int" />
+          <Property Name="equi_disco" Type="varchar" MaxLength="50" />
           <Property Name="ficha_sysope" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
             <PropertyRef Name="lisper_id" />
           </Key>
-          <Property Name="lisper_id" Type="int" Nullable="false" />
+          <Property Name="lisper_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="per_id" Type="int" />
           <Property Name="per_nom" Type="varchar" MaxLength="50" />
           <Property Name="per_tipo" Type="varchar" MaxLength="20" />
@@ -104,6 +104,15 @@
           <Property Name="repa_tipo" Type="varchar" MaxLength="20" />
           <Property Name="repa_detalle" Type="varchar(max)" />
           <Property Name="repa_fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="SoftwareInstalado">
+          <Key>
+            <PropertyRef Name="softinstal_id" />
+          </Key>
+          <Property Name="softinstal_id" Type="int" Nullable="false" />
+          <Property Name="softinstal_nom" Type="varchar" MaxLength="20" />
+          <Property Name="softinstal_instalado" Type="bit" />
+          <Property Name="ficha_id" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -153,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__ficha__3E1D39E1">
+        <Association Name="FK__ListaPeri__ficha__634EBE90">
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
           <End Role="ListaPerifericos" Type="Self.ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -165,7 +174,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__per_i__2CF2ADDF">
+        <Association Name="FK__ListaPeri__per_i__625A9A57">
           <End Role="Perifericos" Type="Self.Perifericos" Multiplicity="0..1" />
           <End Role="ListaPerifericos" Type="Self.ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,6 +198,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__SoftwareI__ficha__662B2B3B">
+          <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
+          <End Role="SoftwareInstalado" Type="Self.SoftwareInstalado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FichaComputo">
+              <PropertyRef Name="ficha_id" />
+            </Principal>
+            <Dependent Role="SoftwareInstalado">
+              <PropertyRef Name="ficha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="EquiposInvModelStoreContainer">
           <EntitySet Name="Compania" EntityType="Self.Compania" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
@@ -197,6 +218,7 @@
           <EntitySet Name="ListaPerifericos" EntityType="Self.ListaPerifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoftwareInstalado" EntityType="Self.SoftwareInstalado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Equipos__emp_id__5CA1C101" Association="Self.FK__Equipos__emp_id__5CA1C101">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -210,17 +232,21 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__ficha__3E1D39E1" Association="Self.FK__ListaPeri__ficha__3E1D39E1">
+          <AssociationSet Name="FK__ListaPeri__ficha__634EBE90" Association="Self.FK__ListaPeri__ficha__634EBE90">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__per_i__2CF2ADDF" Association="Self.FK__ListaPeri__per_i__2CF2ADDF">
+          <AssociationSet Name="FK__ListaPeri__per_i__625A9A57" Association="Self.FK__ListaPeri__per_i__625A9A57">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
           <AssociationSet Name="FK__Reparacio__equi___5AB9788F" Association="Self.FK__Reparacio__equi___5AB9788F">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SoftwareI__ficha__662B2B3B" Association="Self.FK__SoftwareI__ficha__662B2B3B">
+            <End Role="FichaComputo" EntitySet="FichaComputo" />
+            <End Role="SoftwareInstalado" EntitySet="SoftwareInstalado" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -235,6 +261,7 @@
           <EntitySet Name="ListaPerifericos" EntityType="EquiposInvModel.ListaPerifericos" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
           <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
+          <EntitySet Name="SoftwareInstalado" EntityType="EquiposInvModel.SoftwareInstalado" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
           <AssociationSet Name="FK__Equipos__emp_id__5CA1C101" Association="EquiposInvModel.FK__Equipos__emp_id__5CA1C101">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -252,11 +279,15 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__ficha__3E1D39E1" Association="EquiposInvModel.FK__ListaPeri__ficha__3E1D39E1">
+          <AssociationSet Name="FK__ListaPeri__ficha__634EBE90" Association="EquiposInvModel.FK__ListaPeri__ficha__634EBE90">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__per_i__2CF2ADDF" Association="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF">
+          <AssociationSet Name="FK__SoftwareI__ficha__662B2B3B" Association="EquiposInvModel.FK__SoftwareI__ficha__662B2B3B">
+            <End Role="FichaComputo" EntitySet="FichaComputo" />
+            <End Role="SoftwareInstalado" EntitySet="SoftwareInstalado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaPeri__per_i__625A9A57" Association="EquiposInvModel.FK__ListaPeri__per_i__625A9A57">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
@@ -330,24 +361,25 @@
           <Property Name="equi_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_procesador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_ghz" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="equi_disco" Type="Int32" />
+          <Property Name="equi_disco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ficha_sysope" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__FichaComp__emp_i__3C34F16F" FromRole="FichaComputo" ToRole="Empleados" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___5BAD9CC8" FromRole="FichaComputo" ToRole="Equipos" />
-          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__3E1D39E1" FromRole="FichaComputo" ToRole="ListaPerifericos" />
+          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__634EBE90" FromRole="FichaComputo" ToRole="ListaPerifericos" />
+          <NavigationProperty Name="SoftwareInstalado" Relationship="EquiposInvModel.FK__SoftwareI__ficha__662B2B3B" FromRole="FichaComputo" ToRole="SoftwareInstalado" />
         </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
             <PropertyRef Name="lisper_id" />
           </Key>
-          <Property Name="lisper_id" Type="Int32" Nullable="false" />
+          <Property Name="lisper_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="per_id" Type="Int32" />
           <Property Name="per_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="per_cod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ficha_id" Type="Int32" />
-          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ListaPeri__ficha__3E1D39E1" FromRole="ListaPerifericos" ToRole="FichaComputo" />
-          <NavigationProperty Name="Perifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF" FromRole="ListaPerifericos" ToRole="Perifericos" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ListaPeri__ficha__634EBE90" FromRole="ListaPerifericos" ToRole="FichaComputo" />
+          <NavigationProperty Name="Perifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" FromRole="ListaPerifericos" ToRole="Perifericos" />
         </EntityType>
         <EntityType Name="Perifericos">
           <Key>
@@ -360,7 +392,7 @@
           <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__2CF2ADDF" FromRole="Perifericos" ToRole="ListaPerifericos" />
+          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" FromRole="Perifericos" ToRole="ListaPerifericos" />
         </EntityType>
         <EntityType Name="Reparaciones">
           <Key>
@@ -372,6 +404,16 @@
           <Property Name="repa_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="repa_fecha" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___5AB9788F" FromRole="Reparaciones" ToRole="Equipos" />
+        </EntityType>
+        <EntityType Name="SoftwareInstalado">
+          <Key>
+            <PropertyRef Name="softinstal_id" />
+          </Key>
+          <Property Name="softinstal_id" Type="Int32" Nullable="false" />
+          <Property Name="softinstal_nom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="softinstal_instalado" Type="Boolean" />
+          <Property Name="ficha_id" Type="Int32" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__SoftwareI__ficha__662B2B3B" FromRole="SoftwareInstalado" ToRole="FichaComputo" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -433,7 +475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__ficha__3E1D39E1">
+        <Association Name="FK__ListaPeri__ficha__634EBE90">
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
           <End Type="EquiposInvModel.ListaPerifericos" Role="ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -445,7 +487,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__per_i__2CF2ADDF">
+        <Association Name="FK__SoftwareI__ficha__662B2B3B">
+          <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.SoftwareInstalado" Role="SoftwareInstalado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FichaComputo">
+              <PropertyRef Name="ficha_id" />
+            </Principal>
+            <Dependent Role="SoftwareInstalado">
+              <PropertyRef Name="ficha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaPeri__per_i__625A9A57">
           <End Type="EquiposInvModel.Perifericos" Role="Perifericos" Multiplicity="0..1" />
           <End Type="EquiposInvModel.ListaPerifericos" Role="ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -569,6 +623,16 @@
                 <ScalarProperty Name="repa_tipo" ColumnName="repa_tipo" />
                 <ScalarProperty Name="equi_id" ColumnName="equi_id" />
                 <ScalarProperty Name="repa_id" ColumnName="repa_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoftwareInstalado">
+            <EntityTypeMapping TypeName="EquiposInvModel.SoftwareInstalado">
+              <MappingFragment StoreEntitySet="SoftwareInstalado">
+                <ScalarProperty Name="ficha_id" ColumnName="ficha_id" />
+                <ScalarProperty Name="softinstal_instalado" ColumnName="softinstal_instalado" />
+                <ScalarProperty Name="softinstal_nom" ColumnName="softinstal_nom" />
+                <ScalarProperty Name="softinstal_id" ColumnName="softinstal_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

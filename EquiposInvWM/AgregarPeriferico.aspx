@@ -69,7 +69,27 @@
     <br />
     <div class="row">
         <div class="col-md-2">
-            <asp:Button ID="btAgregarPeriferico" class="btn btn-primary" runat="server" Text="Agregar" OnClick="btAgregarPeriferico_Click" />
+            <asp:Button ID="btAgregarPeriferico" class="btn btn-primary" runat="server" Text="Agregar" OnClientClick="return validateFields();" OnClick="btAgregarPeriferico_Click" />
         </div>
     </div>
+
+    <script>
+            function validateFields() {
+                var ddlTipoPeriferico = document.getElementById("MainContent_cmbTipoPeriferico");
+                var selectedValueTipo = ddlTipoPeriferico.options[ddlTipoPeriferico.selectedIndex].value;
+                var ddlEstadoPeriferico = document.getElementById("MainContent_cmbEstadoPeriferico");
+                var selectedValueEstado = ddlEstadoPeriferico.options[ddlEstadoPeriferico.selectedIndex].value;
+
+                if (selectedValueTipo == "-- Seleccionar --") {
+                    alert("Porfavor seleccionar tipo de periferico");
+                    return false;
+                }
+
+                if (selectedValueEstado == "-- Seleccionar --") {
+                    alert("Porfavor seleccionar Estado de Periferico");
+                    return false;
+                }
+                
+            }
+    </script>
 </asp:Content>

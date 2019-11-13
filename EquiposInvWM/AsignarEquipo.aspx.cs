@@ -221,12 +221,12 @@ namespace EquiposInvWM
             // Variables para informacion de equipo
             string marca, codEqui, serie, procesador, sysope;
             decimal ghz;
-            int capacidad;
+            string capacidad;
 
             procesador = txtProcessor.Text;
             marca = txtBrandAssigned.Text;
             ghz = decimal.Parse(txtGhz.Text);
-            capacidad = int.Parse(txtHdCapacity.Text);
+            capacidad = txtHdCapacity.Text;
             codEqui = txtEquipCode.Text;
             serie = txtSerialEquip.Text;
             sysope = cmbOsEquipment.SelectedItem.Text;
@@ -265,14 +265,51 @@ namespace EquiposInvWM
                 };
                 ctx.FichaComputo.Add(ficha);
                 ctx.SaveChanges();
+
+                int fichaid;
+                fichaid = ficha.ficha_id;
+
+                ListaPerifericosAgregar(fichaid);
+                CaptureSoftware(fichaid);
             }
 
         }
 
-        // Para agregar lista de perifericos a la BD
-        protected void FichaPerifericosAgregar()
+        protected void CaptureSoftware(int idFicha)
         {
+            List<ListItem> selected = cblistInstalledSoftware.Items.Cast<ListItem>()
+                .Where(li => li.Selected)
+                .ToList();
+        }
 
+        // Para agregar lista de perifericos a la BD
+        protected void ListaPerifericosAgregar(int idFicha)
+        {
+            int idPer;
+            string tipoPer, codPer;
+
+            dtPeriph = (DataTable)ViewState["Records"];
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                foreach(DataRow row in dtPeriph.Rows)
+                {
+                    string idtemp = row["ID Interno"].ToString();
+                    tipoPer = row["Tipo"].ToString();
+                    codPer = row["Codigo_Periferico"].ToString();
+                    idPer = int.Parse(idtemp);
+
+                    var ListaPer = new ListaPerifericos()
+                    {
+                        per_tipo = tipoPer,
+                        per_id = idPer,
+                        per_cod = codPer,
+                        ficha_id = idFicha,
+                    };
+
+                    ctx.ListaPerifericos.Add(ListaPer);
+                    ctx.SaveChanges();
+                }
+            }
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
@@ -354,7 +391,7 @@ namespace EquiposInvWM
         protected void btCrearFicha_Click(object sender, EventArgs e)
         {
             CrearFicha();
-            FichaPerifericosAgregar();
+            
             emptyFields();
         }
     }
