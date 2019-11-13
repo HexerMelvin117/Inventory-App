@@ -147,7 +147,7 @@ namespace EquiposInvWM
                         result.per_estado = estado;
                         result.per_serie = serie;
                         result.per_marca = marca;
-                        result.per_estado = estado;
+                        result.per_tipo = tipo;
 
                         ctx.Perifericos.Add(result);
                         ctx.Perifericos.Attach(result);
@@ -166,7 +166,8 @@ namespace EquiposInvWM
 
         protected void btModifyPer_Click(object sender, EventArgs e)
         {
-
+            ModificarPeriferico();
+            fillGrid();
         }
 
         protected void btDeletePer_Click(object sender, EventArgs e)
@@ -182,6 +183,7 @@ namespace EquiposInvWM
 
                 ctx.SaveChanges();
             }
+            fillGrid();
         }
     }
 }

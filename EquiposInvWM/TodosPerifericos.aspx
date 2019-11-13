@@ -127,4 +127,37 @@
         </div>
     </div>
 
+    <script>
+        var table = document.getElementsByTagName("table")[0];
+        var tbody = table.getElementsByTagName("tbody")[0];
+        tbody.onclick = function (e) {
+            e = e || window.event;
+            var data = [];
+            var target = e.srcElement || e.target;
+            while (target && target.nodeName !== "TR") {
+                target = target.parentNode;
+            }
+            if (target) {
+                var cells = target.getElementsByTagName("td");
+                for (var i = 0; i < cells.length; i++) {
+                    data.push(cells[i].innerHTML);
+                }
+            }
+            document.getElementById('MainContent_txtTypePer').value = data[2];
+            if (data[2] == "&nbsp;") {
+                document.getElementById('MainContent_txtTypePer').value = "";
+            }
+            document.getElementById('MainContent_txtIdDelete').value = data[0];
+            document.getElementById('MainContent_txtCodDeletePer').value = data[1];
+            if (data[1] == "&nbsp;") {
+                document.getElementById('MainContent_txtCodDeletePer').value = "";
+            }
+            document.getElementById('MainContent_txtIdModify').value = data[0];
+            document.getElementById('MainContent_txtSeriePer').value = data[4];
+            if (data[4] == "&nbsp;") {
+                document.getElementById('MainContent_txtSeriePer').value = "";
+            }
+        };
+            </script>
+
 </asp:Content>

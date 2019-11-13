@@ -18,6 +18,7 @@ namespace EquiposInvWM
         public FichaComputo()
         {
             this.ListaPerifericos = new HashSet<ListaPerifericos>();
+            this.SoftwareInstalado = new HashSet<SoftwareInstalado>();
         }
     
         public int ficha_id { get; set; }
@@ -34,12 +35,14 @@ namespace EquiposInvWM
         public string equi_serie { get; set; }
         public string equi_procesador { get; set; }
         public Nullable<decimal> equi_ghz { get; set; }
-        public Nullable<int> equi_disco { get; set; }
+        public string equi_disco { get; set; }
         public string ficha_sysope { get; set; }
     
         public virtual Empleados Empleados { get; set; }
         public virtual Equipos Equipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaPerifericos> ListaPerifericos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SoftwareInstalado> SoftwareInstalado { get; set; }
     }
 }
