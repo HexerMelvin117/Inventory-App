@@ -21,6 +21,8 @@
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__ficha__634EBE90" />
         <AssociationConnector Association="EquiposInvModel.FK__SoftwareI__ficha__662B2B3B" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" />
+        <EntityTypeShape EntityType="EquiposInvModel.ImagenEquipo" Width="1.5" PointX="7.5" PointY="12.125" />
+        <AssociationConnector Association="EquiposInvModel.FK__ImagenEqu__ficha__7849DB76" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -315,10 +315,18 @@
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#perifericos-tab">Perifericos</a></li>
       <li><a data-toggle="tab" href="#software-tab">Software Instalado</a></li>
+      <li><a data-toggle="tab" href="#fotos-tab">Fotos</a></li>
     </ul>
 
     <!-- Pestaña para seleccionar perifericos -->
     <div class="tab-content">
+
+        <div id="fotos-tab" class="tab-pane fade">
+            <h3>Fotos de Equipo</h3>
+            
+        </div>
+
+        <!-- Tab de Perifericos -->
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
             <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>
@@ -523,10 +531,4 @@
         </div> 
       </div>
     </div>
-
-    <script>
-        function EmptyFields() {
-            
-        }
-    </script>
 </asp:Content>

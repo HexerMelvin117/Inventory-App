@@ -72,6 +72,15 @@
           <Property Name="equi_disco" Type="varchar" MaxLength="50" />
           <Property Name="ficha_sysope" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ImagenEquipo">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="int" Nullable="false" />
+          <Property Name="img_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="img_path" Type="nvarchar(max)" />
+          <Property Name="ficha_id" Type="int" />
+        </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
             <PropertyRef Name="lisper_id" />
@@ -162,6 +171,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ImagenEqu__ficha__7849DB76">
+          <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
+          <End Role="ImagenEquipo" Type="Self.ImagenEquipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FichaComputo">
+              <PropertyRef Name="ficha_id" />
+            </Principal>
+            <Dependent Role="ImagenEquipo">
+              <PropertyRef Name="ficha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ListaPeri__ficha__634EBE90">
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
           <End Role="ListaPerifericos" Type="Self.ListaPerifericos" Multiplicity="*" />
@@ -215,6 +236,7 @@
           <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FichaComputo" EntityType="Self.FichaComputo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenEquipo" EntityType="Self.ImagenEquipo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaPerifericos" EntityType="Self.ListaPerifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
@@ -231,6 +253,10 @@
           <AssociationSet Name="FK__FichaComp__equi___5BAD9CC8" Association="Self.FK__FichaComp__equi___5BAD9CC8">
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ImagenEqu__ficha__7849DB76" Association="Self.FK__ImagenEqu__ficha__7849DB76">
+            <End Role="FichaComputo" EntitySet="FichaComputo" />
+            <End Role="ImagenEquipo" EntitySet="ImagenEquipo" />
           </AssociationSet>
           <AssociationSet Name="FK__ListaPeri__ficha__634EBE90" Association="Self.FK__ListaPeri__ficha__634EBE90">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
@@ -290,6 +316,11 @@
           <AssociationSet Name="FK__ListaPeri__per_i__625A9A57" Association="EquiposInvModel.FK__ListaPeri__per_i__625A9A57">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
+          </AssociationSet>
+          <EntitySet Name="ImagenEquipo" EntityType="EquiposInvModel.ImagenEquipo" />
+          <AssociationSet Name="FK__ImagenEqu__ficha__7849DB76" Association="EquiposInvModel.FK__ImagenEqu__ficha__7849DB76">
+            <End Role="FichaComputo" EntitySet="FichaComputo" />
+            <End Role="ImagenEquipo" EntitySet="ImagenEquipo" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Compania">
@@ -367,6 +398,7 @@
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___5BAD9CC8" FromRole="FichaComputo" ToRole="Equipos" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__634EBE90" FromRole="FichaComputo" ToRole="ListaPerifericos" />
           <NavigationProperty Name="SoftwareInstalado" Relationship="EquiposInvModel.FK__SoftwareI__ficha__662B2B3B" FromRole="FichaComputo" ToRole="SoftwareInstalado" />
+          <NavigationProperty Name="ImagenEquipo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__7849DB76" FromRole="FichaComputo" ToRole="ImagenEquipo" />
         </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
@@ -511,6 +543,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ImagenEquipo">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="Int32" Nullable="false" />
+          <Property Name="img_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="img_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ficha_id" Type="Int32" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__7849DB76" FromRole="ImagenEquipo" ToRole="FichaComputo" />
+        </EntityType>
+        <Association Name="FK__ImagenEqu__ficha__7849DB76">
+          <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.ImagenEquipo" Role="ImagenEquipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FichaComputo">
+              <PropertyRef Name="ficha_id" />
+            </Principal>
+            <Dependent Role="ImagenEquipo">
+              <PropertyRef Name="ficha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -646,6 +700,16 @@
                 <ScalarProperty Name="user_ape" ColumnName="user_ape" />
                 <ScalarProperty Name="user_nom" ColumnName="user_nom" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenEquipo">
+            <EntityTypeMapping TypeName="EquiposInvModel.ImagenEquipo">
+              <MappingFragment StoreEntitySet="ImagenEquipo">
+                <ScalarProperty Name="ficha_id" ColumnName="ficha_id" />
+                <ScalarProperty Name="img_path" ColumnName="img_path" />
+                <ScalarProperty Name="img_name" ColumnName="img_name" />
+                <ScalarProperty Name="image_id" ColumnName="image_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
