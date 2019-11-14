@@ -34,5 +34,6 @@ namespace EquiposInvWM
         public virtual DbSet<Reparaciones> Reparaciones { get; set; }
         public virtual DbSet<SoftwareInstalado> SoftwareInstalado { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<ImagenEquipo> ImagenEquipo { get; set; }
     }
 }
