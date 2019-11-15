@@ -86,7 +86,6 @@
             <asp:DropDownList ID="cmbStateEquip" CssClass="form-control" runat="server">
                 <asp:ListItem>STOCK</asp:ListItem>
                 <asp:ListItem>ACTIVO</asp:ListItem>
-                <asp:ListItem>DESACTIVO</asp:ListItem>
             </asp:DropDownList>
         </div>
     </div>

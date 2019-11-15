@@ -209,12 +209,6 @@ namespace EquiposInvWM
             txtSerialEquip.Text = serie;
         }
 
-        public int randomId()
-        {
-            Random randomNumber = new Random();
-            return randomNumber.Next(0, 5000);
-        }
-
         // Para crear la ficha
         protected void CrearFicha()
         {
@@ -249,7 +243,6 @@ namespace EquiposInvWM
             {
                 var ficha = new FichaComputo()
                 {
-                    ficha_id = randomId(),
                     ficha_dpto = departamento,
                     ficha_fecha = DateTime.Parse(fecha),
                     ficha_emp = firstName,
@@ -275,7 +268,6 @@ namespace EquiposInvWM
                 ListaPerifericosAgregar(fichaid);
                 CaptureSoftware(fichaid);
             }
-
         }
 
         protected void CaptureSoftware(int idFicha)
@@ -393,7 +385,6 @@ namespace EquiposInvWM
         protected void btCrearFicha_Click(object sender, EventArgs e)
         {
             CrearFicha();
-            
             emptyFields();
         }
     }

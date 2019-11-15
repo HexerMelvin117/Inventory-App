@@ -17,9 +17,9 @@ namespace EquiposInvWM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FichaComputo()
         {
+            this.ImagenEquipo = new HashSet<ImagenEquipo>();
             this.ListaPerifericos = new HashSet<ListaPerifericos>();
             this.SoftwareInstalado = new HashSet<SoftwareInstalado>();
-            this.ImagenEquipo = new HashSet<ImagenEquipo>();
         }
     
         public int ficha_id { get; set; }
@@ -42,10 +42,10 @@ namespace EquiposInvWM
         public virtual Empleados Empleados { get; set; }
         public virtual Equipos Equipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImagenEquipo> ImagenEquipo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaPerifericos> ListaPerifericos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SoftwareInstalado> SoftwareInstalado { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ImagenEquipo> ImagenEquipo { get; set; }
     }
 }
