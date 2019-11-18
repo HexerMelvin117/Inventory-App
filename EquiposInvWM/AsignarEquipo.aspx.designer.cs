@@ -195,6 +195,60 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.Button btnSelEmployee;
 
         /// <summary>
+        /// ImagenUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload1;
+
+        /// <summary>
+        /// ImagenUpload2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload2;
+
+        /// <summary>
+        /// ImagenUpload3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload3;
+
+        /// <summary>
+        /// ImagenUpload4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload4;
+
+        /// <summary>
+        /// ImagenUpload5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload5;
+
+        /// <summary>
+        /// ImagenUpload6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload6;
+
+        /// <summary>
         /// gridPerifericoSelect control.
         /// </summary>
         /// <remarks>
