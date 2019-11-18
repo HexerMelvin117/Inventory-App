@@ -335,8 +335,7 @@
             <br />
             <asp:FileUpload ID="ImagenUpload6" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
         </div>
-
-        <!-- Tab de Perifericos -->
+      <!-- Tab de Perifericos -->
       <div id="perifericos-tab" class="tab-pane fade in active">
         <h3>Perifericos</h3>
             <asp:GridView ID="gridPerifericoSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPerifericoSelect_PreRender"></asp:GridView>

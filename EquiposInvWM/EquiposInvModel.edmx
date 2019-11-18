@@ -76,7 +76,7 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="int" Nullable="false" />
+          <Property Name="image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="img_name" Type="nvarchar" MaxLength="250" />
           <Property Name="img_path" Type="nvarchar(max)" />
           <Property Name="ficha_id" Type="int" />
@@ -171,7 +171,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImagenEqu__ficha__0C50D423">
+        <Association Name="FK__ImagenEqu__ficha__1B9317B3">
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
           <End Role="ImagenEquipo" Type="Self.ImagenEquipo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +254,7 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImagenEqu__ficha__0C50D423" Association="Self.FK__ImagenEqu__ficha__0C50D423">
+          <AssociationSet Name="FK__ImagenEqu__ficha__1B9317B3" Association="Self.FK__ImagenEqu__ficha__1B9317B3">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ImagenEquipo" EntitySet="ImagenEquipo" />
           </AssociationSet>
@@ -306,7 +306,7 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImagenEqu__ficha__0C50D423" Association="EquiposInvModel.FK__ImagenEqu__ficha__0C50D423">
+          <AssociationSet Name="FK__ImagenEqu__ficha__1B9317B3" Association="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ImagenEquipo" EntitySet="ImagenEquipo" />
           </AssociationSet>
@@ -396,7 +396,7 @@
           <Property Name="ficha_sysope" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__FichaComp__emp_i__0880433F" FromRole="FichaComputo" ToRole="Empleados" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___09746778" FromRole="FichaComputo" ToRole="Equipos" />
-          <NavigationProperty Name="ImagenEquipo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__0C50D423" FromRole="FichaComputo" ToRole="ImagenEquipo" />
+          <NavigationProperty Name="ImagenEquipo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" FromRole="FichaComputo" ToRole="ImagenEquipo" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__0A688BB1" FromRole="FichaComputo" ToRole="ListaPerifericos" />
           <NavigationProperty Name="SoftwareInstalado" Relationship="EquiposInvModel.FK__SoftwareI__ficha__0B5CAFEA" FromRole="FichaComputo" ToRole="SoftwareInstalado" />
         </EntityType>
@@ -404,11 +404,11 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="Int32" Nullable="false" />
+          <Property Name="image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="img_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="img_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ficha_id" Type="Int32" />
-          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__0C50D423" FromRole="ImagenEquipo" ToRole="FichaComputo" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" FromRole="ImagenEquipo" ToRole="FichaComputo" />
         </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
@@ -517,7 +517,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImagenEqu__ficha__0C50D423">
+        <Association Name="FK__ImagenEqu__ficha__1B9317B3">
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
           <End Type="EquiposInvModel.ImagenEquipo" Role="ImagenEquipo" Multiplicity="*" />
           <ReferentialConstraint>

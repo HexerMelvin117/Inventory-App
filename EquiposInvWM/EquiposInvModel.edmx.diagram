@@ -19,7 +19,7 @@
         <AssociationConnector Association="EquiposInvModel.FK__FichaComp__emp_i__0880433F" />
         <AssociationConnector Association="EquiposInvModel.FK__FichaComp__equi___09746778" />
         <AssociationConnector Association="EquiposInvModel.FK__Reparacio__equi___5AB9788F" />
-        <AssociationConnector Association="EquiposInvModel.FK__ImagenEqu__ficha__0C50D423" />
+        <AssociationConnector Association="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__ficha__0A688BB1" />
         <AssociationConnector Association="EquiposInvModel.FK__SoftwareI__ficha__0B5CAFEA" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" />

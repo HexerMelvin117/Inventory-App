@@ -209,6 +209,32 @@ namespace EquiposInvWM
             txtSerialEquip.Text = serie;
         }
 
+        protected void AddImages(int fichaId)
+        {
+            if (ImagenUpload1.PostedFile != null)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload1.PostedFile.FileName);
+
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+
+                ImagenUpload1.SaveAs(physicalPath + imgFile);
+                string mainconn = ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
+                SqlConnection sqlconn = new SqlConnection(mainconn);
+                sqlconn.Open();
+                string sqlquery = "insert into [dbo].[ImagenEquipo] ([img_name],[img_path],[ficha_id]) values (@img_name,@img_path,@ficha_id)";
+                SqlCommand sqlcomm = new SqlCommand(sqlquery,sqlconn);
+                sqlcomm.Parameters.AddWithValue("@img_name", imgFile);
+                sqlcomm.Parameters.AddWithValue("@img_path", "Images/" + imgFile);
+                sqlcomm.Parameters.AddWithValue("@ficha_id", fichaId);
+                sqlcomm.ExecuteNonQuery();
+                sqlconn.Close();
+            }
+            else
+            {
+
+            }
+        }
+
         // Para crear la ficha
         protected void CrearFicha()
         {
@@ -267,6 +293,7 @@ namespace EquiposInvWM
 
                 ListaPerifericosAgregar(fichaid);
                 CaptureSoftware(fichaid);
+                AddImages(fichaid);
             }
         }
 
