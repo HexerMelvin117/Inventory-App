@@ -209,30 +209,72 @@ namespace EquiposInvWM
             txtSerialEquip.Text = serie;
         }
 
+        // Query en SQL Server para subir imagenes a carpeta Images/ y guardar a BD
+        protected void QueryToAddImage(string imgFile, int fichaId)
+        {
+            string mainconn = ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
+            SqlConnection sqlconn = new SqlConnection(mainconn);
+            sqlconn.Open();
+            string sqlquery = "insert into [dbo].[ImagenEquipo] ([img_name],[img_path],[ficha_id]) values (@img_name,@img_path,@ficha_id)";
+            SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
+            sqlcomm.Parameters.AddWithValue("@img_name", imgFile);
+            sqlcomm.Parameters.AddWithValue("@img_path", "Images/" + imgFile);
+            sqlcomm.Parameters.AddWithValue("@ficha_id", fichaId);
+            sqlcomm.ExecuteNonQuery();
+            sqlconn.Close();
+        }
+
+        // Para subir las imagenes a la BD
         protected void AddImages(int fichaId)
         {
-            if (ImagenUpload1.PostedFile != null)
+            if (ImagenUpload1.HasFile != false)
             {
                 string imgFile = Path.GetFileName(ImagenUpload1.PostedFile.FileName);
-
                 string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
-
                 ImagenUpload1.SaveAs(physicalPath + imgFile);
-                string mainconn = ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
-                SqlConnection sqlconn = new SqlConnection(mainconn);
-                sqlconn.Open();
-                string sqlquery = "insert into [dbo].[ImagenEquipo] ([img_name],[img_path],[ficha_id]) values (@img_name,@img_path,@ficha_id)";
-                SqlCommand sqlcomm = new SqlCommand(sqlquery,sqlconn);
-                sqlcomm.Parameters.AddWithValue("@img_name", imgFile);
-                sqlcomm.Parameters.AddWithValue("@img_path", "Images/" + imgFile);
-                sqlcomm.Parameters.AddWithValue("@ficha_id", fichaId);
-                sqlcomm.ExecuteNonQuery();
-                sqlconn.Close();
-            }
-            else
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
+            if (ImagenUpload2.HasFile != false)
             {
-
-            }
+                string imgFile = Path.GetFileName(ImagenUpload2.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+                ImagenUpload2.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
+            if (ImagenUpload3.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload3.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+                ImagenUpload3.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
+            if (ImagenUpload4.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload4.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+                ImagenUpload4.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
+            if (ImagenUpload5.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload5.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+                ImagenUpload5.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
+            if (ImagenUpload6.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload6.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "Images/");
+                ImagenUpload6.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, fichaId);
+            } 
+            
         }
 
         // Para crear la ficha
