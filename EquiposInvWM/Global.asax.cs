@@ -16,6 +16,7 @@ namespace EquiposInvWM
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DevExpress.XtraReports.Web.ASPxReportDesigner.StaticInitialize();
         }
     }
 }
