@@ -17,6 +17,9 @@
             <div class="col-md-2">
                 <a class="btn btn-default" href="AgregarEmpleado.aspx">Agregar Empleado &raquo;</a>
             </div>
+            <div class="col-md-2">
+                <a class="btn btn-default" href="VisualizadorFicha.aspx">Imprimir Ficha &raquo;</a>
+            </div>
         </div>
 
         <h3>Ficha de Equipo de Computo</h3>
