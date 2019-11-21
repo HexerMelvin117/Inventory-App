@@ -61,6 +61,6 @@
     </script>
 
     <div class="row">
-        
+        <dx:ASPxWebDocumentViewer ID="FichaWebDocumentViewer" runat="server" ReportSourceId="EquiposInvWM.Reporting.FichaComputoReport"></dx:ASPxWebDocumentViewer>
     </div>
 </asp:Content>

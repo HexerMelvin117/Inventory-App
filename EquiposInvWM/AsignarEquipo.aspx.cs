@@ -284,7 +284,7 @@ namespace EquiposInvWM
             fecha = txtDate.Text;
 
             // Variables para informacion de equipo
-            string marca, codEqui, serie, procesador, sysope;
+            string marca, codEqui, serie, procesador, sysope, observacion;
             decimal ghz;
             string capacidad;
 
@@ -295,6 +295,7 @@ namespace EquiposInvWM
             codEqui = txtEquipCode.Text;
             serie = txtSerialEquip.Text;
             sysope = cmbOsEquipment.SelectedItem.Text;
+            observacion = txtObservacionArea.Text;
 
             // variables para informacion de empleado
             string firstName, lastName, fullName, codemp, departamento, project;
@@ -314,6 +315,7 @@ namespace EquiposInvWM
                     ficha_dpto = departamento,
                     ficha_fecha = DateTime.Parse(fecha),
                     ficha_emp = firstName,
+                    ficha_observacion = observacion,
                     emp_nom = fullName,
                     emp_id = null,
                     emp_cod = codemp,
