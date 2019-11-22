@@ -212,6 +212,17 @@
     <Content Include="EquiposInventarioDataSet.xsc">
       <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\dsCreacionFicha.xsc">
+      <DependentUpon>dsCreacionFicha.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\dsCreacionFicha.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCreacionFicha.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Datasets\dsCreacionFicha.xss">
+      <DependentUpon>dsCreacionFicha.xsd</DependentUpon>
+    </Content>
     <None Include="EquiposInventarioDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EquiposInventarioDataSet.Designer.cs</LastGenOutput>
@@ -347,6 +358,11 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsCreacionFicha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCreacionFicha.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

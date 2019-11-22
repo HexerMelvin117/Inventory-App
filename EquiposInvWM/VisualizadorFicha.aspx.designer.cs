@@ -24,6 +24,24 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.GridView FichasGrid;
 
         /// <summary>
+        /// txtParamCreacionFicha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtParamCreacionFicha;
+
+        /// <summary>
+        /// btCreateReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btCreateReport;
+
+        /// <summary>
         /// FichaWebDocumentViewer control.
         /// </summary>
         /// <remarks>

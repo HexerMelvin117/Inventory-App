@@ -13,5 +13,9 @@ namespace EquiposInvWM.Reporting
             InitializeComponent();
         }
 
+        private void FichaComputoReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            creacionFichaTableAdapter2.Fill(dsCreacionFicha1.CreacionFicha, (int)(Parameters["Ficha_id"].Value));
+        }
     }
 }
