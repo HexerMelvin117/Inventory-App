@@ -50,5 +50,14 @@ namespace EquiposInvWM
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
+
+        protected void btCreateReport_Click(object sender, EventArgs e)
+        {
+            Reporting.FichaComputoReport report = new Reporting.FichaComputoReport();
+            report.Parameters["Ficha_id"].Value = int.Parse(txtParamCreacionFicha.Text);
+            report.Parameters["Ficha_id"].Visible = false;
+            report.CreateDocument();
+
+        }
     }
 }
