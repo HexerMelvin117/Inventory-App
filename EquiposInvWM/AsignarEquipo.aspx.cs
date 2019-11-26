@@ -23,6 +23,8 @@ namespace EquiposInvWM
                     dtPeriph.Columns.Add("ID Interno");
                     dtPeriph.Columns.Add("Codigo_Periferico");
                     dtPeriph.Columns.Add("Tipo");
+                    dtPeriph.Columns.Add("Marca");
+                    dtPeriph.Columns.Add("Estado");
                     ViewState["Records"] = dtPeriph;
                 }
                 
@@ -44,7 +46,9 @@ namespace EquiposInvWM
                              {
                                  Id = m.per_id,
                                  Tipo = m.per_tipo,
-                                 Codigo = (m.per_prefijo + m.per_cod)
+                                 Codigo = (m.per_prefijo + m.per_cod),
+                                 Estado = m.per_estado,
+                                 Marca = m.per_marca
                              }).ToList();
 
                 gridPerifericoSelect.DataSource = query;
@@ -352,7 +356,7 @@ namespace EquiposInvWM
         protected void ListaPerifericosAgregar(int idFicha)
         {
             int idPer;
-            string tipoPer, codPer;
+            string tipoPer, codPer, estadoPer, marcaPer;
 
             dtPeriph = (DataTable)ViewState["Records"];
             using (var ctx = new EquiposInvModelContainer())
@@ -362,6 +366,8 @@ namespace EquiposInvWM
                     string idtemp = row["ID Interno"].ToString();
                     tipoPer = row["Tipo"].ToString();
                     codPer = row["Codigo_Periferico"].ToString();
+                    marcaPer = row["Marca"].ToString();
+                    estadoPer = row["Estado"].ToString();
                     idPer = int.Parse(idtemp);
 
                     var ListaPer = new ListaPerifericos()
@@ -369,6 +375,8 @@ namespace EquiposInvWM
                         per_tipo = tipoPer,
                         per_id = idPer,
                         per_cod = codPer,
+                        per_marca = marcaPer,
+                        per_estado = estadoPer,
                         ficha_id = idFicha,
                     };
 
@@ -434,7 +442,7 @@ namespace EquiposInvWM
         protected void btSelectPeriph_Click(object sender, EventArgs e)
         {
             dtPeriph = (DataTable)ViewState["Records"];
-            dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text);
+            dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text, txtMarcaPeriph.Text, txtEstadoPeriph.Text);
             gridSelectedPeriph.DataSource = dtPeriph;
             gridSelectedPeriph.DataBind();
         }
