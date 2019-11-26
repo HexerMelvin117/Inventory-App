@@ -393,6 +393,14 @@
                   <label>ID Interno: </label>
                   <asp:TextBox ID="txtIDInternPeri" runat="server" CssClass="form-control"></asp:TextBox>
               </div>
+              <div class="col-md-2">
+                  <label>Marca: </label>
+                  <asp:TextBox ID="txtMarcaPeriph" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
+              <div class="col-md-2">
+                  <label>Estado: </label>
+                  <asp:TextBox ID="txtEstadoPeriph" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
           </div>
           <br />
           <div class="row">
@@ -426,6 +434,8 @@
                       document.getElementById('MainContent_txtIDInternPeri').value = data[0];
                       document.getElementById('MainContent_txtTypePeriph').value = data[1];
                       document.getElementById('MainContent_txtSelectedPeriph').value = data[2];
+                      document.getElementById('MainContent_txtEstadoPeriph').value = data[3];
+                      document.getElementById('MainContent_txtMarcaPeriph').value = data[4];
                   };
               }
           </script>
