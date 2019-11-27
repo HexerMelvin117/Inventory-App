@@ -347,9 +347,53 @@ namespace EquiposInvWM
 
         protected void CaptureSoftware(int idFicha)
         {
-            List<ListItem> selected = cblistInstalledSoftware.Items.Cast<ListItem>()
-                .Where(li => li.Selected)
+            // Lista que contiene todos los nombres de los software
+            List<string> allSoftware = cblistInstalledSoftware.Items.Cast<ListItem>()
+                .Select(li => li.Text)
                 .ToList();
+
+
+            // Lista que contiene solo los software seleccionados
+            List<string> selected = cblistInstalledSoftware.Items.Cast<ListItem>()
+                .Where(li => li.Selected)
+                .Select(li => li.Text)
+                .ToList();
+
+            // Compara lista de seleccionados vs lista de todos los software
+            // Produce una nueva lista sin los software seleccionados
+            List<string> notSelected = new List<string>();
+            notSelected = allSoftware.Except(selected).ToList();
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                // Algoritmo para agregar software seleccionado a tabla de lista de softwares instalados
+                foreach (var item in selected)
+                {
+                    var softwareSelec = new SoftwareInstalado()
+                    {
+                        softinstal_nom = item,
+                        softinstal_instalado = true,
+                        ficha_id = idFicha,
+                    };
+
+                    ctx.SoftwareInstalado.Add(softwareSelec);
+                    ctx.SaveChanges();
+                }
+
+                // Algoritmo para agregar software no seleccionado a tabla de lista de softwares instalados
+                foreach (var item in notSelected)
+                {
+                    var unSelected = new SoftwareInstalado()
+                    {
+                        softinstal_nom = item,
+                        softinstal_instalado = false,
+                        ficha_id = idFicha
+                    };
+
+                    ctx.SoftwareInstalado.Add(unSelected);
+                    ctx.SaveChanges();
+                }
+            }
         }
 
         // Para agregar lista de perifericos a la BD
@@ -390,7 +434,6 @@ namespace EquiposInvWM
         {
 
         }
-
 
         // Para Seleccionar empleado
         protected void btSelectEmp_Click(object sender, EventArgs e)
