@@ -121,7 +121,7 @@
           <Key>
             <PropertyRef Name="softinstal_id" />
           </Key>
-          <Property Name="softinstal_id" Type="int" Nullable="false" />
+          <Property Name="softinstal_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="softinstal_nom" Type="varchar" MaxLength="20" />
           <Property Name="softinstal_instalado" Type="bit" />
           <Property Name="ficha_id" Type="int" />
@@ -222,7 +222,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SoftwareI__ficha__0B5CAFEA">
+        <Association Name="FK__SoftwareI__ficha__54CB950F">
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="0..1" />
           <End Role="SoftwareInstalado" Type="Self.SoftwareInstalado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,7 +273,7 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="Reparaciones" EntitySet="Reparaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__SoftwareI__ficha__0B5CAFEA" Association="Self.FK__SoftwareI__ficha__0B5CAFEA">
+          <AssociationSet Name="FK__SoftwareI__ficha__54CB950F" Association="Self.FK__SoftwareI__ficha__54CB950F">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="SoftwareInstalado" EntitySet="SoftwareInstalado" />
           </AssociationSet>
@@ -317,7 +317,7 @@
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__SoftwareI__ficha__0B5CAFEA" Association="EquiposInvModel.FK__SoftwareI__ficha__0B5CAFEA">
+          <AssociationSet Name="FK__SoftwareI__ficha__54CB950F" Association="EquiposInvModel.FK__SoftwareI__ficha__54CB950F">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="SoftwareInstalado" EntitySet="SoftwareInstalado" />
           </AssociationSet>
@@ -402,7 +402,7 @@
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___09746778" FromRole="FichaComputo" ToRole="Equipos" />
           <NavigationProperty Name="ImagenEquipo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" FromRole="FichaComputo" ToRole="ImagenEquipo" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__ficha__0A688BB1" FromRole="FichaComputo" ToRole="ListaPerifericos" />
-          <NavigationProperty Name="SoftwareInstalado" Relationship="EquiposInvModel.FK__SoftwareI__ficha__0B5CAFEA" FromRole="FichaComputo" ToRole="SoftwareInstalado" />
+          <NavigationProperty Name="SoftwareInstalado" Relationship="EquiposInvModel.FK__SoftwareI__ficha__54CB950F" FromRole="FichaComputo" ToRole="SoftwareInstalado" />
         </EntityType>
         <EntityType Name="ImagenEquipo">
           <Key>
@@ -457,11 +457,11 @@
           <Key>
             <PropertyRef Name="softinstal_id" />
           </Key>
-          <Property Name="softinstal_id" Type="Int32" Nullable="false" />
+          <Property Name="softinstal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="softinstal_nom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="softinstal_instalado" Type="Boolean" />
           <Property Name="ficha_id" Type="Int32" />
-          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__SoftwareI__ficha__0B5CAFEA" FromRole="SoftwareInstalado" ToRole="FichaComputo" />
+          <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__SoftwareI__ficha__54CB950F" FromRole="SoftwareInstalado" ToRole="FichaComputo" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -547,7 +547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SoftwareI__ficha__0B5CAFEA">
+        <Association Name="FK__SoftwareI__ficha__54CB950F">
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="0..1" />
           <End Type="EquiposInvModel.SoftwareInstalado" Role="SoftwareInstalado" Multiplicity="*" />
           <ReferentialConstraint>
