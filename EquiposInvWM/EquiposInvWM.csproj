@@ -460,6 +460,12 @@
     <Compile Include="Reporting\FichaComputoReport.Designer.cs">
       <DependentUpon>FichaComputoReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\FichaComputoSoftwareInstalado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\FichaComputoSoftwareInstalado.Designer.cs">
+      <DependentUpon>FichaComputoSoftwareInstalado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +541,9 @@
     <EmbeddedResource Include="Reporting\EquiposReport.rdlc" />
     <EmbeddedResource Include="Reporting\FichaComputoReport.resx">
       <DependentUpon>FichaComputoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\FichaComputoSoftwareInstalado.resx">
+      <DependentUpon>FichaComputoSoftwareInstalado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\PerifericosReport.rdlc" />
   </ItemGroup>

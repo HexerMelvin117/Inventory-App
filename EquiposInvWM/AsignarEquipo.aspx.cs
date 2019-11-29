@@ -90,7 +90,6 @@ namespace EquiposInvWM
 
                 SelecEquipoGrid.DataSource = query;
                 SelecEquipoGrid.DataBind();
-
             }
         }
 
