@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using DevExpress.Security.Resources;
 
 namespace EquiposInvWM
 {
@@ -17,6 +18,9 @@ namespace EquiposInvWM
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DevExpress.XtraReports.Web.ASPxReportDesigner.StaticInitialize();
+
+            string dataPath = Server.MapPath("Images/");
+            AccessSettings.StaticResources.TrySetRules(DirectoryAccessRule.Allow(dataPath));
         }
     }
 }
