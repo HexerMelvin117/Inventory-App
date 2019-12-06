@@ -174,4 +174,18 @@
 En caso de que el equipo fue adquirido mediante política de equipos informáticos se aplicaran las normas de la misma.
 </value>
   </data>
+  <metadata name="fichaFotosEquipoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 524</value>
+  </metadata>
+  <data name="$this.ScriptsSource" xml:space="preserve">
+    <value>
+private void xrPictureBox2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+}
+
+private void xrPictureBox2_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e) {
+
+}
+</value>
+  </data>
 </root>

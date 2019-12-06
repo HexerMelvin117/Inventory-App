@@ -8,11 +8,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using DevExpress.Security.Resources;
 
 namespace EquiposInvWM
 {
     public partial class AsignarEquipo : System.Web.UI.Page
     {
+        
         DataTable dtPeriph = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -221,7 +223,7 @@ namespace EquiposInvWM
             string sqlquery = "insert into [dbo].[ImagenEquipo] ([img_name],[img_path],[ficha_id]) values (@img_name,@img_path,@ficha_id)";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlcomm.Parameters.AddWithValue("@img_name", imgFile);
-            sqlcomm.Parameters.AddWithValue("@img_path", "Images/" + imgFile);
+            sqlcomm.Parameters.AddWithValue("@img_path", @"Images/" + imgFile);
             sqlcomm.Parameters.AddWithValue("@ficha_id", fichaId);
             sqlcomm.ExecuteNonQuery();
             sqlconn.Close();
