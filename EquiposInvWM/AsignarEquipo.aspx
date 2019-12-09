@@ -69,6 +69,8 @@
                     <asp:ListItem>Taller</asp:ListItem>
                     <asp:ListItem>Contabilidad</asp:ListItem>
                     <asp:ListItem>Gerencia</asp:ListItem>
+                    <asp:ListItem>Auditoria</asp:ListItem>
+                    <asp:ListItem>Ingenieria</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-md-2">
