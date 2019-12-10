@@ -140,6 +140,10 @@
                 <h5>Capacidad HD: </h5>
                 <asp:TextBox ID="txtHdCapacity" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
+            <div class="col-md-2">
+                <h5>Capacidad RAM: </h5>
+                <asp:TextBox ID="txtRamEqui" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
         </div>
     </div>
 

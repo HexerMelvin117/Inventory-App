@@ -160,6 +160,7 @@ namespace EquiposInvWM
             string marca, codEqui, serie, procesador;
             decimal ghz;
             string capacidad;
+            int ram;
 
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -303,12 +304,13 @@ namespace EquiposInvWM
             observacion = txtObservacionArea.Text;
 
             // variables para informacion de empleado
-            string firstName, lastName, fullName, codemp, departamento, project;
+            string firstName, lastName, fullName, codemp, departamento, project, ram;
 
             departamento = cmbDpto.SelectedItem.Text;
             lastName = txtApellido.Text;
             firstName = txtPNom.Text;
             fullName = firstName + " " + lastName;
+            ram = txtRamEqui.Text;
 
             codemp = txtAssignedUser.Text;
             project = txtProject.Text;
@@ -332,6 +334,7 @@ namespace EquiposInvWM
                     equi_marca = marca,
                     equi_serie = serie,
                     equi_procesador = procesador,
+                    equi_ram = ram,
                     equi_id = null
                 };
                 ctx.FichaComputo.Add(ficha);
