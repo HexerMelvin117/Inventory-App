@@ -39,6 +39,7 @@ namespace EquiposInvWM
         public string equi_disco { get; set; }
         public string ficha_sysope { get; set; }
         public string ficha_observacion { get; set; }
+        public string equi_ram { get; set; }
     
         public virtual Empleados Empleados { get; set; }
         public virtual Equipos Equipos { get; set; }

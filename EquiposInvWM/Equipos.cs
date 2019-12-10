@@ -30,7 +30,7 @@ namespace EquiposInvWM
         public string equi_serie { get; set; }
         public string equi_disco { get; set; }
         public string equi_procesador { get; set; }
-        public Nullable<int> equi_ram { get; set; }
+        public string equi_ram { get; set; }
         public Nullable<decimal> equi_ghz { get; set; }
         public string equi_modelo { get; set; }
         public string equi_status { get; set; }

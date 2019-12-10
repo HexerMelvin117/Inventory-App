@@ -87,7 +87,7 @@ namespace EquiposInvWM
 
             decimal ghz = decimal.Parse(txtGhz.Text);
 
-            int ram = int.Parse(txtRam.Text);
+            string ram = txtRam.Text;
             string disk = txtDisk.Text;
             int id = int.Parse(txtEquipoID.Text);
             using (var ctx = new EquiposInvModelContainer())

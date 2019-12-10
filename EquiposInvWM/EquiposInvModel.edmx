@@ -36,7 +36,7 @@
           <Property Name="equi_serie" Type="varchar" MaxLength="50" />
           <Property Name="equi_disco" Type="varchar" MaxLength="10" />
           <Property Name="equi_procesador" Type="varchar" MaxLength="20" />
-          <Property Name="equi_ram" Type="int" />
+          <Property Name="equi_ram" Type="varchar" MaxLength="20" />
           <Property Name="equi_ghz" Type="decimal" Precision="5" Scale="2" />
           <Property Name="equi_modelo" Type="varchar" MaxLength="50" />
           <Property Name="equi_status" Type="varchar" MaxLength="50" />
@@ -72,6 +72,7 @@
           <Property Name="equi_disco" Type="varchar" MaxLength="50" />
           <Property Name="ficha_sysope" Type="varchar" MaxLength="50" />
           <Property Name="ficha_observacion" Type="varchar(max)" />
+          <Property Name="equi_ram" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="ImagenEquipo">
           <Key>
@@ -359,7 +360,7 @@
           <Property Name="equi_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_disco" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="equi_procesador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="equi_ram" Type="Int32" />
+          <Property Name="equi_ram" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="equi_ghz" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="equi_modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="equi_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -398,6 +399,7 @@
           <Property Name="equi_disco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ficha_sysope" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ficha_observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="equi_ram" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__FichaComp__emp_i__0880433F" FromRole="FichaComputo" ToRole="Empleados" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__FichaComp__equi___09746778" FromRole="FichaComputo" ToRole="Equipos" />
           <NavigationProperty Name="ImagenEquipo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" FromRole="FichaComputo" ToRole="ImagenEquipo" />
@@ -631,6 +633,7 @@
           <EntitySetMapping Name="FichaComputo">
             <EntityTypeMapping TypeName="EquiposInvModel.FichaComputo">
               <MappingFragment StoreEntitySet="FichaComputo">
+                <ScalarProperty Name="equi_ram" ColumnName="equi_ram" />
                 <ScalarProperty Name="ficha_observacion" ColumnName="ficha_observacion" />
                 <ScalarProperty Name="ficha_sysope" ColumnName="ficha_sysope" />
                 <ScalarProperty Name="equi_disco" ColumnName="equi_disco" />
