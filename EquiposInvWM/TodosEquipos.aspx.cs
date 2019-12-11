@@ -156,7 +156,6 @@ namespace EquiposInvWM
                 EquiposGrid.DataSource = query;
                 EquiposGrid.DataBind();
             }
-
         }
 
         protected void individualSearch(string marca)

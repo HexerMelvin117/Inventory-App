@@ -29,7 +29,6 @@ namespace EquiposInvWM
                     dtPeriph.Columns.Add("Estado");
                     ViewState["Records"] = dtPeriph;
                 }
-                
             }
             
             fillGridEquipos();
@@ -128,6 +127,7 @@ namespace EquiposInvWM
             }
         }
 
+        // Para capturar la informacion del empleado en la seccion de "Informacion de Empleado"
         protected void getEmpInfo(int id)
         {
             string firstName, lastName, codemp;
@@ -155,12 +155,13 @@ namespace EquiposInvWM
             }
         }
 
+        // Para capturar la informacion del equipo en la seccion de "Informacion de Equipo"
         protected void getEquiposInfo(int id)
         {
             string marca, codEqui, serie, procesador;
             decimal ghz;
             string capacidad;
-            int ram;
+            string ram;
 
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -204,6 +205,11 @@ namespace EquiposInvWM
                     .Select(s => s.equi_cod)
                     .FirstOrDefault();
 
+                ram = ctx.Equipos
+                    .Where(s => s.equi_id == id)
+                    .Select(s => s.equi_ram)
+                    .FirstOrDefault();
+
                 codEqui = prefijo + Convert.ToString(cod);
             }
 
@@ -213,6 +219,8 @@ namespace EquiposInvWM
             txtHdCapacity.Text = capacidad.ToString();
             txtEquipCode.Text = codEqui;
             txtSerialEquip.Text = serie;
+            txtRamEqui.Text = ram;
+            txtIdEquiHidden.Value = Convert.ToString(id);
         }
 
         // Query en SQL Server para subir imagenes a carpeta Images/ y guardar a BD
@@ -293,6 +301,15 @@ namespace EquiposInvWM
             string marca, codEqui, serie, procesador, sysope, observacion;
             decimal ghz;
             string capacidad;
+            int equiId;
+            if (txtIdEquiHidden.Value == "")
+            {
+                equiId = 0;
+            } 
+            else
+            {
+                equiId = int.Parse(txtIdEquiHidden.Value);
+            }
 
             procesador = txtProcessor.Text;
             marca = txtBrandAssigned.Text;
@@ -335,7 +352,7 @@ namespace EquiposInvWM
                     equi_serie = serie,
                     equi_procesador = procesador,
                     equi_ram = ram,
-                    equi_id = null
+                    equi_id = equiId
                 };
                 ctx.FichaComputo.Add(ficha);
                 ctx.SaveChanges();
@@ -343,11 +360,32 @@ namespace EquiposInvWM
                 int fichaid;
                 fichaid = ficha.ficha_id;
 
+                ChangeComputerState(equiId);
                 ListaPerifericosAgregar(fichaid);
                 CaptureSoftware(fichaid);
                 AddImages(fichaid);
             }
         }
+
+        protected void ChangeComputerState(int idEqui)
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                try
+                {
+                    var result = ctx.Equipos.SingleOrDefault(m => m.equi_id == idEqui);
+                    if (result != null)
+                    {
+                        result.equi_status = "Activo";
+                    }
+                } 
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
 
         protected void CaptureSoftware(int idFicha)
         {
