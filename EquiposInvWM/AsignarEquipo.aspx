@@ -145,6 +145,7 @@
                 <asp:TextBox ID="txtRamEqui" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
         </div>
+        <asp:HiddenField ID="txtIdEquiHidden" runat="server" />
     </div>
 
   <!-- Modal para Empleado -->
