@@ -52,6 +52,8 @@
         })
     </script>
 
+    <h3>Informacion de Ficha</h3>
+
     <div class="row">
         <div class="col-md-2">
             
