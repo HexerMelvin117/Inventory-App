@@ -142,6 +142,7 @@
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.ReportFooter1 = new DevExpress.XtraReports.UI.ReportFooterBand();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -993,7 +994,8 @@
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
-            this.ReportHeader1});
+            this.ReportHeader1,
+            this.ReportFooter1});
             this.DetailReport.DataMember = "ListaPerifericoAsociada";
             this.DetailReport.DataSource = this.dsCreacionFicha1;
             this.DetailReport.Level = 0;
@@ -1277,6 +1279,11 @@
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.Text = "xrLabel5";
             // 
+            // ReportFooter1
+            // 
+            this.ReportFooter1.HeightF = 3.367615F;
+            this.ReportFooter1.Name = "ReportFooter1";
+            // 
             // FichaComputoReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1422,5 +1429,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell45;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell46;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell47;
+        private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter1;
     }
 }

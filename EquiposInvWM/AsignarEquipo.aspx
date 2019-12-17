@@ -560,4 +560,30 @@
         </div> 
       </div>
     </div>
+
+    <script>
+        function validateFields() {
+            var ddlProcessor = document.getElementById("MainContent_cmbProcessor");
+            var selectedValueProcessor = ddlProcessor.options[ddlProcessor.selectedIndex].value;
+            var ddlMarca = document.getElementById("MainContent_cmbMarca");
+            var selectedValueMarca = ddlMarca.options[ddlMarca.selectedIndex].value;
+            var ddlEmpCod = document.getElementById("MainContent_cmbEmpresaCod");
+            var selectedValueEmpCod = ddlEmpCod.options[ddlEmpCod.selectedIndex].value;
+
+            if (selectedValueProcessor == "-- Seleccionar --") {
+                alert("Porfavor seleccionar procesador");
+                return false;
+            }
+
+            if (selectedValueMarca == "-- Vacio --") {
+                alert("Porfavor seleccionar marca");
+                return false;
+            }
+
+            if (selectedValueEmpCod == "-- Vacio --") {
+                alert("Porfavor seleccionar empresa");
+                return false;
+            }
+        }
+    </script>
 </asp:Content>
