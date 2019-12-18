@@ -1,12 +1,19 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DevolucionDeEquipos.aspx.cs" Inherits="EquiposInvWM.DevolucionDeEquipos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ControlDeFichas.aspx.cs" Inherits="EquiposInvWM.DevolucionDeEquipos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
-    <h1>Devolucion de Equipo</h1>
+    <h1>Control de Fichas</h1>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <a class="btn btn-default" href="DevolucionEquipos.aspx">Devolucion de Equipo &raquo;</a>
+        </div>
+    </div>
 
+    <br />
     <div class="row">
         <div class="col-md-12">
             <asp:GridView ID="gridDevolucionFicha" runat="server" CssClass="table table-striped table-bordered"
@@ -119,9 +126,6 @@
                 table.row('.selected').remove().draw(false);
             });
         })
-                    </script>
-    
-
-
+     </script>
 </asp:Content>
 

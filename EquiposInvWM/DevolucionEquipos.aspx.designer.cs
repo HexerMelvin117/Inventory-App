@@ -11,7 +11,7 @@ namespace EquiposInvWM
 {
 
 
-    public partial class _Default
+    public partial class DevolucionEquipos
     {
     }
 }
