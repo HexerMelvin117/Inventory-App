@@ -178,7 +178,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
-    <Content Include="DevolucionDeEquipos.aspx" />
+    <Content Include="ControlDeFichas.aspx" />
+    <Content Include="DevolucionEquipos.aspx" />
     <Content Include="EquiposInvModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EquiposInvModel.Context.cs</LastGenOutput>
@@ -434,12 +435,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DevolucionDeEquipos.aspx.cs">
-      <DependentUpon>DevolucionDeEquipos.aspx</DependentUpon>
+    <Compile Include="ControlDeFichas.aspx.cs">
+      <DependentUpon>ControlDeFichas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DevolucionDeEquipos.aspx.designer.cs">
-      <DependentUpon>DevolucionDeEquipos.aspx</DependentUpon>
+    <Compile Include="ControlDeFichas.aspx.designer.cs">
+      <DependentUpon>ControlDeFichas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevolucionEquipos.aspx.cs">
+      <DependentUpon>DevolucionEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevolucionEquipos.aspx.designer.cs">
+      <DependentUpon>DevolucionEquipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleados.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>

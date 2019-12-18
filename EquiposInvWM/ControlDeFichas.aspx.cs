@@ -41,12 +41,12 @@ namespace EquiposInvWM
 
             if ((gv.ShowHeader == true && gv.Rows.Count > 0) || (gv.ShowHeaderWhenEmpty == true))
             {
-                //Force GridView to use <thead> instead of <tbody> - 11/03/2013 - MCR.
+                // Force GridView to use <thead> instead of <tbody> - 11/03/2013 - MCR.
                 gv.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
             if (gv.ShowFooter == true && gv.Rows.Count > 0)
             {
-                //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
+                // Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
@@ -80,6 +80,7 @@ namespace EquiposInvWM
                                  Codigo_Per = m.per_cod,
                                  Tipo_Per = m.per_tipo,
                                  Marca_Per = m.per_marca,
+                                 Estado = m.per_estado,
                                  Ficha_ID = m.ficha_id,
                              }).ToList();
 

@@ -39,12 +39,12 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Devoluciones</h2>
+            <h2>Fichas y Devoluciones</h2>
             <p>
-                Devolucion de Equipos de Computo.
+                Control de fichas de equipo de computo y devoluciones.
             </p>
             <p>
-                <a class="btn btn-default" href="DevolucionDeEquipos.aspx">Devoluciones &raquo;</a>
+                <a class="btn btn-default" href="ControlDeFichas.aspx">Fichas y Devoluciones &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
