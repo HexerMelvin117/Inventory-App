@@ -13,5 +13,26 @@ namespace EquiposInvWM
         {
 
         }
+
+        protected void AgregarSinEquipo()
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                
+            }
+        }
+
+        protected void AgregarConEquipo()
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+
+            }
+        }
+
+        protected void CrearDevolucion()
+        {
+            
+        }
     }
 }

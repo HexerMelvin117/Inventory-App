@@ -52,6 +52,7 @@
                 <asp:ListItem>Nuevo</asp:ListItem>
                 <asp:ListItem>Usado</asp:ListItem>
                 <asp:ListItem>Dañado</asp:ListItem>
+                <asp:ListItem>Obsoleto</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="col-md-2">
