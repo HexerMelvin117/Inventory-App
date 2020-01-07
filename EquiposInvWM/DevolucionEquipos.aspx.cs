@@ -10,6 +10,7 @@ namespace EquiposInvWM
     public partial class DevolucionEquipos : System.Web.UI.Page
     {
 
+        // Metodo para agregar contenido a gridview
         protected void FillGridFichas()
         {
             using (var ctx = new EquiposInvModelContainer())
@@ -69,6 +70,42 @@ namespace EquiposInvWM
                 //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void QuerySeleccionarFicha()
+        {
+            int FichaSelec = int.Parse(txtFichaIdSelec.Text);
+            lbFichaID.Text = Convert.ToString(FichaSelec);
+
+            string userAsignado, fechaCreacion, equiAsignado;
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                userAsignado = ctx.FichaComputo
+                    .Where(s => s.ficha_id == FichaSelec)
+                    .Select(s => s.emp_nom)
+                    .FirstOrDefault();
+
+                equiAsignado = ctx.FichaComputo
+                    .Where(s => s.ficha_id == FichaSelec)
+                    .Select(s => s.equi_cod)
+                    .FirstOrDefault();
+
+                fechaCreacion = ctx.FichaComputo
+                    .Where(s => s.ficha_id == FichaSelec)
+                    .Select(s => s.ficha_fecha)
+                    .FirstOrDefault().ToString();
+            }
+
+            lbUsuarioAsignado.Text = userAsignado;
+            lbEquipoAsignado.Text = equiAsignado;
+            lbFechaCreacion.Text = fechaCreacion;
+
+        }
+
+        protected void btSelecFichaDevo_Click(object sender, EventArgs e)
+        {
+            QuerySeleccionarFicha();
         }
     }
 }
