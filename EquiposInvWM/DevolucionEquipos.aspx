@@ -9,16 +9,6 @@
     <div class="container">
         <div class="jumbotron">
             <h2>Informacion General</h2>
-            <br />
-            <div class="row">
-                <div class="col-md-2">
-                    <h4>ID Ficha:</h4>
-                </div>
-                <div class="col-md-1">
-                    <asp:Label ID="lbFichaID" runat="server" Text="Ninguna Ficha Seleccionada"></asp:Label>
-                </div>
-            </div>
-            <br />
             <div class="row">
                 <div class="col-md-2">
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-modal-ficha">Seleccionar Ficha</button>
@@ -27,26 +17,42 @@
             <br />
             <div class="row">
                 <div class="col-md-2">
+                    <h4>ID Ficha:</h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>
+                        <asp:Label ID="lbFichaID" runat="server" Text=""></asp:Label>
+                    </h4>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-md-2">
                     <h4>Usuario Asignado:</h4>
                 </div>
-                <div class="col-md-1">
-                    <asp:Label ID="lbUsuarioAsignado" runat="server" Text=""></asp:Label>
+                <div class="col-md-2">
+                    <h4>
+                        <asp:Label ID="lbUsuarioAsignado" runat="server" Text=""></asp:Label>
+                    </h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
                     <h4>Equipo Asignado:</h4>
                 </div>
-                <div class="col-md-1">
-                    <asp:Label ID="lbEquipoAsignado" runat="server" Text=""></asp:Label>
+                <div class="col-md-2">
+                    <h4>
+                        <asp:Label ID="lbEquipoAsignado" runat="server" Text=""></asp:Label>
+                    </h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
                     <h4>Fecha Creacion:</h4>
                 </div>
-                <div class="col-md-1">
-                    <asp:Label ID="lbFechaCreacion" runat="server" Text=""></asp:Label>
+                <div class="col-md-2">
+                    <h4>
+                        <asp:Label ID="lbFechaCreacion" runat="server" Text=""></asp:Label>
+                    </h4> 
                 </div>
             </div>
         </div>
@@ -63,15 +69,23 @@
             </div>
             <div class="modal-body">
                 <h3>Fichas</h3>
-                <asp:GridView ID="gridFichasDevolucion" runat="server" CssClass="table table-striped table-bordered" OnPreRender="gridFichasDevolucion_PreRender"></asp:GridView>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Ficha Seleccionada:</label>
+                        <asp:TextBox ID="txtFichaIdSelec" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <br />
+                <asp:GridView ID="gridFichasDevolucion" runat="server" onclick="fichaSelect()" CssClass="table table-striped table-bordered" OnPreRender="gridFichasDevolucion_PreRender"></asp:GridView>
             </div>
             <div class="modal-footer">
-                <asp:Button ID="btSelecFichaDevo" runat="server" Text="Seleccionar" CssClass="btn btn-primary" />
+                <asp:Button ID="btSelecFichaDevo" runat="server" Text="Seleccionar" CssClass="btn btn-primary" OnClick="btSelecFichaDevo_Click" />
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
       </div>
     </div>
+
     <!-- Para usar API de datatable con gridFichasDevolucion -->
     <script type="text/javascript">
         $(document).ready(function () {
@@ -110,6 +124,26 @@
             });
         });
     </script>
-    
-
+    <!-- Script para coger primer valor de DataTable al dar click en una de las filas -->
+    <script>
+        function fichaSelect() {
+            var table = document.getElementById("MainContent_gridFichasDevolucion");
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.onclick = function (e) {
+                e = e || window.event;
+                var data = [];
+                var target = e.srcElement || e.target;
+                while (target && target.nodeName !== "TR") {
+                    target = target.parentNode;
+                }
+                if (target) {
+                    var cells = target.getElementsByTagName("td");
+                    for (var i = 0; i < cells.length; i++) {
+                        data.push(cells[i].innerHTML);
+                    }
+                }
+                document.getElementById('MainContent_txtFichaIdSelec').value = data[0];
+            };
+        }
+     </script>
 </asp:Content>
