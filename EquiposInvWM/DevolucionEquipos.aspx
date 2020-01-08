@@ -86,6 +86,22 @@
       </div>
     </div>
 
+    <!-- Area de tabuladores de navegacion (secciones) -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#peripherals-tab">Perifericos</a></li>
+        <li><a data-toggle="tab" href="#comment-tab">Observaciones</a></li>
+    </ul>
+
+    <!-- Area para contenido de los tabuladores -->
+    <div class="tab-content">
+        <div id="peripherals-tab" class="tab-pane fade in active">
+            <h1>Hola</h1>
+        </div>
+        <div id="comment-tab" class="tab-pane fade">
+            <h1>Observaciones</h1>
+        </div>
+    </div>
+
     <!-- Para usar API de datatable con gridFichasDevolucion -->
     <script type="text/javascript">
         $(document).ready(function () {
