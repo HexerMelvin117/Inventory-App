@@ -386,7 +386,6 @@ namespace EquiposInvWM
             }
         }
 
-
         protected void CaptureSoftware(int idFicha)
         {
             // Lista que contiene todos los nombres de los software

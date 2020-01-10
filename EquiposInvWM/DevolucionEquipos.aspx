@@ -58,7 +58,34 @@
         </div>
     </div>
 
+    
+
+    <!-- Area de tabuladores de navegacion (secciones) -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#peripherals-tab">Perifericos</a></li>
+        <li><a data-toggle="tab" href="#comment-tab">Observaciones</a></li>
+    </ul>
+
+    <!-- Area para contenido de los tabuladores -->
+    <div class="tab-content">
+        <div id="peripherals-tab" class="tab-pane fade in active">
+            <h1>Hola</h1>
+        </div>
+        <div id="comment-tab" class="tab-pane fade">
+            <h1>Observaciones</h1>
+        </div>
+    </div>
+    <br />
+    
+    <!-- Acciones para crear devolucion (botones) -->
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-modal-confirmarDevolucion">Subir Ficha</button>
+        </div>
+    </div>
+
     <!-- Area de Modales -->
+    <!-- Modal para seleccionar Ficha -->
     <div class="modal fade bd-modal-ficha" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -86,19 +113,23 @@
       </div>
     </div>
 
-    <!-- Area de tabuladores de navegacion (secciones) -->
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#peripherals-tab">Perifericos</a></li>
-        <li><a data-toggle="tab" href="#comment-tab">Observaciones</a></li>
-    </ul>
-
-    <!-- Area para contenido de los tabuladores -->
-    <div class="tab-content">
-        <div id="peripherals-tab" class="tab-pane fade in active">
-            <h1>Hola</h1>
-        </div>
-        <div id="comment-tab" class="tab-pane fade">
-            <h1>Observaciones</h1>
+    <!-- Modal para confirmar creacion de ficha de devolucion -->
+    <div class="modal fade bd-modal-confirmarDevolucion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>¿Desea proceder con la creacion de la devolucion?</h5>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btCreateDevolution" runat="server" CssClass="btn btn-primary" Text="Crear Devolucion" OnClick="btCreateDevolution_Click" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -140,6 +171,7 @@
             });
         });
     </script>
+
     <!-- Script para coger primer valor de DataTable al dar click en una de las filas -->
     <script>
         function fichaSelect() {

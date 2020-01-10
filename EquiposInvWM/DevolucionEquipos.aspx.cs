@@ -96,16 +96,19 @@ namespace EquiposInvWM
                     .Select(s => s.ficha_fecha)
                     .FirstOrDefault().ToString();
             }
-
             lbUsuarioAsignado.Text = userAsignado;
             lbEquipoAsignado.Text = equiAsignado;
             lbFechaCreacion.Text = fechaCreacion;
-
         }
 
         protected void btSelecFichaDevo_Click(object sender, EventArgs e)
         {
             QuerySeleccionarFicha();
+        }
+
+        protected void btCreateDevolution_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
