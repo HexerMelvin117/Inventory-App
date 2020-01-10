@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
+    <!-- Informacion y seleccion de ficha para crear devolucion -->
     <h1>Devoluciones</h1>
     <div class="container">
         <div class="jumbotron">
@@ -57,25 +58,17 @@
             </div>
         </div>
     </div>
-
     
-
-    <!-- Area de tabuladores de navegacion (secciones) -->
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#peripherals-tab">Perifericos</a></li>
-        <li><a data-toggle="tab" href="#comment-tab">Observaciones</a></li>
-    </ul>
-
-    <!-- Area para contenido de los tabuladores -->
-    <div class="tab-content">
-        <div id="peripherals-tab" class="tab-pane fade in active">
-            <h1>Hola</h1>
-        </div>
-        <div id="comment-tab" class="tab-pane fade">
-            <h1>Observaciones</h1>
+    <div class="row">
+        <div class="col-md-2">
+            <h3>Perifericos</h3>
         </div>
     </div>
-    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <asp:GridView ID="gridPeriphSelect" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPeriphSelect_PreRender"></asp:GridView>
+        </div>
+    </div>
     
     <!-- Acciones para crear devolucion (botones) -->
     <div class="row">

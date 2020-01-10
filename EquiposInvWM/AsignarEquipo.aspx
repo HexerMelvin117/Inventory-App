@@ -419,7 +419,6 @@
                   </asp:UpdatePanel>
               </div>
           </div>
-
           <!-- Script para coger valores de gridPerifericoSelect -->
           <script>
               function periphSelect() {
