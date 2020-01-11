@@ -149,5 +149,10 @@ namespace EquiposInvWM
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
+
+        protected void gridSelectedPeriph_PreRender(object sender, EventArgs e)
+        {
+
+        }
     }
 }

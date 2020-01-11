@@ -60,6 +60,60 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.GridView gridPeriphSelect;
 
         /// <summary>
+        /// Control txtSelectedPeriph.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSelectedPeriph;
+
+        /// <summary>
+        /// Control txtTypeSelPer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTypeSelPer;
+
+        /// <summary>
+        /// Control txtMarcaSelPer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMarcaSelPer;
+
+        /// <summary>
+        /// Control txtEstadoSelPer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEstadoSelPer;
+
+        /// <summary>
+        /// Control btSelectPeriph.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btSelectPeriph;
+
+        /// <summary>
+        /// Control gridSelectedPeriph.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridSelectedPeriph;
+
+        /// <summary>
         /// Control txtFichaIdSelec.
         /// </summary>
         /// <remarks>
