@@ -30,6 +30,26 @@ namespace EquiposInvWM
             }
         }
 
+        protected void FillGridPeriph(int fichaSelId)
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                var query = (from m in ctx.ListaPerifericos
+                             orderby m.lisper_id descending
+                             where m.ficha_id == fichaSelId
+                             select new
+                             {
+                                 ID = m.per_id,
+                                 Codigo = m.per_cod,
+                                 Marca = m.per_marca,
+                                 Tipo = m.per_tipo,
+                             }).ToList();
+
+                gridPeriphSelect.DataSource = query;
+                gridPeriphSelect.DataBind();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             FillGridFichas();
@@ -103,10 +123,34 @@ namespace EquiposInvWM
 
         protected void btSelecFichaDevo_Click(object sender, EventArgs e)
         {
+            int fichaId = int.Parse(txtFichaIdSelec.Text);
+
             QuerySeleccionarFicha();
+            FillGridPeriph(fichaId);
         }
 
         protected void btCreateDevolution_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gridPeriphSelect_PreRender(object sender, EventArgs e)
+        {
+            GridView gv = (GridView)sender;
+
+            if ((gv.ShowHeader == true && gv.Rows.Count > 0) || (gv.ShowHeaderWhenEmpty == true))
+            {
+                //Force GridView to use <thead> instead of <tbody> - 11/03/2013 - MCR.
+                gv.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+            if (gv.ShowFooter == true && gv.Rows.Count > 0)
+            {
+                //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
+                gv.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
+        }
+
+        protected void gridSelectedPeriph_PreRender(object sender, EventArgs e)
         {
 
         }

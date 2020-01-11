@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
+    <!-- Informacion y seleccion de ficha para crear devolucion -->
     <h1>Devoluciones</h1>
     <div class="container">
         <div class="jumbotron">
@@ -57,26 +58,51 @@
             </div>
         </div>
     </div>
-
     
-
-    <!-- Area de tabuladores de navegacion (secciones) -->
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#peripherals-tab">Perifericos</a></li>
-        <li><a data-toggle="tab" href="#comment-tab">Observaciones</a></li>
-    </ul>
-
-    <!-- Area para contenido de los tabuladores -->
-    <div class="tab-content">
-        <div id="peripherals-tab" class="tab-pane fade in active">
-            <h1>Hola</h1>
+    <div class="row">
+        <div class="col-md-2">
+            <h3>Perifericos</h3>
         </div>
-        <div id="comment-tab" class="tab-pane fade">
-            <h1>Observaciones</h1>
+    </div>
+    <div class="row">
+        <!-- GridView para mostrar todos los perifericos asociados -->
+        <div class="col-md-12">
+            <asp:GridView ID="gridPeriphSelect" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPeriphSelect_PreRender"></asp:GridView>
+        </div>
+    </div>
+    <!-- Area donde se mostrara la informacion del periferico seleccionado en cajas de texto -->
+    <div class="row">
+        <div class="col-md-2">
+            <label>ID Periferico Seleccionado:</label>
+            <asp:TextBox ID="txtSelectedPeriph" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-md-2">
+            <label>Tipo:</label>
+            <asp:TextBox ID="txtTypeSelPer" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-md-2">
+            <label>Marca:</label>
+            <asp:TextBox ID="txtMarcaSelPer" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="col-md-2">
+            <label>Estado</label>
+            <asp:TextBox ID="txtEstadoSelPer" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
     </div>
     <br />
-    
+    <div class="row">
+        <div class="col-md-2">
+            <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <!-- GridView para colocar perifericos seleccionados y luego subirlos a la BD -->
+        <div class="col-md-12">
+            <asp:GridView ID="gridSelectedPeriph" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+        </div>
+    </div>
+    <br />
     <!-- Acciones para crear devolucion (botones) -->
     <div class="row">
         <div class="col-md-2">
@@ -157,6 +183,45 @@
             });
 
             $('#MainContent_gridFichasDevolucion tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#button').click(function () {
+                table.row('.selected').remove().draw(false);
+            });
+        });
+    </script>
+
+    <!-- Para usar API de datatable con gridPeriphSelect -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#MainContent_gridPeriphSelect').DataTable({
+                "language": {
+                    "search": "Buscar:",
+                    "lengthMenu": "Mostrar _MENU_ entradas",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                    "infoEmpty": "Mostrando 0 Entradas",
+                    "infoFiltered": "(filtrando de _MAX_ total entradas)",
+                    "processing": "Procesando...",
+                    "zeroRecords": "Ningun record encontrado",
+                    "emptyTable": "No hay datos en la tabla",
+                    paginate: {
+                        "previous": "Anterior",
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente"
+                    }
+                },
+                "searching": true
+            });
+
+            $('#MainContent_gridPeriphSelect tbody').on('click', 'tr', function () {
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
                 }
