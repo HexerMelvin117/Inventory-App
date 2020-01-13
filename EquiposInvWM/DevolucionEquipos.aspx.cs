@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace EquiposInvWM
 {
@@ -43,6 +44,7 @@ namespace EquiposInvWM
                                  Codigo = m.per_cod,
                                  Marca = m.per_marca,
                                  Tipo = m.per_tipo,
+                                 Estado = m.per_estado
                              }).ToList();
 
                 gridPeriphSelect.DataSource = query;
@@ -50,8 +52,23 @@ namespace EquiposInvWM
             }
         }
 
+
+        DataTable dtPerifericosSeleccionados = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                if (ViewState["Records"] == null)
+                {
+                    dtPerifericosSeleccionados.Columns.Add("ID Interno");
+                    dtPerifericosSeleccionados.Columns.Add("Codigo_Periferico");
+                    dtPerifericosSeleccionados.Columns.Add("Tipo");
+                    dtPerifericosSeleccionados.Columns.Add("Marca");
+                    dtPerifericosSeleccionados.Columns.Add("Estado");
+                    ViewState["Records"] = dtPerifericosSeleccionados;
+                }
+            }
+
             FillGridFichas();
         }
 
@@ -153,6 +170,21 @@ namespace EquiposInvWM
         protected void gridSelectedPeriph_PreRender(object sender, EventArgs e)
         {
 
+        }
+
+        // Metodo para agregar periferico a gridSelectedPeriph
+        protected void AddPeriphToGrid()
+        {
+            dtPerifericosSeleccionados = (DataTable)ViewState["Records"];
+            dtPerifericosSeleccionados.Rows.Add(txtInternalIDPer.Text, txtSelectedPeriph.Text, txtTypeSelPer.Text, txtMarcaSelPer.Text, txtEstadoSelPer.Text);
+            gridSelectedPeriph.DataSource = dtPerifericosSeleccionados;
+            gridSelectedPeriph.DataBind();
+        }
+
+        // Boton utilizado para agregar periferico a gridSelectedPeriph
+        protected void btSelectPeriph_Click(object sender, EventArgs e)
+        {
+            AddPeriphToGrid();
         }
     }
 }
