@@ -26,11 +26,13 @@ namespace EquiposInvWM
         }
     
         public virtual DbSet<Compania> Compania { get; set; }
+        public virtual DbSet<Devoluciones> Devoluciones { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
         public virtual DbSet<Equipos> Equipos { get; set; }
         public virtual DbSet<FichaComputo> FichaComputo { get; set; }
         public virtual DbSet<ImagenEquipo> ImagenEquipo { get; set; }
         public virtual DbSet<ListaPerifericos> ListaPerifericos { get; set; }
+        public virtual DbSet<ListaPerifericosDevo> ListaPerifericosDevo { get; set; }
         public virtual DbSet<Perifericos> Perifericos { get; set; }
         public virtual DbSet<Reparaciones> Reparaciones { get; set; }
         public virtual DbSet<SoftwareInstalado> SoftwareInstalado { get; set; }

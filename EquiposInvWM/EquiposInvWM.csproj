@@ -370,6 +370,7 @@
     <Content Include="TodosEquipos.aspx" />
     <Content Include="TodosPerifericos.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="VisualizadorDevolucion.aspx" />
     <Content Include="VisualizadorFicha.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -449,6 +450,9 @@
     <Compile Include="DevolucionEquipos.aspx.designer.cs">
       <DependentUpon>DevolucionEquipos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Devoluciones.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Empleados.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
@@ -499,6 +503,9 @@
     <Compile Include="ListaPerifericos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListaPerifericosDevo.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -524,6 +531,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reparaciones.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\DevolucionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporting\DevolucionReport.Designer.cs">
+      <DependentUpon>DevolucionReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\FichaComputoReport.cs">
       <SubType>Component</SubType>
@@ -579,6 +592,13 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="VisualizadorDevolucion.aspx.cs">
+      <DependentUpon>VisualizadorDevolucion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualizadorDevolucion.aspx.designer.cs">
+      <DependentUpon>VisualizadorDevolucion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VisualizadorFicha.aspx.cs">
       <DependentUpon>VisualizadorFicha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -608,6 +628,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reporting\DevolucionReport.resx">
+      <DependentUpon>DevolucionReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporting\EquiposReport.rdlc" />
     <EmbeddedResource Include="Reporting\FichaComputoReport.resx">
       <DependentUpon>FichaComputoReport.cs</DependentUpon>

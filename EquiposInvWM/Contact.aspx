@@ -10,6 +10,6 @@
     </address>
 
     <address>
-        <strong>Soporte:</strong>   <a href="mailto:jsabat@wym.com">jsabat@wym.com</a><br />
+        <strong>Soporte:</strong>   <a href="mailto:soptec@wym.com">soptec@wym.com</a><br />
     </address>
 </asp:Content>

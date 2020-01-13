@@ -5,6 +5,15 @@
     <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
+    <!-- Breadcrumbs -->
+    <br />
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="ControlDeFichas.aspx">Control de Fichas</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Crear Devolucion</li>
+      </ol>
+    </nav>
+
     <!-- Informacion y seleccion de ficha para crear devolucion -->
     <h1>Devoluciones</h1>
     <div class="container">
@@ -24,7 +33,7 @@
                     <h4>
                         <asp:Label ID="lbFichaID" runat="server" Text=""></asp:Label>
                     </h4>
-                </div> 
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
@@ -309,9 +318,21 @@
                 }
                 document.getElementById('MainContent_txtInternalIDPer').value = data[0];
                 document.getElementById('MainContent_txtSelectedPeriph').value = data[1];
+                if (data[1] == "&nbsp;") {
+                    document.getElementById('MainContent_txtSelectedPeriph').value = "";
+                }
                 document.getElementById('MainContent_txtMarcaSelPer').value = data[2];
+                if (data[2] == "&nbsp;") {
+                    document.getElementById('MainContent_txtMarcaSelPer').value = "";
+                }
                 document.getElementById('MainContent_txtTypeSelPer').value = data[3];
+                if (data[3] == "&nbsp;") {
+                    document.getElementById('MainContent_txtTypeSelPer').value = "";
+                }
                 document.getElementById('MainContent_txtEstadoSelPer').value = data[4];
+                if (data[4] == "&nbsp;") {
+                    document.getElementById('MainContent_txtEstadoSelPer').value = "";
+                }
             };
         }
     </script>
