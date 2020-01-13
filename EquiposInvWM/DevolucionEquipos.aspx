@@ -67,7 +67,7 @@
     <div class="row">
         <!-- GridView para mostrar todos los perifericos asociados -->
         <div class="col-md-12">
-            <asp:GridView ID="gridPeriphSelect" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPeriphSelect_PreRender"></asp:GridView>
+            <asp:GridView ID="gridPeriphSelect" runat="server" onclick="periphSelect()" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridPeriphSelect_PreRender"></asp:GridView>
         </div>
     </div>
     <!-- Area donde se mostrara la informacion del periferico seleccionado en cajas de texto -->
@@ -88,18 +88,47 @@
             <label>Estado</label>
             <asp:TextBox ID="txtEstadoSelPer" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+        <div class="col-md-2">
+            <label>ID Interno:</label>
+            <asp:TextBox ID="txtInternalIDPer" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
     </div>
     <br />
     <div class="row">
         <div class="col-md-2">
-            <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" />
+            <asp:UpdatePanel ID="ActionSelectPeriphPanel" runat="server">
+                <ContentTemplate>
+                    <asp:Button ID="btSelectPeriph" runat="server" CssClass="btn btn-primary" Text="Seleccionar" OnClick="btSelectPeriph_Click" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
     <br />
     <div class="row">
         <!-- GridView para colocar perifericos seleccionados y luego subirlos a la BD -->
         <div class="col-md-12">
-            <asp:GridView ID="gridSelectedPeriph" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+            <asp:UpdatePanel ID="UpdateGridSelectedPeriph" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gridSelectedPeriph" runat="server" style="cursor: pointer;" CssClass="table table-striped table-bordered" OnPreRender="gridSelectedPeriph_PreRender"></asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Observaciones: </h3>
+            <asp:TextBox ID="txtObservacionArea" TextMode="MultiLine" CssClass="form-control rounded-0" runat="server" Columns="100" Rows="5"></asp:TextBox>
+        </div>
+    </div>
+    <br />
+    <!-- Checkboxes para escoger que contenida ira en la devolucion -->
+    <div class="row">
+        <div class="col-md-2">
+            <asp:CheckBox ID="chboxIncludePeriph" runat="server" Text="Incluir Perifericos" />
+        </div>
+        <div class="col-md-2">
+            <asp:CheckBox ID="chboxIncludeEquipment" runat="server" Text="Incluir Equipo" />
         </div>
     </div>
     <br />
@@ -259,4 +288,31 @@
             };
         }
      </script>
+
+    <!-- Script para coger valores de gridPerifericoSelect -->
+    <script>
+        function periphSelect() {
+            var table = document.getElementById("MainContent_gridPeriphSelect");
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.onclick = function (e) {
+                e = e || window.event;
+                var data = [];
+                var target = e.srcElement || e.target;
+                while (target && target.nodeName !== "TR") {
+                    target = target.parentNode;
+                }
+                if (target) {
+                    var cells = target.getElementsByTagName("td");
+                    for (var i = 0; i < cells.length; i++) {
+                        data.push(cells[i].innerHTML);
+                    }
+                }
+                document.getElementById('MainContent_txtInternalIDPer').value = data[0];
+                document.getElementById('MainContent_txtSelectedPeriph').value = data[1];
+                document.getElementById('MainContent_txtMarcaSelPer').value = data[2];
+                document.getElementById('MainContent_txtTypeSelPer').value = data[3];
+                document.getElementById('MainContent_txtEstadoSelPer').value = data[4];
+            };
+        }
+    </script>
 </asp:Content>

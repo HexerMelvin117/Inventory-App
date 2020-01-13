@@ -96,6 +96,24 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.TextBox txtEstadoSelPer;
 
         /// <summary>
+        /// Control txtInternalIDPer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInternalIDPer;
+
+        /// <summary>
+        /// Control ActionSelectPeriphPanel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel ActionSelectPeriphPanel;
+
+        /// <summary>
         /// Control btSelectPeriph.
         /// </summary>
         /// <remarks>
@@ -105,6 +123,15 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.Button btSelectPeriph;
 
         /// <summary>
+        /// Control UpdateGridSelectedPeriph.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateGridSelectedPeriph;
+
+        /// <summary>
         /// Control gridSelectedPeriph.
         /// </summary>
         /// <remarks>
@@ -112,6 +139,33 @@ namespace EquiposInvWM
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridSelectedPeriph;
+
+        /// <summary>
+        /// Control txtObservacionArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionArea;
+
+        /// <summary>
+        /// Control chboxIncludePeriph.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chboxIncludePeriph;
+
+        /// <summary>
+        /// Control chboxIncludeEquipment.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chboxIncludeEquipment;
 
         /// <summary>
         /// Control txtFichaIdSelec.
