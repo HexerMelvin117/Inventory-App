@@ -19,7 +19,6 @@
           <Property Name="devo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="equi_cod" Type="varchar" MaxLength="25" />
           <Property Name="ficha_id" Type="int" Nullable="false" />
-          <Property Name="devoperlist_id" Type="int" />
         </EntityType>
         <EntityType Name="Empleados">
           <Key>
@@ -156,18 +155,6 @@
           <Property Name="user_escritura" Type="bit" Nullable="false" />
           <Property Name="user_lectura" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Devolucio__devop__056ECC6A">
-          <End Role="ListaPerifericosDevo" Type="Self.ListaPerifericosDevo" Multiplicity="0..1" />
-          <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ListaPerifericosDevo">
-              <PropertyRef Name="devoperlist_id" />
-            </Principal>
-            <Dependent Role="Devoluciones">
-              <PropertyRef Name="devoperlist_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Devolucio__ficha__019E3B86">
           <End Role="FichaComputo" Type="Self.FichaComputo" Multiplicity="1" />
           <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="*" />
@@ -301,10 +288,6 @@
           <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SoftwareInstalado" EntityType="Self.SoftwareInstalado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Devolucio__devop__056ECC6A" Association="Self.FK__Devolucio__devop__056ECC6A">
-            <End Role="ListaPerifericosDevo" EntitySet="ListaPerifericosDevo" />
-            <End Role="Devoluciones" EntitySet="Devoluciones" />
-          </AssociationSet>
           <AssociationSet Name="FK__Devolucio__ficha__019E3B86" Association="Self.FK__Devolucio__ficha__019E3B86">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="Devoluciones" EntitySet="Devoluciones" />
@@ -363,10 +346,6 @@
           <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
           <EntitySet Name="SoftwareInstalado" EntityType="EquiposInvModel.SoftwareInstalado" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
-          <AssociationSet Name="FK__Devolucio__devop__056ECC6A" Association="EquiposInvModel.FK__Devolucio__devop__056ECC6A">
-            <End Role="ListaPerifericosDevo" EntitySet="ListaPerifericosDevo" />
-            <End Role="Devoluciones" EntitySet="Devoluciones" />
-          </AssociationSet>
           <AssociationSet Name="FK__Devolucio__ficha__019E3B86" Association="EquiposInvModel.FK__Devolucio__ficha__019E3B86">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="Devoluciones" EntitySet="Devoluciones" />
@@ -422,10 +401,8 @@
           <Property Name="devo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="equi_cod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ficha_id" Type="Int32" Nullable="false" />
-          <Property Name="devoperlist_id" Type="Int32" />
-          <NavigationProperty Name="ListaPerifericosDevo" Relationship="EquiposInvModel.FK__Devolucio__devop__056ECC6A" FromRole="Devoluciones" ToRole="ListaPerifericosDevo" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__Devolucio__ficha__019E3B86" FromRole="Devoluciones" ToRole="FichaComputo" />
-          <NavigationProperty Name="ListaPerifericosDevo1" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="Devoluciones" ToRole="ListaPerifericosDevo" />
+          <NavigationProperty Name="ListaPerifericosDevo" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="Devoluciones" ToRole="ListaPerifericosDevo" />
         </EntityType>
         <EntityType Name="Empleados">
           <Key>
@@ -532,8 +509,7 @@
           <Property Name="devoperlist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="per_id" Type="Int32" Nullable="false" />
           <Property Name="devo_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__Devolucio__devop__056ECC6A" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
-          <NavigationProperty Name="Devoluciones1" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
+          <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
         </EntityType>
         <EntityType Name="Perifericos">
           <Key>
@@ -581,18 +557,6 @@
           <Property Name="user_escritura" Type="Boolean" Nullable="false" />
           <Property Name="user_lectura" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Devolucio__devop__056ECC6A">
-          <End Type="EquiposInvModel.ListaPerifericosDevo" Role="ListaPerifericosDevo" Multiplicity="0..1" />
-          <End Type="EquiposInvModel.Devoluciones" Role="Devoluciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ListaPerifericosDevo">
-              <PropertyRef Name="devoperlist_id" />
-            </Principal>
-            <Dependent Role="Devoluciones">
-              <PropertyRef Name="devoperlist_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Devolucio__ficha__019E3B86">
           <End Type="EquiposInvModel.FichaComputo" Role="FichaComputo" Multiplicity="1" />
           <End Type="EquiposInvModel.Devoluciones" Role="Devoluciones" Multiplicity="*" />
@@ -732,7 +696,6 @@
           <EntitySetMapping Name="Devoluciones">
             <EntityTypeMapping TypeName="EquiposInvModel.Devoluciones">
               <MappingFragment StoreEntitySet="Devoluciones">
-                <ScalarProperty Name="devoperlist_id" ColumnName="devoperlist_id" />
                 <ScalarProperty Name="ficha_id" ColumnName="ficha_id" />
                 <ScalarProperty Name="equi_cod" ColumnName="equi_cod" />
                 <ScalarProperty Name="devo_id" ColumnName="devo_id" />

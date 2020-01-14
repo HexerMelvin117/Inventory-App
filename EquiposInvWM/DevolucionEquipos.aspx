@@ -16,6 +16,8 @@
 
     <!-- Informacion y seleccion de ficha para crear devolucion -->
     <h1>Devoluciones</h1>
+    <a class="btn btn-default" href="VisualizadorDevolucion.aspx">Imprimir Devolucion &raquo;</a>
+    
     <div class="container">
         <div class="jumbotron">
             <h2>Informacion General</h2>

@@ -14,18 +14,10 @@ namespace EquiposInvWM
     
     public partial class ListaPerifericosDevo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ListaPerifericosDevo()
-        {
-            this.Devoluciones = new HashSet<Devoluciones>();
-        }
-    
         public int devoperlist_id { get; set; }
         public int per_id { get; set; }
         public int devo_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Devoluciones> Devoluciones { get; set; }
-        public virtual Devoluciones Devoluciones1 { get; set; }
+        public virtual Devoluciones Devoluciones { get; set; }
     }
 }

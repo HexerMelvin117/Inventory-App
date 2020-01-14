@@ -10,7 +10,6 @@ namespace EquiposInvWM
 {
     public partial class DevolucionEquipos : System.Web.UI.Page
     {
-
         // Metodo para agregar contenido a gridview
         protected void FillGridFichas()
         {
@@ -52,7 +51,6 @@ namespace EquiposInvWM
             }
         }
 
-
         DataTable dtPerifericosSeleccionados = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,25 +70,87 @@ namespace EquiposInvWM
             FillGridFichas();
         }
 
-        protected void AgregarSinEquipo()
+        protected void AgregarPerifericos(int devoId)
         {
+            int idPer;
+            string tipoPer, codPer, estadoPer, marcaPer;
+
+            dtPerifericosSeleccionados = (DataTable)ViewState["Records"];
+
             using (var ctx = new EquiposInvModelContainer())
             {
+                foreach(DataRow row in dtPerifericosSeleccionados.Rows)
+                {
+                    string idTemp = row["ID Interno"].ToString();
+                    idPer = int.Parse(idTemp);
+                    tipoPer = row["Tipo"].ToString();
+                    codPer = row["Codigo_Periferico"].ToString();
+                    estadoPer = row["Estado"].ToString();
+                    marcaPer = row["Marca"].ToString();
+
+                    var ListaPeriDevo = new ListaPerifericosDevo()
+                    {
+                        per_id = idPer,
+                        devo_id = devoId
+                    };
+
+                    ctx.ListaPerifericosDevo.Add(ListaPeriDevo);
+                    ctx.SaveChanges();
+                }
+
                 
-            }
-        }
-
-        protected void AgregarConEquipo()
-        {
-            using (var ctx = new EquiposInvModelContainer())
-            {
-
             }
         }
 
         protected void CrearDevolucion()
         {
-            
+            int fichaId = int.Parse(lbFichaID.Text);
+            string equiCod = lbEquipoAsignado.Text;
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                try
+                {
+                    if (chboxIncludeEquipment.Checked == true)
+                    {
+                        var devolucion = new Devoluciones()
+                        {
+                            equi_cod = equiCod,
+                            ficha_id = fichaId,
+                        };
+                        ctx.Devoluciones.Add(devolucion);
+                        ctx.SaveChanges();
+
+                        int devolucionId = devolucion.devo_id;
+
+                        if (chboxIncludePeriph.Checked == true)
+                        {
+                            AgregarPerifericos(devolucionId);
+                        }
+                    } 
+                    else
+                    {
+                        var devolucion = new Devoluciones()
+                        {
+                            equi_cod = null,
+                            ficha_id = fichaId,
+                        };
+                        ctx.Devoluciones.Add(devolucion);
+                        ctx.SaveChanges();
+
+                        int devolucionId = devolucion.devo_id;
+
+                        if (chboxIncludePeriph.Checked == true)
+                        {
+                            AgregarPerifericos(devolucionId);
+                        }  
+                    }
+                } 
+                catch (Exception ex)
+                {
+                    throw; 
+                }
+            }
         }
 
         protected void gridFichasDevolucion_PreRender(object sender, EventArgs e)
@@ -148,7 +208,7 @@ namespace EquiposInvWM
 
         protected void btCreateDevolution_Click(object sender, EventArgs e)
         {
-
+            CrearDevolucion();
         }
 
         protected void gridPeriphSelect_PreRender(object sender, EventArgs e)
