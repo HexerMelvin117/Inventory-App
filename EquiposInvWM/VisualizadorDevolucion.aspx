@@ -4,7 +4,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Visualizador de Devolucion</h1>
-
     <div class="row">
         <dx:ASPxWebDocumentViewer ID="DevolucionWebDocumentViewer" runat="server" ReportSourceId="EquiposInvWM.Reporting.DevolucionReport"></dx:ASPxWebDocumentViewer> 
     </div>

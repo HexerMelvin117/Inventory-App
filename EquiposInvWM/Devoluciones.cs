@@ -17,17 +17,15 @@ namespace EquiposInvWM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Devoluciones()
         {
-            this.ListaPerifericosDevo1 = new HashSet<ListaPerifericosDevo>();
+            this.ListaPerifericosDevo = new HashSet<ListaPerifericosDevo>();
         }
     
         public int devo_id { get; set; }
         public string equi_cod { get; set; }
         public int ficha_id { get; set; }
-        public Nullable<int> devoperlist_id { get; set; }
     
-        public virtual ListaPerifericosDevo ListaPerifericosDevo { get; set; }
         public virtual FichaComputo FichaComputo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ListaPerifericosDevo> ListaPerifericosDevo1 { get; set; }
+        public virtual ICollection<ListaPerifericosDevo> ListaPerifericosDevo { get; set; }
     }
 }
