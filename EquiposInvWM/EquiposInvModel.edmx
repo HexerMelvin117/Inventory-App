@@ -91,6 +91,15 @@
           <Property Name="img_path" Type="nvarchar(max)" />
           <Property Name="ficha_id" Type="int" />
         </EntityType>
+        <EntityType Name="ImagenesDevolucion">
+          <Key>
+            <PropertyRef Name="imgdevo_id" />
+          </Key>
+          <Property Name="imgdevo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imgdevo_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="imgdevo_path" Type="nvarchar(max)" />
+          <Property Name="devo_id" Type="int" />
+        </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
             <PropertyRef Name="lisper_id" />
@@ -215,6 +224,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ImagenesD__devo___0D0FEE32">
+          <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="0..1" />
+          <End Role="ImagenesDevolucion" Type="Self.ImagenesDevolucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devoluciones">
+              <PropertyRef Name="devo_id" />
+            </Principal>
+            <Dependent Role="ImagenesDevolucion">
+              <PropertyRef Name="devo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ListaPeri__devo___075714DC">
           <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="1" />
           <End Role="ListaPerifericosDevo" Type="Self.ListaPerifericosDevo" Multiplicity="*" />
@@ -282,6 +303,7 @@
           <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FichaComputo" EntityType="Self.FichaComputo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImagenEquipo" EntityType="Self.ImagenEquipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenesDevolucion" EntityType="Self.ImagenesDevolucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaPerifericos" EntityType="Self.ListaPerifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaPerifericosDevo" EntityType="Self.ListaPerifericosDevo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
@@ -307,6 +329,10 @@
           <AssociationSet Name="FK__ImagenEqu__ficha__1B9317B3" Association="Self.FK__ImagenEqu__ficha__1B9317B3">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ImagenEquipo" EntitySet="ImagenEquipo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ImagenesD__devo___0D0FEE32" Association="Self.FK__ImagenesD__devo___0D0FEE32">
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+            <End Role="ImagenesDevolucion" EntitySet="ImagenesDevolucion" />
           </AssociationSet>
           <AssociationSet Name="FK__ListaPeri__devo___075714DC" Association="Self.FK__ListaPeri__devo___075714DC">
             <End Role="Devoluciones" EntitySet="Devoluciones" />
@@ -340,6 +366,7 @@
           <EntitySet Name="Equipos" EntityType="EquiposInvModel.Equipos" />
           <EntitySet Name="FichaComputo" EntityType="EquiposInvModel.FichaComputo" />
           <EntitySet Name="ImagenEquipo" EntityType="EquiposInvModel.ImagenEquipo" />
+          <EntitySet Name="ImagenesDevolucion" EntityType="EquiposInvModel.ImagenesDevolucion" />
           <EntitySet Name="ListaPerifericos" EntityType="EquiposInvModel.ListaPerifericos" />
           <EntitySet Name="ListaPerifericosDevo" EntityType="EquiposInvModel.ListaPerifericosDevo" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
@@ -349,6 +376,10 @@
           <AssociationSet Name="FK__Devolucio__ficha__019E3B86" Association="EquiposInvModel.FK__Devolucio__ficha__019E3B86">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="Devoluciones" EntitySet="Devoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ImagenesD__devo___0D0FEE32" Association="EquiposInvModel.FK__ImagenesD__devo___0D0FEE32">
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+            <End Role="ImagenesDevolucion" EntitySet="ImagenesDevolucion" />
           </AssociationSet>
           <AssociationSet Name="FK__ListaPeri__devo___075714DC" Association="EquiposInvModel.FK__ListaPeri__devo___075714DC">
             <End Role="Devoluciones" EntitySet="Devoluciones" />
@@ -402,6 +433,7 @@
           <Property Name="equi_cod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ficha_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__Devolucio__ficha__019E3B86" FromRole="Devoluciones" ToRole="FichaComputo" />
+          <NavigationProperty Name="ImagenesDevolucion" Relationship="EquiposInvModel.FK__ImagenesD__devo___0D0FEE32" FromRole="Devoluciones" ToRole="ImagenesDevolucion" />
           <NavigationProperty Name="ListaPerifericosDevo" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="Devoluciones" ToRole="ListaPerifericosDevo" />
         </EntityType>
         <EntityType Name="Empleados">
@@ -487,6 +519,16 @@
           <Property Name="ficha_id" Type="Int32" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3" FromRole="ImagenEquipo" ToRole="FichaComputo" />
         </EntityType>
+        <EntityType Name="ImagenesDevolucion">
+          <Key>
+            <PropertyRef Name="imgdevo_id" />
+          </Key>
+          <Property Name="imgdevo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imgdevo_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="imgdevo_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="devo_id" Type="Int32" />
+          <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__ImagenesD__devo___0D0FEE32" FromRole="ImagenesDevolucion" ToRole="Devoluciones" />
+        </EntityType>
         <EntityType Name="ListaPerifericos">
           <Key>
             <PropertyRef Name="lisper_id" />
@@ -566,6 +608,18 @@
             </Principal>
             <Dependent Role="Devoluciones">
               <PropertyRef Name="ficha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ImagenesD__devo___0D0FEE32">
+          <End Type="EquiposInvModel.Devoluciones" Role="Devoluciones" Multiplicity="0..1" />
+          <End Type="EquiposInvModel.ImagenesDevolucion" Role="ImagenesDevolucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devoluciones">
+              <PropertyRef Name="devo_id" />
+            </Principal>
+            <Dependent Role="ImagenesDevolucion">
+              <PropertyRef Name="devo_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -774,6 +828,16 @@
                 <ScalarProperty Name="img_path" ColumnName="img_path" />
                 <ScalarProperty Name="img_name" ColumnName="img_name" />
                 <ScalarProperty Name="image_id" ColumnName="image_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesDevolucion">
+            <EntityTypeMapping TypeName="EquiposInvModel.ImagenesDevolucion">
+              <MappingFragment StoreEntitySet="ImagenesDevolucion">
+                <ScalarProperty Name="devo_id" ColumnName="devo_id" />
+                <ScalarProperty Name="imgdevo_path" ColumnName="imgdevo_path" />
+                <ScalarProperty Name="imgdevo_name" ColumnName="imgdevo_name" />
+                <ScalarProperty Name="imgdevo_id" ColumnName="imgdevo_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

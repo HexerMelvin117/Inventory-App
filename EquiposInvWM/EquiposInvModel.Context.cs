@@ -31,6 +31,7 @@ namespace EquiposInvWM
         public virtual DbSet<Equipos> Equipos { get; set; }
         public virtual DbSet<FichaComputo> FichaComputo { get; set; }
         public virtual DbSet<ImagenEquipo> ImagenEquipo { get; set; }
+        public virtual DbSet<ImagenesDevolucion> ImagenesDevolucion { get; set; }
         public virtual DbSet<ListaPerifericos> ListaPerifericos { get; set; }
         public virtual DbSet<ListaPerifericosDevo> ListaPerifericosDevo { get; set; }
         public virtual DbSet<Perifericos> Perifericos { get; set; }

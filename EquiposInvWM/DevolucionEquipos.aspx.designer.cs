@@ -141,6 +141,60 @@ namespace EquiposInvWM
         protected global::System.Web.UI.WebControls.GridView gridSelectedPeriph;
 
         /// <summary>
+        /// Control ImagenUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload1;
+
+        /// <summary>
+        /// Control ImagenUpload2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload2;
+
+        /// <summary>
+        /// Control ImagenUpload3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload3;
+
+        /// <summary>
+        /// Control ImagenUpload4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload4;
+
+        /// <summary>
+        /// Control ImagenUpload5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload5;
+
+        /// <summary>
+        /// Control ImagenUpload6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImagenUpload6;
+
+        /// <summary>
         /// Control txtObservacionArea.
         /// </summary>
         /// <remarks>

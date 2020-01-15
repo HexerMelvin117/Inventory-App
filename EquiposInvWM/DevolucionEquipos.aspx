@@ -126,6 +126,23 @@
         </div>
     </div>
     <br />
+    
+    <!-- Seccion de seleccion de imagenes -->
+    <h3>Imagenes</h3>
+    <asp:FileUpload ID="ImagenUpload1" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+    <asp:FileUpload ID="ImagenUpload2" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+    <asp:FileUpload ID="ImagenUpload3" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+    <asp:FileUpload ID="ImagenUpload4" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+    <asp:FileUpload ID="ImagenUpload5" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+    <asp:FileUpload ID="ImagenUpload6" runat="server" AllowMultiple="true" accept=".png,.jpg,.jpeg,.gif" CssClass="form-control" />
+    <br />
+
+    <!-- Seccion de Observaciones -->
     <div class="row">
         <div class="col-md-6">
             <h3>Observaciones: </h3>

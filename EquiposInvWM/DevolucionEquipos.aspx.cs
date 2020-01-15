@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.IO;
 
 namespace EquiposInvWM
 {
@@ -102,6 +105,72 @@ namespace EquiposInvWM
             }
         }
 
+        protected void QueryToAddImage(string imgFile, int devoId)
+        {
+            string mainconn = ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
+            SqlConnection sqlconn = new SqlConnection(mainconn);
+            sqlconn.Open();
+            string sqlquery = "insert into [dbo].[ImagenesDevolucion] ([imgdevo_name],[imgdevo_path],[devo_id]) values (@imgdevo_name,@imgdevo_path,@devo_id)";
+            SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
+            sqlcomm.Parameters.AddWithValue("@imgdevo_name", imgFile);
+            sqlcomm.Parameters.AddWithValue("@imgdevo_path", @"ImagesDevoluciones/" + imgFile);
+            sqlcomm.Parameters.AddWithValue("@devo_id", devoId);
+            sqlcomm.ExecuteNonQuery();
+            sqlconn.Close();
+        }
+
+        protected void AddImages(int devoId)
+        {
+            if (ImagenUpload1.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload1.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload1.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+            if (ImagenUpload2.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload2.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload2.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+            if (ImagenUpload3.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload3.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload3.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+            if (ImagenUpload4.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload4.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload4.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+            if (ImagenUpload5.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload5.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload5.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+            if (ImagenUpload6.HasFile != false)
+            {
+                string imgFile = Path.GetFileName(ImagenUpload6.PostedFile.FileName);
+                string physicalPath = Path.Combine(Server.MapPath(" "), "ImagesDevoluciones/");
+                ImagenUpload6.SaveAs(physicalPath + imgFile);
+                QueryToAddImage(imgFile, devoId);
+            }
+
+        }
+
         protected void CrearDevolucion()
         {
             int fichaId = int.Parse(lbFichaID.Text);
@@ -127,6 +196,8 @@ namespace EquiposInvWM
                         {
                             AgregarPerifericos(devolucionId);
                         }
+
+                        AddImages(devolucionId);
                     } 
                     else
                     {
@@ -143,7 +214,9 @@ namespace EquiposInvWM
                         if (chboxIncludePeriph.Checked == true)
                         {
                             AgregarPerifericos(devolucionId);
-                        }  
+                        }
+
+                        AddImages(devolucionId);
                     }
                 } 
                 catch (Exception ex)
@@ -169,6 +242,7 @@ namespace EquiposInvWM
             }
         }
 
+        // Para seleccionar la ficha que se utilizara para realizar la devolucion
         protected void QuerySeleccionarFicha()
         {
             int FichaSelec = int.Parse(txtFichaIdSelec.Text);
