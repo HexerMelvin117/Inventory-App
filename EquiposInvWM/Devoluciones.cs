@@ -17,6 +17,7 @@ namespace EquiposInvWM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Devoluciones()
         {
+            this.ImagenesDevolucion = new HashSet<ImagenesDevolucion>();
             this.ListaPerifericosDevo = new HashSet<ListaPerifericosDevo>();
         }
     
@@ -25,6 +26,8 @@ namespace EquiposInvWM
         public int ficha_id { get; set; }
     
         public virtual FichaComputo FichaComputo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImagenesDevolucion> ImagenesDevolucion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaPerifericosDevo> ListaPerifericosDevo { get; set; }
     }

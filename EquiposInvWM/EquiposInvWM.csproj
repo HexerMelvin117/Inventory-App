@@ -500,6 +500,9 @@
     <Compile Include="ImagenEquipo.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImagenesDevolucion.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ListaPerifericos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
@@ -610,6 +613,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Login\" />
+    <Folder Include="ImagesDevoluciones\" />
     <Folder Include="Scripts\LoginScripts\" />
   </ItemGroup>
   <ItemGroup>
