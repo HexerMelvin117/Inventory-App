@@ -100,8 +100,6 @@ namespace EquiposInvWM
                     ctx.ListaPerifericosDevo.Add(ListaPeriDevo);
                     ctx.SaveChanges();
                 }
-
-                
             }
         }
 
@@ -168,7 +166,6 @@ namespace EquiposInvWM
                 ImagenUpload6.SaveAs(physicalPath + imgFile);
                 QueryToAddImage(imgFile, devoId);
             }
-
         }
 
         protected void CrearDevolucion()
