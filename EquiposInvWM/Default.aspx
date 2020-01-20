@@ -53,7 +53,7 @@
                 Visualizar graficos de equipos de Computo.
             </p>
             <p>
-                <a class="btn btn-default" href="Graficos.aspx">Graficos &raquo;</a>
+                <a class="btn btn-default" href="GraficosEquipos.aspx">Graficos &raquo;</a>
             </p>
         </div>
     </div>
