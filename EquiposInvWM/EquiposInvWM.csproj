@@ -65,6 +65,7 @@
     <Reference Include="DevExpress.Web.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.1.Web, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1.Web, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -208,7 +209,7 @@
     <Content Include="EquiposInvModel.edmx.diagram">
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Graficos.aspx" />
+    <Content Include="GraficosEquipos.aspx" />
     <Content Include="Images\11231.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -323,6 +324,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\foopicker.js" />
@@ -490,12 +492,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Graficos.aspx.cs">
-      <DependentUpon>Graficos.aspx</DependentUpon>
+    <Compile Include="GraficosEquipos.aspx.cs">
+      <DependentUpon>GraficosEquipos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Graficos.aspx.designer.cs">
-      <DependentUpon>Graficos.aspx</DependentUpon>
+    <Compile Include="GraficosEquipos.aspx.designer.cs">
+      <DependentUpon>GraficosEquipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ImagenEquipo.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
@@ -613,6 +615,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Login\" />
+    <Folder Include="Graficos\" />
     <Folder Include="ImagesDevoluciones\" />
     <Folder Include="Scripts\LoginScripts\" />
   </ItemGroup>
