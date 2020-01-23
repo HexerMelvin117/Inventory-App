@@ -17,6 +17,7 @@ namespace EquiposInvWM
             if (!IsPostBack)
             {
                 MostrarEquiposPorComp();
+                MostrarEstadoEquipos();
             }
         }
 
@@ -86,6 +87,37 @@ namespace EquiposInvWM
 
                 ltChartEquiPorComp.Text = chart;
             }
+        }
+
+        protected void MostrarEstadoEquipos()
+        {
+            string myConnection = ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(myConnection);
+            string query = @"
+            DECLARE
+            @CantidadWM int,
+            @CantidadDCS int,
+            @CantidadDC int,
+            @CantidadINV int;
+
+                        SELECT @CantidadWM = count(equi_id) FROM Equipos WHERE equi_empresa = 'WM';
+                        SELECT @CantidadDCS = count(equi_id) FROM Equipos WHERE equi_empresa = 'DCS';
+                        SELECT @CantidadDC = count(equi_id) FROM Equipos WHERE equi_empresa = 'DC';
+                        SELECT @CantidadINV = count(equi_id) FROM Equipos WHERE equi_empresa = 'INV';
+
+                        DECLARE @TempCompanias TABLE
+                        (
+                            Compania varchar(10),
+                            Cantidad int
+                        )
+
+            INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('WM', @CantidadWM);
+                        INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('DC', @CantidadDC);
+                        INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('DCS', @CantidadDCS);
+                        INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('INV', @CantidadINV);
+
+            SELECT TOP 4 Cantidad FROM @TempCompanias ORDER BY Cantidad desc;";
+            SqlCommand cmd = new SqlCommand(query, con);
         }
     }
 }
