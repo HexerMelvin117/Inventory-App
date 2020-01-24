@@ -66,9 +66,9 @@ namespace EquiposInvWM
                 chart = "<canvas id=\"line-chart\" width=\"100%\" height=\"40\"></canvas>";
                 chart += "<script>";
                 chart += "new Chart(document.getElementById(\"line-chart\"), { type: 'line', data: {labels: [";
-
+                
                 // Mas Detalles
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 4; i++)
                     chart += i.ToString() + ",";
                 chart = chart.Substring(0, chart.Length - 1);
                 chart += "],datasets: [{ data: [";
@@ -118,6 +118,21 @@ namespace EquiposInvWM
 
             SELECT TOP 4 Cantidad FROM @TempCompanias ORDER BY Cantidad desc;";
             SqlCommand cmd = new SqlCommand(query, con);
+
+            DataTable tb = new DataTable();
+            try
+            {
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                tb.Load(dr, LoadOption.OverwriteChanges);
+                con.Close();
+            }
+            catch { }
+
+            if (tb != null)
+            {
+                
+            }
         }
     }
 }
