@@ -8,5 +8,9 @@
         <div class="col-md-6">
             <asp:Literal ID="ltChartEquiPorComp" runat="server"></asp:Literal>
         </div>
+        <div class="col-md-6">
+            <asp:Literal ID="ltChartEquiPorEstados" runat="server"></asp:Literal>
+        </div>
     </div>
+
 </asp:Content>
