@@ -48,7 +48,7 @@ namespace EquiposInvWM
                         INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('DCS', @CantidadDCS);
                         INSERT INTO @TempCompanias(Compania, Cantidad) VALUES('INV', @CantidadINV);
 
-            SELECT TOP 4 Cantidad FROM @TempCompanias ORDER BY Cantidad desc;";
+            SELECT TOP 4 Compania,Cantidad FROM @TempCompanias ORDER BY Cantidad desc;";
             SqlCommand cmd = new SqlCommand(query, con);
             DataTable tb = new DataTable();
             try
@@ -65,12 +65,14 @@ namespace EquiposInvWM
                 string chart = "";
                 chart = "<canvas id=\"line-chart\" width=\"100%\" height=\"40\"></canvas>";
                 chart += "<script>";
-                chart += "new Chart(document.getElementById(\"line-chart\"), { type: 'line', data: {labels: [";
-                
+                chart += "new Chart(document.getElementById(\"line-chart\"), { type: 'doughnut', data: {labels: [";
+
+                string graphLabel = "";
                 // Mas Detalles
-                for (int i = 0; i < 4; i++)
-                    chart += i.ToString() + ",";
-                chart = chart.Substring(0, chart.Length - 1);
+                for (int i = 0; i < tb.Rows.Count; i++)
+                    graphLabel += @"""" + tb.Rows[i]["Compania"].ToString() + @"""" + ",";
+                graphLabel = graphLabel.Substring(0, graphLabel.Length - 1);
+                chart += graphLabel;
                 chart += "],datasets: [{ data: [";
 
                 // Conseguir datos de la Base de datos y agregarlos al grafico
@@ -80,8 +82,8 @@ namespace EquiposInvWM
                 value = value.Substring(0, value.Length - 1);
                 chart += value;
 
-                chart += "],label: \"Air Temperature\",borderColor: \"#3e95cd\",fill: true}"; // Chart color
-                chart += "]},options: { title: { display: true,text: 'Air Temperature (oC)'} }"; // Chart title
+                chart += "],label: \"Cantidad de equipos por compañia\",fill: true, backgroundColor: [\"rgb(255, 99, 132)\",\"rgb(54, 162, 235)\",\"rgb(255, 205, 86)\"]}"; // Chart color
+                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Compañia'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
 
