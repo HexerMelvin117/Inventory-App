@@ -121,6 +121,20 @@
           <Property Name="per_id" Type="int" Nullable="false" />
           <Property Name="devo_id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="OrdenCompra">
+          <Key>
+            <PropertyRef Name="orden_id" />
+          </Key>
+          <Property Name="orden_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orden_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="orden_desc" Type="varchar(max)" />
+          <Property Name="orden_proy" Type="varchar" MaxLength="30" />
+          <Property Name="orden_proveedor" Type="varchar" MaxLength="30" />
+          <Property Name="orden_numfactura" Type="varchar" MaxLength="30" />
+          <Property Name="orden_garantia" Type="date" />
+          <Property Name="orden_precio" Type="decimal" Precision="11" Scale="4" />
+          <Property Name="orden_fecha" Type="date" />
+        </EntityType>
         <EntityType Name="Perifericos">
           <Key>
             <PropertyRef Name="per_id" />
@@ -151,6 +165,19 @@
           <Property Name="softinstal_nom" Type="varchar" MaxLength="20" />
           <Property Name="softinstal_instalado" Type="bit" />
           <Property Name="ficha_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="orden_id" />
+          </Key>
+          <Property Name="orden_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orden_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="orden_desc" Type="varchar(max)" />
+          <Property Name="orden_proy" Type="varchar" MaxLength="30" />
+          <Property Name="orden_proveedor" Type="varchar" MaxLength="30" />
+          <Property Name="orden_numfactura" Type="varchar" MaxLength="30" />
+          <Property Name="orden_garantia" Type="date" />
+          <Property Name="orden_precio" Type="decimal" Precision="11" Scale="4" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -306,9 +333,11 @@
           <EntitySet Name="ImagenesDevolucion" EntityType="Self.ImagenesDevolucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaPerifericos" EntityType="Self.ListaPerifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaPerifericosDevo" EntityType="Self.ListaPerifericosDevo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenCompra" EntityType="Self.OrdenCompra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SoftwareInstalado" EntityType="Self.SoftwareInstalado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Devolucio__ficha__019E3B86" Association="Self.FK__Devolucio__ficha__019E3B86">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
@@ -369,9 +398,11 @@
           <EntitySet Name="ImagenesDevolucion" EntityType="EquiposInvModel.ImagenesDevolucion" />
           <EntitySet Name="ListaPerifericos" EntityType="EquiposInvModel.ListaPerifericos" />
           <EntitySet Name="ListaPerifericosDevo" EntityType="EquiposInvModel.ListaPerifericosDevo" />
+          <EntitySet Name="OrdenCompra" EntityType="EquiposInvModel.OrdenCompra" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
           <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
           <EntitySet Name="SoftwareInstalado" EntityType="EquiposInvModel.SoftwareInstalado" />
+          <EntitySet Name="Table" EntityType="EquiposInvModel.Table" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
           <AssociationSet Name="FK__Devolucio__ficha__019E3B86" Association="EquiposInvModel.FK__Devolucio__ficha__019E3B86">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
@@ -553,6 +584,20 @@
           <Property Name="devo_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
         </EntityType>
+        <EntityType Name="OrdenCompra">
+          <Key>
+            <PropertyRef Name="orden_id" />
+          </Key>
+          <Property Name="orden_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orden_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="orden_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="orden_proy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_numfactura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_garantia" Type="DateTime" Precision="0" />
+          <Property Name="orden_precio" Type="Decimal" Precision="11" Scale="4" />
+          <Property Name="orden_fecha" Type="DateTime" Precision="0" />
+        </EntityType>
         <EntityType Name="Perifericos">
           <Key>
             <PropertyRef Name="per_id" />
@@ -586,6 +631,19 @@
           <Property Name="softinstal_instalado" Type="Boolean" />
           <Property Name="ficha_id" Type="Int32" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__SoftwareI__ficha__54CB950F" FromRole="SoftwareInstalado" ToRole="FichaComputo" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="orden_id" />
+          </Key>
+          <Property Name="orden_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orden_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="orden_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="orden_proy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_numfactura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden_garantia" Type="DateTime" Precision="0" />
+          <Property Name="orden_precio" Type="Decimal" Precision="11" Scale="4" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -864,6 +922,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="OrdenCompra">
+            <EntityTypeMapping TypeName="EquiposInvModel.OrdenCompra">
+              <MappingFragment StoreEntitySet="OrdenCompra">
+                <ScalarProperty Name="orden_fecha" ColumnName="orden_fecha" />
+                <ScalarProperty Name="orden_precio" ColumnName="orden_precio" />
+                <ScalarProperty Name="orden_garantia" ColumnName="orden_garantia" />
+                <ScalarProperty Name="orden_numfactura" ColumnName="orden_numfactura" />
+                <ScalarProperty Name="orden_proveedor" ColumnName="orden_proveedor" />
+                <ScalarProperty Name="orden_proy" ColumnName="orden_proy" />
+                <ScalarProperty Name="orden_desc" ColumnName="orden_desc" />
+                <ScalarProperty Name="orden_tipo" ColumnName="orden_tipo" />
+                <ScalarProperty Name="orden_id" ColumnName="orden_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Perifericos">
             <EntityTypeMapping TypeName="EquiposInvModel.Perifericos">
               <MappingFragment StoreEntitySet="Perifericos">
@@ -895,6 +968,20 @@
                 <ScalarProperty Name="softinstal_instalado" ColumnName="softinstal_instalado" />
                 <ScalarProperty Name="softinstal_nom" ColumnName="softinstal_nom" />
                 <ScalarProperty Name="softinstal_id" ColumnName="softinstal_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="EquiposInvModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="orden_precio" ColumnName="orden_precio" />
+                <ScalarProperty Name="orden_garantia" ColumnName="orden_garantia" />
+                <ScalarProperty Name="orden_numfactura" ColumnName="orden_numfactura" />
+                <ScalarProperty Name="orden_proveedor" ColumnName="orden_proveedor" />
+                <ScalarProperty Name="orden_proy" ColumnName="orden_proy" />
+                <ScalarProperty Name="orden_desc" ColumnName="orden_desc" />
+                <ScalarProperty Name="orden_tipo" ColumnName="orden_tipo" />
+                <ScalarProperty Name="orden_id" ColumnName="orden_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
