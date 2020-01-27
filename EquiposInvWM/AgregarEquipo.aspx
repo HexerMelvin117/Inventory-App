@@ -125,7 +125,6 @@
             <h5>Serie: </h5>
             <asp:TextBox ID="txtSerie" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
-        
     </div>
     <br />
     <h3>Especificaciones</h3>

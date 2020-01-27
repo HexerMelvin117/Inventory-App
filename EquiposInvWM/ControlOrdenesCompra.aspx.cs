@@ -29,7 +29,8 @@ namespace EquiposInvWM
                                  Num_Factura = m.orden_numfactura,
                                  Proveedor = m.orden_proveedor,
                                  Garantia = m.orden_garantia,
-                                 Proyecto = m.orden_proy
+                                 Proyecto = m.orden_proy,
+                                 Precio = m.orden_precio
                              }).ToList();
 
                 gridOrdenesCompra.DataSource = query;

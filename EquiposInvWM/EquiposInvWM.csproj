@@ -164,6 +164,7 @@
     <Content Include="About.aspx" />
     <Content Include="AgregarEmpleado.aspx" />
     <Content Include="AgregarEquipo.aspx" />
+    <Content Include="AgregarOrdenCompra.aspx" />
     <Content Include="AgregarPeriferico.aspx" />
     <Content Include="AsignarEquipo.aspx" />
     <Content Include="Contact.aspx" />
@@ -393,6 +394,13 @@
     </Compile>
     <Compile Include="AgregarEquipo.aspx.designer.cs">
       <DependentUpon>AgregarEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarOrdenCompra.aspx.cs">
+      <DependentUpon>AgregarOrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarOrdenCompra.aspx.designer.cs">
+      <DependentUpon>AgregarOrdenCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarPeriferico.aspx.cs">
       <DependentUpon>AgregarPeriferico.aspx</DependentUpon>

@@ -7,7 +7,7 @@
 
     <h1>Control de Ordenes de Compra</h1>
     <br />
-    <a class="btn btn-default">Agregar Factura &raquo;</a>
+    <a class="btn btn-default" href="AgregarOrdenCompra.aspx">Agregar Factura &raquo;</a>
     <br />
     <div class="row">
         <div class="col-md-12">
