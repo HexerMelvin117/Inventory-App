@@ -12,7 +12,8 @@
     <br />
     <div class="row">
         <div class="col-md-12">
-            <asp:GridView ID="PerifericosGrid" runat="server" CssClass="table table-striped table-bordered" style="width:100%; cursor: pointer;" OnPreRender="PerifericosGrid_PreRender" OnRowDataBound="PerifericosGrid_RowDataBound" OnSelectedIndexChanged="PerifericosGrid_SelectedIndexChanged"></asp:GridView>
+            <asp:GridView ID="PerifericosGrid" runat="server" CssClass="table table-striped table-bordered" style="width:100%; cursor: pointer;" 
+                OnPreRender="PerifericosGrid_PreRender" OnRowDataBound="PerifericosGrid_RowDataBound" OnSelectedIndexChanged="PerifericosGrid_SelectedIndexChanged"></asp:GridView>
             <asp:Button ID="btExportExcel" runat="server" CssClass="btn btn-success" OnClick="btExportExcel_Click" Text="Exportar a Excel" />
         </div>
     </div>

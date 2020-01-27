@@ -56,6 +56,15 @@
                 <a class="btn btn-default" href="GraficosEquipos.aspx">Graficos &raquo;</a>
             </p>
         </div>
+        <div class="col-md-4">
+            <h2>Ordenes de Compra</h2>
+            <p>
+                Control de Ordenes de compra
+            </p>
+            <p>
+                <a class="btn btn-default" href="ControlOrdenesCompra.aspx">Compras &raquo;</a>
+            </p>
+        </div>
     </div>
 
 </asp:Content>

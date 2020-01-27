@@ -85,7 +85,7 @@ namespace EquiposInvWM
                 chart += value;
 
                 chart += "],label: \"Cantidad de equipos por compañia\",fill: true, backgroundColor: [\"rgb(255, 99, 132)\",\"rgb(54, 162, 235)\",\"rgb(255, 205, 86)\"]}"; // Chart color
-                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Compañia'} }"; // Chart title
+                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos Totales por Compañia'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
 
@@ -152,7 +152,7 @@ namespace EquiposInvWM
                 chart += value;
 
                 chart += "],label: \"Cantidad de equipos por compañia\",fill: true, backgroundColor: [\"rgb(255, 99, 132)\",\"rgb(54, 162, 235)\",\"rgb(255, 205, 86)\"]}"; // Chart color
-                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Compañia'} }"; // Chart title
+                chart += "]},options: { title: { display: true,text: 'Cantidad de Perifericos por Estado'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
 
@@ -223,7 +223,7 @@ namespace EquiposInvWM
                 chart += value;
 
                 chart += "],label: \"Cantidad de equipos por compañia\",fill: true, backgroundColor: [\"rgb(255, 99, 132)\",\"rgb(54, 162, 235)\",\"rgb(255, 205, 86)\"]}"; // Chart color
-                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Compañia'} }"; // Chart title
+                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Estado'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
 
@@ -297,7 +297,7 @@ namespace EquiposInvWM
                 chart += value;
 
                 chart += "],label: \"Cantidad de equipos por compañia\",fill: true, backgroundColor: [\"rgb(255, 99, 132)\",\"rgb(54, 162, 235)\",\"rgb(255, 205, 86)\"]}"; // Chart color
-                chart += "]},options: { title: { display: true,text: 'Cantidad de Equipos por Compañia'} }"; // Chart title
+                chart += "]},options: { title: { display: true,text: 'Cantidad de Perifericos por Tipo'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
 

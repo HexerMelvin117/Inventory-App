@@ -178,6 +178,7 @@
     <Content Include="Content\side-drawer.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="ControlOrdenesCompra.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="ControlDeFichas.aspx" />
     <Content Include="DevolucionEquipos.aspx" />
@@ -426,6 +427,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ControlOrdenesCompra.aspx.cs">
+      <DependentUpon>ControlOrdenesCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlOrdenesCompra.aspx.designer.cs">
+      <DependentUpon>ControlOrdenesCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\dsCreacionFicha.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -525,6 +533,9 @@
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
+    <Compile Include="OrdenCompra.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Perifericos.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
@@ -573,6 +584,9 @@
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Table.cs">
+      <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TodosEquipos.aspx.cs">
       <DependentUpon>TodosEquipos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
