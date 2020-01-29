@@ -35,8 +35,56 @@ namespace EquiposInvWM
                 tipo = cmbTypeEquipoComputo.SelectedItem.Text;
             }
 
-            garantiaFin = DateTime.Parse(txtGarantiaFecha.Text);
+            
             fechaEmitida = DateTime.Parse(txtFechaFacturacion.Text);
+
+            if (chBoxGarantia.Checked == true)
+            {
+                using (var ctx = new EquiposInvModelContainer())
+                {
+                    var ordenCompra = new OrdenCompra()
+                    {
+                        orden_tipo = tipo,
+                        orden_fecha = fechaEmitida,
+                        orden_desc = descripcion,
+                        orden_garantia = null,
+                        orden_numfactura = numFactura,
+                        orden_precio = precio,
+                        orden_proveedor = proveedor,
+                        orden_proy = proyecto
+                    };
+
+                    ctx.OrdenCompra.Add(ordenCompra);
+                    ctx.SaveChanges();
+                }
+            } 
+            else
+            {
+                garantiaFin = DateTime.Parse(txtGarantiaFecha.Text);
+                using (var ctx = new EquiposInvModelContainer())
+                {
+                    var ordenCompra = new OrdenCompra()
+                    {
+                        orden_tipo = tipo,
+                        orden_fecha = fechaEmitida,
+                        orden_desc = descripcion,
+                        orden_garantia = garantiaFin,
+                        orden_numfactura = numFactura,
+                        orden_precio = precio,
+                        orden_proveedor = proveedor,
+                        orden_proy = proyecto
+                    };
+
+                    ctx.OrdenCompra.Add(ordenCompra);
+                    ctx.SaveChanges();
+                }
+            }
+            
+        }
+
+        protected void btAgregarOrdenCompra_Click(object sender, EventArgs e)
+        {
+            AgregarOrden();
         }
     }
 }

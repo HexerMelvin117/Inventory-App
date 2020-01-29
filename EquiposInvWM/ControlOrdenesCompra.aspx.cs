@@ -11,7 +11,7 @@ namespace EquiposInvWM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            FillGridOrdenesCompra();
         }
 
         protected void FillGridOrdenesCompra()

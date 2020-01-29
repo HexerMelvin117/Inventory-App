@@ -76,7 +76,6 @@ namespace EquiposInvWM
         protected void AgregarPerifericos(int devoId)
         {
             int idPer;
-            string tipoPer, codPer, estadoPer, marcaPer;
 
             dtPerifericosSeleccionados = (DataTable)ViewState["Records"];
 
@@ -86,10 +85,6 @@ namespace EquiposInvWM
                 {
                     string idTemp = row["ID Interno"].ToString();
                     idPer = int.Parse(idTemp);
-                    tipoPer = row["Tipo"].ToString();
-                    codPer = row["Codigo_Periferico"].ToString();
-                    estadoPer = row["Estado"].ToString();
-                    marcaPer = row["Marca"].ToString();
 
                     var ListaPeriDevo = new ListaPerifericosDevo()
                     {

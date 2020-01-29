@@ -113,7 +113,7 @@
     <br />
     <div class="row">
         <div class="col-md-2">
-            <asp:Button ID="btAgregarOrdenCompra" runat="server" CssClass="btn btn-primary" Text="Agregar Orden" />
+            <asp:Button ID="btAgregarOrdenCompra" runat="server" CssClass="btn btn-primary" Text="Agregar Orden" OnClick="btAgregarOrdenCompra_Click" />
         </div>
     </div>
 </asp:Content>
