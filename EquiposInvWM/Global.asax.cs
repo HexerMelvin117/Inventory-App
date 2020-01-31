@@ -21,6 +21,9 @@ namespace EquiposInvWM
 
             string dataPath = Server.MapPath("Images/");
             AccessSettings.StaticResources.TrySetRules(DirectoryAccessRule.Allow(dataPath));
+
+            string devoImagesPath = Server.MapPath("ImagesDevoluciones/");
+            AccessSettings.StaticResources.TrySetRules(DirectoryAccessRule.Allow(devoImagesPath));
         }
     }
 }

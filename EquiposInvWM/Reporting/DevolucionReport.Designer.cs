@@ -95,6 +95,7 @@
             this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell23 = new DevExpress.XtraReports.UI.XRTableCell();
             this.dsDevolucionFicha1 = new EquiposInvWM.Datasets.dsDevolucionFicha();
+            this.listaPerifericoDevoTableAdapter = new EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters.ListaPerifericoDevoTableAdapter();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
@@ -123,7 +124,8 @@
             this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.Devo_id = new DevExpress.XtraReports.Parameters.Parameter();
             this.creacionDevolucionTableAdapter = new EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters.CreacionDevolucionTableAdapter();
-            this.listaPerifericoDevoTableAdapter = new EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters.ListaPerifericoDevoTableAdapter();
+            this.listaSoftwareDevoTableAdapter = new EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters.ListaSoftwareDevoTableAdapter();
+            this.devoFotosEquipoTableAdapter = new EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters.DevoFotosEquipoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -662,7 +664,6 @@
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.ReportHeader1});
-            this.DetailReport.DataAdapter = this.listaPerifericoDevoTableAdapter;
             this.DetailReport.DataMember = "ListaPerifericoDevo";
             this.DetailReport.DataSource = this.dsDevolucionFicha1;
             this.DetailReport.Level = 0;
@@ -872,12 +873,17 @@
             this.dsDevolucionFicha1.DataSetName = "dsDevolucionFicha";
             this.dsDevolucionFicha1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // listaPerifericoDevoTableAdapter
+            // 
+            this.listaPerifericoDevoTableAdapter.ClearBeforeFill = true;
+            // 
             // DetailReport1
             // 
             this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail2,
             this.ReportHeader2,
             this.ReportFooter});
+            this.DetailReport1.DataMember = "ListaSoftwareDevo";
             this.DetailReport1.DataSource = this.dsDevolucionFicha1;
             this.DetailReport1.Level = 1;
             this.DetailReport1.Name = "DetailReport1";
@@ -1111,6 +1117,7 @@
             // 
             this.DetailReport3.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.VerticalDetail});
+            this.DetailReport3.DataMember = "DevoFotosEquipo";
             this.DetailReport3.DataSource = this.dsDevolucionFicha1;
             this.DetailReport3.Level = 3;
             this.DetailReport3.Name = "DetailReport3";
@@ -1132,7 +1139,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrPictureBox2.BorderWidth = 2F;
             this.xrPictureBox2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageUrl", "[img_path]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageUrl", "[imgdevo_path]")});
             this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(3.749974F, 4.748694F);
             this.xrPictureBox2.Name = "xrPictureBox2";
             this.xrPictureBox2.SizeF = new System.Drawing.SizeF(293.5417F, 235.2033F);
@@ -1153,9 +1160,13 @@
             // 
             this.creacionDevolucionTableAdapter.ClearBeforeFill = true;
             // 
-            // listaPerifericoDevoTableAdapter
+            // listaSoftwareDevoTableAdapter
             // 
-            this.listaPerifericoDevoTableAdapter.ClearBeforeFill = true;
+            this.listaSoftwareDevoTableAdapter.ClearBeforeFill = true;
+            // 
+            // devoFotosEquipoTableAdapter
+            // 
+            this.devoFotosEquipoTableAdapter.ClearBeforeFill = true;
             // 
             // DevolucionReport
             // 
@@ -1287,5 +1298,7 @@
         private Datasets.dsDevolucionFicha dsDevolucionFicha1;
         private Datasets.dsDevolucionFichaTableAdapters.CreacionDevolucionTableAdapter creacionDevolucionTableAdapter;
         private Datasets.dsDevolucionFichaTableAdapters.ListaPerifericoDevoTableAdapter listaPerifericoDevoTableAdapter;
+        private Datasets.dsDevolucionFichaTableAdapters.ListaSoftwareDevoTableAdapter listaSoftwareDevoTableAdapter;
+        private Datasets.dsDevolucionFichaTableAdapters.DevoFotosEquipoTableAdapter devoFotosEquipoTableAdapter;
     }
 }
