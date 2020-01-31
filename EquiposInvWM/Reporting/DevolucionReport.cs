@@ -13,5 +13,10 @@ namespace EquiposInvWM.Reporting
             InitializeComponent();
         }
 
+        private void DevolucionReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            creacionDevolucionTableAdapter.Fill(dsDevolucionFicha1.CreacionDevolucion, (int)(Parameters["Devo_id"].Value));
+            listaPerifericoDevoTableAdapter.Fill(dsDevolucionFicha1.ListaPerifericoDevo, (int)(Parameters["Devo_id"].Value));
+        }
     }
 }

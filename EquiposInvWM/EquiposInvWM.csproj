@@ -290,6 +290,17 @@
     <Content Include="Datasets\dsCreacionFicha.xss">
       <DependentUpon>dsCreacionFicha.xsd</DependentUpon>
     </Content>
+    <Content Include="Datasets\dsDevolucionFicha.xsc">
+      <DependentUpon>dsDevolucionFicha.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\dsDevolucionFicha.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDevolucionFicha.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Datasets\dsDevolucionFicha.xss">
+      <DependentUpon>dsDevolucionFicha.xsd</DependentUpon>
+    </Content>
     <None Include="EquiposInventarioDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EquiposInventarioDataSet.Designer.cs</LastGenOutput>
@@ -446,6 +457,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCreacionFicha.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsDevolucionFicha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDevolucionFicha.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

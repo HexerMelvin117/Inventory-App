@@ -85,11 +85,19 @@ namespace EquiposInvWM
                 {
                     string idTemp = row["ID Interno"].ToString();
                     idPer = int.Parse(idTemp);
+                    string codPer = row["Codigo_Periferico"].ToString();
+                    string perEstado = row["Estado"].ToString();
+                    string perMarca = row["Marca"].ToString();
+                    string perTipo = row["Tipo"].ToString();
 
                     var ListaPeriDevo = new ListaPerifericosDevo()
                     {
                         per_id = idPer,
-                        devo_id = devoId
+                        devo_id = devoId,
+                        per_cod = codPer,
+                        per_estado = perEstado,
+                        per_marca = perMarca,
+                        per_tipo = perTipo
                     };
 
                     ctx.ListaPerifericosDevo.Add(ListaPeriDevo);

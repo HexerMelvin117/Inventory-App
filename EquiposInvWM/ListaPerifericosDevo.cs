@@ -17,6 +17,10 @@ namespace EquiposInvWM
         public int devoperlist_id { get; set; }
         public int per_id { get; set; }
         public int devo_id { get; set; }
+        public string per_tipo { get; set; }
+        public string per_cod { get; set; }
+        public string per_marca { get; set; }
+        public string per_estado { get; set; }
     
         public virtual Devoluciones Devoluciones { get; set; }
     }
