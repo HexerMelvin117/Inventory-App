@@ -120,6 +120,10 @@
           <Property Name="devoperlist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="per_id" Type="int" Nullable="false" />
           <Property Name="devo_id" Type="int" Nullable="false" />
+          <Property Name="per_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="per_cod" Type="varchar" MaxLength="50" />
+          <Property Name="per_marca" Type="varchar" MaxLength="50" />
+          <Property Name="per_estado" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="OrdenCompra">
           <Key>
@@ -582,6 +586,10 @@
           <Property Name="devoperlist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="per_id" Type="Int32" Nullable="false" />
           <Property Name="devo_id" Type="Int32" Nullable="false" />
+          <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_cod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
         </EntityType>
         <EntityType Name="OrdenCompra">
@@ -916,6 +924,10 @@
           <EntitySetMapping Name="ListaPerifericosDevo">
             <EntityTypeMapping TypeName="EquiposInvModel.ListaPerifericosDevo">
               <MappingFragment StoreEntitySet="ListaPerifericosDevo">
+                <ScalarProperty Name="per_estado" ColumnName="per_estado" />
+                <ScalarProperty Name="per_marca" ColumnName="per_marca" />
+                <ScalarProperty Name="per_cod" ColumnName="per_cod" />
+                <ScalarProperty Name="per_tipo" ColumnName="per_tipo" />
                 <ScalarProperty Name="devo_id" ColumnName="devo_id" />
                 <ScalarProperty Name="per_id" ColumnName="per_id" />
                 <ScalarProperty Name="devoperlist_id" ColumnName="devoperlist_id" />
