@@ -30,21 +30,28 @@ namespace EquiposInvWM
             serie = txtSeriePeriferico.Text;
             estado = cmbEstadoPeriferico.SelectedItem.Value;
 
-            using(var ctx = new EquiposInvModelContainer())
+            try
             {
-                var per = new Perifericos()
+                using (var ctx = new EquiposInvModelContainer())
                 {
-                    per_id = id,
-                    per_prefijo = prefijo,
-                    per_cod = cod,
-                    per_estado = estado,
-                    per_serie = serie,
-                    per_marca = marca,
-                    per_tipo = tipo
-                };
-                ctx.Perifericos.Add(per);
-                ctx.SaveChanges();
+                    var per = new Perifericos()
+                    {
+                        per_id = id,
+                        per_prefijo = prefijo,
+                        per_cod = cod,
+                        per_estado = estado,
+                        per_serie = serie,
+                        per_marca = marca,
+                        per_tipo = tipo
+                    };
+                    ctx.Perifericos.Add(per);
+                    ctx.SaveChanges();
+                }
             }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "')</script>");
+            } 
         }
 
         protected void emptyFields()

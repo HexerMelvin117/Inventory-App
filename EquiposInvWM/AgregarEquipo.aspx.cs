@@ -51,71 +51,77 @@ namespace EquiposInvWM
             compGHZ = txtGHZ.Text;
             status = cmbStateEquip.SelectedItem.Text;
 
-            if (chBoxGarantia.Checked == true)
+            try
             {
-                // Cuando no tiene garantia
-                using (var ctx = new EquiposInvModelContainer())
+                if (chBoxGarantia.Checked == true)
                 {
-                    var equ = new Equipos()
+                    // Cuando no tiene garantia
+                    using (var ctx = new EquiposInvModelContainer())
                     {
-                        equi_prefijo = prefijo,
-                        equi_cod = cod,
-                        equi_tipo = tipo,
-                        equi_disco = disco,
-                        equi_ghz = decimal.Parse(compGHZ),
-                        equi_modelo = modelo,
-                        equi_procesador = procesador,
-                        equi_politica = true,
-                        equi_proveedor = proveedor,
-                        equi_ram = ram,
-                        equi_serie = serie,
-                        equi_status = status,
-                        equi_marca = marca,
-                        equi_garantia = null,
-                        equi_observacion = observacion,
-                        equi_precio = precio,
-                        equi_ordencompra = ordenCompra,
-                        equi_empresa = compania
-                    };
+                        var equ = new Equipos()
+                        {
+                            equi_prefijo = prefijo,
+                            equi_cod = cod,
+                            equi_tipo = tipo,
+                            equi_disco = disco,
+                            equi_ghz = decimal.Parse(compGHZ),
+                            equi_modelo = modelo,
+                            equi_procesador = procesador,
+                            equi_politica = true,
+                            equi_proveedor = proveedor,
+                            equi_ram = ram,
+                            equi_serie = serie,
+                            equi_status = status,
+                            equi_marca = marca,
+                            equi_garantia = null,
+                            equi_observacion = observacion,
+                            equi_precio = precio,
+                            equi_ordencompra = ordenCompra,
+                            equi_empresa = compania
+                        };
 
-                    ctx.Equipos.Add(equ);
-                    ctx.SaveChanges();
+                        ctx.Equipos.Add(equ);
+                        ctx.SaveChanges();
+                    }
                 }
-            } else
+                else
+                {
+                    // Cuando tiene garantia
+                    garantiaFin = DateTime.Parse(txtGarantiaFecha.Text);
+
+                    using (var ctx = new EquiposInvModelContainer())
+                    {
+                        var equ = new Equipos()
+                        {
+                            equi_prefijo = prefijo,
+                            equi_cod = cod,
+                            equi_tipo = tipo,
+                            equi_disco = disco,
+                            equi_ghz = decimal.Parse(compGHZ),
+                            equi_modelo = modelo,
+                            equi_procesador = procesador,
+                            equi_politica = true,
+                            equi_proveedor = proveedor,
+                            equi_ram = ram,
+                            equi_serie = serie,
+                            equi_status = status,
+                            equi_marca = marca,
+                            equi_garantia = garantiaFin,
+                            equi_observacion = observacion,
+                            equi_precio = precio,
+                            equi_ordencompra = ordenCompra,
+                            equi_empresa = compania
+                        };
+
+                        ctx.Equipos.Add(equ);
+                        ctx.SaveChanges();
+                    }
+                }
+            } 
+            catch (Exception ex)
             {
-                // Cuando tiene garantia
-                garantiaFin = DateTime.Parse(txtGarantiaFecha.Text);
-
-                using (var ctx = new EquiposInvModelContainer())
-                {
-                    var equ = new Equipos()
-                    {
-                        equi_prefijo = prefijo,
-                        equi_cod = cod,
-                        equi_tipo = tipo,
-                        equi_disco = disco,
-                        equi_ghz = decimal.Parse(compGHZ),
-                        equi_modelo = modelo,
-                        equi_procesador = procesador,
-                        equi_politica = true,
-                        equi_proveedor = proveedor,
-                        equi_ram = ram,
-                        equi_serie = serie,
-                        equi_status = status,
-                        equi_marca = marca,
-                        equi_garantia = garantiaFin,
-                        equi_observacion = observacion,
-                        equi_precio = precio,
-                        equi_ordencompra = ordenCompra,
-                        equi_empresa = compania
-                    };
-
-                    ctx.Equipos.Add(equ);
-                    ctx.SaveChanges();
-                }
+                Response.Write("<script>alert('Error: " + ex.Message + "')</script>");
             }
-            
-
         }
 
         protected void emptyFields()

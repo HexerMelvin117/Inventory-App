@@ -126,12 +126,6 @@
   <metadata name="listaPerifericoDevoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
   </metadata>
-  <data name="xrLabel1.Text" xml:space="preserve">
-    <value>NOTA: Al finalizar el contrato o labores con la empresa el equipo de cómputo debe ser entregado al Departamento de IT, de lo contrario el usuario al cual está asignado él equipo es responsable de cualquier daño o extravió del equipo. 
-
-En caso de que el equipo fue adquirido mediante política de equipos informáticos se aplicaran las normas de la misma.
-</value>
-  </data>
   <metadata name="creacionDevolucionTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>

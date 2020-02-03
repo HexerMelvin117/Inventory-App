@@ -24,6 +24,7 @@ namespace EquiposInvWM
         public int devo_id { get; set; }
         public string equi_cod { get; set; }
         public int ficha_id { get; set; }
+        public Nullable<System.DateTime> devo_fecha { get; set; }
     
         public virtual FichaComputo FichaComputo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

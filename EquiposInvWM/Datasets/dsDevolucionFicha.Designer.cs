@@ -24,13 +24,13 @@ namespace EquiposInvWM.Datasets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsDevolucionFicha : global::System.Data.DataSet {
         
-        private CreacionDevolucionDataTable tableCreacionDevolucion;
-        
         private ListaPerifericoDevoDataTable tableListaPerifericoDevo;
         
         private ListaSoftwareDevoDataTable tableListaSoftwareDevo;
         
         private DevoFotosEquipoDataTable tableDevoFotosEquipo;
+        
+        private CreacionDevolucionDataTable tableCreacionDevolucion;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -60,9 +60,6 @@ namespace EquiposInvWM.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["CreacionDevolucion"] != null)) {
-                    base.Tables.Add(new CreacionDevolucionDataTable(ds.Tables["CreacionDevolucion"]));
-                }
                 if ((ds.Tables["ListaPerifericoDevo"] != null)) {
                     base.Tables.Add(new ListaPerifericoDevoDataTable(ds.Tables["ListaPerifericoDevo"]));
                 }
@@ -71,6 +68,9 @@ namespace EquiposInvWM.Datasets {
                 }
                 if ((ds.Tables["DevoFotosEquipo"] != null)) {
                     base.Tables.Add(new DevoFotosEquipoDataTable(ds.Tables["DevoFotosEquipo"]));
+                }
+                if ((ds.Tables["CreacionDevolucion"] != null)) {
+                    base.Tables.Add(new CreacionDevolucionDataTable(ds.Tables["CreacionDevolucion"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -88,16 +88,6 @@ namespace EquiposInvWM.Datasets {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CreacionDevolucionDataTable CreacionDevolucion {
-            get {
-                return this.tableCreacionDevolucion;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -127,6 +117,16 @@ namespace EquiposInvWM.Datasets {
         public DevoFotosEquipoDataTable DevoFotosEquipo {
             get {
                 return this.tableDevoFotosEquipo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CreacionDevolucionDataTable CreacionDevolucion {
+            get {
+                return this.tableCreacionDevolucion;
             }
         }
         
@@ -197,9 +197,6 @@ namespace EquiposInvWM.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["CreacionDevolucion"] != null)) {
-                    base.Tables.Add(new CreacionDevolucionDataTable(ds.Tables["CreacionDevolucion"]));
-                }
                 if ((ds.Tables["ListaPerifericoDevo"] != null)) {
                     base.Tables.Add(new ListaPerifericoDevoDataTable(ds.Tables["ListaPerifericoDevo"]));
                 }
@@ -208,6 +205,9 @@ namespace EquiposInvWM.Datasets {
                 }
                 if ((ds.Tables["DevoFotosEquipo"] != null)) {
                     base.Tables.Add(new DevoFotosEquipoDataTable(ds.Tables["DevoFotosEquipo"]));
+                }
+                if ((ds.Tables["CreacionDevolucion"] != null)) {
+                    base.Tables.Add(new CreacionDevolucionDataTable(ds.Tables["CreacionDevolucion"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -242,12 +242,6 @@ namespace EquiposInvWM.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableCreacionDevolucion = ((CreacionDevolucionDataTable)(base.Tables["CreacionDevolucion"]));
-            if ((initTable == true)) {
-                if ((this.tableCreacionDevolucion != null)) {
-                    this.tableCreacionDevolucion.InitVars();
-                }
-            }
             this.tableListaPerifericoDevo = ((ListaPerifericoDevoDataTable)(base.Tables["ListaPerifericoDevo"]));
             if ((initTable == true)) {
                 if ((this.tableListaPerifericoDevo != null)) {
@@ -266,6 +260,12 @@ namespace EquiposInvWM.Datasets {
                     this.tableDevoFotosEquipo.InitVars();
                 }
             }
+            this.tableCreacionDevolucion = ((CreacionDevolucionDataTable)(base.Tables["CreacionDevolucion"]));
+            if ((initTable == true)) {
+                if ((this.tableCreacionDevolucion != null)) {
+                    this.tableCreacionDevolucion.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -276,20 +276,14 @@ namespace EquiposInvWM.Datasets {
             this.Namespace = "http://tempuri.org/dsDevolucionFicha.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableCreacionDevolucion = new CreacionDevolucionDataTable();
-            base.Tables.Add(this.tableCreacionDevolucion);
             this.tableListaPerifericoDevo = new ListaPerifericoDevoDataTable();
             base.Tables.Add(this.tableListaPerifericoDevo);
             this.tableListaSoftwareDevo = new ListaSoftwareDevoDataTable();
             base.Tables.Add(this.tableListaSoftwareDevo);
             this.tableDevoFotosEquipo = new DevoFotosEquipoDataTable();
             base.Tables.Add(this.tableDevoFotosEquipo);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeCreacionDevolucion() {
-            return false;
+            this.tableCreacionDevolucion = new CreacionDevolucionDataTable();
+            base.Tables.Add(this.tableCreacionDevolucion);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +301,12 @@ namespace EquiposInvWM.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeDevoFotosEquipo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeCreacionDevolucion() {
             return false;
         }
         
@@ -366,9 +366,6 @@ namespace EquiposInvWM.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void CreacionDevolucionRowChangeEventHandler(object sender, CreacionDevolucionRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ListaPerifericoDevoRowChangeEventHandler(object sender, ListaPerifericoDevoRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -377,574 +374,8 @@ namespace EquiposInvWM.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void DevoFotosEquipoRowChangeEventHandler(object sender, DevoFotosEquipoRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CreacionDevolucionDataTable : global::System.Data.TypedTableBase<CreacionDevolucionRow> {
-            
-            private global::System.Data.DataColumn columndevo_id;
-            
-            private global::System.Data.DataColumn columnequi_cod;
-            
-            private global::System.Data.DataColumn columnficha_id;
-            
-            private global::System.Data.DataColumn columnficha_id1;
-            
-            private global::System.Data.DataColumn columnficha_emp;
-            
-            private global::System.Data.DataColumn columnficha_fecha;
-            
-            private global::System.Data.DataColumn columnficha_dpto;
-            
-            private global::System.Data.DataColumn columnficha_pyto;
-            
-            private global::System.Data.DataColumn columnemp_id;
-            
-            private global::System.Data.DataColumn columnemp_nom;
-            
-            private global::System.Data.DataColumn columnemp_cod;
-            
-            private global::System.Data.DataColumn columnequi_cod1;
-            
-            private global::System.Data.DataColumn columnequi_id;
-            
-            private global::System.Data.DataColumn columnequi_marca;
-            
-            private global::System.Data.DataColumn columnequi_serie;
-            
-            private global::System.Data.DataColumn columnequi_procesador;
-            
-            private global::System.Data.DataColumn columnequi_ghz;
-            
-            private global::System.Data.DataColumn columnequi_disco;
-            
-            private global::System.Data.DataColumn columnficha_sysope;
-            
-            private global::System.Data.DataColumn columnficha_observacion;
-            
-            private global::System.Data.DataColumn columnequi_ram;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionDataTable() {
-                this.TableName = "CreacionDevolucion";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CreacionDevolucionDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected CreacionDevolucionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn devo_idColumn {
-                get {
-                    return this.columndevo_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_codColumn {
-                get {
-                    return this.columnequi_cod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_idColumn {
-                get {
-                    return this.columnficha_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_id1Column {
-                get {
-                    return this.columnficha_id1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_empColumn {
-                get {
-                    return this.columnficha_emp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_fechaColumn {
-                get {
-                    return this.columnficha_fecha;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_dptoColumn {
-                get {
-                    return this.columnficha_dpto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_pytoColumn {
-                get {
-                    return this.columnficha_pyto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn emp_idColumn {
-                get {
-                    return this.columnemp_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn emp_nomColumn {
-                get {
-                    return this.columnemp_nom;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn emp_codColumn {
-                get {
-                    return this.columnemp_cod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_cod1Column {
-                get {
-                    return this.columnequi_cod1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_idColumn {
-                get {
-                    return this.columnequi_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_marcaColumn {
-                get {
-                    return this.columnequi_marca;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_serieColumn {
-                get {
-                    return this.columnequi_serie;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_procesadorColumn {
-                get {
-                    return this.columnequi_procesador;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_ghzColumn {
-                get {
-                    return this.columnequi_ghz;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_discoColumn {
-                get {
-                    return this.columnequi_disco;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_sysopeColumn {
-                get {
-                    return this.columnficha_sysope;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ficha_observacionColumn {
-                get {
-                    return this.columnficha_observacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn equi_ramColumn {
-                get {
-                    return this.columnequi_ram;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionRow this[int index] {
-                get {
-                    return ((CreacionDevolucionRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddCreacionDevolucionRow(CreacionDevolucionRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionRow AddCreacionDevolucionRow(
-                        string equi_cod, 
-                        int ficha_id, 
-                        string ficha_emp, 
-                        System.DateTime ficha_fecha, 
-                        string ficha_dpto, 
-                        string ficha_pyto, 
-                        int emp_id, 
-                        string emp_nom, 
-                        string emp_cod, 
-                        string equi_cod1, 
-                        int equi_id, 
-                        string equi_marca, 
-                        string equi_serie, 
-                        string equi_procesador, 
-                        decimal equi_ghz, 
-                        string equi_disco, 
-                        string ficha_sysope, 
-                        string ficha_observacion, 
-                        string equi_ram) {
-                CreacionDevolucionRow rowCreacionDevolucionRow = ((CreacionDevolucionRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        equi_cod,
-                        ficha_id,
-                        null,
-                        ficha_emp,
-                        ficha_fecha,
-                        ficha_dpto,
-                        ficha_pyto,
-                        emp_id,
-                        emp_nom,
-                        emp_cod,
-                        equi_cod1,
-                        equi_id,
-                        equi_marca,
-                        equi_serie,
-                        equi_procesador,
-                        equi_ghz,
-                        equi_disco,
-                        ficha_sysope,
-                        ficha_observacion,
-                        equi_ram};
-                rowCreacionDevolucionRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCreacionDevolucionRow);
-                return rowCreacionDevolucionRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CreacionDevolucionDataTable cln = ((CreacionDevolucionDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CreacionDevolucionDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columndevo_id = base.Columns["devo_id"];
-                this.columnequi_cod = base.Columns["equi_cod"];
-                this.columnficha_id = base.Columns["ficha_id"];
-                this.columnficha_id1 = base.Columns["ficha_id1"];
-                this.columnficha_emp = base.Columns["ficha_emp"];
-                this.columnficha_fecha = base.Columns["ficha_fecha"];
-                this.columnficha_dpto = base.Columns["ficha_dpto"];
-                this.columnficha_pyto = base.Columns["ficha_pyto"];
-                this.columnemp_id = base.Columns["emp_id"];
-                this.columnemp_nom = base.Columns["emp_nom"];
-                this.columnemp_cod = base.Columns["emp_cod"];
-                this.columnequi_cod1 = base.Columns["equi_cod1"];
-                this.columnequi_id = base.Columns["equi_id"];
-                this.columnequi_marca = base.Columns["equi_marca"];
-                this.columnequi_serie = base.Columns["equi_serie"];
-                this.columnequi_procesador = base.Columns["equi_procesador"];
-                this.columnequi_ghz = base.Columns["equi_ghz"];
-                this.columnequi_disco = base.Columns["equi_disco"];
-                this.columnficha_sysope = base.Columns["ficha_sysope"];
-                this.columnficha_observacion = base.Columns["ficha_observacion"];
-                this.columnequi_ram = base.Columns["equi_ram"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columndevo_id = new global::System.Data.DataColumn("devo_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndevo_id);
-                this.columnequi_cod = new global::System.Data.DataColumn("equi_cod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_cod);
-                this.columnficha_id = new global::System.Data.DataColumn("ficha_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_id);
-                this.columnficha_id1 = new global::System.Data.DataColumn("ficha_id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_id1);
-                this.columnficha_emp = new global::System.Data.DataColumn("ficha_emp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_emp);
-                this.columnficha_fecha = new global::System.Data.DataColumn("ficha_fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_fecha);
-                this.columnficha_dpto = new global::System.Data.DataColumn("ficha_dpto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_dpto);
-                this.columnficha_pyto = new global::System.Data.DataColumn("ficha_pyto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_pyto);
-                this.columnemp_id = new global::System.Data.DataColumn("emp_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemp_id);
-                this.columnemp_nom = new global::System.Data.DataColumn("emp_nom", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemp_nom);
-                this.columnemp_cod = new global::System.Data.DataColumn("emp_cod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemp_cod);
-                this.columnequi_cod1 = new global::System.Data.DataColumn("equi_cod1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_cod1);
-                this.columnequi_id = new global::System.Data.DataColumn("equi_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_id);
-                this.columnequi_marca = new global::System.Data.DataColumn("equi_marca", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_marca);
-                this.columnequi_serie = new global::System.Data.DataColumn("equi_serie", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_serie);
-                this.columnequi_procesador = new global::System.Data.DataColumn("equi_procesador", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_procesador);
-                this.columnequi_ghz = new global::System.Data.DataColumn("equi_ghz", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_ghz);
-                this.columnequi_disco = new global::System.Data.DataColumn("equi_disco", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_disco);
-                this.columnficha_sysope = new global::System.Data.DataColumn("ficha_sysope", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_sysope);
-                this.columnficha_observacion = new global::System.Data.DataColumn("ficha_observacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnficha_observacion);
-                this.columnequi_ram = new global::System.Data.DataColumn("equi_ram", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnequi_ram);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columndevo_id,
-                                this.columnficha_id1}, false));
-                this.columndevo_id.AutoIncrement = true;
-                this.columndevo_id.AllowDBNull = false;
-                this.columndevo_id.ReadOnly = true;
-                this.columnequi_cod.MaxLength = 25;
-                this.columnficha_id.AllowDBNull = false;
-                this.columnficha_id1.AutoIncrement = true;
-                this.columnficha_id1.ReadOnly = true;
-                this.columnficha_emp.MaxLength = 20;
-                this.columnficha_dpto.MaxLength = 20;
-                this.columnficha_pyto.MaxLength = 50;
-                this.columnemp_nom.MaxLength = 50;
-                this.columnemp_cod.MaxLength = 50;
-                this.columnequi_cod1.MaxLength = 50;
-                this.columnequi_marca.MaxLength = 50;
-                this.columnequi_serie.MaxLength = 50;
-                this.columnequi_procesador.MaxLength = 20;
-                this.columnequi_disco.MaxLength = 50;
-                this.columnficha_sysope.MaxLength = 50;
-                this.columnficha_observacion.MaxLength = 2147483647;
-                this.columnequi_ram.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionRow NewCreacionDevolucionRow() {
-                return ((CreacionDevolucionRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CreacionDevolucionRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CreacionDevolucionRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CreacionDevolucionRowChanged != null)) {
-                    this.CreacionDevolucionRowChanged(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CreacionDevolucionRowChanging != null)) {
-                    this.CreacionDevolucionRowChanging(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CreacionDevolucionRowDeleted != null)) {
-                    this.CreacionDevolucionRowDeleted(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CreacionDevolucionRowDeleting != null)) {
-                    this.CreacionDevolucionRowDeleting(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveCreacionDevolucionRow(CreacionDevolucionRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsDevolucionFicha ds = new dsDevolucionFicha();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CreacionDevolucionDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void CreacionDevolucionRowChangeEventHandler(object sender, CreacionDevolucionRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1904,574 +1335,586 @@ namespace EquiposInvWM.Datasets {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class CreacionDevolucionRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CreacionDevolucionDataTable : global::System.Data.TypedTableBase<CreacionDevolucionRow> {
             
-            private CreacionDevolucionDataTable tableCreacionDevolucion;
+            private global::System.Data.DataColumn columndevo_id;
+            
+            private global::System.Data.DataColumn columnequi_cod;
+            
+            private global::System.Data.DataColumn columnficha_id;
+            
+            private global::System.Data.DataColumn columndevo_fecha;
+            
+            private global::System.Data.DataColumn columnficha_id1;
+            
+            private global::System.Data.DataColumn columnficha_emp;
+            
+            private global::System.Data.DataColumn columnficha_fecha;
+            
+            private global::System.Data.DataColumn columnficha_dpto;
+            
+            private global::System.Data.DataColumn columnficha_pyto;
+            
+            private global::System.Data.DataColumn columnemp_id;
+            
+            private global::System.Data.DataColumn columnemp_nom;
+            
+            private global::System.Data.DataColumn columnemp_cod;
+            
+            private global::System.Data.DataColumn columnequi_cod1;
+            
+            private global::System.Data.DataColumn columnequi_id;
+            
+            private global::System.Data.DataColumn columnequi_marca;
+            
+            private global::System.Data.DataColumn columnequi_serie;
+            
+            private global::System.Data.DataColumn columnequi_procesador;
+            
+            private global::System.Data.DataColumn columnequi_ghz;
+            
+            private global::System.Data.DataColumn columnequi_disco;
+            
+            private global::System.Data.DataColumn columnficha_sysope;
+            
+            private global::System.Data.DataColumn columnficha_observacion;
+            
+            private global::System.Data.DataColumn columnequi_ram;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CreacionDevolucionRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCreacionDevolucion = ((CreacionDevolucionDataTable)(this.Table));
+            public CreacionDevolucionDataTable() {
+                this.TableName = "CreacionDevolucion";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int devo_id {
-                get {
-                    return ((int)(this[this.tableCreacionDevolucion.devo_idColumn]));
+            internal CreacionDevolucionDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tableCreacionDevolucion.devo_idColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected CreacionDevolucionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn devo_idColumn {
+                get {
+                    return this.columndevo_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_cod {
+            public global::System.Data.DataColumn equi_codColumn {
                 get {
+                    return this.columnequi_cod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_idColumn {
+                get {
+                    return this.columnficha_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn devo_fechaColumn {
+                get {
+                    return this.columndevo_fecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_id1Column {
+                get {
+                    return this.columnficha_id1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_empColumn {
+                get {
+                    return this.columnficha_emp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_fechaColumn {
+                get {
+                    return this.columnficha_fecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_dptoColumn {
+                get {
+                    return this.columnficha_dpto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_pytoColumn {
+                get {
+                    return this.columnficha_pyto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emp_idColumn {
+                get {
+                    return this.columnemp_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emp_nomColumn {
+                get {
+                    return this.columnemp_nom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emp_codColumn {
+                get {
+                    return this.columnemp_cod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_cod1Column {
+                get {
+                    return this.columnequi_cod1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_idColumn {
+                get {
+                    return this.columnequi_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_marcaColumn {
+                get {
+                    return this.columnequi_marca;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_serieColumn {
+                get {
+                    return this.columnequi_serie;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_procesadorColumn {
+                get {
+                    return this.columnequi_procesador;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_ghzColumn {
+                get {
+                    return this.columnequi_ghz;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_discoColumn {
+                get {
+                    return this.columnequi_disco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_sysopeColumn {
+                get {
+                    return this.columnficha_sysope;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ficha_observacionColumn {
+                get {
+                    return this.columnficha_observacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn equi_ramColumn {
+                get {
+                    return this.columnequi_ram;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CreacionDevolucionRow this[int index] {
+                get {
+                    return ((CreacionDevolucionRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CreacionDevolucionRowChangeEventHandler CreacionDevolucionRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddCreacionDevolucionRow(CreacionDevolucionRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CreacionDevolucionRow AddCreacionDevolucionRow(
+                        string equi_cod, 
+                        int ficha_id, 
+                        System.DateTime devo_fecha, 
+                        string ficha_emp, 
+                        System.DateTime ficha_fecha, 
+                        string ficha_dpto, 
+                        string ficha_pyto, 
+                        int emp_id, 
+                        string emp_nom, 
+                        string emp_cod, 
+                        string equi_cod1, 
+                        int equi_id, 
+                        string equi_marca, 
+                        string equi_serie, 
+                        string equi_procesador, 
+                        decimal equi_ghz, 
+                        string equi_disco, 
+                        string ficha_sysope, 
+                        string ficha_observacion, 
+                        string equi_ram) {
+                CreacionDevolucionRow rowCreacionDevolucionRow = ((CreacionDevolucionRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        equi_cod,
+                        ficha_id,
+                        devo_fecha,
+                        null,
+                        ficha_emp,
+                        ficha_fecha,
+                        ficha_dpto,
+                        ficha_pyto,
+                        emp_id,
+                        emp_nom,
+                        emp_cod,
+                        equi_cod1,
+                        equi_id,
+                        equi_marca,
+                        equi_serie,
+                        equi_procesador,
+                        equi_ghz,
+                        equi_disco,
+                        ficha_sysope,
+                        ficha_observacion,
+                        equi_ram};
+                rowCreacionDevolucionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCreacionDevolucionRow);
+                return rowCreacionDevolucionRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CreacionDevolucionDataTable cln = ((CreacionDevolucionDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CreacionDevolucionDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columndevo_id = base.Columns["devo_id"];
+                this.columnequi_cod = base.Columns["equi_cod"];
+                this.columnficha_id = base.Columns["ficha_id"];
+                this.columndevo_fecha = base.Columns["devo_fecha"];
+                this.columnficha_id1 = base.Columns["ficha_id1"];
+                this.columnficha_emp = base.Columns["ficha_emp"];
+                this.columnficha_fecha = base.Columns["ficha_fecha"];
+                this.columnficha_dpto = base.Columns["ficha_dpto"];
+                this.columnficha_pyto = base.Columns["ficha_pyto"];
+                this.columnemp_id = base.Columns["emp_id"];
+                this.columnemp_nom = base.Columns["emp_nom"];
+                this.columnemp_cod = base.Columns["emp_cod"];
+                this.columnequi_cod1 = base.Columns["equi_cod1"];
+                this.columnequi_id = base.Columns["equi_id"];
+                this.columnequi_marca = base.Columns["equi_marca"];
+                this.columnequi_serie = base.Columns["equi_serie"];
+                this.columnequi_procesador = base.Columns["equi_procesador"];
+                this.columnequi_ghz = base.Columns["equi_ghz"];
+                this.columnequi_disco = base.Columns["equi_disco"];
+                this.columnficha_sysope = base.Columns["ficha_sysope"];
+                this.columnficha_observacion = base.Columns["ficha_observacion"];
+                this.columnequi_ram = base.Columns["equi_ram"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columndevo_id = new global::System.Data.DataColumn("devo_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndevo_id);
+                this.columnequi_cod = new global::System.Data.DataColumn("equi_cod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_cod);
+                this.columnficha_id = new global::System.Data.DataColumn("ficha_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_id);
+                this.columndevo_fecha = new global::System.Data.DataColumn("devo_fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndevo_fecha);
+                this.columnficha_id1 = new global::System.Data.DataColumn("ficha_id1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_id1);
+                this.columnficha_emp = new global::System.Data.DataColumn("ficha_emp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_emp);
+                this.columnficha_fecha = new global::System.Data.DataColumn("ficha_fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_fecha);
+                this.columnficha_dpto = new global::System.Data.DataColumn("ficha_dpto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_dpto);
+                this.columnficha_pyto = new global::System.Data.DataColumn("ficha_pyto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_pyto);
+                this.columnemp_id = new global::System.Data.DataColumn("emp_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemp_id);
+                this.columnemp_nom = new global::System.Data.DataColumn("emp_nom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemp_nom);
+                this.columnemp_cod = new global::System.Data.DataColumn("emp_cod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemp_cod);
+                this.columnequi_cod1 = new global::System.Data.DataColumn("equi_cod1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_cod1);
+                this.columnequi_id = new global::System.Data.DataColumn("equi_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_id);
+                this.columnequi_marca = new global::System.Data.DataColumn("equi_marca", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_marca);
+                this.columnequi_serie = new global::System.Data.DataColumn("equi_serie", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_serie);
+                this.columnequi_procesador = new global::System.Data.DataColumn("equi_procesador", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_procesador);
+                this.columnequi_ghz = new global::System.Data.DataColumn("equi_ghz", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_ghz);
+                this.columnequi_disco = new global::System.Data.DataColumn("equi_disco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_disco);
+                this.columnficha_sysope = new global::System.Data.DataColumn("ficha_sysope", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_sysope);
+                this.columnficha_observacion = new global::System.Data.DataColumn("ficha_observacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnficha_observacion);
+                this.columnequi_ram = new global::System.Data.DataColumn("equi_ram", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequi_ram);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columndevo_id,
+                                this.columnficha_id1}, false));
+                this.columndevo_id.AutoIncrement = true;
+                this.columndevo_id.AllowDBNull = false;
+                this.columndevo_id.ReadOnly = true;
+                this.columnequi_cod.MaxLength = 25;
+                this.columnficha_id.AllowDBNull = false;
+                this.columnficha_id1.AutoIncrement = true;
+                this.columnficha_id1.ReadOnly = true;
+                this.columnficha_emp.MaxLength = 20;
+                this.columnficha_dpto.MaxLength = 20;
+                this.columnficha_pyto.MaxLength = 50;
+                this.columnemp_nom.MaxLength = 50;
+                this.columnemp_cod.MaxLength = 50;
+                this.columnequi_cod1.MaxLength = 50;
+                this.columnequi_marca.MaxLength = 50;
+                this.columnequi_serie.MaxLength = 50;
+                this.columnequi_procesador.MaxLength = 20;
+                this.columnequi_disco.MaxLength = 50;
+                this.columnficha_sysope.MaxLength = 50;
+                this.columnficha_observacion.MaxLength = 2147483647;
+                this.columnequi_ram.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CreacionDevolucionRow NewCreacionDevolucionRow() {
+                return ((CreacionDevolucionRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CreacionDevolucionRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CreacionDevolucionRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CreacionDevolucionRowChanged != null)) {
+                    this.CreacionDevolucionRowChanged(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CreacionDevolucionRowChanging != null)) {
+                    this.CreacionDevolucionRowChanging(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CreacionDevolucionRowDeleted != null)) {
+                    this.CreacionDevolucionRowDeleted(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CreacionDevolucionRowDeleting != null)) {
+                    this.CreacionDevolucionRowDeleting(this, new CreacionDevolucionRowChangeEvent(((CreacionDevolucionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveCreacionDevolucionRow(CreacionDevolucionRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsDevolucionFicha ds = new dsDevolucionFicha();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CreacionDevolucionDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_codColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_cod\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_codColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ficha_id {
-                get {
-                    return ((int)(this[this.tableCreacionDevolucion.ficha_idColumn]));
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ficha_id1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableCreacionDevolucion.ficha_id1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_id1\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_id1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ficha_emp {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.ficha_empColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_emp\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_empColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime ficha_fecha {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableCreacionDevolucion.ficha_fechaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_fecha\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_fechaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ficha_dpto {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.ficha_dptoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_dpto\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_dptoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ficha_pyto {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.ficha_pytoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_pyto\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_pytoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int emp_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableCreacionDevolucion.emp_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_id\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.emp_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string emp_nom {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.emp_nomColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_nom\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.emp_nomColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string emp_cod {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.emp_codColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_cod\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.emp_codColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_cod1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_cod1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_cod1\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_cod1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int equi_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableCreacionDevolucion.equi_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_id\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_marca {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_marcaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_marca\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_marcaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_serie {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_serieColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_serie\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_serieColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_procesador {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_procesadorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_procesador\' de la tabla \'CreacionDevolucion\' es DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_procesadorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal equi_ghz {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableCreacionDevolucion.equi_ghzColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_ghz\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_ghzColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_disco {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_discoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_disco\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_discoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ficha_sysope {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.ficha_sysopeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_sysope\' de la tabla \'CreacionDevolucion\' es DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_sysopeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ficha_observacion {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.ficha_observacionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_observacion\' de la tabla \'CreacionDevolucion\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.ficha_observacionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string equi_ram {
-                get {
-                    try {
-                        return ((string)(this[this.tableCreacionDevolucion.equi_ramColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_ram\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCreacionDevolucion.equi_ramColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_codNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_codColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_codNull() {
-                this[this.tableCreacionDevolucion.equi_codColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_id1Null() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_id1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_id1Null() {
-                this[this.tableCreacionDevolucion.ficha_id1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_empNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_empColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_empNull() {
-                this[this.tableCreacionDevolucion.ficha_empColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_fechaNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_fechaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_fechaNull() {
-                this[this.tableCreacionDevolucion.ficha_fechaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_dptoNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_dptoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_dptoNull() {
-                this[this.tableCreacionDevolucion.ficha_dptoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_pytoNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_pytoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_pytoNull() {
-                this[this.tableCreacionDevolucion.ficha_pytoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isemp_idNull() {
-                return this.IsNull(this.tableCreacionDevolucion.emp_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setemp_idNull() {
-                this[this.tableCreacionDevolucion.emp_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isemp_nomNull() {
-                return this.IsNull(this.tableCreacionDevolucion.emp_nomColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setemp_nomNull() {
-                this[this.tableCreacionDevolucion.emp_nomColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isemp_codNull() {
-                return this.IsNull(this.tableCreacionDevolucion.emp_codColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setemp_codNull() {
-                this[this.tableCreacionDevolucion.emp_codColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_cod1Null() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_cod1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_cod1Null() {
-                this[this.tableCreacionDevolucion.equi_cod1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_idNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_idNull() {
-                this[this.tableCreacionDevolucion.equi_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_marcaNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_marcaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_marcaNull() {
-                this[this.tableCreacionDevolucion.equi_marcaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_serieNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_serieColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_serieNull() {
-                this[this.tableCreacionDevolucion.equi_serieColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_procesadorNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_procesadorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_procesadorNull() {
-                this[this.tableCreacionDevolucion.equi_procesadorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_ghzNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_ghzColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_ghzNull() {
-                this[this.tableCreacionDevolucion.equi_ghzColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_discoNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_discoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_discoNull() {
-                this[this.tableCreacionDevolucion.equi_discoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_sysopeNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_sysopeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_sysopeNull() {
-                this[this.tableCreacionDevolucion.ficha_sysopeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isficha_observacionNull() {
-                return this.IsNull(this.tableCreacionDevolucion.ficha_observacionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setficha_observacionNull() {
-                this[this.tableCreacionDevolucion.ficha_observacionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isequi_ramNull() {
-                return this.IsNull(this.tableCreacionDevolucion.equi_ramColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setequi_ramNull() {
-                this[this.tableCreacionDevolucion.equi_ramColumn] = global::System.Convert.DBNull;
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -2858,36 +2301,602 @@ namespace EquiposInvWM.Datasets {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class CreacionDevolucionRowChangeEvent : global::System.EventArgs {
+        public partial class CreacionDevolucionRow : global::System.Data.DataRow {
             
-            private CreacionDevolucionRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private CreacionDevolucionDataTable tableCreacionDevolucion;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionRowChangeEvent(CreacionDevolucionRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal CreacionDevolucionRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCreacionDevolucion = ((CreacionDevolucionDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CreacionDevolucionRow Row {
+            public int devo_id {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tableCreacionDevolucion.devo_idColumn]));
+                }
+                set {
+                    this[this.tableCreacionDevolucion.devo_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public string equi_cod {
                 get {
-                    return this.eventAction;
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_codColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_cod\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
                 }
+                set {
+                    this[this.tableCreacionDevolucion.equi_codColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ficha_id {
+                get {
+                    return ((int)(this[this.tableCreacionDevolucion.ficha_idColumn]));
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime devo_fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableCreacionDevolucion.devo_fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'devo_fecha\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.devo_fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ficha_id1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableCreacionDevolucion.ficha_id1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_id1\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_id1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ficha_emp {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.ficha_empColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_emp\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_empColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ficha_fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableCreacionDevolucion.ficha_fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_fecha\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ficha_dpto {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.ficha_dptoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_dpto\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_dptoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ficha_pyto {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.ficha_pytoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_pyto\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_pytoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int emp_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableCreacionDevolucion.emp_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_id\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.emp_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string emp_nom {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.emp_nomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_nom\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.emp_nomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string emp_cod {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.emp_codColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emp_cod\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.emp_codColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_cod1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_cod1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_cod1\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_cod1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int equi_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableCreacionDevolucion.equi_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_id\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_marca {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_marcaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_marca\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_marcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_serie {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_serieColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_serie\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_serieColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_procesador {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_procesadorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_procesador\' de la tabla \'CreacionDevolucion\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_procesadorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal equi_ghz {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCreacionDevolucion.equi_ghzColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_ghz\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_ghzColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_disco {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_discoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_disco\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_discoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ficha_sysope {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.ficha_sysopeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_sysope\' de la tabla \'CreacionDevolucion\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_sysopeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ficha_observacion {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.ficha_observacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ficha_observacion\' de la tabla \'CreacionDevolucion\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.ficha_observacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string equi_ram {
+                get {
+                    try {
+                        return ((string)(this[this.tableCreacionDevolucion.equi_ramColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'equi_ram\' de la tabla \'CreacionDevolucion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCreacionDevolucion.equi_ramColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_codNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_codColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_codNull() {
+                this[this.tableCreacionDevolucion.equi_codColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdevo_fechaNull() {
+                return this.IsNull(this.tableCreacionDevolucion.devo_fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdevo_fechaNull() {
+                this[this.tableCreacionDevolucion.devo_fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_id1Null() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_id1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_id1Null() {
+                this[this.tableCreacionDevolucion.ficha_id1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_empNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_empColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_empNull() {
+                this[this.tableCreacionDevolucion.ficha_empColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_fechaNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_fechaNull() {
+                this[this.tableCreacionDevolucion.ficha_fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_dptoNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_dptoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_dptoNull() {
+                this[this.tableCreacionDevolucion.ficha_dptoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_pytoNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_pytoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_pytoNull() {
+                this[this.tableCreacionDevolucion.ficha_pytoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemp_idNull() {
+                return this.IsNull(this.tableCreacionDevolucion.emp_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemp_idNull() {
+                this[this.tableCreacionDevolucion.emp_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemp_nomNull() {
+                return this.IsNull(this.tableCreacionDevolucion.emp_nomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemp_nomNull() {
+                this[this.tableCreacionDevolucion.emp_nomColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isemp_codNull() {
+                return this.IsNull(this.tableCreacionDevolucion.emp_codColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setemp_codNull() {
+                this[this.tableCreacionDevolucion.emp_codColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_cod1Null() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_cod1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_cod1Null() {
+                this[this.tableCreacionDevolucion.equi_cod1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_idNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_idNull() {
+                this[this.tableCreacionDevolucion.equi_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_marcaNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_marcaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_marcaNull() {
+                this[this.tableCreacionDevolucion.equi_marcaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_serieNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_serieColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_serieNull() {
+                this[this.tableCreacionDevolucion.equi_serieColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_procesadorNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_procesadorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_procesadorNull() {
+                this[this.tableCreacionDevolucion.equi_procesadorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_ghzNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_ghzColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_ghzNull() {
+                this[this.tableCreacionDevolucion.equi_ghzColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_discoNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_discoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_discoNull() {
+                this[this.tableCreacionDevolucion.equi_discoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_sysopeNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_sysopeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_sysopeNull() {
+                this[this.tableCreacionDevolucion.ficha_sysopeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isficha_observacionNull() {
+                return this.IsNull(this.tableCreacionDevolucion.ficha_observacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setficha_observacionNull() {
+                this[this.tableCreacionDevolucion.ficha_observacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isequi_ramNull() {
+                return this.IsNull(this.tableCreacionDevolucion.equi_ramColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setequi_ramNull() {
+                this[this.tableCreacionDevolucion.equi_ramColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2992,211 +3001,44 @@ namespace EquiposInvWM.Datasets {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class CreacionDevolucionRowChangeEvent : global::System.EventArgs {
+            
+            private CreacionDevolucionRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CreacionDevolucionRowChangeEvent(CreacionDevolucionRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CreacionDevolucionRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CreacionDevolucionTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public CreacionDevolucionTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "CreacionDevolucion";
-            tableMapping.ColumnMappings.Add("devo_id", "devo_id");
-            tableMapping.ColumnMappings.Add("equi_cod", "equi_cod");
-            tableMapping.ColumnMappings.Add("ficha_id", "ficha_id");
-            tableMapping.ColumnMappings.Add("ficha_id1", "ficha_id1");
-            tableMapping.ColumnMappings.Add("ficha_emp", "ficha_emp");
-            tableMapping.ColumnMappings.Add("ficha_fecha", "ficha_fecha");
-            tableMapping.ColumnMappings.Add("ficha_dpto", "ficha_dpto");
-            tableMapping.ColumnMappings.Add("ficha_pyto", "ficha_pyto");
-            tableMapping.ColumnMappings.Add("emp_id", "emp_id");
-            tableMapping.ColumnMappings.Add("emp_nom", "emp_nom");
-            tableMapping.ColumnMappings.Add("emp_cod", "emp_cod");
-            tableMapping.ColumnMappings.Add("equi_cod1", "equi_cod1");
-            tableMapping.ColumnMappings.Add("equi_id", "equi_id");
-            tableMapping.ColumnMappings.Add("equi_marca", "equi_marca");
-            tableMapping.ColumnMappings.Add("equi_serie", "equi_serie");
-            tableMapping.ColumnMappings.Add("equi_procesador", "equi_procesador");
-            tableMapping.ColumnMappings.Add("equi_ghz", "equi_ghz");
-            tableMapping.ColumnMappings.Add("equi_disco", "equi_disco");
-            tableMapping.ColumnMappings.Add("ficha_sysope", "ficha_sysope");
-            tableMapping.ColumnMappings.Add("ficha_observacion", "ficha_observacion");
-            tableMapping.ColumnMappings.Add("equi_ram", "equi_ram");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.CreacionDevolucion";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Devo_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsDevolucionFicha.CreacionDevolucionDataTable dataTable, global::System.Nullable<int> Devo_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Devo_id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Devo_id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsDevolucionFicha.CreacionDevolucionDataTable GetData(global::System.Nullable<int> Devo_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Devo_id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Devo_id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            dsDevolucionFicha.CreacionDevolucionDataTable dataTable = new dsDevolucionFicha.CreacionDevolucionDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -3748,6 +3590,208 @@ namespace EquiposInvWM.Datasets.dsDevolucionFichaTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             dsDevolucionFicha.DevoFotosEquipoDataTable dataTable = new dsDevolucionFicha.DevoFotosEquipoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class CreacionDevolucionTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public CreacionDevolucionTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "CreacionDevolucion";
+            tableMapping.ColumnMappings.Add("devo_id", "devo_id");
+            tableMapping.ColumnMappings.Add("equi_cod", "equi_cod");
+            tableMapping.ColumnMappings.Add("ficha_id", "ficha_id");
+            tableMapping.ColumnMappings.Add("devo_fecha", "devo_fecha");
+            tableMapping.ColumnMappings.Add("ficha_id1", "ficha_id1");
+            tableMapping.ColumnMappings.Add("ficha_emp", "ficha_emp");
+            tableMapping.ColumnMappings.Add("ficha_fecha", "ficha_fecha");
+            tableMapping.ColumnMappings.Add("ficha_dpto", "ficha_dpto");
+            tableMapping.ColumnMappings.Add("ficha_pyto", "ficha_pyto");
+            tableMapping.ColumnMappings.Add("emp_id", "emp_id");
+            tableMapping.ColumnMappings.Add("emp_nom", "emp_nom");
+            tableMapping.ColumnMappings.Add("emp_cod", "emp_cod");
+            tableMapping.ColumnMappings.Add("equi_cod1", "equi_cod1");
+            tableMapping.ColumnMappings.Add("equi_id", "equi_id");
+            tableMapping.ColumnMappings.Add("equi_marca", "equi_marca");
+            tableMapping.ColumnMappings.Add("equi_serie", "equi_serie");
+            tableMapping.ColumnMappings.Add("equi_procesador", "equi_procesador");
+            tableMapping.ColumnMappings.Add("equi_ghz", "equi_ghz");
+            tableMapping.ColumnMappings.Add("equi_disco", "equi_disco");
+            tableMapping.ColumnMappings.Add("ficha_sysope", "ficha_sysope");
+            tableMapping.ColumnMappings.Add("ficha_observacion", "ficha_observacion");
+            tableMapping.ColumnMappings.Add("equi_ram", "equi_ram");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["EquiposInventarioConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.CreacionDevolucion";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Devo_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsDevolucionFicha.CreacionDevolucionDataTable dataTable, global::System.Nullable<int> Devo_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Devo_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Devo_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsDevolucionFicha.CreacionDevolucionDataTable GetData(global::System.Nullable<int> Devo_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Devo_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Devo_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            dsDevolucionFicha.CreacionDevolucionDataTable dataTable = new dsDevolucionFicha.CreacionDevolucionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
