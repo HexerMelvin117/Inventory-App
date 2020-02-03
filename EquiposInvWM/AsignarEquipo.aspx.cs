@@ -313,7 +313,13 @@ namespace EquiposInvWM
 
             procesador = txtProcessor.Text;
             marca = txtBrandAssigned.Text;
-            ghz = decimal.Parse(txtGhz.Text);
+            if (txtGhz.Text == "")
+            {
+                ghz = decimal.Parse("0");
+            } else
+            {
+                ghz = decimal.Parse(txtGhz.Text);
+            }
             capacidad = txtHdCapacity.Text;
             codEqui = txtEquipCode.Text;
             serie = txtSerialEquip.Text;
@@ -331,43 +337,90 @@ namespace EquiposInvWM
 
             codemp = txtAssignedUser.Text;
             project = txtProject.Text;
-            
-            using(var ctx = new EquiposInvModelContainer())
+
+            try
             {
-                var ficha = new FichaComputo()
+                if (equiId == 0)
                 {
-                    ficha_dpto = departamento,
-                    ficha_fecha = DateTime.Parse(fecha),
-                    ficha_emp = firstName,
-                    ficha_observacion = observacion,
-                    emp_nom = fullName,
-                    emp_id = null,
-                    emp_cod = codemp,
-                    ficha_pyto = project,
-                    ficha_sysope = sysope,
-                    equi_cod = codEqui,
-                    equi_disco = capacidad,
-                    equi_ghz = ghz,
-                    equi_marca = marca,
-                    equi_serie = serie,
-                    equi_procesador = procesador,
-                    equi_ram = ram,
-                    equi_id = equiId
-                };
-                ctx.FichaComputo.Add(ficha);
-                ctx.SaveChanges();
+                    using (var ctx = new EquiposInvModelContainer())
+                    {
+                        var ficha = new FichaComputo()
+                        {
+                            ficha_dpto = departamento,
+                            ficha_fecha = DateTime.Parse(fecha),
+                            ficha_emp = firstName,
+                            ficha_observacion = observacion,
+                            emp_nom = fullName,
+                            emp_id = null,
+                            emp_cod = codemp,
+                            ficha_pyto = project,
+                            ficha_sysope = sysope,
+                            equi_cod = null,
+                            equi_disco = null,
+                            equi_ghz = null,
+                            equi_marca = null,
+                            equi_serie = null,
+                            equi_procesador = null,
+                            equi_ram = null,
+                            equi_id = null
+                        };
+                        ctx.FichaComputo.Add(ficha);
+                        ctx.SaveChanges();
 
-                int fichaid;
-                fichaid = ficha.ficha_id;
+                        int fichaid;
+                        fichaid = ficha.ficha_id;
 
-                ChangeComputerState(equiId);
-                ListaPerifericosAgregar(fichaid);
-                CaptureSoftware(fichaid);
-                AddImages(fichaid);
-            }
+                        ListaPerifericosAgregar(fichaid);
+                        CaptureSoftware(fichaid);
+                        AddImages(fichaid);
+                        Response.Write("<script>alert('Ficha creada con ID: " + fichaid + "')</script>");
+                    }
+                }
+                else
+                {
+                    using (var ctx = new EquiposInvModelContainer())
+                    {
+                        var ficha = new FichaComputo()
+                        {
+                            ficha_dpto = departamento,
+                            ficha_fecha = DateTime.Parse(fecha),
+                            ficha_emp = firstName,
+                            ficha_observacion = observacion,
+                            emp_nom = fullName,
+                            emp_id = null,
+                            emp_cod = codemp,
+                            ficha_pyto = project,
+                            ficha_sysope = sysope,
+                            equi_cod = codEqui,
+                            equi_disco = capacidad,
+                            equi_ghz = ghz,
+                            equi_marca = marca,
+                            equi_serie = serie,
+                            equi_procesador = procesador,
+                            equi_ram = ram,
+                            equi_id = equiId
+                        };
+                        ctx.FichaComputo.Add(ficha);
+                        ctx.SaveChanges();
+
+                        int fichaid;
+                        fichaid = ficha.ficha_id;
+
+                        ChangeComputerState(equiId, fullName, project);
+                        ListaPerifericosAgregar(fichaid);
+                        CaptureSoftware(fichaid);
+                        AddImages(fichaid);
+                        Response.Write("<script>alert('Ficha creada con ID: " + fichaid + "')</script>");
+                    }
+                }
+            } 
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error al subir ficha: " + ex.Message + "')</script>");
+            } 
         }
 
-        protected void ChangeComputerState(int idEqui)
+        protected void ChangeComputerState(int idEqui, string empNom, string pyto)
         {
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -377,6 +430,13 @@ namespace EquiposInvWM
                     if (result != null)
                     {
                         result.equi_status = "Activo";
+                        result.emp_nom = empNom;
+                        result.equi_proyecto = pyto;
+
+                        ctx.Equipos.Add(result);
+                        ctx.Equipos.Attach(result);
+                        ctx.Entry(result).State = System.Data.Entity.EntityState.Modified;
+                        ctx.SaveChanges();
                     }
                 } 
                 catch (Exception ex)

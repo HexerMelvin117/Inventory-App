@@ -19,6 +19,7 @@
           <Property Name="devo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="equi_cod" Type="varchar" MaxLength="25" />
           <Property Name="ficha_id" Type="int" Nullable="false" />
+          <Property Name="devo_fecha" Type="date" />
         </EntityType>
         <EntityType Name="Empleados">
           <Key>
@@ -467,6 +468,7 @@
           <Property Name="devo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="equi_cod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ficha_id" Type="Int32" Nullable="false" />
+          <Property Name="devo_fecha" Type="DateTime" Precision="0" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__Devolucio__ficha__019E3B86" FromRole="Devoluciones" ToRole="FichaComputo" />
           <NavigationProperty Name="ImagenesDevolucion" Relationship="EquiposInvModel.FK__ImagenesD__devo___0D0FEE32" FromRole="Devoluciones" ToRole="ImagenesDevolucion" />
           <NavigationProperty Name="ListaPerifericosDevo" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="Devoluciones" ToRole="ListaPerifericosDevo" />
@@ -816,6 +818,7 @@
           <EntitySetMapping Name="Devoluciones">
             <EntityTypeMapping TypeName="EquiposInvModel.Devoluciones">
               <MappingFragment StoreEntitySet="Devoluciones">
+                <ScalarProperty Name="devo_fecha" ColumnName="devo_fecha" />
                 <ScalarProperty Name="ficha_id" ColumnName="ficha_id" />
                 <ScalarProperty Name="equi_cod" ColumnName="equi_cod" />
                 <ScalarProperty Name="devo_id" ColumnName="devo_id" />

@@ -69,7 +69,6 @@ namespace EquiposInvWM
                     ViewState["Records"] = dtPerifericosSeleccionados;
                 }
             }
-
             FillGridFichas();
         }
 
@@ -171,21 +170,49 @@ namespace EquiposInvWM
             }
         }
 
+        protected void ChangeComputerState(int equiId)
+        {
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                try
+                {
+                    var result = ctx.Equipos.SingleOrDefault(m => m.equi_id == equiId);
+                    if (result != null)
+                    {
+                        result.equi_status = "Stock";
+                        result.emp_nom = "";
+
+                        ctx.Equipos.Add(result);
+                        ctx.Equipos.Attach(result);
+                        ctx.Entry(result).State = System.Data.Entity.EntityState.Modified;
+                        ctx.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
         protected void CrearDevolucion()
         {
-            int fichaId = int.Parse(lbFichaID.Text);
             string equiCod = lbEquipoAsignado.Text;
+            string fechaDevo = txtDate.Text;
+            int equiId = int.Parse(lbEquiId.Text);
 
             using (var ctx = new EquiposInvModelContainer())
             {
                 try
                 {
+                    int fichaId = int.Parse(lbFichaID.Text);
                     if (chboxIncludeEquipment.Checked == true)
                     {
                         var devolucion = new Devoluciones()
                         {
                             equi_cod = equiCod,
                             ficha_id = fichaId,
+                            devo_fecha = DateTime.Parse(fechaDevo)
                         };
                         ctx.Devoluciones.Add(devolucion);
                         ctx.SaveChanges();
@@ -198,6 +225,8 @@ namespace EquiposInvWM
                         }
 
                         AddImages(devolucionId);
+                        ChangeComputerState(equiId);
+                        Response.Write("<script>alert('Ficha creada con ID: " + devolucionId + "')</script>");
                     } 
                     else
                     {
@@ -205,6 +234,7 @@ namespace EquiposInvWM
                         {
                             equi_cod = null,
                             ficha_id = fichaId,
+                            devo_fecha = DateTime.Parse(fechaDevo)
                         };
                         ctx.Devoluciones.Add(devolucion);
                         ctx.SaveChanges();
@@ -217,11 +247,12 @@ namespace EquiposInvWM
                         }
 
                         AddImages(devolucionId);
+                        Response.Write("<script>alert('Ficha creada con ID: " + devolucionId + "')</script>");
                     }
                 } 
                 catch (Exception ex)
                 {
-                    throw; 
+                    Response.Write("<script>alert('Error al subir ficha: " + ex.Message + "')</script>");
                 }
             }
         }
@@ -248,7 +279,7 @@ namespace EquiposInvWM
             int FichaSelec = int.Parse(txtFichaIdSelec.Text);
             lbFichaID.Text = Convert.ToString(FichaSelec);
 
-            string userAsignado, fechaCreacion, equiAsignado;
+            string userAsignado, fechaCreacion, equiAsignado, correlativoEqui;
 
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -266,10 +297,16 @@ namespace EquiposInvWM
                     .Where(s => s.ficha_id == FichaSelec)
                     .Select(s => s.ficha_fecha)
                     .FirstOrDefault().ToString();
+
+                correlativoEqui = ctx.FichaComputo
+                    .Where(s => s.ficha_id == FichaSelec)
+                    .Select(s => s.equi_id)
+                    .FirstOrDefault().ToString();
             }
             lbUsuarioAsignado.Text = userAsignado;
             lbEquipoAsignado.Text = equiAsignado;
             lbFechaCreacion.Text = fechaCreacion;
+            lbEquiId.Text = correlativoEqui;
         }
 
         protected void btSelecFichaDevo_Click(object sender, EventArgs e)

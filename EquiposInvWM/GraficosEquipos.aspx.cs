@@ -167,12 +167,12 @@ namespace EquiposInvWM
             string query = @"
             DECLARE
             @CantidadActivo int,
-            @CantidadDesactivado int,
+            @CantidadInactivo int,
             @CantidadStock int,
             @CantidadReparacion int;
 
             SELECT @CantidadActivo = count(equi_id) FROM Equipos WHERE equi_status = 'ACTIVO';
-            SELECT @CantidadDesactivado = count(equi_id) FROM Equipos WHERE equi_status = 'DESACTIVADO';
+            SELECT @CantidadInactivo = count(equi_id) FROM Equipos WHERE equi_status = 'DESACTIVADO';
             SELECT @CantidadReparacion = count(equi_id) FROM Equipos WHERE equi_status = 'REPARACION';
             SELECT @CantidadStock = count(equi_id) FROM Equipos WHERE equi_status = 'STOCK';
 
@@ -183,7 +183,7 @@ namespace EquiposInvWM
 	            )
 
             INSERT INTO @TempEstados(Estado, Cantidad) VALUES('ACTIVO', @CantidadActivo);
-            INSERT INTO @TempEstados(Estado, Cantidad) VALUES('DESACTIVADO', @CantidadDesactivado);
+            INSERT INTO @TempEstados(Estado, Cantidad) VALUES('INACTIVO', @CantidadInactivo);
             INSERT INTO @TempEstados(Estado, Cantidad) VALUES('REPARACION', @CantidadReparacion);
             INSERT INTO @TempEstados(Estado, Cantidad) VALUES('STOCK', @CantidadStock);
 

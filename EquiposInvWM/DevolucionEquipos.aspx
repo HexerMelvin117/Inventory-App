@@ -5,6 +5,10 @@
     <link rel="stylesheet" type="text/css" href="Content/jquery.dataTables.min.css" />
     <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
+    <!-- Archivo de estilo y javascript para el escogedor de fechas -->
+    <link rel="stylesheet" href="Content/foopicker.css" />
+    <script type="text/javascript" src="Scripts/foopicker.js"></script>
+
     <!-- Breadcrumbs -->
     <br />
     <nav aria-label="breadcrumb">
@@ -59,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    <h4>Fecha Creacion:</h4>
+                    <h4>Fecha Creacion de Ficha:</h4>
                 </div>
                 <div class="col-md-2">
                     <h4>
@@ -67,6 +71,32 @@
                     </h4> 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h4>Correlativo de Equipo:</h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>
+                        <asp:Label ID="lbEquiId" runat="server" Text=""></asp:Label>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h5>Fecha: </h5>
+            <asp:TextBox ID ="txtDate" class="form-control" runat="server"></asp:TextBox>
+            <!-- Para formato de fecha y funcionalidad -->
+            <script type="text/javascript">
+                var foopicker = new FooPicker({
+                    id: 'MainContent_txtDate',
+                    dateFormat: 'dd/MM/yyyy',
+                    disable: ['29/07/2017', '30/07/2017', '31/07/2017', '01/08/2017']
+                });
+            </script>
+            <div id="foopicker-datepicker" style="position: fixed; top: 58px; left: 8px; z-index: 99999;"></div>
         </div>
     </div>
     
