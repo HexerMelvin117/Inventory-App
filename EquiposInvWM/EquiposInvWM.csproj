@@ -212,6 +212,10 @@
       <DependentUpon>EquiposInvModel.edmx</DependentUpon>
     </Content>
     <Content Include="GraficosEquipos.aspx" />
+    <Content Include="ImagesDevoluciones\2560x1437_px_Lindsey_Stirling-598861.jpg" />
+    <Content Include="ImagesDevoluciones\3423241.PNG" />
+    <Content Include="ImagesDevoluciones\57226508_360334191356918_6823696520643084288_n.jpg" />
+    <Content Include="ImagesDevoluciones\60358745_2042471225875202_6179047205396021248_n.jpg" />
     <Content Include="Images\11231.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -654,7 +658,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Login\" />
     <Folder Include="Graficos\" />
-    <Folder Include="ImagesDevoluciones\" />
     <Folder Include="Scripts\LoginScripts\" />
   </ItemGroup>
   <ItemGroup>

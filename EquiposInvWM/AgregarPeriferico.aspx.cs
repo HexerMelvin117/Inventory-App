@@ -14,16 +14,9 @@ namespace EquiposInvWM
 
         }
 
-       public int randomNumber()
-        {
-            Random randomNumber = new Random();
-            return randomNumber.Next(0, 5000);
-        }
-
         protected void agregarPeriferico(string prefijo, int cod)
         {
             string tipo, marca, serie, estado;
-            int id = randomNumber();
 
             tipo = cmbTipoPeriferico.SelectedItem.Value;
             marca = txtMarcaPeriferico.Text;
@@ -36,7 +29,6 @@ namespace EquiposInvWM
                 {
                     var per = new Perifericos()
                     {
-                        per_id = id,
                         per_prefijo = prefijo,
                         per_cod = cod,
                         per_estado = estado,
@@ -64,7 +56,7 @@ namespace EquiposInvWM
         protected void btAgregarPeriferico_Click(object sender, EventArgs e)
         {
             string prefijo = "";
-            int cod = 12;
+            int cod = int.Parse(txtIdPeriferico.Text);
 
             if (cmbCompPer.SelectedItem.Text == "William y Molina")
             {
@@ -81,6 +73,14 @@ namespace EquiposInvWM
             else if (cmbCompPer.SelectedItem.Text == "Siglo 21")
             {
                 prefijo = "SIP";
+            }
+            else if (cmbCompPer.SelectedItem.Text == "Invalle")
+            {
+                prefijo = "INVP";
+            }
+            else if (cmbCompPer.SelectedItem.Text == "Duracreto Santos")
+            {
+                prefijo = "DCSP";
             }
 
             if (cmbTipoPeriferico.SelectedItem.Text == "Cargador")
