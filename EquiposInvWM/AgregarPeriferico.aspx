@@ -18,6 +18,8 @@
                 <asp:ListItem>Duracreto</asp:ListItem>
                 <asp:ListItem>Grupo Platino</asp:ListItem>
                 <asp:ListItem>Siglo 21</asp:ListItem>
+                <asp:ListItem>Invalle</asp:ListItem>
+                <asp:ListItem>Duracreto Santos</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="col-md-2">

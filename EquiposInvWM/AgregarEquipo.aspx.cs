@@ -133,6 +133,9 @@ namespace EquiposInvWM
             txtProvider.Text = "";
             txtRAM.Text = "";
             txtSerie.Text = "";
+            txtAreaObservacionEqui.Text = "";
+            txtGarantiaFecha.Text = "";
+            txtCodEquipo.Text = "";
         }
 
         protected void btSubmit_Click(object sender, EventArgs e)

@@ -17,22 +17,30 @@ namespace EquiposInvWM
 
         protected void UserLogin(string user, string password)
         {
-            // Comparar con base de datos
-            using (var ctx = new EquiposInvModelContainer())
+            try
             {
-                var query = from u in ctx.Usuarios
-                            where u.user_correo == user && u.user_contrasenia == password
-                            select u;
+                // Comparar con base de datos
+                using (var ctx = new EquiposInvModelContainer())
+                {
+                    var query = from u in ctx.Usuarios
+                                where u.user_correo == user && u.user_contrasenia == password
+                                select u;
 
-                if(query.Count() > 0)
-                {
-                    Response.Redirect("~/Default.aspx");
-                }
-                else
-                {
-                    Response.Write("Incorrect username or password");
+                    if (query.Count() > 0)
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Usuario o contraseña incorrecta')</script>");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Ocurrio un: " + ex.Message + "')</script>");
+            }
+            
         }
 
         protected void btLogin_Click(object sender, EventArgs e)

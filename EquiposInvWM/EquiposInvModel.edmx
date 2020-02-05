@@ -144,7 +144,7 @@
           <Key>
             <PropertyRef Name="per_id" />
           </Key>
-          <Property Name="per_id" Type="int" Nullable="false" />
+          <Property Name="per_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="per_prefijo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="per_cod" Type="int" Nullable="false" />
           <Property Name="per_tipo" Type="varchar" MaxLength="50" />
@@ -292,7 +292,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__per_i__625A9A57">
+        <Association Name="FK__ListaPeri__per_i__473C8FC7">
           <End Role="Perifericos" Type="Self.Perifericos" Multiplicity="0..1" />
           <End Role="ListaPerifericos" Type="Self.ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -376,7 +376,7 @@
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__per_i__625A9A57" Association="Self.FK__ListaPeri__per_i__625A9A57">
+          <AssociationSet Name="FK__ListaPeri__per_i__473C8FC7" Association="Self.FK__ListaPeri__per_i__473C8FC7">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
@@ -449,7 +449,7 @@
             <End Role="FichaComputo" EntitySet="FichaComputo" />
             <End Role="SoftwareInstalado" EntitySet="SoftwareInstalado" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaPeri__per_i__625A9A57" Association="EquiposInvModel.FK__ListaPeri__per_i__625A9A57">
+          <AssociationSet Name="FK__ListaPeri__per_i__473C8FC7" Association="EquiposInvModel.FK__ListaPeri__per_i__473C8FC7">
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
@@ -579,7 +579,7 @@
           <Property Name="per_marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ListaPeri__ficha__0A688BB1" FromRole="ListaPerifericos" ToRole="FichaComputo" />
-          <NavigationProperty Name="Perifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" FromRole="ListaPerifericos" ToRole="Perifericos" />
+          <NavigationProperty Name="Perifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__473C8FC7" FromRole="ListaPerifericos" ToRole="Perifericos" />
         </EntityType>
         <EntityType Name="ListaPerifericosDevo">
           <Key>
@@ -612,14 +612,14 @@
           <Key>
             <PropertyRef Name="per_id" />
           </Key>
-          <Property Name="per_id" Type="Int32" Nullable="false" />
+          <Property Name="per_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="per_prefijo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_cod" Type="Int32" Nullable="false" />
           <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__625A9A57" FromRole="Perifericos" ToRole="ListaPerifericos" />
+          <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__473C8FC7" FromRole="Perifericos" ToRole="ListaPerifericos" />
         </EntityType>
         <EntityType Name="Reparaciones">
           <Key>
@@ -787,7 +787,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaPeri__per_i__625A9A57">
+        <Association Name="FK__ListaPeri__per_i__473C8FC7">
           <End Type="EquiposInvModel.Perifericos" Role="Perifericos" Multiplicity="0..1" />
           <End Type="EquiposInvModel.ListaPerifericos" Role="ListaPerifericos" Multiplicity="*" />
           <ReferentialConstraint>
