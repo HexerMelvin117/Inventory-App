@@ -99,6 +99,14 @@ namespace EquiposInvWM
             {
                 prefijo = prefijo + "MAL";
             }
+            else if (cmbTipoPeriferico.SelectedItem.Text == "Monitor")
+            {
+                prefijo = prefijo + "MON";
+            }
+            else if (cmbTipoPeriferico.SelectedItem.Text == "Teclado")
+            {
+                prefijo = prefijo + "TEC";
+            }
             else if (cmbTipoPeriferico.SelectedItem.Text == "Otro")
             {
                 prefijo = prefijo + "OTR";

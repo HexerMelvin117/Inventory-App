@@ -30,6 +30,8 @@
                 <asp:ListItem>Cargador</asp:ListItem>
                 <asp:ListItem>Mouse</asp:ListItem>
                 <asp:ListItem>Maletin</asp:ListItem>
+                <asp:ListItem>Monitor</asp:ListItem>
+                <asp:ListItem>Teclado</asp:ListItem>
                 <asp:ListItem>Otro</asp:ListItem>
             </asp:DropDownList>
         </div>
