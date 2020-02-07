@@ -18,7 +18,7 @@ namespace EquiposInvWM
         public Equipos()
         {
             this.FichaComputo = new HashSet<FichaComputo>();
-            this.Reparaciones = new HashSet<Reparaciones>();
+            this.Reparacion = new HashSet<Reparacion>();
         }
     
         public int equi_id { get; set; }
@@ -49,6 +49,6 @@ namespace EquiposInvWM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FichaComputo> FichaComputo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reparaciones> Reparaciones { get; set; }
+        public virtual ICollection<Reparacion> Reparacion { get; set; }
     }
 }

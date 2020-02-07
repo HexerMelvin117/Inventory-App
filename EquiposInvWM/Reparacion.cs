@@ -12,12 +12,14 @@ namespace EquiposInvWM
     using System;
     using System.Collections.Generic;
     
-    public partial class Reparaciones
+    public partial class Reparacion
     {
         public int repa_id { get; set; }
-        public Nullable<int> equi_id { get; set; }
+        public string repa_numfactura { get; set; }
+        public string repa_proveedor { get; set; }
         public string repa_tipo { get; set; }
-        public string repa_detalle { get; set; }
+        public string repa_observacion { get; set; }
+        public int equi_id { get; set; }
         public Nullable<System.DateTime> repa_fecha { get; set; }
     
         public virtual Equipos Equipos { get; set; }
