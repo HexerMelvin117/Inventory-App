@@ -152,14 +152,16 @@
           <Property Name="per_estado" Type="varchar" MaxLength="50" />
           <Property Name="per_serie" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Reparaciones">
+        <EntityType Name="Reparacion">
           <Key>
             <PropertyRef Name="repa_id" />
           </Key>
-          <Property Name="repa_id" Type="int" Nullable="false" />
-          <Property Name="equi_id" Type="int" />
-          <Property Name="repa_tipo" Type="varchar" MaxLength="20" />
-          <Property Name="repa_detalle" Type="varchar(max)" />
+          <Property Name="repa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="repa_numfactura" Type="varchar" MaxLength="50" />
+          <Property Name="repa_proveedor" Type="varchar" MaxLength="50" />
+          <Property Name="repa_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="repa_observacion" Type="varchar(max)" />
+          <Property Name="equi_id" Type="int" Nullable="false" />
           <Property Name="repa_fecha" Type="date" />
         </EntityType>
         <EntityType Name="SoftwareInstalado">
@@ -304,14 +306,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reparacio__equi___5AB9788F">
-          <End Role="Equipos" Type="Self.Equipos" Multiplicity="0..1" />
-          <End Role="Reparaciones" Type="Self.Reparaciones" Multiplicity="*" />
+        <Association Name="FK__Reparacio__equi___5A4F643B">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="Reparacion" Type="Self.Reparacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipos">
               <PropertyRef Name="equi_id" />
             </Principal>
-            <Dependent Role="Reparaciones">
+            <Dependent Role="Reparacion">
               <PropertyRef Name="equi_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -340,7 +342,7 @@
           <EntitySet Name="ListaPerifericosDevo" EntityType="Self.ListaPerifericosDevo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdenCompra" EntityType="Self.OrdenCompra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perifericos" EntityType="Self.Perifericos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Reparaciones" EntityType="Self.Reparaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reparacion" EntityType="Self.Reparacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SoftwareInstalado" EntityType="Self.SoftwareInstalado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -380,9 +382,9 @@
             <End Role="Perifericos" EntitySet="Perifericos" />
             <End Role="ListaPerifericos" EntitySet="ListaPerifericos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reparacio__equi___5AB9788F" Association="Self.FK__Reparacio__equi___5AB9788F">
+          <AssociationSet Name="FK__Reparacio__equi___5A4F643B" Association="Self.FK__Reparacio__equi___5A4F643B">
             <End Role="Equipos" EntitySet="Equipos" />
-            <End Role="Reparaciones" EntitySet="Reparaciones" />
+            <End Role="Reparacion" EntitySet="Reparacion" />
           </AssociationSet>
           <AssociationSet Name="FK__SoftwareI__ficha__54CB950F" Association="Self.FK__SoftwareI__ficha__54CB950F">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
@@ -405,7 +407,7 @@
           <EntitySet Name="ListaPerifericosDevo" EntityType="EquiposInvModel.ListaPerifericosDevo" />
           <EntitySet Name="OrdenCompra" EntityType="EquiposInvModel.OrdenCompra" />
           <EntitySet Name="Perifericos" EntityType="EquiposInvModel.Perifericos" />
-          <EntitySet Name="Reparaciones" EntityType="EquiposInvModel.Reparaciones" />
+          <EntitySet Name="Reparacion" EntityType="EquiposInvModel.Reparacion" />
           <EntitySet Name="SoftwareInstalado" EntityType="EquiposInvModel.SoftwareInstalado" />
           <EntitySet Name="Table" EntityType="EquiposInvModel.Table" />
           <EntitySet Name="Usuarios" EntityType="EquiposInvModel.Usuarios" />
@@ -433,9 +435,9 @@
             <End Role="Equipos" EntitySet="Equipos" />
             <End Role="FichaComputo" EntitySet="FichaComputo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reparacio__equi___5AB9788F" Association="EquiposInvModel.FK__Reparacio__equi___5AB9788F">
+          <AssociationSet Name="FK__Reparacio__equi___5A4F643B" Association="EquiposInvModel.FK__Reparacio__equi___5A4F643B">
             <End Role="Equipos" EntitySet="Equipos" />
-            <End Role="Reparaciones" EntitySet="Reparaciones" />
+            <End Role="Reparacion" EntitySet="Reparacion" />
           </AssociationSet>
           <AssociationSet Name="FK__ImagenEqu__ficha__1B9317B3" Association="EquiposInvModel.FK__ImagenEqu__ficha__1B9317B3">
             <End Role="FichaComputo" EntitySet="FichaComputo" />
@@ -515,7 +517,7 @@
           <Property Name="emp_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="EquiposInvModel.FK__Equipos__emp_id__5CA1C101" FromRole="Equipos" ToRole="Empleados" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__FichaComp__equi___09746778" FromRole="Equipos" ToRole="FichaComputo" />
-          <NavigationProperty Name="Reparaciones" Relationship="EquiposInvModel.FK__Reparacio__equi___5AB9788F" FromRole="Equipos" ToRole="Reparaciones" />
+          <NavigationProperty Name="Reparacion" Relationship="EquiposInvModel.FK__Reparacio__equi___5A4F643B" FromRole="Equipos" ToRole="Reparacion" />
         </EntityType>
         <EntityType Name="FichaComputo">
           <Key>
@@ -621,16 +623,18 @@
           <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ListaPerifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__473C8FC7" FromRole="Perifericos" ToRole="ListaPerifericos" />
         </EntityType>
-        <EntityType Name="Reparaciones">
+        <EntityType Name="Reparacion">
           <Key>
             <PropertyRef Name="repa_id" />
           </Key>
-          <Property Name="repa_id" Type="Int32" Nullable="false" />
-          <Property Name="equi_id" Type="Int32" />
-          <Property Name="repa_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="repa_detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="repa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="repa_numfactura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="repa_proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="repa_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="repa_observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="equi_id" Type="Int32" Nullable="false" />
           <Property Name="repa_fecha" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___5AB9788F" FromRole="Reparaciones" ToRole="Equipos" />
+          <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___5A4F643B" FromRole="Reparacion" ToRole="Equipos" />
         </EntityType>
         <EntityType Name="SoftwareInstalado">
           <Key>
@@ -739,14 +743,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reparacio__equi___5AB9788F">
-          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="0..1" />
-          <End Type="EquiposInvModel.Reparaciones" Role="Reparaciones" Multiplicity="*" />
+        <Association Name="FK__Reparacio__equi___5A4F643B">
+          <End Type="EquiposInvModel.Equipos" Role="Equipos" Multiplicity="1" />
+          <End Type="EquiposInvModel.Reparacion" Role="Reparacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipos">
               <PropertyRef Name="equi_id" />
             </Principal>
-            <Dependent Role="Reparaciones">
+            <Dependent Role="Reparacion">
               <PropertyRef Name="equi_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -965,13 +969,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reparaciones">
-            <EntityTypeMapping TypeName="EquiposInvModel.Reparaciones">
-              <MappingFragment StoreEntitySet="Reparaciones">
+          <EntitySetMapping Name="Reparacion">
+            <EntityTypeMapping TypeName="EquiposInvModel.Reparacion">
+              <MappingFragment StoreEntitySet="Reparacion">
                 <ScalarProperty Name="repa_fecha" ColumnName="repa_fecha" />
-                <ScalarProperty Name="repa_detalle" ColumnName="repa_detalle" />
-                <ScalarProperty Name="repa_tipo" ColumnName="repa_tipo" />
                 <ScalarProperty Name="equi_id" ColumnName="equi_id" />
+                <ScalarProperty Name="repa_observacion" ColumnName="repa_observacion" />
+                <ScalarProperty Name="repa_tipo" ColumnName="repa_tipo" />
+                <ScalarProperty Name="repa_proveedor" ColumnName="repa_proveedor" />
+                <ScalarProperty Name="repa_numfactura" ColumnName="repa_numfactura" />
                 <ScalarProperty Name="repa_id" ColumnName="repa_id" />
               </MappingFragment>
             </EntityTypeMapping>

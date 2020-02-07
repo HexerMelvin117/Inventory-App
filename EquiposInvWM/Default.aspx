@@ -57,12 +57,12 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Ordenes de Compra</h2>
+            <h2>Reparaciones de Equipo</h2>
             <p>
-                Control de Ordenes de compra
+                Historico de reparaciones de equipo.
             </p>
             <p>
-                <a class="btn btn-default" href="ControlOrdenesCompra.aspx">Compras &raquo;</a>
+                <a class="btn btn-default" href="ReparacionDeEquipos.aspx">Reparaciones &raquo;</a>
             </p>
         </div>
     </div>

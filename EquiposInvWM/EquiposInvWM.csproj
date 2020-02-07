@@ -338,6 +338,7 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="ReparacionDeEquipos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\buttons.html5.min.js" />
@@ -573,8 +574,15 @@
       <DependentUpon>PerifericosDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reparaciones.cs">
+    <Compile Include="Reparacion.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReparacionDeEquipos.aspx.cs">
+      <DependentUpon>ReparacionDeEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReparacionDeEquipos.aspx.designer.cs">
+      <DependentUpon>ReparacionDeEquipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reporting\DevolucionReport.cs">
       <SubType>Component</SubType>
