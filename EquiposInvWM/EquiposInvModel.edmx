@@ -113,6 +113,7 @@
           <Property Name="ficha_id" Type="int" />
           <Property Name="per_marca" Type="varchar" MaxLength="30" />
           <Property Name="per_estado" Type="varchar" MaxLength="15" />
+          <Property Name="per_serie" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ListaPerifericosDevo">
           <Key>
@@ -125,6 +126,7 @@
           <Property Name="per_cod" Type="varchar" MaxLength="50" />
           <Property Name="per_marca" Type="varchar" MaxLength="50" />
           <Property Name="per_estado" Type="varchar" MaxLength="20" />
+          <Property Name="per_serie" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="OrdenCompra">
           <Key>
@@ -163,6 +165,7 @@
           <Property Name="repa_observacion" Type="varchar(max)" />
           <Property Name="equi_id" Type="int" Nullable="false" />
           <Property Name="repa_fecha" Type="date" />
+          <Property Name="equi_cod" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SoftwareInstalado">
           <Key>
@@ -580,6 +583,7 @@
           <Property Name="ficha_id" Type="Int32" />
           <Property Name="per_marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FichaComputo" Relationship="EquiposInvModel.FK__ListaPeri__ficha__0A688BB1" FromRole="ListaPerifericos" ToRole="FichaComputo" />
           <NavigationProperty Name="Perifericos" Relationship="EquiposInvModel.FK__ListaPeri__per_i__473C8FC7" FromRole="ListaPerifericos" ToRole="Perifericos" />
         </EntityType>
@@ -594,6 +598,7 @@
           <Property Name="per_cod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="per_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="per_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Devoluciones" Relationship="EquiposInvModel.FK__ListaPeri__devo___075714DC" FromRole="ListaPerifericosDevo" ToRole="Devoluciones" />
         </EntityType>
         <EntityType Name="OrdenCompra">
@@ -634,6 +639,7 @@
           <Property Name="repa_observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="equi_id" Type="Int32" Nullable="false" />
           <Property Name="repa_fecha" Type="DateTime" Precision="0" />
+          <Property Name="equi_cod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Equipos" Relationship="EquiposInvModel.FK__Reparacio__equi___5A4F643B" FromRole="Reparacion" ToRole="Equipos" />
         </EntityType>
         <EntityType Name="SoftwareInstalado">
@@ -917,6 +923,7 @@
           <EntitySetMapping Name="ListaPerifericos">
             <EntityTypeMapping TypeName="EquiposInvModel.ListaPerifericos">
               <MappingFragment StoreEntitySet="ListaPerifericos">
+                <ScalarProperty Name="per_serie" ColumnName="per_serie" />
                 <ScalarProperty Name="per_estado" ColumnName="per_estado" />
                 <ScalarProperty Name="per_marca" ColumnName="per_marca" />
                 <ScalarProperty Name="ficha_id" ColumnName="ficha_id" />
@@ -931,6 +938,7 @@
           <EntitySetMapping Name="ListaPerifericosDevo">
             <EntityTypeMapping TypeName="EquiposInvModel.ListaPerifericosDevo">
               <MappingFragment StoreEntitySet="ListaPerifericosDevo">
+                <ScalarProperty Name="per_serie" ColumnName="per_serie" />
                 <ScalarProperty Name="per_estado" ColumnName="per_estado" />
                 <ScalarProperty Name="per_marca" ColumnName="per_marca" />
                 <ScalarProperty Name="per_cod" ColumnName="per_cod" />
@@ -972,6 +980,7 @@
           <EntitySetMapping Name="Reparacion">
             <EntityTypeMapping TypeName="EquiposInvModel.Reparacion">
               <MappingFragment StoreEntitySet="Reparacion">
+                <ScalarProperty Name="equi_cod" ColumnName="equi_cod" />
                 <ScalarProperty Name="repa_fecha" ColumnName="repa_fecha" />
                 <ScalarProperty Name="equi_id" ColumnName="equi_id" />
                 <ScalarProperty Name="repa_observacion" ColumnName="repa_observacion" />

@@ -33,6 +33,9 @@
                     <asp:ListItem>Duracreto</asp:ListItem>
                     <asp:ListItem>Platino</asp:ListItem>
                     <asp:ListItem>Siglo 21</asp:ListItem>
+                    <asp:ListItem>Altitud</asp:ListItem>
+                    <asp:ListItem>Duracreto Santos</asp:ListItem>
+                    <asp:ListItem>Otro</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-md-2">
@@ -409,6 +412,12 @@
                   <asp:TextBox ID="txtEstadoPeriph" runat="server" CssClass="form-control"></asp:TextBox>
               </div>
           </div>
+          <div class="row">
+              <div class="col-md-2">
+                  <label>Serie:</label>
+                  <asp:TextBox ID="txtSeriePeriph" runat="server" CssClass="form-control"></asp:TextBox>
+              </div>
+          </div>
           <br />
           <div class="row">
               <div class="col-md-2">
@@ -442,6 +451,7 @@
                       document.getElementById('MainContent_txtSelectedPeriph').value = data[2];
                       document.getElementById('MainContent_txtEstadoPeriph').value = data[3];
                       document.getElementById('MainContent_txtMarcaPeriph').value = data[4];
+                      document.getElementById('MainContent_txtSeriePeriph').value = data[5];
                   };
               }
           </script>

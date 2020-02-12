@@ -34,6 +34,11 @@
                 <asp:ListItem>-- Seleccionar --</asp:ListItem>
                 <asp:ListItem>WM</asp:ListItem>
                 <asp:ListItem>DC</asp:ListItem>
+                <asp:ListItem>ALT</asp:ListItem>
+                <asp:ListItem>DCS</asp:ListItem>
+                <asp:ListItem>INV</asp:ListItem>
+                <asp:ListItem>S21</asp:ListItem>
+                <asp:ListItem>Otro</asp:ListItem>
             </asp:DropDownList>
         </div>
     </div>

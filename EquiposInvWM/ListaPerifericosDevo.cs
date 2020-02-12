@@ -21,6 +21,7 @@ namespace EquiposInvWM
         public string per_cod { get; set; }
         public string per_marca { get; set; }
         public string per_estado { get; set; }
+        public string per_serie { get; set; }
     
         public virtual Devoluciones Devoluciones { get; set; }
     }

@@ -27,6 +27,7 @@ namespace EquiposInvWM
                     dtPeriph.Columns.Add("Tipo");
                     dtPeriph.Columns.Add("Marca");
                     dtPeriph.Columns.Add("Estado");
+                    dtPeriph.Columns.Add("Serie");
                     ViewState["Records"] = dtPeriph;
                 }
             }
@@ -49,7 +50,8 @@ namespace EquiposInvWM
                                  Tipo = m.per_tipo,
                                  Codigo = (m.per_prefijo + m.per_cod),
                                  Estado = m.per_estado,
-                                 Marca = m.per_marca
+                                 Marca = m.per_marca,
+                                 Serie = m.per_serie
                              }).ToList();
 
                 gridPerifericoSelect.DataSource = query;
@@ -327,8 +329,9 @@ namespace EquiposInvWM
             observacion = txtObservacionArea.Text;
 
             // variables para informacion de empleado
-            string firstName, lastName, fullName, codemp, departamento, project, ram;
+            string firstName, lastName, fullName, codemp, departamento, project, ram, empresa;
 
+            empresa = cmbEmpresa.SelectedItem.Text;
             departamento = cmbDpto.SelectedItem.Text;
             lastName = txtApellido.Text;
             firstName = txtPNom.Text;
@@ -348,7 +351,7 @@ namespace EquiposInvWM
                         {
                             ficha_dpto = departamento,
                             ficha_fecha = DateTime.Parse(fecha),
-                            ficha_emp = firstName,
+                            ficha_emp = empresa,
                             ficha_observacion = observacion,
                             emp_nom = fullName,
                             emp_id = null,
@@ -406,7 +409,7 @@ namespace EquiposInvWM
                         int fichaid;
                         fichaid = ficha.ficha_id;
 
-                        ChangeComputerState(equiId, fullName, project);
+                        ChangeComputerState(equiId, fullName, project, departamento);
                         ListaPerifericosAgregar(fichaid);
                         CaptureSoftware(fichaid);
                         AddImages(fichaid);
@@ -420,7 +423,7 @@ namespace EquiposInvWM
             } 
         }
 
-        protected void ChangeComputerState(int idEqui, string empNom, string pyto)
+        protected void ChangeComputerState(int idEqui, string empNom, string pyto, string dpto)
         {
             using (var ctx = new EquiposInvModelContainer())
             {
@@ -432,6 +435,7 @@ namespace EquiposInvWM
                         result.equi_status = "Activo";
                         result.emp_nom = empNom;
                         result.equi_proyecto = pyto;
+                        result.equi_dpto = dpto;
 
                         ctx.Equipos.Add(result);
                         ctx.Equipos.Attach(result);
@@ -501,7 +505,7 @@ namespace EquiposInvWM
         protected void ListaPerifericosAgregar(int idFicha)
         {
             int idPer;
-            string tipoPer, codPer, estadoPer, marcaPer;
+            string tipoPer, codPer, estadoPer, marcaPer, seriePer;
 
             dtPeriph = (DataTable)ViewState["Records"];
             using (var ctx = new EquiposInvModelContainer())
@@ -513,6 +517,7 @@ namespace EquiposInvWM
                     codPer = row["Codigo_Periferico"].ToString();
                     marcaPer = row["Marca"].ToString();
                     estadoPer = row["Estado"].ToString();
+                    seriePer = row["Serie"].ToString();
                     idPer = int.Parse(idtemp);
 
                     var ListaPer = new ListaPerifericos()
@@ -522,6 +527,7 @@ namespace EquiposInvWM
                         per_cod = codPer,
                         per_marca = marcaPer,
                         per_estado = estadoPer,
+                        per_serie = seriePer,
                         ficha_id = idFicha,
                     };
 
@@ -539,15 +545,30 @@ namespace EquiposInvWM
         // Para Seleccionar empleado
         protected void btSelectEmp_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtSelectedEmp.Text);
-            getEmpInfo(id);
+            try
+            {
+                int id = int.Parse(txtSelectedEmp.Text);
+                getEmpInfo(id);
+            } 
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error al seleccionar empleado: " + ex.Message + "')</script>");
+            }
+            
         }
 
         // Para Seleccionar Equipo
         protected void btnSelEmployee_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtEquipoSelec.Text);
-            getEquiposInfo(id);
+            try
+            {
+                int id = int.Parse(txtEquipoSelec.Text);
+                getEquiposInfo(id);
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error al seleccionar equipo de computo: " + ex.Message + "')</script>");
+            }  
         }
 
         protected void gridPerifericoSelect_PreRender(object sender, EventArgs e)
@@ -586,7 +607,7 @@ namespace EquiposInvWM
         protected void btSelectPeriph_Click(object sender, EventArgs e)
         {
             dtPeriph = (DataTable)ViewState["Records"];
-            dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text, txtMarcaPeriph.Text, txtEstadoPeriph.Text);
+            dtPeriph.Rows.Add(txtIDInternPeri.Text, txtSelectedPeriph.Text, txtTypePeriph.Text, txtMarcaPeriph.Text, txtEstadoPeriph.Text, txtSeriePeriph.Text);
             gridSelectedPeriph.DataSource = dtPeriph;
             gridSelectedPeriph.DataBind();
         }

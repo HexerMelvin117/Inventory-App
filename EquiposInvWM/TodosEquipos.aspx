@@ -134,7 +134,6 @@
                         <asp:ListItem>Camara</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                
                 <div class="col-md-2">
                     <h5>Marca:</h5>
                     <asp:DropDownList ID="cmbMarca" CssClass="form-control" runat="server" Enabled="True">

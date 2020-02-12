@@ -13,8 +13,9 @@
             <p>
                 Para poder asignar equipos los empleados.
             </p>
+            
             <p>
-                <a class="btn btn-default" href="AsignarEquipo.aspx">Ir a Asignar &raquo;</a>
+                <asp:Button CssClass="btn btn-default" ID="btRedAsignarEquipo" Text="Asignar &raquo;" runat="server" OnClick="btRedAsignarEquipo_Click" />
             </p>
         </div>
         <div class="col-md-4">
