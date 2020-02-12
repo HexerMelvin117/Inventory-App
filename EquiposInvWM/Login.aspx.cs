@@ -17,6 +17,8 @@ namespace EquiposInvWM
 
         protected void UserLogin(string user, string password)
         {
+
+            bool isAdmin = false;
             try
             {
                 // Comparar con base de datos
@@ -26,9 +28,22 @@ namespace EquiposInvWM
                                 where u.user_correo == user && u.user_contrasenia == password
                                 select u;
 
+                    isAdmin = ctx.Usuarios
+                        .Where(u => u.user_correo == user)
+                        .Select(u => u.user_escritura)
+                        .FirstOrDefault();
+
                     if (query.Count() > 0)
                     {
-                        Response.Redirect("~/Default.aspx");
+                        if (isAdmin == true)
+                        {
+                            Response.Redirect("~/Default.aspx?param=1");
+                        }
+
+                        else
+                        {
+                            Response.Redirect("~/Default.aspx?param=0");
+                        }
                     }
                     else
                     {

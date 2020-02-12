@@ -22,6 +22,7 @@ namespace EquiposInvWM
         public Nullable<int> ficha_id { get; set; }
         public string per_marca { get; set; }
         public string per_estado { get; set; }
+        public string per_serie { get; set; }
     
         public virtual FichaComputo FichaComputo { get; set; }
         public virtual Perifericos Perifericos { get; set; }

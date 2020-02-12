@@ -12,27 +12,27 @@ namespace EquiposInvWM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillGrid();
+            //FillGrid();
         }
 
         protected void FillGrid()
         {
-            using (var ctx = new EquiposInvModelContainer())
-            {
-                var query = (from m in ctx.FichaComputo
-                             orderby m.ficha_id descending
-                             select new
-                             {
-                                 ID = m.ficha_id,
-                                 Usuario_Asignado = m.ficha_emp,
-                                 Fecha = m.ficha_fecha,
-                                 Cod_Equipo = m.equi_cod,
-                                 Serie = m.equi_serie
-                             }).ToList();
+            //using (var ctx = new EquiposInvModelContainer())
+            //{
+            //    var query = (from m in ctx.FichaComputo
+            //                 orderby m.ficha_id descending
+            //                 select new
+            //                 {
+            //                     ID = m.ficha_id,
+            //                     Usuario_Asignado = m.ficha_emp,
+            //                     Fecha = m.ficha_fecha,
+            //                     Cod_Equipo = m.equi_cod,
+            //                     Serie = m.equi_serie
+           //                  }).ToList();
 
-                FichasGrid.DataSource = query;
-                FichasGrid.DataBind();
-            }
+            //    FichasGrid.DataSource = query;
+            //    FichasGrid.DataBind();
+            //}
         }
 
         protected void FichasGrid_PreRender(object sender, EventArgs e)
@@ -53,10 +53,10 @@ namespace EquiposInvWM
 
         protected void btCreateReport_Click(object sender, EventArgs e)
         {
-            Reporting.FichaComputoReport report = new Reporting.FichaComputoReport();
-            report.Parameters["Ficha_id"].Value = int.Parse(txtParamCreacionFicha.Text);
-            report.Parameters["Ficha_id"].Visible = false;
-            report.CreateDocument();
+            //Reporting.FichaComputoReport report = new Reporting.FichaComputoReport();
+            // report.Parameters["Ficha_id"].Value = int.Parse(txtParamCreacionFicha.Text);
+            //report.Parameters["Ficha_id"].Visible = false;
+            // report.CreateDocument();
 
         }
     }

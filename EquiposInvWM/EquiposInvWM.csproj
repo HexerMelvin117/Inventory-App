@@ -166,6 +166,7 @@
     <Content Include="AgregarEquipo.aspx" />
     <Content Include="AgregarOrdenCompra.aspx" />
     <Content Include="AgregarPeriferico.aspx" />
+    <Content Include="AgregarReparacion.aspx" />
     <Content Include="AsignarEquipo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -279,7 +280,9 @@
     <Content Include="Images\_lEWarFd_400x400.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Login.Master" />
+    <Content Include="Login.Master">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="EquiposInventarioDataSet.xsc">
       <DependentUpon>EquiposInventarioDataSet.xsd</DependentUpon>
     </Content>
@@ -337,7 +340,9 @@
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Login.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ReparacionDeEquipos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -424,6 +429,13 @@
     </Compile>
     <Compile Include="AgregarPeriferico.aspx.designer.cs">
       <DependentUpon>AgregarPeriferico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarReparacion.aspx.cs">
+      <DependentUpon>AgregarReparacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarReparacion.aspx.designer.cs">
+      <DependentUpon>AgregarReparacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -551,16 +563,20 @@
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Login.Master.cs">
       <DependentUpon>Login.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="OrdenCompra.cs">
       <DependentUpon>EquiposInvModel.tt</DependentUpon>

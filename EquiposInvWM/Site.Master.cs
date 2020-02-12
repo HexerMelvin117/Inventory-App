@@ -13,5 +13,16 @@ namespace EquiposInvWM
         {
 
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btVolverInicion_Click(object sender, EventArgs e)
+        {
+            string permisos = Request.QueryString["param"];
+            Response.Redirect("~/Default.aspx?param=" + permisos);
+        }
     }
 }

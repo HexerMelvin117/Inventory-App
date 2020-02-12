@@ -59,15 +59,6 @@
             });
         })
     </script>
-
-    <div class="row">
-        <div class="col-md-2">
-            <asp:TextBox ID="txtParamCreacionFicha" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-        <div class="col-md-2">
-            <asp:Button ID="btCreateReport" runat="server" CssClass="btn btn-primary" OnClick="btCreateReport_Click" Text="Generar Reporte" />
-        </div>
-    </div>
     <br />
     <div class="row">
         <dx:ASPxWebDocumentViewer ID="FichaWebDocumentViewer" runat="server" ReportSourceId="EquiposInvWM.Reporting.FichaComputoReport"></dx:ASPxWebDocumentViewer>

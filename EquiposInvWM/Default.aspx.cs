@@ -11,7 +11,13 @@ namespace EquiposInvWM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void btRedAsignarEquipo_Click(object sender, EventArgs e)
+        {
+            string permission = Request.QueryString["param"];
+            Response.Redirect("~/AsignarEquipo.aspx?param=" + permission);
         }
     }
 }

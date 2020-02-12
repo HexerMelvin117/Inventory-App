@@ -115,6 +115,7 @@
             this.xrTable5 = new DevExpress.XtraReports.UI.XRTable();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
+            this.ReportFooter1 = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
@@ -142,7 +143,6 @@
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.ReportFooter1 = new DevExpress.XtraReports.UI.ReportFooterBand();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -910,7 +910,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[per_cod]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[per_serie]")});
             this.xrTableCell15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell15.Multiline = true;
             this.xrTableCell15.Name = "xrTableCell15";
@@ -1000,6 +1000,11 @@
             this.DetailReport.DataSource = this.dsCreacionFicha1;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
+            // 
+            // ReportFooter1
+            // 
+            this.ReportFooter1.HeightF = 3.367615F;
+            this.ReportFooter1.Name = "ReportFooter1";
             // 
             // DetailReport1
             // 
@@ -1278,11 +1283,6 @@
             this.xrLabel9.SizeF = new System.Drawing.SizeF(533.125F, 67.08333F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.Text = "xrLabel5";
-            // 
-            // ReportFooter1
-            // 
-            this.ReportFooter1.HeightF = 3.367615F;
-            this.ReportFooter1.Name = "ReportFooter1";
             // 
             // FichaComputoReport
             // 

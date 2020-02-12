@@ -6,20 +6,20 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f5dd45ce541a4fb38f7ec61e715da853" Name="Diagram1" ZoomLevel="74" >
         <EntityTypeShape EntityType="EquiposInvModel.Compania" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Devoluciones" Width="1.5" PointX="7.5" PointY="9.375" />
-        <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="0.75" PointY="9.25" />
-        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="7.625" />
-        <EntityTypeShape EntityType="EquiposInvModel.FichaComputo" Width="1.5" PointX="5.25" PointY="7.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.ImagenEquipo" Width="1.5" PointX="7.5" PointY="5.25" />
-        <EntityTypeShape EntityType="EquiposInvModel.ImagenesDevolucion" Width="1.5" PointX="9.75" PointY="8" />
-        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericos" Width="1.5" PointX="7.5" PointY="13.125" />
-        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericosDevo" Width="1.5" PointX="9.75" PointY="10.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Devoluciones" Width="1.5" PointX="10.5" PointY="16.375" />
+        <EntityTypeShape EntityType="EquiposInvModel.Empleados" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Equipos" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="EquiposInvModel.FichaComputo" Width="1.5" PointX="8.25" PointY="8.125" />
+        <EntityTypeShape EntityType="EquiposInvModel.ImagenEquipo" Width="1.5" PointX="10.5" PointY="12" />
+        <EntityTypeShape EntityType="EquiposInvModel.ImagenesDevolucion" Width="1.5" PointX="12.75" PointY="18.25" />
+        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericos" Width="1.5" PointX="13.5" PointY="9.375" />
+        <EntityTypeShape EntityType="EquiposInvModel.ListaPerifericosDevo" Width="1.5" PointX="12.75" PointY="14.75" />
         <EntityTypeShape EntityType="EquiposInvModel.OrdenCompra" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="5.25" PointY="14.25" />
-        <EntityTypeShape EntityType="EquiposInvModel.Reparacion" Width="1.5" PointX="5.25" PointY="20.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.SoftwareInstalado" Width="1.5" PointX="7.5" PointY="17.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Perifericos" Width="1.5" PointX="11.25" PointY="8.625" />
+        <EntityTypeShape EntityType="EquiposInvModel.Reparacion" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="EquiposInvModel.SoftwareInstalado" Width="1.5" PointX="10.5" PointY="5.375" />
         <EntityTypeShape EntityType="EquiposInvModel.Table" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EquiposInvModel.Usuarios" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EquiposInvModel.Usuarios" Width="1.5" PointX="0.75" PointY="4.75" />
         <AssociationConnector Association="EquiposInvModel.FK__Devolucio__ficha__019E3B86" />
         <AssociationConnector Association="EquiposInvModel.FK__ImagenesD__devo___0D0FEE32" />
         <AssociationConnector Association="EquiposInvModel.FK__ListaPeri__devo___075714DC" />

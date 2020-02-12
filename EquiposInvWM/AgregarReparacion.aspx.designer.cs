@@ -11,79 +11,97 @@ namespace EquiposInvWM
 {
 
 
-    public partial class ReparacionDeEquipos
+    public partial class AgregarReparacion
     {
 
         /// <summary>
-        /// Control gridHistoricoRepa.
+        /// Control cmbTypeRepa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridHistoricoRepa;
+        protected global::System.Web.UI.WebControls.DropDownList cmbTypeRepa;
 
         /// <summary>
-        /// Control txtIDReparacion.
+        /// Control txtNumFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIDReparacion;
+        protected global::System.Web.UI.WebControls.TextBox txtNumFactura;
 
         /// <summary>
-        /// Control btBuscarInfoRepa.
+        /// Control txtEquipoSelec.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btBuscarInfoRepa;
+        protected global::System.Web.UI.WebControls.TextBox txtEquipoSelec;
 
         /// <summary>
-        /// Control lbIdRep.
+        /// Control gridSelecEquipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbIdRep;
+        protected global::System.Web.UI.WebControls.GridView gridSelecEquipo;
 
         /// <summary>
-        /// Control lbEquiCode.
+        /// Control btSelecEqui.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEquiCode;
+        protected global::System.Web.UI.WebControls.Button btSelecEqui;
 
         /// <summary>
-        /// Control lbFechaRep.
+        /// Control txtDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbFechaRep;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
 
         /// <summary>
-        /// Control lbProveedorRepa.
+        /// Control txtEquiCod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProveedorRepa;
+        protected global::System.Web.UI.WebControls.TextBox txtEquiCod;
 
         /// <summary>
-        /// Control lbObservacionRep.
+        /// Control txtRepaProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbObservacionRep;
+        protected global::System.Web.UI.WebControls.TextBox txtRepaProveedor;
+
+        /// <summary>
+        /// Control txtObservacionArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionArea;
+
+        /// <summary>
+        /// Control btCrearRepa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btCrearRepa;
     }
 }

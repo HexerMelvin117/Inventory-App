@@ -37,7 +37,8 @@ namespace EquiposInvWM
                                  Proveedor = m.repa_proveedor,
                                  Tipo_Reparacion = m.repa_tipo,
                                  Fecha_Reparacion = m.repa_fecha,
-                                 Observacion = m.repa_observacion
+                                 Observacion = m.repa_observacion,
+                                 Cod_Equi = m.equi_cod
                              }).ToList();
 
                 gridHistoricoRepa.DataSource = query;
@@ -58,6 +59,65 @@ namespace EquiposInvWM
             {
                 //Force GridView to use <tfoot> instead of <tbody> - 11/03/2013 - MCR.
                 gv.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
+        }
+
+        protected void BuscarReparacion()
+        {
+            int repaId;
+            repaId = int.Parse(txtIDReparacion.Text);
+
+            using (var ctx = new EquiposInvModelContainer())
+            {
+                string tipoRepa, equiCod, fechaRepa, observacion, proveedor, idRepa;
+
+                tipoRepa = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.repa_tipo)
+                    .FirstOrDefault();
+
+                idRepa = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.repa_id)
+                    .FirstOrDefault().ToString();
+
+                equiCod = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.equi_cod)
+                    .FirstOrDefault();
+
+                observacion = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.repa_observacion)
+                    .FirstOrDefault();
+
+                proveedor = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.repa_proveedor)
+                    .FirstOrDefault();
+
+                fechaRepa = ctx.Reparacion
+                    .Where(e => e.repa_id == repaId)
+                    .Select(e => e.repa_fecha)
+                    .FirstOrDefault().ToString();
+
+                lbEquiCode.Text = equiCod;
+                lbFechaRep.Text = fechaRepa;
+                lbObservacionRep.Text = observacion;
+                lbIdRep.Text = idRepa;
+                lbProveedorRepa.Text = proveedor;
+            }
+        }
+
+        protected void btBuscarInfoRepa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BuscarReparacion();
+            } 
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error en la busqueda de reparacion: " + ex.Message + "')</script>");
             }
         }
     }

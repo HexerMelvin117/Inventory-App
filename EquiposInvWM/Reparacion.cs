@@ -21,6 +21,7 @@ namespace EquiposInvWM
         public string repa_observacion { get; set; }
         public int equi_id { get; set; }
         public Nullable<System.DateTime> repa_fecha { get; set; }
+        public string equi_cod { get; set; }
     
         public virtual Equipos Equipos { get; set; }
     }
